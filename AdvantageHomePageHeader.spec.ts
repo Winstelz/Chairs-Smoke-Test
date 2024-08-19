@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 
 
-test('AnnoucementBar', async ({ page }) => {
+test('AdvantageHomePageHeader', async ({ page }) => {
     //Navigate to Hydrogen site    
         await page.goto('https://www.advantagechurchchairs.com/?_ab=0&_fd=0&_sc=1&preview_theme_id=164106633506');
 
@@ -45,7 +45,7 @@ test('AnnoucementBar', async ({ page }) => {
     await ChurchChairs.hover();
     const Dollies = page.locator("//a[@class='text-base leading-4 tracking-wider flex flex-col'][normalize-space()='Church & Stack Chair Dollies']");
     await Dollies.click();
-    await page.waitForLoadState();
+    await page.waitForLoadState('load', { timeout: 60000 });
     expect(page.url()).toContain('/collections/church-banquet-stack-chair-dollies');
 //Hover Folding & Event Menu & Click Resin Folding Chairs
     await FoldEvent.hover();
@@ -54,13 +54,23 @@ test('AnnoucementBar', async ({ page }) => {
     await page.waitForLoadState();
     expect(page.url()).toContain('/collections/resin-folding-chairs');
 //Hover Classroom Menu & Click Activity Set
-    await FoldEvent.hover();
+    await Classroom.hover();
     const Activity = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Activity Sets']");
     await Activity.click();
     await page.waitForLoadState();
     expect(page.url()).toContain('/collections/classroom-activity-table-sets');
-
-
-
-
+//Hover Office Menu & Click Desks
+    await Office.isVisible();
+    await Office.hover();
+    const Desks = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Desks']");
+    await Desks.click();
+    await page.waitForLoadState();
+    expect(page.url()).toContain('/collections/desks');
+//Hover More Menu & Click Patio & Outdoor
+    const More = page.locator("//span[@title='More']");
+    await More.hover();
+    const Patio = page.locator("//a[@class='text-base leading-4 tracking-wider flex flex-col' and normalize-space()='Patio & Outdoor']");
+    await Patio.click();
+    await page.waitForLoadState();
+    expect(page.url()).toContain('/collections/patio-outdoor');
 });
