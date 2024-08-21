@@ -43,7 +43,7 @@ test('AdvantagePLP', async ({ page }) => {
     await Page2.click();
     expect(page.url()).toContain("page=2");
 //Click Pagination Right Arrow
-    const RightArrow = await page.locator("//body/main[@role='main']/div[@id='shopify-section-template--22515541213474__product-grid']/div[@id='ra-collection-section']/div[@class='flex justify-center']/div[@id='collectionMain']/div[1]");
+    const RightArrow = await page.locator("//a[@aria-label='Go to next page']");
     await RightArrow.isVisible();
     await RightArrow.click();
     expect(page.url()).toContain("page=3");
