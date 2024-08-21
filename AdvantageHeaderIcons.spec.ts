@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 
 
 test('AdvantageHeaderIcons', async ({ page }) => {
-    //Navigate to Hydrogen site    
+    //Navigate to Advantage site    
         await page.goto('https://www.advantagechurchchairs.com/?_ab=0&_fd=0&_sc=1&preview_theme_id=164106633506');
     //Click Search Icon, Type search, and Close
         const Search = page.locator("//button[@title='search']");
@@ -19,10 +19,10 @@ test('AdvantageHeaderIcons', async ({ page }) => {
         expect(FirstLink).toContainText("Church Chairs");
         await page.locator("//span[@class='ra-icon p-1 cursor-pointer']").click();
     //Click Account Icon
-       // const Account = page.locator("//div[@id='shopify-section-sections--21855799083298__header']//li[@class='header__action-item hidden md:flex justify-center items-center h-full mr-4 last:mr-0 leading-//span[1]//*[name()='svg']");
-        //await Account.click();
-        //await page.waitForTimeout(2000);
-       // expect(page.url()).toContain("shopify");
+        const Account = page.locator("(//a[@title='account'])[1]");
+        await Account.click();
+        await page.waitForTimeout(2000);
+        expect(page.url()).toContain("shopify");
 
 
 
