@@ -34,8 +34,10 @@ test('AdvantagePLP', async ({ page }) => {
     await Copper.click();
 //Clear Filter Pills
     const GreenPill = await page.locator("//button[contains(@data-param,'filter.p.m.filter.colors')]//span[contains(@class,'ra-icon')]//*[name()='svg']");
+    await GreenPill.isVisible();
     await GreenPill.click();
     const ClearAll = await page.locator("//button[normalize-space()='Clear All']");
+    await ClearAll.isVisible();
     await ClearAll.click();
 //Click Pagination
     const Page2 = await page.locator("//a[normalize-space()='2']");
@@ -47,6 +49,18 @@ test('AdvantagePLP', async ({ page }) => {
     await RightArrow.isVisible();
     await RightArrow.click();
     expect(page.url()).toContain("page=3");
+//Click Pagination Left Arrow
+    const LeftArrow = await page.locator("//a[@aria-label='Go to previous page']");
+    await LeftArrow.isVisible();
+    await LeftArrow.click();
+    expect(page.url()).toContain("page=2");
+//Click on PDP
+    await page.waitForLoadState();
+    const PDPItem = await page.locator("img[src='https://cdn.shopify.com/s/files/1/0764/4276/3554/files/Embroidered_21_W_Church_Chair_in_Empire_Fabric_with_Book_Rack-Gold_Vein_Frame_2023-11-03T00-08-33Z.jpg?v=1710355173&width=640']");
+    await PDPItem.isVisible();
+    await PDPItem.click();
+    //await page.waitForLoadState();
+    //expect(page.url()).toContain("21w-church-chair-in-galaxy-fabric");
 
     
 
