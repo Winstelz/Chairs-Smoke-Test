@@ -56,11 +56,11 @@ test('AdvantagePLP', async ({ page }) => {
     expect(page.url()).toContain("page=2");
 //Click on PDP
     await page.waitForLoadState();
-    const PDPItem = await page.locator("img[src='https://cdn.shopify.com/s/files/1/0764/4276/3554/files/Embroidered_21_W_Church_Chair_in_Empire_Fabric_with_Book_Rack-Gold_Vein_Frame_2023-11-03T00-08-33Z.jpg?v=1710355173&width=640']");
+    const PDPItem = await page.locator("//img[@alt=\"Embroidered 21''W Church Chair in Empire Fabric with Book Rack - Gold Vein Frame - View 2\"]");
     await PDPItem.isVisible();
     await PDPItem.click();
-    //await page.waitForLoadState();
-    //expect(page.url()).toContain("21w-church-chair-in-galaxy-fabric");
+    await page.waitForLoadState();
+    expect(page.url()).toContain("21w-church-chair-in-galaxy-fabric");
 
     
 
