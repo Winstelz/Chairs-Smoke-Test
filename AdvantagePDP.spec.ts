@@ -24,6 +24,41 @@ test('AdvantagePDP', async ({ page }) => {
     // Verify PDP Price
         const PDPPrice = page.locator("//div[@class='h3 flex-col items-end hidden md:flex']//div[@class='h3 text-tertiary-900'][normalize-space()='$31.99']");
         expect(PDPPrice).toContainText("$31.99");   
+    //Click Review Stars    
+        const ReviewStars = page.locator("//div[@class='bv_stars_component_container']//*[name()='svg'][3]/*[name()='polygon'][1]");
+        await ReviewStars.click();
+    //Click New Review
+        const NewReview = page.locator("div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(5) > div:nth-child(1)");
+        await NewReview.click();
+        const CloseReview = page.locator(".ips__sc-hn2bh6-0.cbsYNK");
+        await CloseReview.click();
+    //Sort Reviews 
+        const Sort = page.locator("#bv-dropdown-select-reviews");
+        await Sort.hover();
+        await Sort.click("Lowest to Highest Rating");
+        await Sort.click("Most Recent");
+    //Review Pagination Rigth
+        const RightArrow = page.getByRole('button', { name: 'Next Reviews' });
+        const ReviewNumber = page.locator(".bv-rnr__sc-11r39gb-2.ghmrMg");
+        await RightArrow.click();
+        await page.waitForTimeout(3000);
+        await ReviewNumber.isVisible();
+        expect(ReviewNumber).toContainText("9 – 38");
+    //Review Pagination left
+        const LeftArrow = page.getByRole('button', { name: 'Previous Reviews' });
+        await LeftArrow.click();
+        await page.waitForTimeout(3000);
+        await ReviewNumber.isVisible();
+        expect(ReviewNumber).toContainText("1 – 8");
+    //Qty Increase
+        const QTYInc  = page.locator("//button[@aria-label='Increment Quantity']//*[name()='svg']");
+        const QTY = page.locator("//input[@type='number']");
+        await QTYInc.click();
+        await QTYInc.click();
+        await QTYInc.click();
+        expect(QTY).toHaveValue('4');
+
+    
 
 
 
