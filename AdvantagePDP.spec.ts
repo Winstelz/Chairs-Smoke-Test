@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 
 
 test('AdvantagePDP', async ({ page }) => {
-    //Navigate to Hydrogen site    
+    //Navigate to Advantage site    
         await page.goto('https://www.advantagechurchchairs.com/?_ab=0&_fd=0&_sc=1&preview_theme_id=164106633506');
     //Navigate to PLP
         const ShopAll = page.locator("//span[@title='Banquet Chairs']//a[normalize-space()='Banquet Chairs']");

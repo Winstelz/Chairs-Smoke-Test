@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 
 
 test('AdvantagePLP', async ({ page }) => {
-    //Navigate to Hydrogen site    
+    //Navigate to Advantage site    
         await page.goto('https://www.advantagechurchchairs.com/?_ab=0&_fd=0&_sc=1&preview_theme_id=164106633506');
 //Click Church Chairs Menu
     const ChurchChairs = page.locator("//span[@title='Church Chairs']");
