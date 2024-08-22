@@ -57,6 +57,19 @@ test('AdvantagePDP', async ({ page }) => {
         await QTYInc.click();
         await QTYInc.click();
         expect(QTY).toHaveValue('4');
+    //Qty Decrease
+        const QTYDec  = page.locator("//button[@aria-label='Decrement Quantity']//*[name()='svg']");
+        await QTYDec.click();
+        await QTYDec.click();
+        await QTYDec.click();
+        expect(QTY).toHaveValue('1');
+    //Add Item to Cart
+        const AddtoCart = page.locator("//button[normalize-space()='Add to Cart']");
+        await AddtoCart.click();
+        const Cart = page.locator("//span[@class='mr-2 font-light text-white text-e19 leading-120']");
+        await Cart.click();
+
+
 
     
 
