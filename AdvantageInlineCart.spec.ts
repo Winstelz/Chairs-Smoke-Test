@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { execPath } from 'process';
+
 
 
 
@@ -68,11 +68,9 @@ test('AdvantageInlineCart', async ({ page }) => {
         await page.locator("//header[@class='EAjaz Xx7bI _1fragemr6']//div//div//a[@class='s2kwpi1 _1fragempf _1fragemwu _1fragemx3 _1fragemwp s2kwpi3 _1fragemwl']").click();
         await page.waitForLoadState();
         await page.locator("(//a[@title='cart'])[1]").click();
-        await page.waitForLoadState();
     //Delete Item from Inline Cart
-        await page.locator("(//button[@class='ra-button ra-icon-button ra-button--tertiary ra-icon-button--md group !w-[22px] !min-h-[24px]'])[1]").click();
-        await page.waitForLoadState();
-        const EmptyLink = page.locator("//a[@class='ra-button ra-button ra-button--primary ra-button--lg mb-4'][normalize-space()='Church Chairs']");
+        await page.getByRole('button', { name: 'Remove item' }).click();
+        const EmptyLink = await page.locator("//a[@class='ra-button ra-button ra-button--primary ra-button--lg mb-4'][normalize-space()='Church Chairs']");
         await EmptyLink.click();
         await page.waitForLoadState();
         expect(page.url()).toContain("/collections/church-stack-chairs");
