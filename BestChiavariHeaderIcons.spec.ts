@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 
 
 test('BestChiavariHeaderIcons', async ({ page }) => {
-    //Navigate to Advantage site    
+    //Navigate to Best Chiavari site    
         await page.goto('https://www.bestchiavarichairs.com/?_ab=0&_fd=0&_sc=1&preview_theme_id=161761132832');
     //Click Search Icon, Type search, and Close
         const Search = page.locator("//button[@title='search']//span[1]");
