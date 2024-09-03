@@ -5,6 +5,8 @@ export class BizChairHomePage {
     readonly Office: Locator;
     readonly Logo: Locator;
     readonly ExecutiveOffice: Locator;
+    readonly Folding: Locator;
+    readonly Resin: Locator;
 
 
 constructor(page) {
@@ -12,7 +14,8 @@ constructor(page) {
     this.Office = page.locator("//span[@title='Office']//a[normalize-space()='Office']");
     this.Logo = page.locator("//img[@alt='BizChair Logo']");
     this.ExecutiveOffice = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Executive Office Chairs']");
-
+    this.Folding = page.locator("//span[@title='Folding']//a[normalize-space()='Folding']");
+    this.Resin = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Resin Folding Chairs']");
 }
 
     async gotoHomePage() {
@@ -30,11 +33,22 @@ constructor(page) {
         await this.page.waitForLoadState();
         expect(this.page.url()).toContain('/collections/office');
     }
+    async ClickFolding() {
+        await this.Folding.click();
+        await this.page.waitForLoadState();
+        expect(this.page.url()).toContain('/collections/folding');
+    }
 
     async HoverOffice () {
         await this.Office.hover();
         await this.ExecutiveOffice.click();
         await this.page.waitForLoadState('load', { timeout: 60000 });
         expect(this.page.url()).toContain('/collections/executive-office-chairs');
+    }
+    async HoverFolding () {
+        await this.Folding.hover();
+        await this.Resin.click();
+        await this.page.waitForLoadState('load', { timeout: 60000 });
+        expect(this.page.url()).toContain('/collections/resin-folding-chairs');
     }
 }
