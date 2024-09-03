@@ -1,21 +1,22 @@
 import { test, expect } from '@playwright/test';
-
+import { BizChairHomePage }from '../../pages/BizChairHomePage';
 
 
 test('BizHomePageHeader', async ({ page }) => {
-    //Navigate to BizChair site    
-        await page.goto('https://www.bizchair.com/?_ab=0&_fd=0&_sc=1');
+
+    const HomePage = new BizChairHomePage(page)
+
+//Navigate to BizChair site    
+   HomePage.gotoHomePage();
+        //await page.goto('https://www.bizchair.com/?_ab=0&_fd=0&_sc=1');
 
 //Click Logo and verify on homepage
-    const Logo = await page.locator("//img[@alt='BizChair Logo']");
-    await Logo.click();
-    await page.waitForLoadState();
-    expect(page.url()).toContain('https://www.bizchair.com');
+    await HomePage.ClickLogo();
 //Click Office Menu
-    const Office = page.locator("//span[@title='Office']//a[normalize-space()='Office']");
-    await Office.click();
-    await page.waitForLoadState();
-    expect(page.url()).toContain('/collections/office');
+    await HomePage.ClickOffice();
+    //await this.Office.click();
+   // await page.waitForLoadState();
+    //expect(page.url()).toContain('/collections/office');
 //Click Folding Menu
     const Folding = page.locator("//span[@title='Folding']//a[normalize-space()='Folding']");
     await Folding.click();
@@ -49,11 +50,12 @@ test('BizHomePageHeader', async ({ page }) => {
 
 
 //Hover Office Menu & Click Executive Office Chairs
-    await Office.hover();
-    const ExecutiveOffice = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Executive Office Chairs']");
-    await ExecutiveOffice.click();
-    await page.waitForLoadState('load', { timeout: 60000 });
-    expect(page.url()).toContain('/collections/executive-office-chairs');
+    await HomePage.HoverOffice();
+    //await HomePage.this.Office.hover();
+    //const ExecutiveOffice = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Executive Office Chairs']");
+    //await ExecutiveOffice.click();
+    //await page.waitForLoadState('load', { timeout: 60000 });
+    //expect(page.url()).toContain('/collections/executive-office-chairs');
 //Hover Folding Menu & Click Resin Folding Chairs
     await Folding.hover();
     const Resin = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Resin Folding Chairs']");
