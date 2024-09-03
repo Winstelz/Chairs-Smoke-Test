@@ -7,6 +7,12 @@ export class BizChairHomePage {
     readonly ExecutiveOffice: Locator;
     readonly Folding: Locator;
     readonly Resin: Locator;
+    readonly Event: Locator;
+    readonly FoldingChair: Locator;
+    readonly Restaurant: Locator; 
+    readonly IndoorDining: Locator;
+    readonly Church: Locator;
+    readonly Banquet: Locator;
 
 
 constructor(page) {
@@ -16,7 +22,14 @@ constructor(page) {
     this.ExecutiveOffice = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Executive Office Chairs']");
     this.Folding = page.locator("//span[@title='Folding']//a[normalize-space()='Folding']");
     this.Resin = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Resin Folding Chairs']");
-}
+    this.Event = page.locator("//span[@title='Event']//a[normalize-space()='Event']");
+    this.FoldingChairs = page.locator("//ul[@aria-labelledby='event-menu']//a[@title='Folding Chairs'][normalize-space()='Folding Chairs']");
+    this.Restaurant = page.locator("//span[@title='Restaurant']//a[normalize-space()='Restaurant']");
+    this.IndoorDining = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Indoor Dining Chairs']");
+    this.Church = page.locator("//span[@title='Church']//a[normalize-space()='Church']");
+    this.Banquet = page.locator("//ul[@aria-labelledby='church-menu']//a[@title='Banquet Stack Chairs'][normalize-space()='Banquet Stack Chairs']");
+}  
+
 
     async gotoHomePage() {
         await this.page.goto('https://www.bizchair.com/?_ab=0&_fd=0&_sc=1');
@@ -39,6 +52,24 @@ constructor(page) {
         expect(this.page.url()).toContain('/collections/folding');
     }
 
+    async ClickEvent () {
+        await this.Event.click();
+        await this.page.waitForLoadState();
+        expect(this.page.url()).toContain('/collections/event');
+    }
+
+    async ClickRestaurant () {
+        await this.Restaurant.click();
+        await this.page.waitForLoadState();
+        expect(this.page.url()).toContain('/collections/restaurant');
+    }
+    async ClickChurch () {
+        await this.Church.click();
+        await this.page.waitForLoadState();
+        expect(this.page.url()).toContain('/collections/church');
+    }
+
+
     async HoverOffice () {
         await this.Office.hover();
         await this.ExecutiveOffice.click();
@@ -50,5 +81,23 @@ constructor(page) {
         await this.Resin.click();
         await this.page.waitForLoadState('load', { timeout: 60000 });
         expect(this.page.url()).toContain('/collections/resin-folding-chairs');
+    }
+    async HoverEvent () {
+        await this.Event.hover();
+        await this.FoldingChairs.click();
+        await this.page.waitForLoadState('load', { timeout: 60000 });
+        expect(this.page.url()).toContain('/collections/folding-chairs');
+    }
+    async HoverRestaurant () {
+        await this.Restaurant.hover();
+        await this.IndoorDining.click();
+        await this.page.waitForLoadState('load', { timeout: 60000 });
+        expect(this.page.url()).toContain('/collections/indoor-restaurant-dining-chairs');
+    }
+    async HoverChurch () {
+        await this.Church.hover();
+        await this.Banquet.click();
+        await this.page.waitForLoadState('load', { timeout: 60000 });
+        expect(this.page.url()).toContain('/collections/banquet-stack-chairs');
     }
 }
