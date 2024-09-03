@@ -8,20 +8,12 @@ test('BizHomePageHeader', async ({ page }) => {
 
 //Navigate to BizChair site    
    HomePage.gotoHomePage();
-        //await page.goto('https://www.bizchair.com/?_ab=0&_fd=0&_sc=1');
-
 //Click Logo and verify on homepage
     await HomePage.ClickLogo();
 //Click Office Menu
     await HomePage.ClickOffice();
-    //await this.Office.click();
-   // await page.waitForLoadState();
-    //expect(page.url()).toContain('/collections/office');
 //Click Folding Menu
-    const Folding = page.locator("//span[@title='Folding']//a[normalize-space()='Folding']");
-    await Folding.click();
-    await page.waitForLoadState();
-    expect(page.url()).toContain('/collections/folding');
+    await HomePage.ClickFolding();
 //Click Event Menu
     const Event = page.locator("//span[@title='Event']//a[normalize-space()='Event']");
     await Event.click();
@@ -51,17 +43,8 @@ test('BizHomePageHeader', async ({ page }) => {
 
 //Hover Office Menu & Click Executive Office Chairs
     await HomePage.HoverOffice();
-    //await HomePage.this.Office.hover();
-    //const ExecutiveOffice = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Executive Office Chairs']");
-    //await ExecutiveOffice.click();
-    //await page.waitForLoadState('load', { timeout: 60000 });
-    //expect(page.url()).toContain('/collections/executive-office-chairs');
 //Hover Folding Menu & Click Resin Folding Chairs
-    await Folding.hover();
-    const Resin = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Resin Folding Chairs']");
-    await Resin.click();
-    await page.waitForLoadState();
-    expect(page.url()).toContain('/collections/resin-folding-chairs');
+    await HomePage.HoverFolding();
 //Hover Event Menu & Click Folding Chairs
     await Event.hover();
     const FoldingChairs = page.locator("//ul[@aria-labelledby='event-menu']//a[@title='Folding Chairs'][normalize-space()='Folding Chairs']");
