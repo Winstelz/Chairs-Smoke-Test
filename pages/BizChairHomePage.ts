@@ -13,6 +13,10 @@ export class BizChairHomePage {
     readonly IndoorDining: Locator;
     readonly Church: Locator;
     readonly Banquet: Locator;
+    readonly Classroom: Locator;
+    readonly StudentDesks: Locator;
+    readonly Residential: Locator;
+    readonly LivingRoom: Locator;
 
 
 constructor(page) {
@@ -28,6 +32,10 @@ constructor(page) {
     this.IndoorDining = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Indoor Dining Chairs']");
     this.Church = page.locator("//span[@title='Church']//a[normalize-space()='Church']");
     this.Banquet = page.locator("//ul[@aria-labelledby='church-menu']//a[@title='Banquet Stack Chairs'][normalize-space()='Banquet Stack Chairs']");
+    this.Classroom = page.locator("//span[@title='Classroom']//a[normalize-space()='Classroom']");
+    this.StudentDesks = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Student Desks']");
+    this.Residential = page.locator("//span[@title='Residential']//a[normalize-space()='Residential']");
+    this.LivingRoom = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Living Room']");
 }  
 
 
@@ -70,6 +78,19 @@ constructor(page) {
     }
 
 
+    async ClickClassroom () {
+        await this.Classroom.click();
+        await this.page.waitForLoadState();
+        expect(this.page.url()).toContain('/collections/classroom');
+}
+
+    async ClickResidential () {
+        await this.Residential.click();
+        await this.page.waitForLoadState();
+        expect(this.page.url()).toContain('/collections/residential');
+}
+
+
     async HoverOffice () {
         await this.Office.hover();
         await this.ExecutiveOffice.click();
@@ -85,7 +106,6 @@ constructor(page) {
     async HoverEvent () {
         await this.Event.hover();
         await this.FoldingChairs.click();
-        await this.page.waitForLoadState('load', { timeout: 60000 });
         expect(this.page.url()).toContain('/collections/folding-chairs');
     }
     async HoverRestaurant () {
@@ -99,5 +119,17 @@ constructor(page) {
         await this.Banquet.click();
         await this.page.waitForLoadState('load', { timeout: 60000 });
         expect(this.page.url()).toContain('/collections/banquet-stack-chairs');
+    }
+    async HoverClassroom () {
+        await this.Classroom.hover();
+        await this.StudentDesks.click();
+        await this.page.waitForLoadState('load', { timeout: 60000 });
+        expect(this.page.url()).toContain('/collections/student-desks');
+    }
+    async HoverResidential () {
+        await this.Residential.hover();
+        await this.LivingRoom.click();
+        await this.page.waitForLoadState('load', { timeout: 60000 });
+        expect(this.page.url()).toContain('/collections/living-room-furniture');
     }
 }
