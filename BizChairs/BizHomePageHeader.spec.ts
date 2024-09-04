@@ -21,15 +21,9 @@ test('BizHomePageHeader', async ({ page }) => {
 //Click Church Menu
     await HomePage.ClickChurch();
 //Click Classroom Menu
-    const Classroom = page.locator("//span[@title='Classroom']//a[normalize-space()='Classroom']");
-    await Classroom.click();
-    await page.waitForLoadState();
-    expect(page.url()).toContain('/collections/classroom');
+    await HomePage.ClickClassroom();
 //Click Residential Menu
-    const Residential = page.locator("//span[@title='Residential']//a[normalize-space()='Residential']");
-    await Residential.click();
-    await page.waitForLoadState();
-    expect(page.url()).toContain('/collections/residential');
+    await HomePage.ClickResidential();
 
 
 //Hover Office Menu & Click Executive Office Chairs
@@ -43,16 +37,8 @@ test('BizHomePageHeader', async ({ page }) => {
 //Hover Church Menu & Click Banquet Stack Chairs
     await HomePage.HoverChurch();
 //Hover Classroom Menu & Click Student Desk
-    await Classroom.hover();
-    const StudentDesks = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Student Desks']");
-    await StudentDesks.click();
-    await page.waitForLoadState();
-    expect(page.url()).toContain('/collections/student-desks');
+    await HomePage.HoverClassroom();
 //Hover Residential Menu & Click Student Desk
-    await Residential.hover();
-    const LivingRoom = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Living Room']");
-    await LivingRoom.click();
-    await page.waitForLoadState();
-    expect(page.url()).toContain('/collections/living-room-furniture');
+    await HomePage.HoverResidential();
 
 });
