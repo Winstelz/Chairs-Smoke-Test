@@ -40,6 +40,7 @@ export class AdvantagePLP {
 async Sorting () {
     await this.Sort.selectOption( {label: "Price, low to high"});
     expect(this.FirstItem).toContainText("Advantage Multipurpose Church Chairs");
+    await this.Sort.selectOption( {label: "Best selling"});
 }
 
 async ColorFilter(){
