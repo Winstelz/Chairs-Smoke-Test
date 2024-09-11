@@ -1,58 +1,36 @@
 import { test, expect } from '@playwright/test';
+import { AdvantageHomePage }from '../../pages/AdvantageHomePage';
+import { AdvantagePLP }from '../../pages/AdvantagePLP';
+import { AdvantagePDP } from '../../pages/AdvantagePDP';
+import { AdvantageInlineCart } from '../../pages/AdvantageInlineCart';
 
 
 
 
 test('AdvantageInlineCart', async ({ page }) => {
-    //Navigate to Advantage site    
-        await page.goto('https://www.advantagechurchchairs.com/?_ab=0&_fd=0&_sc=1&preview_theme_id=164106633506');
+
+    const HomePage = new AdvantageHomePage(page)
+    const PLP = new AdvantagePLP(page)
+    const PDP = new AdvantagePDP(page)
+    const Inline = new AdvantageInlineCart(page)
+    //Navigate to Advantage site   
+        await HomePage.gotoHomePage(); 
     //Navigate to PLP
-        const ShopAll = page.locator("//span[@title='Banquet Chairs']//a[normalize-space()='Banquet Chairs']");
-        await ShopAll.click();
-        expect(page.url()).toContain("banquet-stack-chairs");
+        await HomePage.ClickShopAll();
     //Click First Item
-        const FirstItem = page.locator("//img[@alt='HERCULES Series Crown Back Stacking Banquet Chair - View 2']");
-        await FirstItem.click();
-        expect(page.url()).toContain("crown-back-stacking-banquet-chair");
+        await PLP.ClickFirstItem();
     //Add Item to Cart
-        const AddtoCart = page.locator("//button[normalize-space()='Add to Cart']");
-        await AddtoCart.click();
-        await page.waitForTimeout(2000);
+        await PDP.AddtoCart()
     //Verify Product is in Cart
-        const Product = await page.locator("//a[normalize-space()='HERCULES Series Crown Back Stacking Banquet Chair']");
-        await Product.isVisible();
-        expect(Product).toHaveText("HERCULES Series Crown Back Stacking Banquet Chair");
+        await Inline.VerifyProduct();
     //Increase QTY
-        const QTYIncr = page.locator("(//button[@aria-label='Increment Quantity'])[2]");
-        await QTYIncr.click();
-        await page.waitForTimeout(1000);
-        await QTYIncr.click();
-        await page.waitForTimeout(1000);
-        await QTYIncr.click();
-        await page.waitForTimeout(1000);
-        await QTYIncr.click();
-        await page.waitForTimeout(2000);
-        const QTY = page.locator("(//input[@type='number'])[2]");
-        await expect(QTY).toHaveValue("5");
+        await Inline.QTYIncrease();
     //Decrease QTY
-        const QTYDecr = page.locator("(//button[@aria-label='Decrement Quantity'])[2]");
-        await QTYDecr.click();
-        await page.waitForTimeout(1000);
-        await QTYDecr.click();
-        await page.waitForTimeout(2000);
-        await expect(QTY).toHaveValue("3");
+        await Inline.QTYDecrease();
     //Input QTY
-        await QTY.click();
-        await QTY.fill("10");
-        await page.waitForTimeout(2000);
-        await expect(QTY).toHaveValue("10");
+        await Inline.QTYInput();
     //You May Also Like Carousel Clicking
-        const RightArrow = page.locator("//button[@aria-label='Next slide']//span[@class='ra-icon ra-icon--sm']//*[name()='svg']");
-        await RightArrow.click();
-        await RightArrow.click();
-        const LeftArrow = page.locator("//button[@aria-label='Previous slide']//span[@class='ra-icon ra-icon--sm']//*[name()='svg']");
-        await LeftArrow.click();
-        await LeftArrow.click();
+       await Inline.YouMayLikeCarousel();
     //Calculate Shipping
         await page.locator("//span[@class='ra-icon']//*[name()='svg']").click();
         const Zip = page.locator("//input[@placeholder='Enter Zip or Postal Code']");
@@ -72,7 +50,6 @@ test('AdvantageInlineCart', async ({ page }) => {
         await page.getByRole('button', { name: 'Remove item' }).click();
         const EmptyLink = await page.locator("//a[@class='ra-button ra-button ra-button--primary ra-button--lg mb-4'][normalize-space()='Church Chairs']");
         await EmptyLink.click();
-        await page.waitForLoadState();
         expect(page.url()).toContain("/collections/church-stack-chairs");
 
 
