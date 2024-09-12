@@ -32,30 +32,11 @@ test('AdvantageInlineCart', async ({ page }) => {
     //You May Also Like Carousel Clicking
        await Inline.YouMayLikeCarousel();
     //Calculate Shipping
-        await page.locator("//span[@class='ra-icon']//*[name()='svg']").click();
-        const Zip = page.locator("//input[@placeholder='Enter Zip or Postal Code']");
-        await Zip.click();
-        await Zip.fill("45014");
-        const Address = page.locator("//select[@name='addressType']");
-        await Address.click();
-        await Address.selectOption('Residential');
-        await page.locator("//button[normalize-space()='Calculate Shipping']").click();
-        await page.waitForTimeout(2000);
+        await Inline.CalShipping();
     //Click Checkout
-        await page.locator("//button[normalize-space()='Proceed to Checkout']").click();
-        await page.locator("//header[@class='EAjaz Xx7bI _1fragemr6']//div//div//a[@class='s2kwpi1 _1fragempf _1fragemwu _1fragemx3 _1fragemwp s2kwpi3 _1fragemwl']").click();
-        await page.waitForLoadState();
-        await page.locator("(//a[@title='cart'])[1]").click();
+        await Inline.Checkout();
     //Delete Item from Inline Cart
-        await page.getByRole('button', { name: 'Remove item' }).click();
-        const EmptyLink = await page.locator("//a[@class='ra-button ra-button ra-button--primary ra-button--lg mb-4'][normalize-space()='Church Chairs']");
-        await EmptyLink.click();
-        expect(page.url()).toContain("/collections/church-stack-chairs");
-
-
-
-
-        
+        await Inline.DeleteItem();
 
 
 });
