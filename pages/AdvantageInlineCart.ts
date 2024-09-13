@@ -1,4 +1,4 @@
-import { expect, type Locator, type Page } from '@playwright/test';
+import { expect, type Locator, type Page, type getByRole } from '@playwright/test';
 
 export class AdvantageInlineCart {
     readonly page: Page;
@@ -15,7 +15,7 @@ export class AdvantageInlineCart {
     readonly CheckoutButton: Locator;
     readonly Logo: Locator;
     readonly Cart: Locator;
-    readonly TrashCan: Locator;
+    readonly TrashCan: getByRole;
     readonly EmptyLink: Locator;
 
 
@@ -33,7 +33,7 @@ export class AdvantageInlineCart {
         this.CalButton = page.locator("//button[normalize-space()='Calculate Shipping']");
         this.CheckoutButton = page.locator("//button[normalize-space()='Proceed to Checkout']")
         this.Logo = page.locator("//header[@class='EAjaz Xx7bI _1fragemr6']//div//div//div[@class='_1fragem2i _1fragempf _16s97g73r']");
-        this.Cart =  page.locator("(//a[@title='cart'])[1]");
+        this.Cart =  page.locator("//body/div[@id='shopify-section-sections--21855799083298__header']/ra-header[@class='header flex items-center justify-center fixed w-full left-0 transition-all duration-300 z-10 flex-col max-md:py-4 border-b !border-grey-200']/div[@class='header__wrapper flex h-full flex-wrap justify-between md:justify-start w-full container max-md:!px-3']/div[@class='header__inner flex w-full justify-between items-center flex-col md:pt-5 max-md:!flex']/div[@class='flex items-center w-full max-md:justify-between']/div[@class='m-0 md:ml-auto']/div[@class='flex flex-row gap-6']/ul[@class='flex justify-center items-center h-full']/li[@class='header__action-item flex justify-center items-center h-full mr-4 last:mr-0 leading-/ra-cart-toggle/a[@title='cart']/span[1]");
         this.TrashCan = page.getByRole('button', { name: 'remove-item' });
         this.EmptyLink =  page.locator("//a[@class='ra-button ra-button ra-button--primary ra-button--lg mb-4'][normalize-space()='Church Chairs']");
     
