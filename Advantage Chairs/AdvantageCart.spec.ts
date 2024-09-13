@@ -1,30 +1,56 @@
 import { test, expect } from '@playwright/test';
+import { AdvantageHomePage }from '../../pages/AdvantageHomePage';
+import { AdvantagePLP }from '../../pages/AdvantagePLP';
+import { AdvantagePDP } from '../../pages/AdvantagePDP';
+import { AdvantageInlineCart } from '../../pages/AdvantageInlineCart';
+import { AdvantageCart } from '../../pages/AdvantageCart';
 
 
 
 
 test('AdvantageCart', async ({ page }) => {
-    //Navigate to Advantage site    
-        await page.goto('https://www.advantagechurchchairs.com/?_ab=0&_fd=0&_sc=1&preview_theme_id=164106633506');
-    //Navigate to PLP
-        const ShopAll = page.locator("//span[@title='Banquet Chairs']//a[normalize-space()='Banquet Chairs']");
-        await ShopAll.click();
-        expect(page.url()).toContain("banquet-stack-chairs");
-    //Click First Item
-        const FirstItem = page.locator("//img[@alt='HERCULES Series Crown Back Stacking Banquet Chair - View 2']");
-        await FirstItem.click();
-        expect(page.url()).toContain("crown-back-stacking-banquet-chair");
-    //Add Item to Cart
-        const AddtoCart = page.locator("//button[normalize-space()='Add to Cart']");
-        await AddtoCart.click();
-        await page.waitForTimeout(2000);
-    //Verify Product is in Cart
-        const Product = await page.locator("//a[normalize-space()='HERCULES Series Crown Back Stacking Banquet Chair']");
-        await Product.isVisible();
-        expect(Product).toHaveText("HERCULES Series Crown Back Stacking Banquet Chair");
-    //Click Cart Page
-        await page.getByLabel("button", {name: "View Cart"}).click();
-        expect(page.url()).toContain("/cart");
+
+    const HomePage = new AdvantageHomePage(page)
+    const PLP = new AdvantagePLP(page)
+    const PDP = new AdvantagePDP(page)
+    const Inline = new AdvantageInlineCart(page)
+    const Cart = new AdvantageCart(page)
+//Navigate to Advantage site    
+    await HomePage.gotoHomePage();
+//Navigate to PLP
+    await HomePage.ClickShopAll();
+ //Click First Item
+    await PLP.ClickFirstItem();
+//Add Item to Cart
+       await PDP.AddtoCart();
+ //Verify Product is in Cart
+    await Inline.VerifyProduct();
+//Click Cart Page
+    await Cart.ClickCart();
+        
+//Increase QTY
+    await Cart.IncreaseQTY();
+//Decrease QTY
+    await Cart.DecreaseQTY();
+//Input QTY
+    await Cart.InputQTY();
+//You May Also Like Carousel Clicking
+    await Cart.YouMayLike();
+//Calculate Shipping
+    await Cart.CalShipping();
+//Click Checkout
+    await Cart.ClickCheckout();
+//Click Cart Page
+    await Cart.GotoCart();
+//Delete Item from Inline Cart
+    await page.locator("//button[@class='ra-button ra-icon-button ra-button--tertiary ra-icon-button--md hover:!border-primary-600 !border-primary-800 group !w-//*[name()='svg']").click();
+//  const EmptyLink = await page.locator("//a[normalize-space()='Shop Chiavari Chairs']");
+//  await EmptyLink.isVisible();
+//  await EmptyLink.click();
+//  await page.waitForLoadState();
+//  expect(page.url()).toContain("/collections/chiavari-chairs");
+
+
     
     
    
