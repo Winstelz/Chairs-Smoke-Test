@@ -1,54 +1,33 @@
 import { test, expect } from '@playwright/test';
+import { AdvantageHomePage } from '../../pages/AdvantageHomePage';
+import { AdvantageFooter } from '../../pages/AdvantageFooter';
 
 
 
 test('AdvantageFooter', async ({ page }) => {
-    //Navigate to Advantage site    
-        await page.goto('https://www.advantagechurchchairs.com/?_ab=0&_fd=0&_sc=1&preview_theme_id=164106633506');
+    const HomePage = new AdvantageHomePage(page)
+    const Footer = new AdvantageFooter(page)
+    //Navigate to Advantage site   
+        await HomePage.gotoHomePage(); 
     //Click About Us
-        const About = page.locator("//a[@class='text-e14 leading-e150 py-1'][normalize-space()='About Us']");
-        await About.click();
-        expect(page.url()).toContain("about-us");
+        await Footer.ClickAbout();
     //Click Payment Option
-        const Payment = page.locator("//a[@class='text-e14 leading-e150 py-1'][normalize-space()='Payment Options']");
-        await Payment.click();
-        expect(page.url()).toContain("payment-options");
+       await Footer.ClickPayment();
      //Click Shipping Information
-        const Shipping = page.locator("//a[@class='text-e14 leading-e150 py-1'][normalize-space()='Shipping Information']");
-        await Shipping.click();
-        expect(page.url()).toContain("shipping-information");
+        await Footer.ClickShipping();
      //Click Site Security
-        const SiteSecurity = page.locator("//a[normalize-space()='Site Security']");
-        await SiteSecurity.click();
-        expect(page.url()).toContain("site-security");
+        await Footer.ClickSite();
     //Click Privacy Policy
-        const Privacy = page.locator("//a[normalize-space()='Privacy Policy']");
-        await Privacy.click();
-        expect(page.url()).toContain("privacy-policy");
+        await Footer.ClickPrivacy();
     //Click CA Privacy
-        const CAPrivacy = page.locator("//a[normalize-space()='California Privacy Rights']");
-        await CAPrivacy.click();
-        expect(page.url()).toContain("privacy-policy");
+        await Footer.ClickCAPrivacy();
     //Click Terms of Use
-        const TermsOU = page.locator("//a[normalize-space()='Terms of Use']");
-        await TermsOU.click();
-        expect(page.url()).toContain("terms-of-use");
+        await Footer.ClickTermOU();
     //Click Terms of Sale
-        const TermsOS = page.locator("//a[normalize-space()='Terms of Sale']");
-        await TermsOS.click();
-        expect(page.url()).toContain("terms-of-sale");
+        await Footer.ClickTermOS();
     //Click Accessibility Statement
-        const Access = page.locator("//a[normalize-space()='Accessibility Statement']");
-        await Access.click();
-        expect(page.url()).toContain("accessibility");
+        await Footer.ClickAccess();
     //Click Site Map
-        const Sitemap = page.locator("//a[normalize-space()='Sitemap']");
-        await Sitemap.click();
-        expect(page.url()).toContain("sitemap");
-    
-     
-
-
-
+        await Footer.ClickSiteMap();
 
     });
