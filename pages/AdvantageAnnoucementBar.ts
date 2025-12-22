@@ -12,7 +12,7 @@ constructor(page) {
     this.LeftArrow = page.locator("//div[@aria-label='Previous slide']//span[1]");
 
 }
-async ClickBanner () {
+async clickBanner () {
     await this.RightArrow.click();
     await this.page.waitForTimeout(2000);
     await this.RightArrow.click();
