@@ -27,43 +27,43 @@ constructor(page) {
     this.Sitemap = page.locator("//a[normalize-space()='Sitemap']");
 
 }
-async ClickAbout () {
+async clickAbout () {
     await this.About.click();
     await expect(this.page.url()).toContain("about-us");
 }
-async ClickPayment () {
+async clickPayment () {
     await this.Payment.click();
     await expect(this.page.url()).toContain("payment-options");
 }
-async ClickShipping () {
+async clickShipping () {
     await this.Shipping.click();
     await expect(this.page.url()).toContain("shipping-information");
 }
-async ClickSite () {
+async clickSite () {
     await this.Site.click();
     await expect(this.page.url()).toContain("site-security");
 }
-async ClickPrivacy () {
+async clickPrivacy () {
     await this.Privacy.click();
     await expect(this.page.url()).toContain("privacy-policy");
 }
-async ClickCAPrivacy () {
+async clickCAPrivacy () {
     await this.CAPrivacy.click();
     await expect(this.page.url()).toContain("privacy-policy");
 }
-async ClickTermOU () {
+async clickTermOU () {
     await this.TermsOU.click();
     await expect(this.page.url()).toContain("terms-of-use");
 }
-async ClickTermOS () {
+async clickTermOS () {
     await this.TermsOS.click();
     await expect(this.page.url()).toContain("terms-of-sale");
 }
-async ClickAccess () {
+async clickAccess () {
     await this.Access.click();
     await expect(this.page.url()).toContain("accessibility");
 }
-async ClickSiteMap () {
+async clickSiteMap () {
     await this.Sitemap.click();
     await expect(this.page.url()).toContain("sitemap");
 }
