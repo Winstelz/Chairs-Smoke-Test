@@ -37,11 +37,11 @@ export class AdvantageCart {
 
 
     }
-async ClickCart (){
+async clickCart (){
     await this.Cart.click();
     await expect(this.page.url()).toContain("/cart");
 }
-async IncreaseQTY () {
+async increaseQTY () {
     await this.QTYIncr.click();
     await this.page.waitForTimeout(1000);
     await this.QTYIncr.click();
@@ -52,26 +52,26 @@ async IncreaseQTY () {
     await this.page.waitForTimeout(2000);
     await expect(this.QTY).toHaveValue("5");
 }
-async DecreaseQTY () {
+async decreaseQTY () {
     await this.QTYDecr.click();
     await this.page.waitForTimeout(1000);
     await this.QTYDecr.click();
     await this.page.waitForTimeout(2000);
     await expect(this.QTY).toHaveValue("3");
 }
-async InputQTY () {
+async inputQTY () {
     await this.QTY.click();
     await this.QTY.fill("10");
     await this.page.waitForTimeout(2000);
     await expect(this.QTY).toHaveValue("10"); 
 }
-async YouMayLike () {
+async youMayLike () {
     await this.RightArrow.click();
     await this.RightArrow.click();
     await this.LeftArrow.click();
     await this.LeftArrow.click(); 
 }
-async CalShipping () {
+async calShipping () {
     await this.CalShip.click();
     await this.Zip.click();
     await this.Zip.fill("45014");
@@ -80,11 +80,11 @@ async CalShipping () {
     await this.CalShipButton.click();
     await this.page.waitForTimeout(2000);
 }
-async ClickCheckout () {
+async clickCheckout () {
     await this.CheckoutButton.click();
     await this.Logo.click();
 }
-async GotoCart () {
+async goToCart () {
     await this.page.goto("https://www.bestchiavarichairs.com/cart");
     await page.waitForLoadState();
 }
