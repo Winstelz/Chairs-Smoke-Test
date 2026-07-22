@@ -11,10 +11,4 @@ test('AnnoucementBar', async ({ page }) => {
     await HomePage.gotoHomePage();
 //Click through the Bar
     await Banner.clickBanner();
-    
-
-
-
-
-
 });

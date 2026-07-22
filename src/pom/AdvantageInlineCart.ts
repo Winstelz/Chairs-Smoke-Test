@@ -19,7 +19,7 @@ export class AdvantageInlineCart {
     readonly EmptyLink: Locator;
 
 
-    constructor(page) {
+    constructor(page: any) {
         this.page = page;
         this.Product = page.locator("//a[contains(text(),'Advantage Multipurpose Church Chairs - 18.5 in. Wi')]");
         this.QTYIncr = page.locator("(//button[@aria-label='Increment Quantity'])[2]");

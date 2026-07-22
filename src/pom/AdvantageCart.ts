@@ -1,91 +1,101 @@
-import { expect, type Locator, type Page, type getByRole } from '@playwright/test';
+import { expect, type Locator, type Page} from '@playwright/test';
 
 export class AdvantageCart {
     readonly page: Page;
-    readonly Cart: Locator;
-    readonly QTYIncr: Locator;
-    readonly QTY: Locator;
-    readonly QTYDecr: Locator;
-    readonly RightArrow: Locator;
-    readonly LeftArrow: Locator;
-    readonly Zip: Locator;
-    readonly Address: Locator;
-    readonly CalShip: Locator;
-    readonly CalShipButton: Locator;
-    readonly CheckoutButton: Locator;
-    readonly Logo: Locator;
-    readonly CartPage: Page;
+    readonly cart: Locator;
+    readonly qtyIncr: Locator;
+    readonly qty: Locator;
+    readonly qtyDecr: Locator;
+    readonly rightArrow: Locator;
+    readonly leftArrow: Locator;
+    readonly zip: Locator;
+    readonly address: Locator;
+    readonly calShip: Locator;
+    readonly calShipButton: Locator;
+    readonly checkoutButton: Locator;
+    readonly logo: Locator;
+    readonly cartPage: Page;
 
     
 
 
-    constructor(page) {
+    constructor(page: any) {
         this.page = page;
-        this.Cart = page.locator("//span[normalize-space()='View Cart']");
-        this.QTYIncr = page.locator("//button[@aria-label='Increment Quantity']");
-        this.QTY = page.locator("(//input[@type='number'])[1]");
-        this.QTYDecr = page.locator("//button[@aria-label='Decrement Quantity']");
-        this.RightArrow = page.locator("//button[@aria-label='Next slide']//span[@class='ra-icon ra-icon--sm']//*[name()='svg']");
-        this.LeftArrow = page.locator("//button[@aria-label='Previous slide']//span[@class='ra-icon ra-icon--sm']//*[name()='svg']");
-        this.Zip = page.locator("//input[@placeholder='Enter Zip or Postal Code']");
-        this.Address = page.locator("//select[@name='addressType']");
-        this.CalShip = page.locator("//span[@class='ra-icon']//*[name()='svg']");
-        this.CalShipButton = page.locator("//button[normalize-space()='Calculate Shipping']");
-        this.CheckoutButton = page.locator("//button[normalize-space()='Proceed to Checkout']");
-        this.Logo = page.locator("//header[@class='EAjaz Xx7bI _1fragemr6']//div//div//a[@class='s2kwpi1 s2kwpi0 _1fragempf _1fragemwu _1fragemx3 _1fragemwp s2kwpi3 s2kwpi7 s2kwpi5 _1fragemwl']");
-        this.CartPage = page;
+        this.cart = page.locator("//span[normalize-space()='View Cart']");
+        this.qtyIncr = page.locator("//button[@aria-label='Increment Quantity']");
+        this.qty = page.locator("(//input[@type='number'])[1]");
+        this.qtyDecr = page.locator("//button[@aria-label='Decrement Quantity']");
+        this.rightArrow = page.locator("//button[@aria-label='Next slide']//span[@class='ra-icon ra-icon--sm']//*[name()='svg']");
+        this.leftArrow = page.locator("//button[@aria-label='Previous slide']//span[@class='ra-icon ra-icon--sm']//*[name()='svg']");
+        this.zip = page.locator("//input[@placeholder='Enter Zip or Postal Code']");
+        this.address = page.locator("//select[@name='addressType']");
+        this.calShip = page.locator("//span[@class='ra-icon']//*[name()='svg']");
+        this.calShipButton = page.getByRole('button', { name: 'Calculate Shipping' });
+        this.checkoutButton = page.getByRole('button', { name: 'Proceed to Checkout' });
+        this.logo = page.locator("//header[@class='EAjaz Xx7bI _1fragemr6']//div//div//a[@class='s2kwpi1 s2kwpi0 _1fragempf _1fragemwu _1fragemx3 _1fragemwp s2kwpi3 s2kwpi7 s2kwpi5 _1fragemwl']");
+        this.cartPage = page;
 
 
     }
 async clickCart (){
-    await this.Cart.click();
+    console.log({ message: `Clicking Cart....`});
+    await this.cart.click();
     await expect(this.page.url()).toContain("/cart");
 }
 async increaseQTY () {
-    await this.QTYIncr.click();
+    console.log({ message: `Increasing QTY....`});
+    await this.qtyIncr.click();
     await this.page.waitForTimeout(1000);
-    await this.QTYIncr.click();
+    await this.qtyIncr.click();
     await this.page.waitForTimeout(1000);
-    await this.QTYIncr.click();
+    await this.qtyIncr.click();
     await this.page.waitForTimeout(1000);
-    await this.QTYIncr.click();
+    await this.qtyIncr.click();
+    await this.page.waitForTimeout(1000);
+    await this.qtyIncr.click();
     await this.page.waitForTimeout(2000);
-    await expect(this.QTY).toHaveValue("5");
+    await expect(this.qty).toHaveValue("5");
 }
 async decreaseQTY () {
-    await this.QTYDecr.click();
+    console.log({ message: `Decreasing QTY....`});
+    await this.qtyDecr.click();
     await this.page.waitForTimeout(1000);
-    await this.QTYDecr.click();
+    await this.qtyDecr.click();
     await this.page.waitForTimeout(2000);
-    await expect(this.QTY).toHaveValue("3");
+    await expect(this.qty).toHaveValue("3");
 }
 async inputQTY () {
-    await this.QTY.click();
-    await this.QTY.fill("10");
+    console.log({ message: `Inputting QTY....`});
+    await this.qty.click();
+    await this.qty.fill("10");
     await this.page.waitForTimeout(2000);
-    await expect(this.QTY).toHaveValue("10"); 
+    await expect(this.qty).toHaveValue("10"); 
 }
 async youMayLike () {
-    await this.RightArrow.click();
-    await this.RightArrow.click();
-    await this.LeftArrow.click();
-    await this.LeftArrow.click(); 
+    console.log({ message: `Clicking You May Also Like Carousel....`});
+    await this.rightArrow.click();
+    await this.rightArrow.click();
+    await this.leftArrow.click();
+    await this.leftArrow.click(); 
 }
 async calShipping () {
-    await this.CalShip.click();
-    await this.Zip.click();
-    await this.Zip.fill("45014");
-    await this.Address.click();
-    await this.Address.selectOption('Residential');
-    await this.CalShipButton.click();
+    console.log({ message: `Calculating Shipping....`});
+    await this.calShip.click();
+    await this.zip.click();
+    await this.zip.fill("45014");
+    await this.address.click();
+    await this.address.selectOption('Residential');
+    await this.calShipButton.click();
     await this.page.waitForTimeout(2000);
 }
 async clickCheckout () {
-    await this.CheckoutButton.click();
-    await this.Logo.click();
+    console.log({ message: `Clicking Checkout....`});
+    await this.checkoutButton.click();
+    await this.logo.click();
 }
 async goToCart () {
+    console.log({ message: `Clicking Cart Page....`});
     await this.page.goto("https://www.bestchiavarichairs.com/cart");
-    await page.waitForLoadState();
+    await this.page.waitForLoadState();
 }
 }

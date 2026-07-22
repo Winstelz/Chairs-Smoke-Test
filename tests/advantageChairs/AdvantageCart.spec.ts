@@ -20,10 +20,10 @@ test('AdvantageCart', async ({ page }) => {
 //Navigate to PLP
     await HomePage.ClickShopAll();
  //Click First Item
-    await PLP.clickFirstItem();
+    await PLP.firstItem.click();
 //Add Item to Cart
        await PDP.AddtoCart();
- //Verify Product is in Cart
+//Verify Product is in Cart
     await Inline.VerifyProduct();
 //Click Cart Page
     await Cart.clickCart();
@@ -41,7 +41,7 @@ test('AdvantageCart', async ({ page }) => {
 //Click Checkout
     await Cart.clickCheckout();
 //Click Cart Page
-    await Cart.GotoCart();
+    await Cart.goToCart();
 //Delete Item from Inline Cart
     await page.locator("//button[@class='ra-button ra-icon-button ra-button--tertiary ra-icon-button--md hover:!border-primary-600 !border-primary-800 group !w-//*[name()='svg']").click();
 //  const EmptyLink = await page.locator("//a[normalize-space()='Shop Chiavari Chairs']");
