@@ -14,12 +14,10 @@ export class AdvantageHomePage {
     readonly More: Locator;
     readonly Patio: Locator;
     readonly Classroom: Locator;
-    readonly StudentDesks: Locator;
     readonly Office: Locator;
-    readonly LivingRoom: Locator;
 
 
-constructor(page) {
+constructor(page: any) {
     this.page = page;
     this.ShopAll = page.locator("//span[@title='Shop All']//a[normalize-space()='Shop All']");
     this.Logo = page.locator("//img[@alt='Advantage Church Chairs Logo']");
@@ -39,51 +37,53 @@ constructor(page) {
 
 
     async gotoHomePage() {
-        await this.page.goto('https://www.advantagechurchchairs.com/?_ab=0&_fd=0&_sc=1&preview_theme_id=164106633506');
+        console.log({ message: `Clicking Home Page....`});
+        await this.page.goto('https://www.advantagechurchchairs.com/');
     }
 
     async ClickLogo()   {
+        console.log({ message: `Clicking Logo....`});
         await this.Logo.click();
         await this.page.waitForLoadState();
         expect(this.page.url()).toContain('https://www.advantagechurchchairs.com/');
     }
 
     async ClickShopAll() {
+        console.log({ message: `Clicking Shop All....`});
         await this.ShopAll.click();
         await this.page.waitForLoadState();
         expect(this.page.url()).toContain('/collections/shop-all');
     }
     async ClickChurchChairs() {
+        console.log({ message: `Clicking Church Chairs....`});
         await this.ChurchChairs.click();
         await this.page.waitForLoadState();
         expect(this.page.url()).toContain('/collections/church-stack-chairs');
     }
 
     async ClickBanquetChairs () {
+        console.log({ message: `Clicking Banquet Chairs....`});
         await this.BanquetChairs.click();
         await this.page.waitForLoadState();
         expect(this.page.url()).toContain('/collections/banquet-stack-chairs');
     }
 
     async ClickFoldEvent () {
+        console.log({ message: `Clicking Fold Event....`});
         await this.FoldEvent.click();
         await this.page.waitForLoadState();
         expect(this.page.url()).toContain('/collections/folding-event');
     }
-    async ClickChurch () {
-        await this.Church.click();
-        await this.page.waitForLoadState();
-        expect(this.page.url()).toContain('/collections/church');
-    }
-
 
     async ClickClassroom () {
+        console.log({ message: `Clicking Classroom....`});
         await this.Classroom.click();
         await this.page.waitForLoadState();
         expect(this.page.url()).toContain('/collections/classroom');
 }
 
-    async ClickOffice () {
+    async ClickOfficeReception () {
+        console.log({ message: `Clicking Office & Reception....`});
         await this.Office.click();
         await this.page.waitForLoadState();
         expect(this.page.url()).toContain('/collections/office');
