@@ -1,14 +1,14 @@
 import { test, expect } from '@playwright/test';
-import { AdvantageHomePage }from '../../src/pom/AdvantageHomePage';
-import { AdvantageAnnoucementBar }from '../../src/pom/AdvantageAnnoucementBar';
+import { AdvantageHomePage } from '../../src/pom/AdvantageChairs/AdvantageHomePage';
+import { AdvantageAnnoucementBar } from '../../src/pom/AdvantageChairs/AdvantageAnnoucementBar';
 
 
 
 test('AnnoucementBar', async ({ page }) => {
-    const HomePage = new AdvantageHomePage(page)
-    const Banner = new AdvantageAnnoucementBar(page)
+    const homePage = new AdvantageHomePage(page)
+    const banner = new AdvantageAnnoucementBar(page)
  //Navigate to Advantage site    
-    await HomePage.gotoHomePage();
+    await homePage.gotoHomePage();
 //Click through the Bar
-    await Banner.clickBanner();
+    await banner.clickBanner();
 });

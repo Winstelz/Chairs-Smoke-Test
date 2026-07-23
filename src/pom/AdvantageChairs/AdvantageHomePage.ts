@@ -1,9 +1,12 @@
 import { expect, type Locator, type Page } from '@playwright/test';
+import { CommonUtil } from '../../commonUtil';
 
 export class AdvantageHomePage {
     readonly page: Page;
+    readonly commonUtil: CommonUtil;
+
     readonly ShopAll: Locator;
-    readonly Logo: Locator;
+    readonly logo: Locator;
     readonly ChurchChairs: Locator;
     readonly BanquetChairs: Locator;
     readonly FoldEvent: Locator;
@@ -15,12 +18,14 @@ export class AdvantageHomePage {
     readonly Patio: Locator;
     readonly Classroom: Locator;
     readonly Office: Locator;
+    readonly popUp: Locator;
 
 
 constructor(page: any) {
     this.page = page;
+    this.commonUtil = new CommonUtil(page);
     this.ShopAll = page.locator("//span[@title='Shop All']//a[normalize-space()='Shop All']");
-    this.Logo = page.locator("//img[@alt='Advantage Church Chairs Logo']");
+    this.logo = page.locator("//img[@alt='Advantage Church Chairs Logo']");
     this.ChurchChairs = page.locator("//span[@title='Church Chairs']");
     this.BanquetChairs = page.locator("//span[@title='Banquet Chairs']");
     this.FoldEvent = page.locator("//span[@title='Folding & Event']//a[normalize-space()='Folding & Event']");
@@ -32,6 +37,7 @@ constructor(page: any) {
     this.Patio =  page.locator("//a[@class='text-base leading-4 tracking-wider flex flex-col'][normalize-space()='Patio & Outdoor']");
     this.Classroom = page.locator("//span[@title='Classroom']//a[normalize-space()='Classroom']");
     this.Office = page.locator("//span[@title='Office & Reception']//a[normalize-space()='Office & Reception']");
+    this.popUp = page.locator('form[data-testid="klaviyo-form-SMG4ZK"]').getByPlaceholder('Email');
 
 }  
 
@@ -41,48 +47,48 @@ constructor(page: any) {
         await this.page.goto('https://www.advantagechurchchairs.com/');
     }
 
-    async ClickLogo()   {
+    async clickLogo()   {
         console.log({ message: `Clicking Logo....`});
-        await this.Logo.click();
+        await this.logo.click();
         await this.page.waitForLoadState();
         expect(this.page.url()).toContain('https://www.advantagechurchchairs.com/');
     }
 
-    async ClickShopAll() {
+    async clickShopAll() {
         console.log({ message: `Clicking Shop All....`});
         await this.ShopAll.click();
         await this.page.waitForLoadState();
         expect(this.page.url()).toContain('/collections/shop-all');
     }
-    async ClickChurchChairs() {
+    async clickChurchChairs() {
         console.log({ message: `Clicking Church Chairs....`});
         await this.ChurchChairs.click();
         await this.page.waitForLoadState();
         expect(this.page.url()).toContain('/collections/church-stack-chairs');
     }
 
-    async ClickBanquetChairs () {
+    async clickBanquetChairs () {
         console.log({ message: `Clicking Banquet Chairs....`});
         await this.BanquetChairs.click();
         await this.page.waitForLoadState();
         expect(this.page.url()).toContain('/collections/banquet-stack-chairs');
     }
 
-    async ClickFoldEvent () {
+    async clickFoldEvent () {
         console.log({ message: `Clicking Fold Event....`});
         await this.FoldEvent.click();
         await this.page.waitForLoadState();
         expect(this.page.url()).toContain('/collections/folding-event');
     }
 
-    async ClickClassroom () {
+    async clickClassroom () {
         console.log({ message: `Clicking Classroom....`});
         await this.Classroom.click();
         await this.page.waitForLoadState();
         expect(this.page.url()).toContain('/collections/classroom');
 }
 
-    async ClickOfficeReception () {
+    async clickOfficeReception () {
         console.log({ message: `Clicking Office & Reception....`});
         await this.Office.click();
         await this.page.waitForLoadState();
@@ -90,35 +96,45 @@ constructor(page: any) {
 }
 
 
-    async HoverChurchChairs () {
+    async hoverChurchChairs () {
         await this.ChurchChairs.hover();
         await this.Dollies.click();
         await this.page.waitForLoadState('load', { timeout: 60000 });
         expect(this.page.url()).toContain('/collections/church-banquet-stack-chair-dollies');
     }
-    async HoverFoldEvent () {
+    async hoverFoldEvent () {
         await this.FoldEvent.hover();
         await this.Resin.click();
         await this.page.waitForLoadState('load', { timeout: 60000 });
         expect(this.page.url()).toContain('/collections/resin-folding-chairs');
     }
-    async HoverClassroom () {
+    async hoverClassroom () {
         await this.Classroom.hover();
         await this.Activity.click();
         expect(this.page.url()).toContain('/collections/classroom-activity-table-sets');
     }
-    async HoverOffice () {
+    async hoverOffice () {
         await this.Office.hover();
         await this.Desks.click();
         await this.page.waitForLoadState('load', { timeout: 60000 });
         expect(this.page.url()).toContain('/collections/desks');
     }
-    async HoverMore () {
+    async hoverMore () {
         await this.More.hover();
         await this.Patio.click();
         await this.page.waitForLoadState('load', { timeout: 60000 });
         expect(this.page.url()).toContain('/collections/patio-outdoor');
     }
     
-
+    async popUpClose() {
+        console.log({ message: `Awaiting Pop Up....`});
+        const popup = this.popUp;
+    try {
+        await popup.waitFor({ state: 'visible', timeout: 15000 });
+        console.log({ message: 'Klaviyo popup appeared — closing it' });
+        await this.commonUtil.closePopup.click();
+    } catch {
+        console.log({ message: 'Klaviyo popup did not appear — skipping close step' });
+    }
+}
 }
