@@ -1,55 +1,59 @@
 import { test, expect } from '@playwright/test';
-import { AdvantageHomePage }from '../../src/pom/AdvantageHomePage';
-import { AdvantagePLP }from '../../src/pom/AdvantagePLP';
-import { AdvantagePDP } from '../../src/pom/AdvantagePDP';
-import { AdvantageInlineCart } from '../../src/pom/AdvantageInlineCart';
-import { AdvantageCart } from '../../src/pom/AdvantageCart';
+import { AdvantageHomePage }from '../../src/pom/AdvantageChairs/AdvantageHomePage';
+import { AdvantagePLP }from '../../src/pom/AdvantageChairs/AdvantagePLP';
+import { AdvantagePDP } from '../../src/pom/AdvantageChairs/AdvantagePDP';
+import { AdvantageInlineCart } from '../../src/pom/AdvantageChairs/AdvantageInlineCart';
+import { AdvantageCart } from '../../src/pom/AdvantageChairs/AdvantageCart';
 
 
 
 
-test('AdvantageCart', async ({ page }) => {
+test('Advantage Cart WorkFlow', async ({ page }) => {
 
-    const HomePage = new AdvantageHomePage(page)
-    const PLP = new AdvantagePLP(page)
-    const PDP = new AdvantagePDP(page)
-    const Inline = new AdvantageInlineCart(page)
-    const Cart = new AdvantageCart(page)
+    const homePage = new AdvantageHomePage(page)
+    const plp = new AdvantagePLP(page)
+    const pdp = new AdvantagePDP(page)
+    const inlineCart = new AdvantageInlineCart(page)
+    const cart = new AdvantageCart(page)
 //Navigate to Advantage site    
-    await HomePage.gotoHomePage();
+    await homePage.gotoHomePage();
+//Await for Pop Up and Close
+    await homePage.popUpClose();    
 //Navigate to PLP
-    await HomePage.ClickShopAll();
+    await homePage.clickShopAll();
  //Click First Item
-    await PLP.firstItem.click();
+    await plp.firstItem.click();
 //Add Item to Cart
-       await PDP.AddtoCart();
+    await pdp.AddtoCart();
 //Verify Product is in Cart
-    await Inline.VerifyProduct();
+    await inlineCart.assertProduct();
 //Click Cart Page
-    await Cart.clickCart();
-        
+    await cart.clickCart(); 
+//click anywhere to remove nav bar from blocking the QTY buttons
+    await page.mouse.click(0, 0);          
 //Increase QTY
-    await Cart.increaseQTY();
+    await cart.increaseQTY();
 //Decrease QTY
-    await Cart.decreaseQTY();
+    await cart.decreaseQTY();
 //Input QTY
-    await Cart.inputQTY();
+    await cart.inputQTY();
 //You May Also Like Carousel Clicking
-    await Cart.youMayLike();
+    await cart.youMayLike();
 //Calculate Shipping
-    await Cart.calShipping();
+    await cart.calculateShippingOrder();
+//Close Teaser
+    await cart.closeTeaser();    
 //Click Checkout
-    await Cart.clickCheckout();
+    await cart.clickCheckout();
+//Click Checkout Logo
+    await cart.clickCheckoutLogo();
 //Click Cart Page
-    await Cart.goToCart();
+    await cart.goToCart();
 //Delete Item from Inline Cart
-    await page.locator("//button[@class='ra-button ra-icon-button ra-button--tertiary ra-icon-button--md hover:!border-primary-600 !border-primary-800 group !w-//*[name()='svg']").click();
-//  const EmptyLink = await page.locator("//a[normalize-space()='Shop Chiavari Chairs']");
-//  await EmptyLink.isVisible();
-//  await EmptyLink.click();
-//  await page.waitForLoadState();
-//  expect(page.url()).toContain("/collections/chiavari-chairs");
-
+    await cart.clickTrashIcon();
+    await cart.assertEmptyCart();
+//Assert can click empty link and good to that page
+    await cart.clickShopAllEmptyLink();
 
     
     
