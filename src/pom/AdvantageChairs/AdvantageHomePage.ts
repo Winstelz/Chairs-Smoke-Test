@@ -1,5 +1,6 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 import { CommonUtil } from '../../commonUtil';
+import { STORE_URLS } from '../../config/urls';
 
 export class AdvantageHomePage {
     readonly page: Page;
@@ -44,55 +45,55 @@ constructor(page: any) {
 
     async gotoHomePage() {
         console.log({ message: `Clicking Home Page....`});
-        await this.page.goto('https://www.advantagechurchchairs.com/');
+        await this.page.goto(STORE_URLS.advantage);
     }
 
     async clickLogo()   {
         console.log({ message: `Clicking Logo....`});
         await this.logo.click();
         await this.page.waitForLoadState();
-        expect(this.page.url()).toContain('https://www.advantagechurchchairs.com/');
+        expect(this.page.url()).toContain(STORE_URLS.advantage);
     }
 
     async clickShopAll() {
         console.log({ message: `Clicking Shop All....`});
         await this.ShopAll.click();
         await this.page.waitForLoadState();
-        expect(this.page.url()).toContain('/collections/shop-all');
+        expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/shop-all');
     }
     async clickChurchChairs() {
         console.log({ message: `Clicking Church Chairs....`});
         await this.ChurchChairs.click();
         await this.page.waitForLoadState();
-        expect(this.page.url()).toContain('/collections/church-stack-chairs');
+        expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/church-stack-chairs');
     }
 
     async clickBanquetChairs () {
         console.log({ message: `Clicking Banquet Chairs....`});
         await this.BanquetChairs.click();
         await this.page.waitForLoadState();
-        expect(this.page.url()).toContain('/collections/banquet-stack-chairs');
+        expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/banquet-stack-chairs');
     }
 
     async clickFoldEvent () {
         console.log({ message: `Clicking Fold Event....`});
         await this.FoldEvent.click();
         await this.page.waitForLoadState();
-        expect(this.page.url()).toContain('/collections/folding-event');
+        expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/folding-event');
     }
 
     async clickClassroom () {
         console.log({ message: `Clicking Classroom....`});
         await this.Classroom.click();
         await this.page.waitForLoadState();
-        expect(this.page.url()).toContain('/collections/classroom');
+        expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/classroom');
 }
 
     async clickOfficeReception () {
         console.log({ message: `Clicking Office & Reception....`});
         await this.Office.click();
         await this.page.waitForLoadState();
-        expect(this.page.url()).toContain('/collections/office');
+        expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/office');
 }
 
 
@@ -100,30 +101,30 @@ constructor(page: any) {
         await this.ChurchChairs.hover();
         await this.Dollies.click();
         await this.page.waitForLoadState('load', { timeout: 60000 });
-        expect(this.page.url()).toContain('/collections/church-banquet-stack-chair-dollies');
+        expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/church-banquet-stack-chair-dollies');
     }
     async hoverFoldEvent () {
         await this.FoldEvent.hover();
         await this.Resin.click();
         await this.page.waitForLoadState('load', { timeout: 60000 });
-        expect(this.page.url()).toContain('/collections/resin-folding-chairs');
+        expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/resin-folding-chairs');
     }
     async hoverClassroom () {
         await this.Classroom.hover();
         await this.Activity.click();
-        expect(this.page.url()).toContain('/collections/classroom-activity-table-sets');
+        expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/classroom-activity-table-sets');
     }
     async hoverOffice () {
         await this.Office.hover();
         await this.Desks.click();
         await this.page.waitForLoadState('load', { timeout: 60000 });
-        expect(this.page.url()).toContain('/collections/desks');
+        expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/desks');
     }
     async hoverMore () {
         await this.More.hover();
         await this.Patio.click();
         await this.page.waitForLoadState('load', { timeout: 60000 });
-        expect(this.page.url()).toContain('/collections/patio-outdoor');
+        expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/patio-outdoor');
     }
     
     async popUpClose() {
