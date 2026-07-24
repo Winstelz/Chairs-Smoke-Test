@@ -26,6 +26,8 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Advantage Chairs tests
+        id: run-tests
+        continue-on-error: true
         run: npx playwright test tests/advantageChairs --reporter=line,allure-playwright
         env:
           CI: true
@@ -37,6 +39,11 @@ jobs:
       - name: Summary
         if: always()
         run: |
+          if [ "${{ steps.run-tests.outcome }}" = "success" ]; then
+            echo "Tests passed."
+          else
+            echo "Tests failed. Allure report is still available as an artifact."
+          fi
           echo "Allure report generated at $GITHUB_WORKSPACE/allure-report"
           echo "Download it from the Actions run artifacts section."
 
@@ -47,3 +54,7 @@ jobs:
           name: allure-report
           path: allure-report
           if-no-files-found: warn
+
+      - name: Fail workflow if tests failed
+        if: steps.run-tests.outcome != 'success'
+        run: exit 1
