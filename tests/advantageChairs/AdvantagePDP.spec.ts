@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
-import { AdvantageHomePage }from '../../src/pom/AdvantageHomePage';
-import { AdvantagePLP }from '../../src/pom/AdvantagePLP';
-import { AdvantagePDP } from '../../src/pom/AdvantagePDP';
+import { AdvantageHomePage } from '../../src/pom/AdvantageChairs/AdvantageHomePage';
+import { AdvantagePLP } from '../../src/pom/AdvantageChairs/AdvantagePLP';
+import { AdvantagePDP } from '../../src/pom/AdvantageChairs/AdvantagePDP';
 
 
 test('AdvantagePDP', async ({ page }) => {
