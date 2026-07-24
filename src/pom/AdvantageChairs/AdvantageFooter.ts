@@ -1,5 +1,6 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 
+
 export class AdvantageFooter {
     readonly page: Page;
     readonly about: Locator;
@@ -28,42 +29,52 @@ constructor(page: any) {
 
 }
 async clickAbout () {
+    console.log({ message: `Clicking About Us....`});
     await this.about.click();
     await expect(this.page.url()).toContain("about-us");
 }
 async clickPayment () {
+    console.log({ message: `Clicking Payment Options....`});
     await this.payment.click();
     await expect(this.page.url()).toContain("payment-options");
 }
 async clickShipping () {
+    console.log({ message: `Clicking Shipping Information....`});
     await this.shipping.click();
     await expect(this.page.url()).toContain("shipping-information");
 }
 async clickSite () {
+    console.log({ message: `Clicking Site Security....`});
     await this.site.click();
     await expect(this.page.url()).toContain("site-security");
 }
 async clickPrivacy () {
+    console.log({ message: `Clicking Privacy Policy....`});
     await this.privacy.click();
     await expect(this.page.url()).toContain("privacy-policy");
 }
 async clickCAPrivacy () {
+    console.log({ message: `Clicking California Privacy Rights....`});
     await this.caPrivacy.click();
     await expect(this.page.url()).toContain("privacy-policy");
 }
 async clickTermOU () {
+    console.log({ message: `Clicking Terms of Use....`});
     await this.termsOU.click();
     await expect(this.page.url()).toContain("terms-of-use");
 }
 async clickTermOS () {
+    console.log({ message: `Clicking Terms of Sale....`});
     await this.termsOS.click();
     await expect(this.page.url()).toContain("terms-of-sale");
 }
 async clickAccess () {
+    console.log({ message: `Clicking Accessibility Statement....`});
     await this.access.click();
     await expect(this.page.url()).toContain("accessibility");
 }
 async clickSiteMap () {
+    console.log({ message: `Clicking Site Map....`});
     await this.sitemap.click();
     await expect(this.page.url()).toContain("sitemap");
 }

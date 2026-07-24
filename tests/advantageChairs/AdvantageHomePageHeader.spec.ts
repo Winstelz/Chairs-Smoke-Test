@@ -10,30 +10,30 @@ test('AdvantageHomePageHeader', async ({ page }) => {
     await HomePage.gotoHomePage()
 
 //Click Logo and verify on homepage
-    await HomePage.ClickLogo();
+    await HomePage.clickLogo();
 //Click Shop All Menu
-    await HomePage.ClickShopAll();
+    await HomePage.clickShopAll();
 //Click Church Chairs Menu
-    await HomePage.ClickChurchChairs();
+    await HomePage.clickChurchChairs();
 //Click Banquet Chairs Menu
-    await HomePage.ClickBanquetChairs();
+    await HomePage.clickBanquetChairs();
 //Click Folding & Event Menu
-    await HomePage.ClickFoldEvent();
+    await HomePage.clickFoldEvent();
 //Click Classroom Menu
-    await HomePage.ClickClassroom();
+    await HomePage.clickClassroom();
 //Click Office & Reception Menu
-    await HomePage.ClickOffice();
+    await HomePage.clickOfficeReception();
 
 
 //Hover Church Chairs Menu & Click Church & Stack Chairs Dollies
-    await HomePage.HoverChurchChairs();
+    await HomePage.hoverChurchChairs();
 //Hover Folding & Event Menu & Click Resin Folding Chairs
-    await HomePage.HoverFoldEvent();
+    await HomePage.hoverFoldEvent();
 //Hover Classroom Menu & Click Activity Set
-    await HomePage.HoverClassroom();
+    await HomePage.hoverClassroom();
 //Hover Office Menu & Click Desks
-    await HomePage.HoverOffice();
+    await HomePage.hoverOffice();
 //Hover More Menu & Click Patio & Outdoor
-    await HomePage.HoverMore();
+    await HomePage.hoverMore();
     
 });
