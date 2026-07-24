@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { AdvantageHomePage }from '../../src/pom/AdvantageHomePage';
-import { AdvantagePLP }from '../../src/pom/AdvantagePLP';
+import { AdvantageHomePage } from '../../src/pom/AdvantageChairs/AdvantageHomePage';
+import { AdvantagePLP } from '../../src/pom/AdvantageChairs/AdvantagePLP';
 
 
 
