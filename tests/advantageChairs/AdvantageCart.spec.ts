@@ -38,9 +38,9 @@ test('Advantage Cart WorkFlow', async ({ page }) => {
 //Input QTY
     await cart.inputQTY();
 //You May Also Like Carousel Clicking
-    await cart.youMayLike();
+    await cart.clickYouMayLike();
 //Calculate Shipping
-    await cart.calculateShippingOrder();
+    await cart.clickCalculateShipping();
 //Close Teaser
     await cart.closeTeaser();    
 //Click Checkout

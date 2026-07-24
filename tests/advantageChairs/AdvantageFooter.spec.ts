@@ -4,30 +4,30 @@ import { AdvantageFooter } from '../../src/pom/AdvantageChairs/AdvantageFooter';
 
 
 
-test('AdvantageFooter', async ({ page }) => {
-    const HomePage = new AdvantageHomePage(page)
-    const Footer = new AdvantageFooter(page)
+test('AdvantageFooter WorkFlow', async ({ page }) => {
+    const homePage = new AdvantageHomePage(page)
+    const footer = new AdvantageFooter(page)
     //Navigate to Advantage site   
-        await HomePage.gotoHomePage(); 
+        await homePage.gotoHomePage(); 
     //Click About Us
-        await Footer.clickAbout();
+        await footer.clickAbout();
     //Click Payment Option
-       await Footer.clickPayment();
+       await footer.clickPayment();
      //Click Shipping Information
-        await Footer.clickShipping();
+        await footer.clickShipping();
      //Click Site Security
-        await Footer.clickSite();
+        await footer.clickSite();
     //Click Privacy Policy
-        await Footer.clickPrivacy();
+        await footer.clickPrivacy();
     //Click CA Privacy
-        await Footer.clickCAPrivacy();
+        await footer.clickCAPrivacy();
     //Click Terms of Use
-        await Footer.clickTermOU();
+        await footer.clickTermOU();
     //Click Terms of Sale
-        await Footer.clickTermOS();
+        await footer.clickTermOS();
     //Click Accessibility Statement
-        await Footer.clickAccess();
+        await footer.clickAccess();
     //Click Site Map
-        await Footer.clickSiteMap();
+        await footer.clickSiteMap();
 
     });

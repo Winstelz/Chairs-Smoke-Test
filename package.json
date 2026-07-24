@@ -10,7 +10,8 @@
     "test": "playwright test",
     "test:advantage": "playwright test tests/advantageChairs",
     "test:advantage:allure": "playwright test tests/advantageChairs --reporter=line,allure-playwright",
-    "allure:report": "allure generate allure-results --clean -o allure-report"
+    "allure:report": "allure generate allure-results --clean -o allure-report",
+    "test:advantage:report": "npm run test:advantage:allure && npm run allure:report && start allure-report/index.html"
   },
   "repository": {
     "type": "git",

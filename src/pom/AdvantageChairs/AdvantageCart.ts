@@ -95,14 +95,14 @@ async inputQTY () {
     await this.page.waitForTimeout(2000);
     await expect(this.qty).toHaveValue("10"); 
 }
-async youMayLike () {
+async clickYouMayLike () {
     console.log({ message: `Clicking You May Also Like Carousel....`});
     await this.rightArrow.click();
     await this.rightArrow.click();
     await this.leftArrow.click();
     await this.leftArrow.click(); 
 }
-async calculateShippingOrder () {
+async clickCalculateShipping () {
     console.log({ message: `Calculating Shipping....`});
     await this.calculateShipping.click();
     await this.zip.click();
