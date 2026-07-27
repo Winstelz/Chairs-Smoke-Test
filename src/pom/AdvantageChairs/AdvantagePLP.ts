@@ -37,13 +37,13 @@ export class AdvantagePLP {
     }
 
 
-async Sorting () {
+async sorting () {
     await this.sort.selectOption( {label: "Price, low to high"});
     expect(this.firstItem).toContainText("Advantage Multipurpose Church Chairs");
     await this.sort.selectOption( {label: "Best selling"});
 }
 
-async ColorFilter(){
+async colorFilter(){
     await this.colorFam.isVisible();
     await this.colorFam.click();
     await this.showMore.isVisible();
@@ -53,38 +53,38 @@ async ColorFilter(){
     await this.page.waitForTimeout(2000);
 }
 
-async FinishFilter () {
+async finishFilter () {
     await this.finish.click();
     await this.copper.isVisible();
     await this.copper.click();
 }
 
-async ClearColorFilter () {
+async clearColorFilter () {
     await this.greenPill.isVisible();
     await this.greenPill.click();
 }
-async ClearAllFilter () {
+async clearAllFilter () {
     await this.clearAll.isVisible();
     await this.clearAll.click();
 }
 
-async ClickPagination () {
+async clickPagination () {
     await this.page2.isVisible();
     await this.page2.click();
     expect(this.page.url()).toContain("page=2");
 }
 
-async ClickRightArrow () {
+async clickRightArrow () {
     await this.rightArrow.isVisible();
     await this.rightArrow.click();
     expect(this.page.url()).toContain("page=3");
 }
-async ClickLeftArrow () {
+async clickLeftArrow () {
     await this.leftArrow.isVisible();
     await this.leftArrow.click();
     expect(this.page.url()).toContain("page=2");
 }
-async ClickPDP () {
+async clickPDP () {
     await this.page.waitForLoadState();
     await this.pdpItem.isVisible();
     await this.pdpItem.click();

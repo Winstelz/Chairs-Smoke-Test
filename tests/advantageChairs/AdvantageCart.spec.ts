@@ -24,7 +24,7 @@ test('Advantage Cart WorkFlow', async ({ page }) => {
  //Click First Item
     await plp.firstItem.click();
 //Add Item to Cart
-    await pdp.AddtoCart();
+    await pdp.clickAddToCart();
 //Verify Product is in Cart
     await inlineCart.assertProduct();
 //Click Cart Page
