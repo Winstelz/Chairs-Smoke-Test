@@ -4,7 +4,7 @@ import { AdvantageAnnoucementBar } from '../../src/pom/AdvantageChairs/Advantage
 
 
 
-test('AnnoucementBar', async ({ page }) => {
+test('AnnoucementBar Flow', async ({ page }) => {
     const homePage = new AdvantageHomePage(page)
     const banner = new AdvantageAnnoucementBar(page)
  //Navigate to Advantage site    

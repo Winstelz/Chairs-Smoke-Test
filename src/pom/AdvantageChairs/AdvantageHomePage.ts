@@ -23,6 +23,7 @@ export class AdvantageHomePage {
     readonly searchIcon: Locator;
     readonly searchInput: Locator;
     readonly accountIcon: Locator;
+    readonly cartIcon: Locator;
 
 
 constructor(page: any) {
@@ -45,6 +46,7 @@ constructor(page: any) {
     this.searchIcon = page.getByRole('button', { name: 'search' });
     this.searchInput = page.locator("//input[@id='autocomplete-0-input']");
     this.accountIcon = page.getByRole('link', { name: 'account' });
+    this.cartIcon = page.getByRole('link', { name: 'cart' });
 }  
 
 
@@ -162,5 +164,10 @@ async clickAccountIcon() {
     console.log({ message: `Clicking Account Icon....`});
     await this.accountIcon.click();
     await this.page.waitForURL(/shopify\.com/);
+}
+
+async clickCartIcon() {
+    console.log({ message: `Clicking Cart Icon....`});
+    await this.cartIcon.click();
 }
 }
