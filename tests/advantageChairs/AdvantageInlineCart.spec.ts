@@ -64,5 +64,5 @@ test('AdvantageInlineCart Flow', async ({ cart, homePage, plp, pdp, inlineCart }
 //Delete Item from Cart      
   await inlineCart.deleteItem();
 //Click Empty Cart Link
-    await inlineCart.clickInlineCartEmptyLink();
+  await inlineCart.clickInlineCartEmptyLink();
 });
