@@ -3,6 +3,7 @@ import { defineConfig } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   timeout: 180000,
+  workers: 4, // run up to 4 test files in parallel
   expect: {
     timeout: 5000,
   },
