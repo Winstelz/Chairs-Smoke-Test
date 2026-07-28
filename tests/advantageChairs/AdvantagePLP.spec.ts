@@ -19,9 +19,11 @@ test('AdvantagePLP Flow', async ({ page }) => {
     await plp.selectColorFilter();
 //Click Finish -> Copper Vein Metal
     await plp.clickingfinishFilter();
+//Remove popUp is shown
+    await homePage.popUpClose();    
 //Clear Filter Pills
     await plp.clearColorFilter();
-    await plp.clearAllFilter();
+    await plp.clearFinishFilter();
 //Click Pagination
    await plp.clickPagination();
 //Click Pagination Right Arrow

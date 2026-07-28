@@ -1,6 +1,6 @@
 import { expect, type Locator, type Page} from '@playwright/test';
 import { CommonUtil } from '../../commonUtil';
-import { AdvantageHomePage } from './AdvantageHomePage';
+import { AdvantageHomePage } from './advantageHomePage';
 import { STORE_URLS } from '../../config/urls';
 
 export class AdvantageCart {
