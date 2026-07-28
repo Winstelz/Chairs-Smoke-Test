@@ -9,6 +9,8 @@ export default defineConfig({
   },
   use: {
     headless: process.env.CI ? true : false,
+    screenshot: 'only-on-failure',
+    trace: 'retain-on-failure',
   },
   reporter: [
     ['list'],
