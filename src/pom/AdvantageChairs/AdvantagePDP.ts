@@ -10,6 +10,8 @@ export class AdvantagePDP {
     readonly newReview: Locator;
     readonly closeReview: Locator;
     readonly sort: Locator;
+    readonly lowToHighSort: Locator;
+    readonly mostRecentSort: Locator;
     readonly rightArrow: Locator;
     readonly reviewNumber: Locator;
     readonly leftArrow: Locator;
@@ -18,25 +20,21 @@ export class AdvantagePDP {
     readonly qtyDec: Locator;
     readonly addToCart: Locator;
     readonly cart: Locator;
-    
-    
-    
-   
-    
-
 
     constructor(page: any) {
         this.page = page;
         this.description = page.locator("//button[normalize-space()='Description']");
         this.descrContent = page.locator("//div[@id='content-description']");
         this.pdpHeader = page.locator("//h1[contains(text(),'Advantage Multipurpose Church Chairs - 18.5 in. Wi')]");
-        this.pdpPrice = page.locator("//div[@class='h3 flex-col items-end hidden md:flex']//div[@class='h3 text-tertiary-900'][normalize-space()='$38.99']");
+        this.pdpPrice = page.locator("//div[@class='h3 flex-col items-end hidden md:flex']//div[@class='h3 text-tertiary-900']");
         this.reviewStars = page.locator("//div[@class='bv_stars_component_container']//*[name()='svg']").nth(0);
         this.newReview = page.locator("div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(5) > div:nth-child(1) > svg:nth-child(1)");
         this.closeReview = page.locator(".ips__sc-hn2bh6-0.cbsYNK");
-        this.sort = page.locator("#bv-dropdown-select-reviews");
+        this.sort = page.locator('[role="combobox"][aria-controls^="bv-reviews-sort-by"]');
+        this.lowToHighSort = page.getByRole('option', { name: 'Lowest to Highest Rating' });
+        this.mostRecentSort = page.getByRole('option', { name: 'Most Recent' });
         this.rightArrow = page.getByRole('button', { name: 'Next Reviews' });
-        this.reviewNumber = page.locator(".bv-rnr__sc-11r39gb-2.ghmrMg");
+        this.reviewNumber = page.getByText(/\d+\s*–\s*\d+\s*of\s*\d+\s*Reviews/).first();
         this.leftArrow = page.getByRole('button', { name: 'Previous Reviews' });
         this.qtyInc = page.locator("//button[@aria-label='Increment Quantity']//*[name()='svg']");
         this.qty = page.locator("//input[@type='number']");
@@ -48,55 +46,68 @@ export class AdvantagePDP {
 
 
 async clickDescription () {
+    console.log({ message: `Clicking Description` });
     await this.description.click();
     expect(this.descrContent).toContainText("The Molded Foam Multipurpose Church Chair - 18.5 in. Wide provides a durable seating solution for your fellowship hall or convention center. This comfortably padded stack chair not only satisfies seating in Churches, but work well in hotel lobbies, banquet halls and conference facilities.");
 }
 async assertPDPHeader () {
+    console.log({ message: `Asserting PDP Header` });
     expect(this.pdpHeader).toContainText("Advantage Multipurpose Church Chairs - 18.5 in. Wide");
 }
 
 async assertPDPPrice () {
-    expect(this.pdpPrice).toContainText("$38.99");   
+    console.log({ message: `Asserting PDP Price` });
+    expect(this.pdpPrice).toContainText("$49.36");   
 }
 
 async clickReviewStars () {
+    console.log({ message: `Clicking Review Stars` });
     await this.reviewStars.click();
 }
 
 async clickNewReview () {
+    console.log({ message: `Click New Review` });
     await this.newReview.click();
 }
 
 async clickCloseReview () {
+    console.log({ message: `Close Review` });
     await this.closeReview.click();
 }
 
 async sortFilter() {
-    await this.sort.hover();
-    await this.sort.selectOption({ label: 'Lowest to Highest Rating' });
-    await this.sort.selectOption({ label: 'Most Recent' });
+    console.log({ message: `Selecting Sort Filter` });
+    await this.sort.focus();
+    await this.page.keyboard.press('Enter');
+    await this.lowToHighSort.click();
+    await this.sort.focus();
+    await this.page.keyboard.press('Enter');
+    await this.mostRecentSort.click();
 }
 
 async rightArrowPagniation () {
+    console.log({ message: `Clicking Right Arrow Pagniation` });
     await this.rightArrow.click();
     await this.page.waitForTimeout(3000);
 }
 async leftArrowPagniation () {
+    console.log({ message: `Clicking Left Arrow Pagniation` });
     await this.leftArrow.click();
     await this.page.waitForTimeout(3000);
 }
     
-async reviewNumber1 () {
-    await this.reviewNumber.isVisible();
-    expect(this.reviewNumber).toContainText("9 – 23");
+async assertReviewNumber1 () {
+    console.log({ message: `Asserting Review Number Page 1` });
+    await expect(this.reviewNumber).toContainText("9 – 26");
 }
 
-async reviewNumber2 () {
+async assertReviewNumber2 () {
+    console.log({ message: `Asserting Review Number Page 2` });
     await this.page.waitForTimeout(3000);
-    await this.reviewNumber.isVisible();
-    expect(this.reviewNumber).toContainText("1 – 8");
+    await expect(this.reviewNumber).toContainText("1 – 8");
 }
 async qtyIncrease () {
+    console.log({ message: `Increasing QTY` });
     await this.qtyInc.click();
     await this.qtyInc.click();
     await this.qtyInc.click();
@@ -104,6 +115,7 @@ async qtyIncrease () {
 }
 
 async qtyDecrease () {
+    console.log({ message: `Decreasing QTY` });
     await this.qtyDec.click();
     await this.qtyDec.click();
     await this.qtyDec.click();
@@ -111,6 +123,7 @@ async qtyDecrease () {
 }
 
 async clickAddToCart () {
+    console.log({ message: `Click Add to Cart` });
     await this.addToCart.click();
     await this.cart.click();
 }
