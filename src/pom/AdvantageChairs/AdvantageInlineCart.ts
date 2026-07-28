@@ -1,5 +1,5 @@
 import { expect, type Locator, type Page } from '@playwright/test';
-import { AdvantageCart } from './AdvantageCart';
+import { AdvantageCart } from './advantageCart';
 
 export class AdvantageInlineCart {
     readonly page: Page;

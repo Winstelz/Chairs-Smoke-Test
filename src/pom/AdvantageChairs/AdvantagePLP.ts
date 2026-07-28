@@ -10,6 +10,7 @@ export class AdvantagePLP {
     readonly finish: Locator;
     readonly copper: Locator;
     readonly greenPill: Locator;
+    readonly clearFinish: Locator;
     readonly clearAll: Locator
     readonly page2: Locator;
     readonly rightArrow: Locator;
@@ -28,68 +29,86 @@ export class AdvantagePLP {
         this.finish = page.locator("//button[normalize-space()='Finish']");
         this.copper = page.locator("//span[contains(@class,'ra-choice__label')][normalize-space()='Copper Vein Metal']");
         this.greenPill = page.locator("//button[contains(@data-param,'filter.p.m.filter.colors')]//span[contains(@class,'ra-icon')]//*[name()='svg']");
+        this.clearFinish = page.locator("//button[contains(@data-param,'filter.p.m.filter.finish')]//span[contains(@class,'ra-icon')]//*[name()='svg']");
         this.clearAll = page.locator("//button[normalize-space()='Clear All']");   
         this.page2 = page.locator("//a[normalize-space()='2']"); 
         this.rightArrow = page.locator("//a[@aria-label='Go to next page']");
         this.leftArrow = page.locator("//a[@aria-label='Go to previous page']");
-        this.pdpItem = page.locator("//img[@alt=\"Embroidered 21''W Church Chair in Empire Fabric with Book Rack - Gold Vein Frame - View 2\"]");
+        this.pdpItem = page.getByRole('img', { name: /HERCULES Series 21"W Stacking Wood Accent Arm Church Chair - View 2/i })
     
     }
 
 
-async sorting () {
+async selectSorting () {
+    console.log({ message: "Sorting...." });
     await this.sort.selectOption( {label: "Price, low to high"});
     expect(this.firstItem).toContainText("Advantage Multipurpose Church Chairs");
     await this.sort.selectOption( {label: "Best selling"});
 }
 
-async colorFilter(){
-    await this.colorFam.isVisible();
+async selectColorFilter(){
+    console.log({ message: "Filtering by Colors...." });
+    await expect(this.colorFam).toBeVisible();
     await this.colorFam.click();
-    await this.showMore.isVisible();
+    await expect(this.showMore).toBeVisible();
+    //wait so it does not put up are you a robot prompt
+    await this.page.waitForTimeout(5000);
+    await this.page.mouse.click(0, 0);  
     await this.showMore.click();
-    await this.green.isVisible();
+    await expect(this.green).toBeVisible();
     await this.green.click();
     await this.page.waitForTimeout(2000);
 }
 
-async finishFilter () {
+async clickingfinishFilter () {
+    console.log({ message: "Filtering by Finish...." });
     await this.finish.click();
-    await this.copper.isVisible();
+    await expect(this.copper).toBeVisible();
     await this.copper.click();
 }
 
 async clearColorFilter () {
-    await this.greenPill.isVisible();
+    console.log({ message: "Clearing Color Filter...." });
+    //wait so it does not put up are you a robot prompt
+    await this.page.waitForTimeout(5000);
+    await this.page.mouse.click(0, 0);  
     await this.greenPill.click();
 }
+
+
+async clearFinishFilter () {
+    console.log({ message: "Clearing Finish Filter...." });
+    await this.page.waitForTimeout(5000); // consider replacing with a proper wait condition later
+    await this.page.mouse.click(0, 0);
+    await this.clearFinish.first().click();
+}
 async clearAllFilter () {
-    await this.clearAll.isVisible();
+    console.log({ message: "Clearing All Filters...." });
     await this.clearAll.click();
 }
 
 async clickPagination () {
-    await this.page2.isVisible();
+    console.log({ message: "Clicking Pagination...." });
     await this.page2.click();
     expect(this.page.url()).toContain("page=2");
 }
 
 async clickRightArrow () {
-    await this.rightArrow.isVisible();
+    console.log({ message: "Clicking Right Arrow...." });
     await this.rightArrow.click();
     expect(this.page.url()).toContain("page=3");
 }
 async clickLeftArrow () {
-    await this.leftArrow.isVisible();
+    console.log({ message: "Clicking Left Arrow...." });
     await this.leftArrow.click();
     expect(this.page.url()).toContain("page=2");
 }
 async clickPDP () {
+    console.log({ message: "Clicking PDP...." });
     await this.page.waitForLoadState();
-    await this.pdpItem.isVisible();
     await this.pdpItem.click();
     await this.page.waitForLoadState();
-    expect(this.page.url()).toContain("21w-church-chair-in-galaxy-fabric");
+    expect(this.page.url()).toContain("21-stackable-church-chair-with-arms-xu-dg-60156");
 }
 
 
