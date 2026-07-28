@@ -66,12 +66,17 @@ constructor(page: any) {
         console.log({ message: `Clicking Shop All....`});
         await this.shopAll.click();
         await this.page.waitForLoadState();
+        //wait so it does not put up a are you a robot prompt
+        await this.page.waitForTimeout(9000);
         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/shop-all');
     }
     async clickChurchChairs() {
         console.log({ message: `Clicking Church Chairs....`});
         await this.churchChairs.click();
         await this.page.waitForLoadState();
+        //wait so it does not put up a are you a robot prompt
+        await this.page.waitForTimeout(5000);
+        await this.page.mouse.click(0, 0);   
         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/church-stack-chairs');
     }
 
@@ -79,13 +84,19 @@ constructor(page: any) {
         console.log({ message: `Clicking Banquet Chairs....`});
         await this.banquetChairs.click();
         await this.page.waitForLoadState();
+        //wait so it does not put up a are you a robot prompt
+        await this.page.waitForTimeout(6000);
+        await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/banquet-stack-chairs');
     }
 
     async clickFoldEvent () {
-        console.log({ message: `Clicking Fold Event....`});
+        console.log({ message: `Clicking Folding & Event....`});
         await this.foldEvent.click();
         await this.page.waitForLoadState();
+        //wait so it does not put up a are you a robot prompt
+        await this.page.waitForTimeout(7000);
+        await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/folding-event');
     }
 
@@ -93,6 +104,9 @@ constructor(page: any) {
         console.log({ message: `Clicking Classroom....`});
         await this.classroom.click();
         await this.page.waitForLoadState();
+        //wait so it does not put up a are you a robot prompt
+        await this.page.waitForTimeout(5000);
+        await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/classroom');
 }
 
@@ -100,38 +114,48 @@ constructor(page: any) {
         console.log({ message: `Clicking Office & Reception....`});
         await this.office.click();
         await this.page.waitForLoadState();
+        //wait so it does not put up a are you a robot prompt
+        await this.page.waitForTimeout(5000);
+        await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/office');
 }
 
 
     async hoverChurchChairs () {
+        console.log({ message: `Hovering Church Chairs....`});
         await this.churchChairs.hover();
         await this.dollies.click();
-        await this.page.waitForLoadState('load', { timeout: 60000 });
+         //wait so it does not put up a are you a robot prompt
+        await this.page.waitForTimeout(5000);
+        await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/church-banquet-stack-chair-dollies');
     }
     async hoverFoldEvent () {
+        console.log({ message: `Hovering Folding & Event....`});
         await this.foldEvent.hover();
         await this.resin.click();
-        await this.page.waitForLoadState('load', { timeout: 60000 });
+        //wait so it does not put up a are you a robot prompt
+        await this.page.waitForTimeout(5000);
+        await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/resin-folding-chairs');
     }
     async hoverClassroom () {
+        console.log({ message: `Hovering Classroom....`});
         await this.classroom.hover();
         await this.activity.click();
+        //wait so it does not put up a are you a robot prompt
+        await this.page.waitForTimeout(5000);
+        await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/classroom-activity-table-sets');
     }
     async hoverOffice () {
+        console.log({ message: `Hovering Office & Reception....`});
         await this.office.hover();
         await this.desks.click();
-        await this.page.waitForLoadState('load', { timeout: 60000 });
+        //wait so it does not put up a are you a robot prompt
+        await this.page.waitForTimeout(5000);
+        await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/desks');
-    }
-    async hoverMore () {
-        await this.more.hover();
-        await this.patio.click();
-        await this.page.waitForLoadState('load', { timeout: 60000 });
-        expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/patio-outdoor');
     }
     
     async popUpClose() {

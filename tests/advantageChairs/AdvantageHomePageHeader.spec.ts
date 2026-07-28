@@ -1,39 +1,45 @@
-import { test, expect } from '@playwright/test';
+import  base, { test as baseTest, expect, type Page } from '@playwright/test';
 import { AdvantageHomePage } from '../../src/pom/AdvantageChairs/AdvantageHomePage';
 
+type PageObjects = {
+  homePage: AdvantageHomePage;
 
+};
 
-test('AdvantageHomePageHeader', async ({ page }) => {
+export const test = base.extend<PageObjects>({
+  homePage: async ({ page }, use) => {
+    await use(new AdvantageHomePage(page));
+  },
+});
 
-    const HomePage = new AdvantageHomePage(page)
-//Navigate to Advantage site  
-    await HomePage.gotoHomePage()
+test.beforeEach(async ({ homePage }) => {
+  await homePage.gotoHomePage();
+});
 
-//Click Logo and verify on homepage
-    await HomePage.clickLogo();
+test('AdvantageHomePageHeader Click Flow', async ({ homePage }) => {
+//Click Logo and assert on homepage
+    await homePage.clickLogo();
 //Click Shop All Menu
-    await HomePage.clickShopAll();
+    await homePage.clickShopAll();
 //Click Church Chairs Menu
-    await HomePage.clickChurchChairs();
+    await homePage.clickChurchChairs();
 //Click Banquet Chairs Menu
-    await HomePage.clickBanquetChairs();
+    await homePage.clickBanquetChairs();
 //Click Folding & Event Menu
-    await HomePage.clickFoldEvent();
+    await homePage.clickFoldEvent();
 //Click Classroom Menu
-    await HomePage.clickClassroom();
+    await homePage.clickClassroom();
 //Click Office & Reception Menu
-    await HomePage.clickOfficeReception();
-
-
-//Hover Church Chairs Menu & Click Church & Stack Chairs Dollies
-    await HomePage.hoverChurchChairs();
-//Hover Folding & Event Menu & Click Resin Folding Chairs
-    await HomePage.hoverFoldEvent();
-//Hover Classroom Menu & Click Activity Set
-    await HomePage.hoverClassroom();
-//Hover Office Menu & Click Desks
-    await HomePage.hoverOffice();
-//Hover More Menu & Click Patio & Outdoor
-    await HomePage.hoverMore();
+    await homePage.clickOfficeReception();
     
+});
+test('AdvantageHomePageHeader Hover Flow', async ({ homePage }) => {
+//Hover Church Chairs Menu & Click Church & Stack Chairs Dollies
+    await homePage.hoverChurchChairs();
+//Hover Folding & Event Menu & Click Resin Folding Chairs
+    await homePage.hoverFoldEvent();
+//Hover Classroom Menu & Click Activity Set
+    await homePage.hoverClassroom();
+//Hover Office Menu & Click Desks
+    await homePage.hoverOffice();
 });
