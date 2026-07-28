@@ -4,31 +4,32 @@ import { AdvantagePLP } from '../../src/pom/AdvantageChairs/AdvantagePLP';
 
 
 
-test('AdvantagePLP', async ({ page }) => {
+test('AdvantagePLP Flow', async ({ page }) => {
 
-    const HomePage = new AdvantageHomePage(page)
-    const PLP = new AdvantagePLP(page)
+    const homePage = new AdvantageHomePage(page)
+    const plp = new AdvantagePLP(page)
+    
 //Navigate to Advantage site   
-    await HomePage.gotoHomePage() 
+    await homePage.gotoHomePage() 
 //Click Church Chairs Menu
-    await HomePage.ClickChurchChairs();
+    await homePage.clickChurchChairs();
 //Click Sort button Price low to high
-    await PLP.Sorting();
+    await plp.selectSorting();
 //Click Color Family -> Green
-    await PLP.ColorFilter();
+    await plp.selectColorFilter();
 //Click Finish -> Copper Vein Metal
-    await PLP.FinishFilter();
+    await plp.clickingfinishFilter();
 //Clear Filter Pills
-    await PLP.ClearColorFilter();
-    await PLP.ClearAllFilter();
+    await plp.clearColorFilter();
+    await plp.clearAllFilter();
 //Click Pagination
-   await PLP.ClickPagination();
+   await plp.clickPagination();
 //Click Pagination Right Arrow
-    await PLP.ClickRightArrow()
+    await plp.clickRightArrow()
 //Click Pagination Left Arrow
-    await PLP.ClickLeftArrow();
+    await plp.clickLeftArrow();
 //Click on PDP
-    await PLP.ClickPDP();
+    await plp.clickPDP();
 
     
 
