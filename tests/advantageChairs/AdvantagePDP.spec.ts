@@ -4,43 +4,43 @@ import { AdvantagePLP } from '../../src/pom/AdvantageChairs/AdvantagePLP';
 import { AdvantagePDP } from '../../src/pom/AdvantageChairs/AdvantagePDP';
 
 
-test('AdvantagePDP', async ({ page }) => {
+test('AdvantagePDP Flow', async ({ page }) => {
 
-    const HomePage = new AdvantageHomePage(page)
-    const PLP = new AdvantagePLP(page)
-    const PDP = new AdvantagePDP(page)
+    const homePage = new AdvantageHomePage(page)
+    const plp = new AdvantagePLP(page)
+    const pdp = new AdvantagePDP(page)
     //Navigate to Advantage site    
-        await HomePage.gotoHomePage();
+        await homePage.gotoHomePage();
     //Navigate to PLP
-        await HomePage.ClickShopAll();
+        await homePage.clickShopAll();
     //Click First Item
-        await PLP.ClickFirstItem();
+        await plp.firstItem.click();
     //Click Description
-        await PDP.ClickDescription();
+        await pdp.clickDescription();
     // Verify PDP Header
-        await PDP.VerifyPDPHeader();
+        await pdp.assertPDPHeader();
     // Verify PDP Price
-        await PDP.VerifyPDPPrice();  
+        await pdp.assertPDPPrice();  
     //Click Review Stars    
-        await PDP.ClickReviewStars();
+        await pdp.clickReviewStars();
     //Click New Review
-        await PDP.ClickNewReview();
-        await PDP.ClickCloseReview();
+        await pdp.clickNewReview();
+        await pdp.clickCloseReview();
     //Sort Reviews 
-        await PDP.SortFilter();
+        await pdp.sortFilter();
     //Review Pagination Rigth
-        await PDP.RightArrowPagniation();
-        await PDP.ReviewNumber1();
+        await pdp.rightArrowPagniation();
+        await pdp.assertReviewNumber1();
     //Review Pagination left
-        await PDP.LeftArrowPagniation();
-        await PDP.ReviewNumber2();
+        await pdp.leftArrowPagniation();
+        await pdp.assertReviewNumber2();
+    //remove popUp if shown
+        await homePage.popUpClose();    
     //Qty Increase
-        await PDP.QTYIncrease();
-        
+        await pdp.qtyIncrease();  
     //Qty Decrease
-        await PDP.QTYDecrease(); 
-        
+        await pdp.qtyDecrease();       
     //Add Item to Cart
-        await PDP.AddtoCart();
+        await pdp.clickAddToCart();
 
 });
