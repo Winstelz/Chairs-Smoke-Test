@@ -1,0 +1,174 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: advantageChairs\AdvantageHomePageHeader.spec.ts >> AdvantageHomePageHeader Hover Flow
+- Location: tests\advantageChairs\AdvantageHomePageHeader.spec.ts:36:1
+
+# Error details
+
+```
+Error: page.waitForTimeout: Target page, context or browser has been closed
+```
+
+# Test source
+
+```ts
+  47  |     this.searchInput = page.locator("//input[@id='autocomplete-0-input']");
+  48  |     this.accountIcon = page.getByRole('link', { name: 'account' });
+  49  |     this.cartIcon = page.getByRole('link', { name: 'cart' });
+  50  | }  
+  51  | 
+  52  | 
+  53  |     async gotoHomePage() {
+  54  |         console.log({ message: `Clicking Home Page....`});
+  55  |         await this.page.goto(STORE_URLS.advantage);
+  56  |     }
+  57  | 
+  58  |     async clickLogo()   {
+  59  |         console.log({ message: `Clicking Logo....`});
+  60  |         await this.logo.click();
+  61  |         await this.page.waitForLoadState();
+  62  |         expect(this.page.url()).toContain(STORE_URLS.advantage);
+  63  |     }
+  64  | 
+  65  |     async clickShopAll() {
+  66  |         console.log({ message: `Clicking Shop All....`});
+  67  |         await this.shopAll.click();
+  68  |         await this.page.waitForLoadState();
+  69  |         //wait so it does not put up a are you a robot prompt
+  70  |         await this.page.waitForTimeout(9000);
+  71  |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/shop-all');
+  72  |     }
+  73  |     async clickChurchChairs() {
+  74  |         console.log({ message: `Clicking Church Chairs....`});
+  75  |         await this.churchChairs.click();
+  76  |         await this.page.waitForLoadState();
+  77  |         //wait so it does not put up a are you a robot prompt
+  78  |         await this.page.waitForTimeout(5000);
+  79  |         await this.page.mouse.click(0, 0);   
+  80  |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/church-stack-chairs');
+  81  |     }
+  82  | 
+  83  |     async clickBanquetChairs () {
+  84  |         console.log({ message: `Clicking Banquet Chairs....`});
+  85  |         await this.banquetChairs.click();
+  86  |         await this.page.waitForLoadState();
+  87  |         //wait so it does not put up a are you a robot prompt
+  88  |         await this.page.waitForTimeout(6000);
+  89  |         await this.page.mouse.click(0, 0);  
+  90  |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/banquet-stack-chairs');
+  91  |     }
+  92  | 
+  93  |     async clickFoldEvent () {
+  94  |         console.log({ message: `Clicking Folding & Event....`});
+  95  |         await this.foldEvent.click();
+  96  |         await this.page.waitForLoadState();
+  97  |         //wait so it does not put up a are you a robot prompt
+  98  |         await this.page.waitForTimeout(7000);
+  99  |         await this.page.mouse.click(0, 0);  
+  100 |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/folding-event');
+  101 |     }
+  102 | 
+  103 |     async clickClassroom () {
+  104 |         console.log({ message: `Clicking Classroom....`});
+  105 |         await this.classroom.click();
+  106 |         await this.page.waitForLoadState();
+  107 |         //wait so it does not put up a are you a robot prompt
+  108 |         await this.page.waitForTimeout(5000);
+  109 |         await this.page.mouse.click(0, 0);  
+  110 |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/classroom');
+  111 | }
+  112 | 
+  113 |     async clickOfficeReception () {
+  114 |         console.log({ message: `Clicking Office & Reception....`});
+  115 |         await this.office.click();
+  116 |         await this.page.waitForLoadState();
+  117 |         //wait so it does not put up a are you a robot prompt
+  118 |         await this.page.waitForTimeout(5000);
+  119 |         await this.page.mouse.click(0, 0);  
+  120 |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/office');
+  121 | }
+  122 | 
+  123 | 
+  124 |     async hoverChurchChairs () {
+  125 |         console.log({ message: `Hovering Church Chairs....`});
+  126 |         await this.churchChairs.hover();
+  127 |         await this.dollies.click();
+  128 |          //wait so it does not put up a are you a robot prompt
+  129 |         await this.page.waitForTimeout(5000);
+  130 |         await this.page.mouse.click(0, 0);  
+  131 |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/church-banquet-stack-chair-dollies');
+  132 |     }
+  133 |     async hoverFoldEvent () {
+  134 |         console.log({ message: `Hovering Folding & Event....`});
+  135 |         await this.foldEvent.hover();
+  136 |         await this.resin.click();
+  137 |         //wait so it does not put up a are you a robot prompt
+  138 |         await this.page.waitForTimeout(5000);
+  139 |         await this.page.mouse.click(0, 0);  
+  140 |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/resin-folding-chairs');
+  141 |     }
+  142 |     async hoverClassroom () {
+  143 |         console.log({ message: `Hovering Classroom....`});
+  144 |         await this.classroom.hover();
+  145 |         await this.activity.click();
+  146 |         //wait so it does not put up a are you a robot prompt
+> 147 |         await this.page.waitForTimeout(5000);
+      |                         ^ Error: page.waitForTimeout: Target page, context or browser has been closed
+  148 |         await this.page.mouse.click(0, 0);  
+  149 |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/classroom-activity-table-sets');
+  150 |     }
+  151 |     async hoverOffice () {
+  152 |         console.log({ message: `Hovering Office & Reception....`});
+  153 |         await this.office.hover();
+  154 |         await this.desks.click();
+  155 |         //wait so it does not put up a are you a robot prompt
+  156 |         await this.page.waitForTimeout(5000);
+  157 |         await this.page.mouse.click(0, 0);  
+  158 |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/desks');
+  159 |     }
+  160 |     
+  161 |     async popUpClose() {
+  162 |         console.log({ message: `Awaiting Pop Up....`});
+  163 |         const popup = this.popUp;
+  164 |     try {
+  165 |         await popup.waitFor({ state: 'visible', timeout: 15000 });
+  166 |         console.log({ message: 'Klaviyo popup appeared — closing it' });
+  167 |         await this.commonUtil.closePopup.click();
+  168 |     } catch {
+  169 |         console.log({ message: 'Klaviyo popup did not appear — skipping close step' });
+  170 |     }
+  171 | }
+  172 | 
+  173 | async clickSearchIcon() {
+  174 |     console.log({ message: `Clicking Search Icon....`});
+  175 |     await this.searchIcon.click();
+  176 |     await this.page.waitForLoadState();
+  177 |     expect(this.page.url()).toContain(STORE_URLS.advantage);
+  178 | }
+  179 | 
+  180 | async searchForItem(item: string) {
+  181 |     console.log({ message: `Searching for item: ${item}....`});
+  182 |     await this.searchInput.fill(item);
+  183 |     await this.searchInput.press('Enter');
+  184 |     await this.page.waitForLoadState('load');
+  185 | }
+  186 | 
+  187 | async clickAccountIcon() {
+  188 |     console.log({ message: `Clicking Account Icon....`});
+  189 |     await this.accountIcon.click();
+  190 |     await this.page.waitForURL(/shopify\.com/);
+  191 | }
+  192 | 
+  193 | async clickCartIcon() {
+  194 |     console.log({ message: `Clicking Cart Icon....`});
+  195 |     await this.cartIcon.click();
+  196 | }
+  197 | }
+  198 | 
+```

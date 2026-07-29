@@ -1,0 +1,580 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: advantageChairs\AdvantageInlineCart.spec.ts >> AdvantageInlineCart Flow
+- Location: tests\advantageChairs\AdvantageInlineCart.spec.ts:34:1
+
+# Error details
+
+```
+Test timeout of 180000ms exceeded.
+```
+
+```
+Error: locator.click: Test timeout of 180000ms exceeded.
+Call log:
+  - waiting for getByRole('button', { name: /remove-item/i })
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic:
+    - button "Skip to main content" [ref=e2] [cursor=pointer]:
+      - text: Skip to main content
+      - generic [ref=e3]:
+        - img [ref=e4]
+        - generic [ref=e6]: ENTER
+    - button "Skip to footer" [ref=e7] [cursor=pointer]:
+      - text: Skip to footer
+      - generic [ref=e8]:
+        - img [ref=e9]
+        - generic [ref=e11]: ENTER
+    - button "Open widget" [ref=e12] [cursor=pointer]:
+      - text: Open widget
+      - generic [ref=e13]:
+        - img [ref=e14]
+        - generic [ref=e16]: ENTER
+  - generic [ref=e18]:
+    - generic [ref=e20]:
+      - generic [ref=e22]:
+        - generic:
+          - group "1 / 4" [ref=e23]:
+            - paragraph [ref=e25]: Affordable, High Quality Church Chairs
+          - group "2 / 4" [ref=e26]:
+            - paragraph [ref=e28]: 25,000 5-Star Reviews & Decades of Expertise!
+          - group "3 / 4" [ref=e29]:
+            - paragraph [ref=e31]: Need a Quote? Call Us 1-855-294-0532
+          - group "4 / 4" [ref=e32]:
+            - paragraph [ref=e34]: Hablamos español y estamos listos para ayudarte.
+      - button "Previous slide" [ref=e35] [cursor=pointer]:
+        - img [ref=e37]
+      - button "Next slide" [ref=e39] [cursor=pointer]:
+        - img [ref=e41]
+    - list [ref=e43]:
+      - listitem [ref=e44]:
+        - link "Customer Support" [ref=e45] [cursor=pointer]:
+          - /url: /pages/contact-us
+  - generic [ref=e49]:
+    - generic [ref=e50]:
+      - link "Advantage Church Chairs logo" [ref=e51] [cursor=pointer]:
+        - /url: https://www.advantagechurchchairs.com
+        - img "Advantage Church Chairs Logo" [ref=e52]
+      - generic [ref=e54]:
+        - generic [ref=e55]:
+          - text: Questions? Call Us at
+          - link "1-855-294-0532" [ref=e56] [cursor=pointer]:
+            - /url: tel:1-855-294-0532
+        - list [ref=e58]:
+          - listitem [ref=e59]:
+            - button "search" [ref=e60] [cursor=pointer]:
+              - img [ref=e62]
+          - listitem [ref=e64]:
+            - link "account" [ref=e65] [cursor=pointer]:
+              - /url: /account
+              - img [ref=e67]
+          - listitem [ref=e69]:
+            - link "cart" [ref=e71] [cursor=pointer]:
+              - /url: /cart
+              - img [ref=e73]
+              - generic [ref=e76]: "10"
+    - navigation [ref=e77]:
+      - list [ref=e78] [cursor=pointer]:
+        - listitem [ref=e79]:
+          - generic "Shop All" [ref=e80]:
+            - link "Shop All" [ref=e81]:
+              - /url: /collections/shop-all
+        - listitem [ref=e82]:
+          - generic "Church Chairs" [ref=e83]:
+            - link "Church Chairs" [ref=e84]:
+              - /url: /collections/church-stack-chairs
+            - button "Church chairs menu" [ref=e85]:
+              - img [ref=e86]
+        - listitem [ref=e88]:
+          - generic "Banquet Chairs" [ref=e89]:
+            - link "Banquet Chairs" [ref=e90]:
+              - /url: /collections/banquet-stack-chairs
+        - listitem [ref=e91]:
+          - generic "Folding & Event" [ref=e92]:
+            - link "Folding & Event" [ref=e93]:
+              - /url: /collections/folding-event
+            - button "Folding event menu" [ref=e94]:
+              - img [ref=e95]
+        - listitem [ref=e97]:
+          - generic "Classroom" [ref=e98]:
+            - link "Classroom" [ref=e99]:
+              - /url: /collections/classroom
+            - button "Classroom menu" [ref=e100]:
+              - img [ref=e101]
+        - listitem [ref=e103]:
+          - generic "Office & Reception" [ref=e104]:
+            - link "Office & Reception" [ref=e105]:
+              - /url: /collections/office
+            - button "Office reception menu" [ref=e106]:
+              - img [ref=e107]
+        - listitem [ref=e109]:
+          - generic "Patio & Outdoor" [ref=e110]:
+            - link "Patio & Outdoor" [ref=e111]:
+              - /url: /collections/patio-outdoor
+  - main [ref=e112]:
+    - article [ref=e115]:
+      - heading "America’s Go-To Source for Affordable Church Chairs Since 2001" [level=2] [ref=e118]
+    - article [ref=e128]:
+      - generic [ref=e130]:
+        - heading "Durable Church Seating for Every Space" [level=2] [ref=e131]
+        - separator [ref=e132]
+        - generic [ref=e133]:
+          - paragraph [ref=e134]: Choosing the right church seating means balancing comfort, durability, flexibility, and budget. Advantage Church Chairs offers a wide selection of stackable church chairs, metal frame sanctuary chairs, banquet chairs, and folding seating designed specifically for ministry environments.
+          - paragraph
+          - paragraph [ref=e135]: We proudly serve churches, ministries, schools, and event spaces nationwide with reliable church chairs and bulk seating solutions.
+    - generic [ref=e138]:
+      - heading "Featured Collections" [level=2] [ref=e141]
+      - generic [ref=e144]:
+        - generic:
+          - group "1 / 4" [ref=e145]:
+            - article [ref=e146]:
+              - link [ref=e147] [cursor=pointer]:
+                - /url: /collections/church-stack-chairs
+              - img [ref=e150]
+              - heading "Church Chairs" [level=3] [ref=e153]:
+                - generic [ref=e154]: Church Chairs
+                - img [ref=e156]
+          - group "2 / 4" [ref=e158]:
+            - article [ref=e159]:
+              - link [ref=e160] [cursor=pointer]:
+                - /url: /collections/folding-event
+              - img "Candid view of padded metal folding chairs from front right" [ref=e163]
+              - heading "Folding Chairs" [level=3] [ref=e166]:
+                - generic [ref=e167]: Folding Chairs
+                - img [ref=e169]
+          - group "3 / 4" [ref=e171]:
+            - article [ref=e172]:
+              - link [ref=e173] [cursor=pointer]:
+                - /url: /collections/banquet-stack-chairs
+              - img "Banquet scene with Premium Crown Back Banquet Chair" [ref=e176]
+              - heading "Banquet Chairs" [level=3] [ref=e179]:
+                - generic [ref=e180]: Banquet Chairs
+                - img [ref=e182]
+          - group "4 / 4" [ref=e184]:
+            - article [ref=e185]:
+              - link [ref=e186] [cursor=pointer]:
+                - /url: /collections/folding-tables
+              - img "Folding training table with breakfast in full fellowship hall" [ref=e189]
+              - heading "Folding Tables" [level=3] [ref=e192]:
+                - generic [ref=e193]: Folding Tables
+                - img [ref=e195]
+    - article [ref=e199]:
+      - generic [ref=e202]:
+        - paragraph [ref=e203]: Advantage Church Chairs provides high-quality commercial seating designed for worship spaces, fellowship halls, multipurpose facilities, and high-traffic environments. We combine durability, comfort, and cost-effective pricing to help churches, ministries, and organizations furnish their spaces with confidence.
+        - paragraph [ref=e204]: With over 20 years of industry experience and access to a large in-stock inventory, we deliver reliable church chairs and commercial furniture solutions with fast shipping and dependable customer support. Our seating is engineered to withstand frequent use while maintaining a professional, welcoming appearance.
+        - paragraph [ref=e205]: As part of the Ubique Group, headquartered in Canton, Georgia, we are committed to delivering trusted furniture solutions that support churches, schools, government facilities, hospitality venues, and businesses nationwide.
+    - article [ref=e208]:
+      - heading "Why Choose Us?" [level=2] [ref=e211]
+    - generic [ref=e215]:
+      - article [ref=e217]:
+        - link "Durable chairs designed for churches—offering dependable comfort and responsible pricing that supports good stewardship." [ref=e218] [cursor=pointer]:
+          - /url: /collections/church-stack-chairs
+          - paragraph [ref=e220]: Durable chairs designed for churches—offering dependable comfort and responsible pricing that supports good stewardship.
+        - img "HERCULES Series 21''W Stacking Church Chair" [ref=e223]
+        - generic [ref=e225]:
+          - heading "High Quality & Affordable" [level=3] [ref=e226]:
+            - generic [ref=e227]: High Quality & Affordable
+          - paragraph [ref=e229]: Durable chairs designed for churches—offering dependable comfort and responsible pricing that supports good stewardship.
+      - article [ref=e231]:
+        - link "A wide selection of church chairs kept in stock and ready to ship, helping you prepare your space on schedule without unnecessary delays." [ref=e232] [cursor=pointer]:
+          - /url: /collections/banquet-stack-chairs
+          - paragraph [ref=e234]: A wide selection of church chairs kept in stock and ready to ship, helping you prepare your space on schedule without unnecessary delays.
+        - img "HERCULES Series Trapezoidal Back Stacking Banquet Chair with 2.5\" Thick Seat" [ref=e237]
+        - generic [ref=e239]:
+          - heading "In-Stock & Ready to Ship" [level=3] [ref=e240]:
+            - generic [ref=e241]: In-Stock & Ready to Ship
+          - paragraph [ref=e243]: A wide selection of church chairs kept in stock and ready to ship, helping you prepare your space on schedule without unnecessary delays.
+      - article [ref=e245]:
+        - link "Our knowledgeable team is here to serve you with care, providing guidance on chair selection, ordering, and delivery from start to finish." [ref=e246] [cursor=pointer]:
+          - /url: /pages/contact-us
+          - paragraph [ref=e248]: Our knowledgeable team is here to serve you with care, providing guidance on chair selection, ordering, and delivery from start to finish.
+        - img "Customer Service representative taking a call" [ref=e251]
+        - generic [ref=e253]:
+          - heading "Great Customer Service" [level=3] [ref=e254]:
+            - generic [ref=e255]: Great Customer Service
+          - paragraph [ref=e257]: Our knowledgeable team is here to serve you with care, providing guidance on chair selection, ordering, and delivery from start to finish.
+      - article [ref=e259]:
+        - img "Banquet scene with Premium Crown Back Banquet Chair" [ref=e262]
+        - generic [ref=e264]:
+          - heading "Large Order? Request a Quote Today" [level=3] [ref=e265]:
+            - generic [ref=e266]: Large Order? Request a Quote Today
+          - paragraph [ref=e268]:
+            - text: Planning a larger order or need assistance? Contact our team at
+            - strong [ref=e269]: 1-855-294-0532
+            - text: to receive a custom quote and expert support.
+  - contentinfo [ref=e271]:
+    - generic [ref=e273]:
+      - generic [ref=e274]:
+        - paragraph [ref=e276]: Please Sign Up To Receive Updates & Discounts
+        - generic [ref=e278]:
+          - generic [ref=e279]:
+            - textbox "Email" [ref=e282]
+            - button [ref=e284] [cursor=pointer]:
+              - img [ref=e286]
+          - img [ref=e289]
+        - generic:
+          - list
+      - list [ref=e290]:
+        - listitem [ref=e291]:
+          - generic [ref=e292]: Get to Know Us
+          - list [ref=e293]:
+            - listitem [ref=e294]:
+              - link "About Us" [ref=e295] [cursor=pointer]:
+                - /url: /pages/about-us
+        - listitem [ref=e296]:
+          - generic [ref=e297]: Customer Service
+          - list [ref=e298]:
+            - listitem [ref=e299]:
+              - link "Delivery Information" [ref=e300] [cursor=pointer]:
+                - /url: /pages/delivery-information
+            - listitem [ref=e301]:
+              - link "Ordering Information" [ref=e302] [cursor=pointer]:
+                - /url: /pages/ordering-information
+            - listitem [ref=e303]:
+              - link "Payment Options" [ref=e304] [cursor=pointer]:
+                - /url: /pages/payment-options
+            - listitem [ref=e305]:
+              - link "Finance Options" [ref=e306] [cursor=pointer]:
+                - /url: /pages/finance-options
+            - listitem [ref=e307]:
+              - link "Shipping Information" [ref=e308] [cursor=pointer]:
+                - /url: /pages/shipping-information
+            - listitem [ref=e309]:
+              - link "Freight Charges" [ref=e310] [cursor=pointer]:
+                - /url: /pages/freight-charges
+            - listitem [ref=e311]:
+              - link "Returns Informations" [ref=e312] [cursor=pointer]:
+                - /url: /pages/returns-information
+            - listitem [ref=e313]:
+              - link "Product Warranty" [ref=e314] [cursor=pointer]:
+                - /url: /pages/product-warranty
+        - listitem [ref=e315]:
+          - generic [ref=e316]: Get in Touch
+          - list [ref=e317]:
+            - listitem [ref=e318]:
+              - link "Contact Us" [ref=e319] [cursor=pointer]:
+                - /url: /pages/contact-us
+            - listitem [ref=e320]:
+              - generic [ref=e321]: Call 1-855-294-0532
+            - listitem [ref=e322]:
+              - generic [ref=e323]: "Mon - Thu: 8AM - 8PM EST"
+            - listitem [ref=e324]:
+              - generic [ref=e325]: "Fri: 8AM - 5PM EST"
+    - generic [ref=e328]:
+      - paragraph [ref=e329]: Copyright 2026 . All rights reserved.
+      - list [ref=e330]:
+        - listitem [ref=e331]:
+          - link "Site Security" [ref=e332] [cursor=pointer]:
+            - /url: /pages/site-security
+        - listitem [ref=e333]:
+          - link "Privacy Policy" [ref=e334] [cursor=pointer]:
+            - /url: /pages/privacy-policy
+        - listitem [ref=e335]:
+          - link "California Privacy Rights" [ref=e336] [cursor=pointer]:
+            - /url: /pages/privacy-policy
+        - listitem [ref=e337]:
+          - link "Do Not Sell or Share" [ref=e338] [cursor=pointer]:
+            - /url: /pages/do-not-sell-or-share-my-personal-information
+        - listitem [ref=e339]:
+          - link "US Privacy" [ref=e340] [cursor=pointer]:
+            - /url: /pages/us-privacy-requests
+        - listitem [ref=e341]:
+          - link "PIPEDA" [ref=e342] [cursor=pointer]:
+            - /url: /pages/canadian-privacy-rights-pipeda-quebec-law-25
+        - listitem [ref=e343]:
+          - link "GDPR" [ref=e344] [cursor=pointer]:
+            - /url: /pages/gdpr-privacy-requests
+        - listitem [ref=e345]:
+          - link "Terms of Use" [ref=e346] [cursor=pointer]:
+            - /url: /pages/terms-of-use
+        - listitem [ref=e347]:
+          - link "Terms of Sale" [ref=e348] [cursor=pointer]:
+            - /url: /pages/terms-of-sale
+        - listitem [ref=e349]:
+          - link "Accessibility Statement" [ref=e350] [cursor=pointer]:
+            - /url: /pages/accessibility
+        - listitem [ref=e351]:
+          - link "Sitemap" [ref=e352] [cursor=pointer]:
+            - /url: /tools/sitemap
+  - generic [ref=e355]:
+    - generic [ref=e356]: Discover More
+    - list [ref=e357]:
+      - listitem [ref=e358]:
+        - link "Banquet Stack Chairs" [ref=e359] [cursor=pointer]:
+          - /url: https://www.advantagechurchchairs.com/collections/banquet-stack-chairs
+      - listitem [ref=e360]:
+        - link "Metal Folding Chairs" [ref=e361] [cursor=pointer]:
+          - /url: https://www.advantagechurchchairs.com/collections/metal-folding-chairs
+      - listitem [ref=e362]:
+        - link "Slat Wood Folding Chair 4-WFC-SLAT- –..." [ref=e363] [cursor=pointer]:
+          - /url: https://www.advantagechurchchairs.com/products/slatted-wood-folding-wedding-chair-event-chair-set-of-4-advg-wfc
+  - generic [ref=e365]:
+    - generic [ref=e366]:
+      - generic [ref=e367]:
+        - generic [ref=e368]:
+          - generic [ref=e369]: Cart
+          - generic [ref=e370]: "10"
+        - button [active] [ref=e371] [cursor=pointer]:
+          - img [ref=e373]
+      - generic [ref=e375]:
+        - link "View Cart" [ref=e376] [cursor=pointer]:
+          - /url: /cart
+          - img [ref=e378]
+          - generic [ref=e380]: View Cart
+          - img [ref=e382]
+        - link "Print My Cart" [ref=e384] [cursor=pointer]:
+          - /url: /pages/printable-cart
+          - img [ref=e386]
+          - generic [ref=e388]: Print My Cart
+          - img [ref=e390]
+    - generic [ref=e393]:
+      - generic [ref=e397]:
+        - link "Advantage Multipurpose Church Chairs - 18.5 in. Wide" [ref=e398] [cursor=pointer]:
+          - /url: /products/advantage-multipurpose-church-chairs-185-in-wide-advg-sepcht185?variant=47180254708002
+          - img "Advantage Multipurpose Church Chairs - 18.5 in. Wide" [ref=e399]
+        - generic [ref=e400]:
+          - generic [ref=e401]:
+            - link "Advantage Multipurpose Church Chairs - 18.5 in. Wide" [ref=e402] [cursor=pointer]:
+              - /url: /products/advantage-multipurpose-church-chairs-185-in-wide-advg-sepcht185?variant=47180254708002
+            - generic [ref=e403]: "Item # SEPCHT185-108"
+            - generic [ref=e405]: Black Fabric/Silver Vein Frame
+          - generic [ref=e406]: $49.36
+        - generic [ref=e407]:
+          - button "Remove item" [ref=e408] [cursor=pointer]:
+            - img "Remove item" [ref=e409]
+          - generic "Quantity" [ref=e412]:
+            - button "Decrement Quantity" [ref=e413] [cursor=pointer]:
+              - img [ref=e414]
+            - spinbutton [ref=e418]: "10"
+            - button "Increment Quantity" [ref=e419] [cursor=pointer]:
+              - img [ref=e420]
+      - generic [ref=e422]:
+        - generic [ref=e423]:
+          - generic [ref=e424]: You May Also Like
+          - generic [ref=e425]:
+            - button "Previous slide" [disabled]:
+              - generic:
+                - img
+            - button "Next slide" [ref=e426] [cursor=pointer]:
+              - img [ref=e428]
+        - generic [ref=e431]:
+          - group "1 / 8" [ref=e432]:
+            - generic [ref=e433]:
+              - generic [ref=e434]:
+                - link "Advantage Church Chairs 18.5 in. Wide - Fossil Fabric/Black Frame" [ref=e435] [cursor=pointer]:
+                  - /url: /products/advantage-church-chairs-185-in-wide-advg-pcht185?variant=47180301467938
+                  - img "Advantage Church Chairs 18.5 in. Wide - Fossil Fabric/Black Frame" [ref=e437]
+                - paragraph [ref=e438]: "# PCHT185-113"
+                - paragraph [ref=e439]: Advantage Church Chairs 18.5 in. Wide
+                - paragraph [ref=e440]: Fossil Fabric/Black Frame
+              - paragraph [ref=e441]: $60.76
+          - group "2 / 8" [ref=e442]:
+            - generic [ref=e443]:
+              - generic [ref=e444]:
+                - link "Advantage Church Chair 20.5 in. Wide - Fossil Fabric/Black Frame" [ref=e445] [cursor=pointer]:
+                  - /url: /products/advantage-church-chair-205-in-wide-advg-pcht?variant=47180306153762
+                  - img "Advantage Church Chair 20.5 in. Wide - Fossil Fabric/Black Frame" [ref=e447]
+                - paragraph [ref=e448]: "# PCHT-113"
+                - paragraph [ref=e449]: Advantage Church Chair 20.5 in. Wide
+                - paragraph [ref=e450]: Fossil Fabric/Black Frame
+              - paragraph [ref=e451]: $65.83
+          - group "3 / 8" [ref=e452]:
+            - generic [ref=e453]:
+              - generic [ref=e454]:
+                - link "HERCULES Series Steel Stack Chair and Church Chair Dolly" [ref=e455] [cursor=pointer]:
+                  - /url: /products/steel-stack-chair-and-church-chair-dolly-material-handling-equipment-fd-ban-ch-dolly
+                  - img "HERCULES Series Steel Stack Chair and Church Chair Dolly" [ref=e457]
+                - paragraph [ref=e458]: "# FD-BAN-CH-DOLLY-GG"
+                - paragraph [ref=e459]: HERCULES Series Steel Stack Chair and Church Chair Dolly
+              - paragraph [ref=e460]: $22.95
+          - group "4 / 8" [ref=e461]:
+            - generic [ref=e462]:
+              - generic [ref=e463]:
+                - link "Advantage 20.5 in. Molded Foam Church Chair - Black Fabric/Silver Vein Frame" [ref=e464] [cursor=pointer]:
+                  - /url: /products/advantage-205-in-molded-foam-church-chair-advg-pccf?variant=47180313788706
+                  - img "Advantage 20.5 in. Molded Foam Church Chair - Black Fabric/Silver Vein Frame" [ref=e466]
+                - paragraph [ref=e467]: "# PCCF-108"
+                - paragraph [ref=e468]: Advantage 20.5 in. Molded Foam Church Chair
+                - paragraph [ref=e469]: Black Fabric/Silver Vein Frame
+              - paragraph [ref=e470]: $69.62
+          - group "5 / 8" [ref=e471]:
+            - generic [ref=e472]:
+              - generic [ref=e473]:
+                - link "Advantage Vinyl Church Chair 20.5 in. Wide - Black Vinyl/Silver Vein Frame" [ref=e474] [cursor=pointer]:
+                  - /url: /products/advantage-vinyl-church-chair-205-in-wide-advg-pcht-vinyl?variant=47180122784034
+                  - img "Advantage Vinyl Church Chair 20.5 in. Wide - Black Vinyl/Silver Vein Frame" [ref=e476]
+                - paragraph [ref=e477]: "# PCHT-VINYL-108"
+                - paragraph [ref=e478]: Advantage Vinyl Church Chair 20.5 in. Wide
+                - paragraph [ref=e479]: Black Vinyl/Silver Vein Frame
+              - paragraph [ref=e480]: $65.83
+          - group "6 / 8" [ref=e481]:
+            - generic [ref=e482]:
+              - generic [ref=e483]:
+                - link "Advantage Discount Church Chair - 21 in. Wide - Black Marble Fabric/Black Frame" [ref=e484] [cursor=pointer]:
+                  - /url: /products/advantage-discount-church-chair-21-in-wide-advg-epcht?variant=47180309561634
+                  - img "Advantage Discount Church Chair - 21 in. Wide - Black Marble Fabric/Black Frame" [ref=e486]
+                - paragraph [ref=e487]: "# EPCHT-117"
+                - paragraph [ref=e488]: Advantage Discount Church Chair - 21 in. Wide
+                - paragraph [ref=e489]: Black Marble Fabric/Black Frame
+              - paragraph [ref=e490]: $65.83
+          - group "7 / 8" [ref=e491]:
+            - generic [ref=e492]:
+              - generic [ref=e493]:
+                - link "Advantage Signature Elite Church Chair - 20 in. Wide - Charcoal Gray Fabric/Black Frame" [ref=e494] [cursor=pointer]:
+                  - /url: /products/advantage-signature-elite-church-chair-20-in-wide-advg-pcrcb?variant=47180305793314
+                  - img "Advantage Signature Elite Church Chair - 20 in. Wide - Charcoal Gray Fabric/Black Frame" [ref=e496]
+                - paragraph [ref=e497]: "# PCRCB-111"
+                - paragraph [ref=e498]: Advantage Signature Elite Church Chair - 20 in. Wide
+                - paragraph [ref=e499]: Charcoal Gray Fabric/Black Frame
+              - paragraph [ref=e500]: $82.28
+          - group "8 / 8" [ref=e501]:
+            - generic [ref=e502]:
+              - generic [ref=e503]:
+                - link "Embroidered 18.5''W Church Chair in Scatter Fabric - Gold Vein Frame - Scatter Acorn Fabric" [ref=e504] [cursor=pointer]:
+                  - /url: /products/185w-church-chair-in-tahiti-fabric-with-book-rack-ng-ch-185-gv-unp-scatterfab?variant=47185184882978
+                  - img "Embroidered 18.5''W Church Chair in Scatter Fabric - Gold Vein Frame - Scatter Acorn Fabric" [ref=e506]
+                - paragraph [ref=e507]: "# NG-CH-185-GV-UNP-SCATTER-001-EMB-GG"
+                - paragraph [ref=e508]: Embroidered 18.5''W Church Chair in Scatter Fabric - Gold Vein Frame
+                - paragraph [ref=e509]: Scatter Acorn Fabric
+              - paragraph [ref=e510]: $97.99
+    - generic [ref=e512]:
+      - heading "Calculate Shipping Calculate shipping now, or proceed to checkout and your shipping costs will be provided. For shipments to AK, HI, PR & Canada please contact us at 1-855-294-0532" [level=6] [ref=e515]:
+        - button "Calculate Shipping Calculate shipping now, or proceed to checkout and your shipping costs will be provided. For shipments to AK, HI, PR & Canada please contact us at 1-855-294-0532" [ref=e516] [cursor=pointer]:
+          - generic [ref=e517]:
+            - paragraph [ref=e518]: Calculate Shipping
+            - paragraph [ref=e519]: Calculate shipping now, or proceed to checkout and your shipping costs will be provided. For shipments to AK, HI, PR & Canada please contact us at 1-855-294-0532
+          - img [ref=e521]
+      - generic [ref=e523]:
+        - generic [ref=e524]: Product Subtotal
+        - generic [ref=e525]: $493.60
+      - generic [ref=e526]:
+        - generic [ref=e527]:
+          - text: Shipping
+          - generic [ref=e528]: Please Calculate Shipping
+        - generic [ref=e529]: "-- --"
+      - generic [ref=e530]:
+        - generic [ref=e531]: Estimated Total Before Taxes
+        - generic [ref=e532]: "-- --"
+      - button "Proceed to Checkout" [ref=e533] [cursor=pointer]
+      - paragraph [ref=e535]: Taxes & discount codes will be calculated at checkout.
+  - generic [ref=e537]:
+    - button "Unlock $300 Off" [ref=e538] [cursor=pointer]:
+      - strong [ref=e544]: Unlock $300 Off
+    - button "Close teaser" [ref=e545] [cursor=pointer]:
+      - img [ref=e546]
+  - button "Accessibility Widget, click to open" [ref=e551] [cursor=pointer]:
+    - img [ref=e553]
+```
+
+# Test source
+
+```ts
+  1  | import { expect, type Locator, type Page } from '@playwright/test';
+  2  | import { AdvantageCart } from './AdvantageCart';
+  3  | 
+  4  | export class AdvantageInlineCart {
+  5  |     readonly page: Page;
+  6  |     readonly cartPage: AdvantageCart;
+  7  |     readonly product: Locator;
+  8  |     readonly qtyIncr: Locator;
+  9  |     readonly qty: Locator;
+  10 |     readonly qtyDecr: Locator;
+  11 |     readonly rightArrow: Locator;
+  12 |     readonly leftArrow: Locator;
+  13 |     readonly plus: Locator;
+  14 |     readonly zip: Locator;
+  15 |     readonly address: Locator;
+  16 |     readonly logo: Locator;
+  17 |     readonly trashCan: Locator;
+  18 |     readonly emptyLink: Locator;
+  19 |     readonly cartHeader: Locator;
+  20 | 
+  21 | 
+  22 |     constructor(page: any) {
+  23 |         this.page = page;
+  24 |         this.cartPage = new AdvantageCart(page);
+  25 |         this.product = page.locator("//a[contains(text(),'Advantage Multipurpose Church Chairs - 18.5 in. Wi')]");
+  26 |         this.qtyIncr = page.locator("(//button[@aria-label='Increment Quantity'])[2]");
+  27 |         this.qtyDecr = page.locator("(//button[@aria-label='Decrement Quantity'])[2]");
+  28 |         this.qty = page.locator("(//input[@type='number'])[2]");
+  29 |         this.rightArrow = page.locator("//button[@aria-label='Next slide']//span[@class='ra-icon ra-icon--sm']//*[name()='svg']");
+  30 |         this.leftArrow = page.locator("//button[@aria-label='Previous slide']//span[@class='ra-icon ra-icon--sm']//*[name()='svg']");
+  31 |         this.plus = page.locator("//span[@class='ra-icon']//*[name()='svg']");
+  32 |         this.zip = page.locator("//input[@placeholder='Enter Zip or Postal Code']");
+  33 |         this.address = page.locator("//select[@name='addressType']");
+  34 |         this.logo = page.locator("//header[@class='EAjaz Xx7bI _1fragemr6']//div//div//div[@class='_1fragem2i _1fragempf _16s97g73r']");
+  35 |         this.trashCan = page.getByRole('button', { name: /remove-item/i });
+  36 |         this.emptyLink =  page.locator("//a[@class='ra-button ra-button ra-button--primary ra-button--lg mb-4'][normalize-space()='Church Chairs']");
+  37 |         this.cartHeader = page.locator('header').locator('div.flex.items-center:has-text("Cart")');
+  38 |     
+  39 |     }
+  40 | 
+  41 | 
+  42 | async assertProduct () {
+  43 | console.log({ message: `Asserting Product in Cart....`});
+  44 |     await this.product.isVisible();
+  45 |     expect(this.product).toHaveText("Advantage Multipurpose Church Chairs - 18.5 in. Wide");
+  46 | }
+  47 | async qtyIncrease () {
+  48 | console.log({ message: `Increasing Quantity in Cart....`});
+  49 |         await this.qtyIncr.click();
+  50 |         await this.page.waitForTimeout(1000);
+  51 |         await this.qtyIncr.click();
+  52 |         await this.page.waitForTimeout(1000);
+  53 |         await this.qtyIncr.click();
+  54 |         await this.page.waitForTimeout(1000);
+  55 |         await this.qtyIncr.click();
+  56 |         await this.page.waitForTimeout(2000);
+  57 |         await expect(this.qty).toHaveValue("5");
+  58 | }
+  59 | async qtyDecrease () {
+  60 | console.log({ message: `Decreasing Quantity in Cart....`});
+  61 |         await this.qtyDecr.click();
+  62 |         await this.page.waitForTimeout(1000);
+  63 |         await this.qtyDecr.click();
+  64 |         await this.page.waitForTimeout(2000);
+  65 |         await expect(this.qty).toHaveValue("3");
+  66 | }
+  67 | async qtyInput () {
+  68 | console.log({ message: `Inputting Quantity in Cart....`});
+  69 |         await this.qty.click();
+  70 |         await this.qty.fill("10");
+  71 |         await this.page.waitForTimeout(2000);
+  72 |         await expect(this.qty).toHaveValue("10");
+  73 | }
+  74 | 
+  75 | async youMayLikeCarousel () {
+  76 | console.log({ message: `Navigating through You May Like Carousel....`});
+  77 |     await this.rightArrow.click();
+  78 |     await this.rightArrow.click();
+  79 |     await this.leftArrow.click();
+  80 |     await this.leftArrow.click();
+  81 | }
+  82 | 
+  83 | async deleteItem () {
+  84 |     console.log({ message: `Deleting Item from Cart....`});
+  85 |     await this.trashCan.click();
+> 86 |     await expect(this.emptyLink).toBeVisible();
+     |                         ^ Error: locator.click: Test timeout of 180000ms exceeded.
+  87 | }
+  88 | 
+  89 | async clickInlineCartEmptyLink() {
+  90 |     console.log({ message: `Clicking Empty Cart Link....`});
+  91 |     await this.emptyLink.click();
+  92 |     expect(this.page.url()).toContain("/collections/church-stack-chairs");
+  93 | 
+  94 | }
+  95 | }
+```

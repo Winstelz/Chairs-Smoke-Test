@@ -1,0 +1,11 @@
+{ message: 'Clicking Home Page....' }
+{ message: 'Clicking About Us....' }
+{ message: 'Clicking Payment Options....' }
+{ message: 'Clicking Shipping Information....' }
+{ message: 'Clicking Site Security....' }
+{ message: 'Clicking Privacy Policy....' }
+{ message: 'Clicking California Privacy Rights....' }
+{ message: 'Clicking Terms of Use....' }
+{ message: 'Clicking Terms of Sale....' }
+{ message: 'Clicking Accessibility Statement....' }
+{ message: 'Clicking Site Map....' }

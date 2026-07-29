@@ -1,0 +1,140 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: advantageChairs\AdvantageHeaderIcons.spec.ts >> AdvantageHeaderIcons Cart
+- Location: tests\advantageChairs\AdvantageHeaderIcons.spec.ts:40:1
+
+# Error details
+
+```
+Error: expect(locator).toHaveText(expected) failed
+
+Locator:  locator('h3').filter({ hasText: /Your cart is empty/i })
+Expected: "Your cart is empty"
+Received: "Your Cart Is Empty"
+
+Call log:
+  - Expect "toHaveText" with timeout 5000ms
+  - waiting for locator('h3').filter({ hasText: /Your cart is empty/i })
+    6 × locator resolved to <h3 class="mb-6 text-center">Your Cart Is Empty</h3>
+      - unexpected value "Your Cart Is Empty"
+
+```
+
+```yaml
+- heading "Your Cart Is Empty" [level=3]
+```
+
+# Test source
+
+```ts
+  1   | import { expect, type Locator, type Page } from '@playwright/test';
+  2   | import { AdvantageCart } from './AdvantageCart';
+  3   | 
+  4   | export class AdvantageInlineCart {
+  5   |     readonly page: Page;
+  6   |     readonly cartPage: AdvantageCart;
+  7   |     readonly product: Locator;
+  8   |     readonly qtyIncr: Locator;
+  9   |     readonly qty: Locator;
+  10  |     readonly qtyDecr: Locator;
+  11  |     readonly rightArrow: Locator;
+  12  |     readonly leftArrow: Locator;
+  13  |     readonly plus: Locator;
+  14  |     readonly zip: Locator;
+  15  |     readonly address: Locator;
+  16  |     readonly logo: Locator;
+  17  |     readonly trashCan: Locator;
+  18  |     readonly emptyLink: Locator;
+  19  |     readonly cartHeader: Locator;
+  20  |     readonly emptyHeader: Locator;
+  21  | 
+  22  | 
+  23  |     constructor(page: any) {
+  24  |         this.page = page;
+  25  |         this.cartPage = new AdvantageCart(page);
+  26  |         this.product = page.locator("//a[contains(text(),'Advantage Multipurpose Church Chairs - 18.5 in. Wi')]");
+  27  |         this.qtyIncr = page.locator("(//button[@aria-label='Increment Quantity'])[2]");
+  28  |         this.qtyDecr = page.locator("(//button[@aria-label='Decrement Quantity'])[2]");
+  29  |         this.qty = page.locator("(//input[@type='number'])[2]");
+  30  |         this.rightArrow = page.locator("//button[@aria-label='Next slide']//span[@class='ra-icon ra-icon--sm']//*[name()='svg']");
+  31  |         this.leftArrow = page.locator("//button[@aria-label='Previous slide']//span[@class='ra-icon ra-icon--sm']//*[name()='svg']");
+  32  |         this.plus = page.locator("//span[@class='ra-icon']//*[name()='svg']");
+  33  |         this.zip = page.locator("//input[@placeholder='Enter Zip or Postal Code']");
+  34  |         this.address = page.locator("//select[@name='addressType']");
+  35  |         this.logo = page.locator("//header[@class='EAjaz Xx7bI _1fragemr6']//div//div//div[@class='_1fragem2i _1fragempf _16s97g73r']");
+  36  |         this.trashCan = page.getByRole('button', { name: /remove item/i });
+  37  |         this.emptyLink =  page.locator("//a[@class='ra-button ra-button ra-button--primary ra-button--lg mb-4'][normalize-space()='Church Chairs']");
+  38  |         this.cartHeader = page.locator('header').locator('div.flex.items-center:has-text("Cart")');
+  39  |         this.emptyHeader = page.locator('h3', {hasText: /Your cart is empty/i });
+  40  |     
+  41  |     }
+  42  | 
+  43  | 
+  44  | async assertProduct () {
+  45  | console.log({ message: `Asserting Product in Cart....`});
+  46  |     await this.product.isVisible();
+  47  |     expect(this.product).toHaveText("Advantage Multipurpose Church Chairs - 18.5 in. Wide");
+  48  | }
+  49  | async qtyIncrease () {
+  50  | console.log({ message: `Increasing Quantity in Cart....`});
+  51  |         await this.qtyIncr.click();
+  52  |         await this.page.waitForTimeout(1000);
+  53  |         await this.qtyIncr.click();
+  54  |         await this.page.waitForTimeout(1000);
+  55  |         await this.qtyIncr.click();
+  56  |         await this.page.waitForTimeout(1000);
+  57  |         await this.qtyIncr.click();
+  58  |         await this.page.waitForTimeout(2000);
+  59  |         await expect(this.qty).toHaveValue("5");
+  60  | }
+  61  | async qtyDecrease () {
+  62  | console.log({ message: `Decreasing Quantity in Cart....`});
+  63  |         await this.qtyDecr.click();
+  64  |         await this.page.waitForTimeout(1000);
+  65  |         await this.qtyDecr.click();
+  66  |         await this.page.waitForTimeout(2000);
+  67  |         await expect(this.qty).toHaveValue("3");
+  68  | }
+  69  | async qtyInput () {
+  70  | console.log({ message: `Inputting Quantity in Cart....`});
+  71  |         await this.qty.click();
+  72  |         await this.qty.fill("10");
+  73  |         await this.page.waitForTimeout(2000);
+  74  |         await expect(this.qty).toHaveValue("10");
+  75  | }
+  76  | 
+  77  | async youMayLikeCarousel () {
+  78  | console.log({ message: `Navigating through You May Like Carousel....`});
+  79  |     await this.rightArrow.click();
+  80  |     await this.rightArrow.click();
+  81  |     await this.leftArrow.click();
+  82  |     await this.leftArrow.click();
+  83  | }
+  84  | 
+  85  | async deleteItem () {
+  86  |     console.log({ message: `Deleting Item from Cart....`});
+  87  |     await this.trashCan.click();
+  88  |     await expect(this.emptyLink).toBeVisible();
+  89  | }
+  90  | 
+  91  | async assertEmptyCartHeader() {
+  92  |     console.log({ message: `Asserting Empty Cart Header....`});
+  93  |     await this.emptyHeader.isVisible();
+> 94  |     expect(this.emptyHeader).toHaveText("Your cart is empty");
+      |                              ^ Error: expect(locator).toHaveText(expected) failed
+  95  | }
+  96  | 
+  97  | async clickInlineCartEmptyLink() {
+  98  |     console.log({ message: `Clicking Empty Cart Link....`});
+  99  |     await this.emptyLink.click();
+  100 |     expect(this.page.url()).toContain("/collections/church-stack-chairs");
+  101 | 
+  102 | }
+  103 | }
+```

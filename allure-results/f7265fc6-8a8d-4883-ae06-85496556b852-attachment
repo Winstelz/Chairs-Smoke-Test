@@ -1,0 +1,214 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: advantageChairs\AdvantageHomePageHeader.spec.ts >> AdvantageHomePageHeader Click Flow
+- Location: tests\advantageChairs\AdvantageHomePageHeader.spec.ts:19:1
+
+# Error details
+
+```
+Error: locator.click: Target page, context or browser has been closed
+Call log:
+  - waiting for locator('//span[@title=\'Office & Reception\']//a[normalize-space()=\'Office & Reception\']')
+
+```
+
+# Test source
+
+```ts
+  11  |     readonly churchChairs: Locator;
+  12  |     readonly banquetChairs: Locator;
+  13  |     readonly foldEvent: Locator;
+  14  |     readonly dollies: Locator;
+  15  |     readonly resin: Locator;
+  16  |     readonly activity: Locator; 
+  17  |     readonly desks: Locator;
+  18  |     readonly more: Locator;
+  19  |     readonly patio: Locator;
+  20  |     readonly classroom: Locator;
+  21  |     readonly office: Locator;
+  22  |     readonly popUp: Locator;
+  23  |     readonly searchIcon: Locator;
+  24  |     readonly searchInput: Locator;
+  25  |     readonly accountIcon: Locator;
+  26  |     readonly cartIcon: Locator;
+  27  | 
+  28  | 
+  29  | constructor(page: any) {
+  30  |     this.page = page;
+  31  |     this.commonUtil = new CommonUtil(page);
+  32  |     this.shopAll = page.locator("//span[@title='Shop All']//a[normalize-space()='Shop All']");
+  33  |     this.logo = page.locator("//img[@alt='Advantage Church Chairs Logo']");
+  34  |     this.churchChairs = page.locator("//span[@title='Church Chairs']");
+  35  |     this.banquetChairs = page.locator("//span[@title='Banquet Chairs']");
+  36  |     this.foldEvent = page.locator("//span[@title='Folding & Event']//a[normalize-space()='Folding & Event']");
+  37  |     this.dollies =page.locator("//a[@class='text-base leading-4 tracking-wider flex flex-col'][normalize-space()='Church & Stack Chair Dollies']");
+  38  |     this.resin = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Resin Folding Chairs']");
+  39  |     this.activity = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Activity Sets']");
+  40  |     this.desks = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Desks']");
+  41  |     this.more = page.locator("//span[@title='More']//a[@href='#'][normalize-space()='More']");
+  42  |     this.patio =  page.locator("//a[@class='text-base leading-4 tracking-wider flex flex-col'][normalize-space()='Patio & Outdoor']");
+  43  |     this.classroom = page.locator("//span[@title='Classroom']//a[normalize-space()='Classroom']");
+  44  |     this.office = page.locator("//span[@title='Office & Reception']//a[normalize-space()='Office & Reception']");
+  45  |     this.popUp = page.locator('form[data-testid="klaviyo-form-SMG4ZK"]').getByPlaceholder('Email');
+  46  |     this.searchIcon = page.getByRole('button', { name: 'search' });
+  47  |     this.searchInput = page.locator("//input[@id='autocomplete-0-input']");
+  48  |     this.accountIcon = page.getByRole('link', { name: 'account' });
+  49  |     this.cartIcon = page.getByRole('link', { name: 'cart' });
+  50  | }  
+  51  | 
+  52  | 
+  53  |     async gotoHomePage() {
+  54  |         console.log({ message: `Clicking Home Page....`});
+  55  |         await this.page.goto(STORE_URLS.advantage);
+  56  |     }
+  57  | 
+  58  |     async clickLogo()   {
+  59  |         console.log({ message: `Clicking Logo....`});
+  60  |         await this.logo.click();
+  61  |         await this.page.waitForLoadState();
+  62  |         expect(this.page.url()).toContain(STORE_URLS.advantage);
+  63  |     }
+  64  | 
+  65  |     async clickShopAll() {
+  66  |         console.log({ message: `Clicking Shop All....`});
+  67  |         await this.shopAll.click();
+  68  |         await this.page.waitForLoadState();
+  69  |         //wait so it does not put up a are you a robot promote
+  70  |         await this.page.waitForTimeout(9000);
+  71  |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/shop-all');
+  72  |     }
+  73  |     async clickChurchChairs() {
+  74  |         console.log({ message: `Clicking Church Chairs....`});
+  75  |         await this.churchChairs.click();
+  76  |         await this.page.waitForLoadState();
+  77  |         //wait so it does not put up a are you a robot promote
+  78  |         await this.page.waitForTimeout(5000);
+  79  |         await this.page.mouse.click(0, 0);   
+  80  |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/church-stack-chairs');
+  81  |     }
+  82  | 
+  83  |     async clickBanquetChairs () {
+  84  |         console.log({ message: `Clicking Banquet Chairs....`});
+  85  |         await this.banquetChairs.click();
+  86  |         await this.page.waitForLoadState();
+  87  |         //wait so it does not put up a are you a robot promote
+  88  |         await this.page.waitForTimeout(6000);
+  89  |         await this.page.mouse.click(0, 0);  
+  90  |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/banquet-stack-chairs');
+  91  |     }
+  92  | 
+  93  |     async clickFoldEvent () {
+  94  |         console.log({ message: `Clicking Folding & Event....`});
+  95  |         await this.foldEvent.click();
+  96  |         await this.page.waitForLoadState();
+  97  |         //wait so it does not put up a are you a robot promote
+  98  |         await this.page.waitForTimeout(7000);
+  99  |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/folding-event');
+  100 |     }
+  101 | 
+  102 |     async clickClassroom () {
+  103 |         console.log({ message: `Clicking Classroom....`});
+  104 |         await this.classroom.click();
+  105 |         await this.page.waitForLoadState();
+  106 |         //wait so it does not put up a are you a robot promote
+  107 |         await this.page.waitForTimeout(5000);
+  108 |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/classroom');
+  109 | }
+  110 | 
+> 111 |     async clickOfficeReception () {
+      |                           ^ Error: locator.click: Target page, context or browser has been closed
+  112 |         console.log({ message: `Clicking Office & Reception....`});
+  113 |         await this.office.click();
+  114 |         await this.page.waitForLoadState();
+  115 |         //wait so it does not put up a are you a robot promote
+  116 |         await this.page.waitForTimeout(5000);
+  117 |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/office');
+  118 | }
+  119 | 
+  120 | 
+  121 |     async hoverChurchChairs () {
+  122 |         console.log({ message: `Hovering Church Chairs....`});
+  123 |         await this.churchChairs.hover();
+  124 |         await this.dollies.click();
+  125 |          //wait so it does not put up a are you a robot promote
+  126 |         await this.page.waitForTimeout(5000);
+  127 |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/church-banquet-stack-chair-dollies');
+  128 |     }
+  129 |     async hoverFoldEvent () {
+  130 |         console.log({ message: `Hovering Folding & Event....`});
+  131 |         await this.foldEvent.hover();
+  132 |         await this.resin.click();
+  133 |         //wait so it does not put up a are you a robot promote
+  134 |         await this.page.waitForTimeout(5000);
+  135 |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/resin-folding-chairs');
+  136 |     }
+  137 |     async hoverClassroom () {
+  138 |         console.log({ message: `Hovering Classroom....`});
+  139 |         await this.classroom.hover();
+  140 |         await this.activity.click();
+  141 |         //wait so it does not put up a are you a robot promote
+  142 |         await this.page.waitForTimeout(5000);
+  143 |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/classroom-activity-table-sets');
+  144 |     }
+  145 |     async hoverOffice () {
+  146 |         console.log({ message: `Hovering Office & Reception....`});
+  147 |         await this.office.hover();
+  148 |         await this.desks.click();
+  149 |         //wait so it does not put up a are you a robot promote
+  150 |         await this.page.waitForTimeout(5000);
+  151 |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/desks');
+  152 |     }
+  153 |     async hoverMore () {
+  154 |         console.log({ message: `Hovering More....`});
+  155 |         await this.more.hover();
+  156 |         await this.patio.click();
+  157 |         //wait so it does not put up a are you a robot promote
+  158 |         await this.page.waitForTimeout(5000);
+  159 |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/patio-outdoor');
+  160 |     }
+  161 |     
+  162 |     async popUpClose() {
+  163 |         console.log({ message: `Awaiting Pop Up....`});
+  164 |         const popup = this.popUp;
+  165 |     try {
+  166 |         await popup.waitFor({ state: 'visible', timeout: 15000 });
+  167 |         console.log({ message: 'Klaviyo popup appeared — closing it' });
+  168 |         await this.commonUtil.closePopup.click();
+  169 |     } catch {
+  170 |         console.log({ message: 'Klaviyo popup did not appear — skipping close step' });
+  171 |     }
+  172 | }
+  173 | 
+  174 | async clickSearchIcon() {
+  175 |     console.log({ message: `Clicking Search Icon....`});
+  176 |     await this.searchIcon.click();
+  177 |     await this.page.waitForLoadState();
+  178 |     expect(this.page.url()).toContain(STORE_URLS.advantage);
+  179 | }
+  180 | 
+  181 | async searchForItem(item: string) {
+  182 |     console.log({ message: `Searching for item: ${item}....`});
+  183 |     await this.searchInput.fill(item);
+  184 |     await this.searchInput.press('Enter');
+  185 |     await this.page.waitForLoadState('load');
+  186 | }
+  187 | 
+  188 | async clickAccountIcon() {
+  189 |     console.log({ message: `Clicking Account Icon....`});
+  190 |     await this.accountIcon.click();
+  191 |     await this.page.waitForURL(/shopify\.com/);
+  192 | }
+  193 | 
+  194 | async clickCartIcon() {
+  195 |     console.log({ message: `Clicking Cart Icon....`});
+  196 |     await this.cartIcon.click();
+  197 | }
+  198 | }
+  199 | 
+```

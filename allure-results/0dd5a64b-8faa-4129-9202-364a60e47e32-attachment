@@ -1,0 +1,1393 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: advantageChairs\AdvantagePLP.spec.ts >> AdvantagePLP Flow
+- Location: tests\advantageChairs\AdvantagePLP.spec.ts:7:5
+
+# Error details
+
+```
+Test timeout of 180000ms exceeded.
+```
+
+```
+Error: locator.click: Test timeout of 180000ms exceeded.
+Call log:
+  - waiting for locator('//img[@alt="Embroidered 21\'\'W Church Chair in Empire Fabric with Book Rack - Gold Vein Frame - View 2"]')
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=f72e1]:
+  - generic:
+    - button "Skip to main content" [ref=f72e2] [cursor=pointer]:
+      - text: Skip to main content
+      - generic [ref=f72e3]: ENTER
+    - button "Skip to footer" [ref=f72e7] [cursor=pointer]:
+      - text: Skip to footer
+      - generic [ref=f72e8]: ENTER
+    - button "Open widget" [ref=f72e12] [cursor=pointer]:
+      - text: Open widget
+      - generic [ref=f72e13]: ENTER
+  - generic [ref=f72e18]:
+    - generic [ref=f72e20]:
+      - generic [ref=f72e22]:
+        - generic:
+          - group "1 / 4" [ref=f72e23]:
+            - paragraph [ref=f72e25]: Affordable, High Quality Church Chairs
+          - group "2 / 4" [ref=f72e26]:
+            - paragraph [ref=f72e28]: 25,000 5-Star Reviews & Decades of Expertise!
+          - group "3 / 4" [ref=f72e29]:
+            - paragraph [ref=f72e31]: Need a Quote? Call Us 1-855-294-0532
+          - group "4 / 4" [ref=f72e32]:
+            - paragraph [ref=f72e34]: Hablamos español y estamos listos para ayudarte.
+      - button "Previous slide" [ref=f72e35] [cursor=pointer]
+      - button "Next slide" [ref=f72e39] [cursor=pointer]
+    - list [ref=f72e43]:
+      - listitem [ref=f72e44]:
+        - link "Customer Support" [ref=f72e45] [cursor=pointer]:
+          - /url: /pages/contact-us
+  - generic [ref=f72e49]:
+    - generic [ref=f72e50]:
+      - link "Advantage Church Chairs logo" [ref=f72e51] [cursor=pointer]:
+        - /url: https://www.advantagechurchchairs.com
+        - img "Advantage Church Chairs Logo" [ref=f72e52]
+      - generic [ref=f72e54]:
+        - generic [ref=f72e55]:
+          - text: Questions? Call Us at
+          - link "1-855-294-0532" [ref=f72e56] [cursor=pointer]:
+            - /url: tel:1-855-294-0532
+        - list [ref=f72e58]:
+          - listitem [ref=f72e59]:
+            - button "search" [ref=f72e60] [cursor=pointer]
+          - listitem [ref=f72e64]:
+            - link "account" [ref=f72e65] [cursor=pointer]:
+              - /url: /account
+          - listitem [ref=f72e69]:
+            - link "cart" [ref=f72e71] [cursor=pointer]:
+              - /url: /cart
+    - navigation [ref=f72e75]:
+      - list [ref=f72e76] [cursor=pointer]:
+        - listitem [ref=f72e77]:
+          - generic "Shop All" [ref=f72e78]:
+            - link "Shop All" [ref=f72e79]:
+              - /url: /collections/shop-all
+        - listitem [ref=f72e80]:
+          - generic "Church Chairs" [ref=f72e81]:
+            - link "Church Chairs" [ref=f72e82]:
+              - /url: /collections/church-stack-chairs
+            - button "Church chairs menu" [ref=f72e83]
+        - listitem [ref=f72e86]:
+          - generic "Banquet Chairs" [ref=f72e87]:
+            - link "Banquet Chairs" [ref=f72e88]:
+              - /url: /collections/banquet-stack-chairs
+        - listitem [ref=f72e89]:
+          - generic "Folding & Event" [ref=f72e90]:
+            - link "Folding & Event" [ref=f72e91]:
+              - /url: /collections/folding-event
+            - button "Folding event menu" [ref=f72e92]
+        - listitem [ref=f72e95]:
+          - generic "Classroom" [ref=f72e96]:
+            - link "Classroom" [ref=f72e97]:
+              - /url: /collections/classroom
+            - button "Classroom menu" [ref=f72e98]
+        - listitem [ref=f72e101]:
+          - generic "Office & Reception" [ref=f72e102]:
+            - link "Office & Reception" [ref=f72e103]:
+              - /url: /collections/office
+            - button "Office reception menu" [ref=f72e104]
+        - listitem [ref=f72e107]:
+          - generic "Patio & Outdoor" [ref=f72e108]:
+            - link "Patio & Outdoor" [ref=f72e109]:
+              - /url: /collections/patio-outdoor
+  - main [ref=f72e110]:
+    - generic [ref=f72e112]:
+      - generic [ref=f72e115]:
+        - link "Church" [ref=f72e116] [cursor=pointer]:
+          - /url: /collections/church
+        - generic [ref=f72e120]: Church Stack Chairs
+      - generic [ref=f72e122]:
+        - complementary [ref=f72e124]:
+          - generic [ref=f72e125]:
+            - generic [ref=f72e126]:
+              - generic [ref=f72e127]: Filters
+              - button "Clear All" [disabled]
+            - generic [ref=f72e128]: No filters applied.
+            - generic [ref=f72e131]:
+              - generic [ref=f72e132]:
+                - heading [level=6] [ref=f72e133] [cursor=pointer]:
+                  - button [expanded] [ref=f72e134]
+                - list [ref=f72e140]:
+                  - listitem [ref=f72e141]:
+                    - generic [ref=f72e142]:
+                      - checkbox "In stock" [ref=f72e143]
+                      - generic [ref=f72e144] [cursor=pointer]: In stock
+                  - listitem [ref=f72e150]:
+                    - generic [ref=f72e151]:
+                      - checkbox "Out of stock" [disabled] [ref=f72e152]
+                      - generic: Out of stock
+              - generic [ref=f72e153]:
+                - heading [level=6] [ref=f72e154] [cursor=pointer]:
+                  - button [expanded] [ref=f72e155]
+                - generic [ref=f72e164]:
+                  - slider [ref=f72e167]:
+                    - generic [ref=f72e169]: "0"
+                  - slider [ref=f72e170]:
+                    - generic [ref=f72e172]: "128"
+              - generic [ref=f72e173]:
+                - heading [level=6] [ref=f72e174] [cursor=pointer]:
+                  - button [ref=f72e175]
+                - generic [ref=f72e179]:
+                  - list [ref=f72e180]:
+                    - listitem [ref=f72e181]:
+                      - generic [ref=f72e182]:
+                        - checkbox "18.5\" Church Chairs" [ref=f72e183]
+                        - generic [ref=f72e184] [cursor=pointer]: 18.5" Church Chairs
+                    - listitem [ref=f72e190]:
+                      - generic [ref=f72e191]:
+                        - checkbox "21\" Church Chairs" [ref=f72e192]
+                        - generic [ref=f72e193] [cursor=pointer]: 21" Church Chairs
+                    - listitem [ref=f72e199]:
+                      - generic [ref=f72e200]:
+                        - checkbox "18.5\" Custom Church Chairs" [ref=f72e201]
+                        - generic [ref=f72e202] [cursor=pointer]: 18.5" Custom Church Chairs
+                    - listitem [ref=f72e208]:
+                      - generic [ref=f72e209]:
+                        - checkbox "21\" Custom Church Chairs" [ref=f72e210]
+                        - generic [ref=f72e211] [cursor=pointer]: 21" Custom Church Chairs
+                    - listitem [ref=f72e217]:
+                      - generic [ref=f72e218]:
+                        - checkbox "20\" & 20.5\" Church Chairs" [ref=f72e219]
+                        - generic [ref=f72e220] [cursor=pointer]: 20" & 20.5" Church Chairs
+                  - generic [ref=f72e226] [cursor=pointer]: show more
+              - generic [ref=f72e227]:
+                - heading [level=6] [ref=f72e228] [cursor=pointer]:
+                  - button [ref=f72e229]
+                - generic [ref=f72e233]:
+                  - list [ref=f72e234]:
+                    - listitem [ref=f72e235]:
+                      - generic [ref=f72e236]:
+                        - checkbox "ANSI BIFMA Certified" [ref=f72e237]
+                        - generic [ref=f72e238] [cursor=pointer]: ANSI BIFMA Certified
+                    - listitem [ref=f72e244]:
+                      - generic [ref=f72e245]:
+                        - checkbox "Arms" [ref=f72e246]
+                        - generic [ref=f72e247] [cursor=pointer]: Arms
+                    - listitem [ref=f72e253]:
+                      - generic [ref=f72e254]:
+                        - checkbox "Assembly Required" [ref=f72e255]
+                        - generic [ref=f72e256] [cursor=pointer]: Assembly Required
+                    - listitem [ref=f72e262]:
+                      - generic [ref=f72e263]:
+                        - checkbox "CAL 117 Certified" [ref=f72e264]
+                        - generic [ref=f72e265] [cursor=pointer]: CAL 117 Certified
+                    - listitem [ref=f72e271]:
+                      - generic [ref=f72e272]:
+                        - checkbox "Green Certified" [ref=f72e273]
+                        - generic [ref=f72e274] [cursor=pointer]: Green Certified
+                  - generic [ref=f72e280] [cursor=pointer]: show more
+              - generic [ref=f72e281]:
+                - heading [level=6] [ref=f72e282] [cursor=pointer]:
+                  - button [ref=f72e283]
+                - generic [ref=f72e287]:
+                  - list [ref=f72e288]:
+                    - listitem [ref=f72e289]:
+                      - generic [ref=f72e290]:
+                        - checkbox "Beige/Tan" [ref=f72e291]
+                        - generic [ref=f72e292] [cursor=pointer]: Beige/Tan
+                    - listitem [ref=f72e298]:
+                      - generic [ref=f72e299]:
+                        - checkbox "Black" [ref=f72e300]
+                        - generic [ref=f72e301] [cursor=pointer]: Black
+                    - listitem [ref=f72e307]:
+                      - generic [ref=f72e308]:
+                        - checkbox "Blue/Navy" [ref=f72e309]
+                        - generic [ref=f72e310] [cursor=pointer]: Blue/Navy
+                    - listitem [ref=f72e316]:
+                      - generic [ref=f72e317]:
+                        - checkbox "Bronze/Copper" [ref=f72e318]
+                        - generic [ref=f72e319] [cursor=pointer]: Bronze/Copper
+                    - listitem [ref=f72e325]:
+                      - generic [ref=f72e326]:
+                        - checkbox "Brown" [ref=f72e327]
+                        - generic [ref=f72e328] [cursor=pointer]: Brown
+                  - generic [ref=f72e334] [cursor=pointer]: show more
+              - generic [ref=f72e335]:
+                - heading [level=6] [ref=f72e336] [cursor=pointer]:
+                  - button [ref=f72e337]
+                - generic [ref=f72e341]:
+                  - list [ref=f72e342]:
+                    - listitem [ref=f72e343]:
+                      - generic [ref=f72e344]:
+                        - checkbox "Black Powder Coat" [ref=f72e345]
+                        - generic [ref=f72e346] [cursor=pointer]: Black Powder Coat
+                    - listitem [ref=f72e352]:
+                      - generic [ref=f72e353]:
+                        - checkbox "Brown Powder Coat" [ref=f72e354]
+                        - generic [ref=f72e355] [cursor=pointer]: Brown Powder Coat
+                    - listitem [ref=f72e361]:
+                      - generic [ref=f72e362]:
+                        - checkbox "Copper Vein Metal" [ref=f72e363]
+                        - generic [ref=f72e364] [cursor=pointer]: Copper Vein Metal
+                    - listitem [ref=f72e370]:
+                      - generic [ref=f72e371]:
+                        - checkbox "Gold Vein Metal" [ref=f72e372]
+                        - generic [ref=f72e373] [cursor=pointer]: Gold Vein Metal
+                    - listitem [ref=f72e379]:
+                      - generic [ref=f72e380]:
+                        - checkbox "Gray Powder Coat" [ref=f72e381]
+                        - generic [ref=f72e382] [cursor=pointer]: Gray Powder Coat
+                  - generic [ref=f72e388] [cursor=pointer]: show more
+              - generic [ref=f72e389]:
+                - heading [level=6] [ref=f72e390] [cursor=pointer]:
+                  - button [ref=f72e391]
+                - generic [ref=f72e395]:
+                  - list [ref=f72e396]:
+                    - listitem [ref=f72e397]:
+                      - generic [ref=f72e398]:
+                        - checkbox "Beige Fabric" [ref=f72e399]
+                        - generic [ref=f72e400] [cursor=pointer]: Beige Fabric
+                    - listitem [ref=f72e406]:
+                      - generic [ref=f72e407]:
+                        - checkbox "Black Fabric" [ref=f72e408]
+                        - generic [ref=f72e409] [cursor=pointer]: Black Fabric
+                    - listitem [ref=f72e415]:
+                      - generic [ref=f72e416]:
+                        - checkbox "Black Vinyl" [ref=f72e417]
+                        - generic [ref=f72e418] [cursor=pointer]: Black Vinyl
+                    - listitem [ref=f72e424]:
+                      - generic [ref=f72e425]:
+                        - checkbox "Blue Fabric" [ref=f72e426]
+                        - generic [ref=f72e427] [cursor=pointer]: Blue Fabric
+                    - listitem [ref=f72e433]:
+                      - generic [ref=f72e434]:
+                        - checkbox "Brown Fabric" [ref=f72e435]
+                        - generic [ref=f72e436] [cursor=pointer]: Brown Fabric
+                  - generic [ref=f72e442] [cursor=pointer]: show more
+              - generic [ref=f72e443]:
+                - heading [level=6] [ref=f72e444] [cursor=pointer]:
+                  - button [ref=f72e445]
+                - list [ref=f72e450]:
+                  - listitem [ref=f72e451]:
+                    - generic [ref=f72e452]:
+                      - checkbox "Solid" [ref=f72e453]
+                      - generic [ref=f72e454] [cursor=pointer]: Solid
+                  - listitem [ref=f72e460]:
+                    - generic [ref=f72e461]:
+                      - checkbox "Square" [ref=f72e462]
+                      - generic [ref=f72e463] [cursor=pointer]: Square
+              - generic [ref=f72e469]:
+                - heading [level=6] [ref=f72e470] [cursor=pointer]:
+                  - button [ref=f72e471]
+                - list [ref=f72e476]:
+                  - listitem [ref=f72e477]:
+                    - generic [ref=f72e478]:
+                      - checkbox "Full" [ref=f72e479]
+                      - generic [ref=f72e480] [cursor=pointer]: Full
+              - generic [ref=f72e486]:
+                - heading [level=6] [ref=f72e487] [cursor=pointer]:
+                  - button [ref=f72e488]
+                - list [ref=f72e493]:
+                  - listitem [ref=f72e494]:
+                    - generic [ref=f72e495]:
+                      - checkbox "Square" [ref=f72e496]
+                      - generic [ref=f72e497] [cursor=pointer]: Square
+              - generic [ref=f72e503]:
+                - heading [level=6] [ref=f72e504] [cursor=pointer]:
+                  - button [ref=f72e505]
+                - list [ref=f72e510]:
+                  - listitem [ref=f72e511]:
+                    - generic [ref=f72e512]:
+                      - checkbox "8" [ref=f72e513]
+                      - generic [ref=f72e514] [cursor=pointer]: "8"
+                  - listitem [ref=f72e520]:
+                    - generic [ref=f72e521]:
+                      - checkbox "10" [ref=f72e522]
+                      - generic [ref=f72e523] [cursor=pointer]: "10"
+        - generic [ref=f72e530]:
+          - heading "Church Stack Chairs" [level=1] [ref=f72e531]
+          - separator [ref=f72e532]
+          - generic [ref=f72e533]:
+            - heading "Featured Church Chair Categories" [level=4] [ref=f72e535]
+            - generic [ref=f72e537]:
+              - generic:
+                - group "1 / 5" [ref=f72e538]:
+                  - article [ref=f72e539]:
+                    - img "18.5\" Church Chairs" [ref=f72e542]
+                    - generic [ref=f72e544]:
+                      - heading "18.5\" Church Chairs" [level=3] [ref=f72e545]
+                      - link "Click Me, navigate out" [ref=f72e548] [cursor=pointer]:
+                        - /url: /collections/18-5-church-chairs
+                        - text: Shop
+                - group "2 / 5" [ref=f72e552]:
+                  - article [ref=f72e553]:
+                    - img "20\" & 20.5\" Church Chairs" [ref=f72e556]
+                    - generic [ref=f72e558]:
+                      - heading "20\" & 20.5\" Church Chairs" [level=3] [ref=f72e559]
+                      - link "Click Me, navigate out" [ref=f72e562] [cursor=pointer]:
+                        - /url: /collections/20-20-5-church-chairs
+                        - text: Shop
+                - group "3 / 5" [ref=f72e566]:
+                  - article [ref=f72e567]:
+                    - img "21\" Church Chairs" [ref=f72e570]
+                    - generic [ref=f72e572]:
+                      - heading "21\" Church Chairs" [level=3] [ref=f72e573]
+                      - link "Click Me, navigate out" [ref=f72e576] [cursor=pointer]:
+                        - /url: /collections/21-church-chairs
+                        - text: Shop
+                - group "4 / 5" [ref=f72e580]:
+                  - article [ref=f72e581]:
+                    - img "Custom & Personalized Church Chairs" [ref=f72e584]
+                    - generic [ref=f72e586]:
+                      - heading "Custom Church Chairs" [level=3] [ref=f72e587]
+                      - link "Click Me, navigate out" [ref=f72e590] [cursor=pointer]:
+                        - /url: /collections/custom-personalized-church-chairs
+                        - text: Shop
+                - group "5 / 5" [ref=f72e594]:
+                  - article [ref=f72e595]:
+                    - generic [ref=f72e600]:
+                      - heading "Dollies & Carts" [level=3] [ref=f72e601]
+                      - link "Click Me, navigate out" [ref=f72e604] [cursor=pointer]:
+                        - /url: /collections/dollies-carts
+                        - text: Shop
+            - separator [ref=f72e608]
+          - generic [ref=f72e609]:
+            - generic [ref=f72e610]: Showing 24 of 294 products
+            - combobox [ref=f72e615]:
+              - option "Featured"
+              - option "Most relevant"
+              - option "Best selling" [selected]
+              - option "Alphabetically, A-Z"
+              - option "Alphabetically, Z-A"
+              - option "Price, low to high"
+              - option "Price, high to low"
+              - option "Date, old to new"
+              - option "Date, new to old"
+          - generic [ref=f72e616]:
+            - generic [ref=f72e617]:
+              - generic [ref=f72e618]:
+                - generic [ref=f72e619]:
+                  - link [ref=f72e620] [cursor=pointer]:
+                    - /url: /products/21-stackable-church-chair-with-arms-xu-dg-60156?variant=47186048450850
+                    - img "HERCULES Series 21\"W Stacking Wood Accent Arm Church Chair - View 1" [ref=f72e622]
+                    - img "HERCULES Series 21\"W Stacking Wood Accent Arm Church Chair - View 2" [ref=f72e624]
+                  - generic [ref=f72e625]: Bulk Discounts
+                - generic [ref=f72e627]:
+                  - paragraph [ref=f72e628]: XU-DG-60156-GY-GG
+                  - link "HERCULES Series 21\"W Stacking Wood Accent Arm Church Chair" [ref=f72e629] [cursor=pointer]:
+                    - /url: /products/21-stackable-church-chair-with-arms-xu-dg-60156
+                  - paragraph [ref=f72e630]: Gray Fabric/Silver Vein Frame
+                  - generic [ref=f72e631]: $105.45
+                  - generic [ref=f72e635]:
+                    - generic:
+                      - group "1 / 3" [ref=f72e636]:
+                        - button [ref=f72e637] [cursor=pointer]:
+                          - img "HERCULES Series 21\"W Stacking Wood Accent Arm Church Chair" [ref=f72e639]
+                      - group "2 / 3" [ref=f72e640]:
+                        - button [ref=f72e641] [cursor=pointer]:
+                          - img "HERCULES Series 21\"W Stacking Wood Accent Arm Church Chair" [ref=f72e643]
+                      - group "3 / 3" [ref=f72e644]:
+                        - button [ref=f72e645] [cursor=pointer]:
+                          - img "HERCULES Series 21\"W Stacking Wood Accent Arm Church Chair" [ref=f72e647]
+              - generic [ref=f72e648]:
+                - generic [ref=f72e649]:
+                  - link [ref=f72e650] [cursor=pointer]:
+                    - /url: /products/21w-stacking-fabric-church-chair-silver-vein-frame-xu-ch0221?variant=47185862721826
+                    - img "HERCULES Series 21''W Stacking Church Chair - View 1" [ref=f72e652]
+                    - img "HERCULES Series 21''W Stacking Church Chair - View 2" [ref=f72e654]
+                  - generic [ref=f72e655]: Bulk Discounts
+                - generic [ref=f72e657]:
+                  - paragraph [ref=f72e658]: XU-CH0221-BK-SV-GG
+                  - link "HERCULES Series 21''W Stacking Church Chair" [ref=f72e659] [cursor=pointer]:
+                    - /url: /products/21w-stacking-fabric-church-chair-silver-vein-frame-xu-ch0221
+                  - paragraph [ref=f72e660]: Black Fabric/Silver Vein Frame
+                  - generic [ref=f72e661]: $63.29
+                  - generic [ref=f72e665]:
+                    - generic:
+                      - group "1 / 2" [ref=f72e666]:
+                        - button [ref=f72e667] [cursor=pointer]:
+                          - img "HERCULES Series 21''W Stacking Church Chair" [ref=f72e669]
+                      - group "2 / 2" [ref=f72e670]:
+                        - button [ref=f72e671] [cursor=pointer]:
+                          - img "HERCULES Series 21''W Stacking Church Chair" [ref=f72e673]
+              - generic [ref=f72e674]:
+                - generic [ref=f72e675]:
+                  - link [ref=f72e676] [cursor=pointer]:
+                    - /url: /products/185w-church-chair-in-fabric-with-book-rack-copper-vein-frame-fd-ch02185-bas?variant=47182045806882
+                    - img "HERCULES Series 18.5''W Church Chair with Book Rack - View 1" [ref=f72e678]
+                    - img "HERCULES Series 18.5''W Church Chair with Book Rack - View 2" [ref=f72e680]
+                  - generic [ref=f72e681]: Bulk Discounts
+                - generic [ref=f72e683]:
+                  - paragraph [ref=f72e684]: FD-CH02185-SV-GYDOT-BAS-GG
+                  - link "HERCULES Series 18.5''W Church Chair with Book Rack" [ref=f72e685] [cursor=pointer]:
+                    - /url: /products/185w-church-chair-in-fabric-with-book-rack-copper-vein-frame-fd-ch02185-bas
+                  - paragraph [ref=f72e686]: Gray Dot Fabric/Silver Vein Frame
+                  - generic [ref=f72e687]: $59.49
+                  - generic [ref=f72e689]:
+                    - button "Next slide" [ref=f72e690] [cursor=pointer]
+                    - generic [ref=f72e693]:
+                      - generic:
+                        - group "1 / 11" [ref=f72e694]:
+                          - button [ref=f72e695] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair with Book Rack" [ref=f72e697]
+                        - group "2 / 11" [ref=f72e698]:
+                          - button [ref=f72e699] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair with Book Rack" [ref=f72e701]
+                        - group "3 / 11" [ref=f72e702]:
+                          - button [ref=f72e703] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair with Book Rack" [ref=f72e705]
+                        - group "4 / 11" [ref=f72e706]:
+                          - button [ref=f72e707] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair with Book Rack" [ref=f72e709]
+                        - group "5 / 11" [ref=f72e710]:
+                          - button [ref=f72e711] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair with Book Rack" [ref=f72e713]
+                        - group "6 / 11" [ref=f72e714]:
+                          - button [ref=f72e715] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair with Book Rack" [ref=f72e717]
+                        - group "7 / 11" [ref=f72e718]:
+                          - button [ref=f72e719] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair with Book Rack" [ref=f72e721]
+                        - group "8 / 11" [ref=f72e722]:
+                          - button [ref=f72e723] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair with Book Rack" [ref=f72e725]
+                        - group "9 / 11" [ref=f72e726]:
+                          - button [ref=f72e727] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair with Book Rack" [ref=f72e729]
+                        - group "10 / 11" [ref=f72e730]:
+                          - button [ref=f72e731] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair with Book Rack" [ref=f72e733]
+                        - group "11 / 11" [ref=f72e734]:
+                          - button [ref=f72e735] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair with Book Rack" [ref=f72e737]
+              - generic [ref=f72e738]:
+                - generic [ref=f72e739]:
+                  - link [ref=f72e740] [cursor=pointer]:
+                    - /url: /products/21w-church-chair-with-book-rack-silver-vein-frame-xu-ch0221?variant=47185866653986
+                    - img "HERCULES Series 21''W Church Chair with Book Rack - View 1" [ref=f72e742]
+                    - img "HERCULES Series 21''W Church Chair with Book Rack - View 2" [ref=f72e744]
+                  - generic [ref=f72e745]: Bulk Discounts
+                - generic [ref=f72e747]:
+                  - paragraph [ref=f72e748]: XU-CH0221-GY-SV-BAS-GG
+                  - link "HERCULES Series 21''W Church Chair with Book Rack" [ref=f72e749] [cursor=pointer]:
+                    - /url: /products/21w-church-chair-with-book-rack-silver-vein-frame-xu-ch0221
+                  - paragraph [ref=f72e750]: Gray Fabric/Silver Vein Frame
+                  - generic [ref=f72e751]: $63.29
+                  - generic [ref=f72e755]:
+                    - generic:
+                      - group "1 / 2" [ref=f72e756]:
+                        - button [ref=f72e757] [cursor=pointer]:
+                          - img "HERCULES Series 21''W Church Chair with Book Rack" [ref=f72e759]
+                      - group "2 / 2" [ref=f72e760]:
+                        - button [ref=f72e761] [cursor=pointer]:
+                          - img "HERCULES Series 21''W Church Chair with Book Rack" [ref=f72e763]
+              - generic [ref=f72e764]:
+                - generic [ref=f72e765]:
+                  - link [ref=f72e766] [cursor=pointer]:
+                    - /url: /products/hercules-series-185w-church-chair-in-e-z-vinyl-ng-ch-185-gv-unp-ezvyl?variant=47184964059426
+                    - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame - View 1" [ref=f72e768]
+                    - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame - View 2" [ref=f72e770]
+                  - generic [ref=f72e771]: Bulk Discounts
+                - generic [ref=f72e773]:
+                  - paragraph [ref=f72e774]: NG-CH-185-GV-UNP-5816-MAROON-GG
+                  - link "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e775] [cursor=pointer]:
+                    - /url: /products/hercules-series-185w-church-chair-in-e-z-vinyl-ng-ch-185-gv-unp-ezvyl
+                  - paragraph [ref=f72e776]: E-Z Wallaby Maroon Vinyl
+                  - generic [ref=f72e777]:
+                    - generic [ref=f72e778]: As low as
+                    - generic [ref=f72e779]: $75.96
+                  - generic [ref=f72e780]:
+                    - button "Next slide" [ref=f72e781] [cursor=pointer]
+                    - generic [ref=f72e784]:
+                      - generic:
+                        - group "1 / 32" [ref=f72e785]:
+                          - button [ref=f72e786] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e788]
+                        - group "2 / 32" [ref=f72e789]:
+                          - button [ref=f72e790] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e792]
+                        - group "3 / 32" [ref=f72e793]:
+                          - button [ref=f72e794] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e796]
+                        - group "4 / 32" [ref=f72e797]:
+                          - button [ref=f72e798] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e800]
+                        - group "5 / 32" [ref=f72e801]:
+                          - button [ref=f72e802] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e804]
+                        - group "6 / 32" [ref=f72e805]:
+                          - button [ref=f72e806] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e808]
+                        - group "7 / 32" [ref=f72e809]:
+                          - button [ref=f72e810] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e812]
+                        - group "8 / 32" [ref=f72e813]:
+                          - button [ref=f72e814] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e816]
+                        - group "9 / 32" [ref=f72e817]:
+                          - button [ref=f72e818] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e820]
+                        - group "10 / 32" [ref=f72e821]:
+                          - button [ref=f72e822] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e824]
+                        - group "11 / 32" [ref=f72e825]:
+                          - button [ref=f72e826] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e828]
+                        - group "12 / 32" [ref=f72e829]:
+                          - button [ref=f72e830] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e832]
+                        - group "13 / 32" [ref=f72e833]:
+                          - button [ref=f72e834] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e836]
+                        - group "14 / 32" [ref=f72e837]:
+                          - button [ref=f72e838] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e840]
+                        - group "15 / 32" [ref=f72e841]:
+                          - button [ref=f72e842] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e844]
+                        - group "16 / 32" [ref=f72e845]:
+                          - button [ref=f72e846] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e848]
+                        - group "17 / 32" [ref=f72e849]:
+                          - button [ref=f72e850] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e852]
+                        - group "18 / 32" [ref=f72e853]:
+                          - button [ref=f72e854] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e856]
+                        - group "19 / 32" [ref=f72e857]:
+                          - button [ref=f72e858] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e860]
+                        - group "20 / 32" [ref=f72e861]:
+                          - button [ref=f72e862] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e864]
+                        - group "21 / 32" [ref=f72e865]:
+                          - button [ref=f72e866] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e868]
+                        - group "22 / 32" [ref=f72e869]:
+                          - button [ref=f72e870] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e872]
+                        - group "23 / 32" [ref=f72e873]:
+                          - button [ref=f72e874] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e876]
+                        - group "24 / 32" [ref=f72e877]:
+                          - button [ref=f72e878] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e880]
+                        - group "25 / 32" [ref=f72e881]:
+                          - button [ref=f72e882] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e884]
+                        - group "26 / 32" [ref=f72e885]:
+                          - button [ref=f72e886] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e888]
+                        - group "27 / 32" [ref=f72e889]:
+                          - button [ref=f72e890] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e892]
+                        - group "28 / 32" [ref=f72e893]:
+                          - button [ref=f72e894] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e896]
+                        - group "29 / 32" [ref=f72e897]:
+                          - button [ref=f72e898] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e900]
+                        - group "30 / 32" [ref=f72e901]:
+                          - button [ref=f72e902] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e904]
+                        - group "31 / 32" [ref=f72e905]:
+                          - button [ref=f72e906] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e908]
+                        - group "32 / 32" [ref=f72e909]:
+                          - button [ref=f72e910] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e912]
+              - generic [ref=f72e913]:
+                - link [ref=f72e915] [cursor=pointer]:
+                  - /url: /products/embroidered-21w-church-chair-in-venus-fabric-with-book-rack-fd-ch-21-gv-unp-venusfab-bas?variant=47183511486754
+                  - img "Embroidered 21''W Church Chair in Venus Fabric with Book Rack - Gold Vein Frame - View 1" [ref=f72e917]
+                  - img "Embroidered 21''W Church Chair in Venus Fabric with Book Rack - Gold Vein Frame - View 2" [ref=f72e919]
+                - generic [ref=f72e920]:
+                  - paragraph [ref=f72e921]: FD-CH-21-GV-UNP-VENUS-005-BAS-EMB-GG
+                  - link "Embroidered 21''W Church Chair in Venus Fabric with Book Rack - Gold Vein Frame" [ref=f72e922] [cursor=pointer]:
+                    - /url: /products/embroidered-21w-church-chair-in-venus-fabric-with-book-rack-fd-ch-21-gv-unp-venusfab-bas
+                  - paragraph [ref=f72e923]: Venus Cobalt Fabric
+                  - generic [ref=f72e924]: $105.49
+                  - generic [ref=f72e926]:
+                    - button "Next slide" [ref=f72e927] [cursor=pointer]
+                    - generic [ref=f72e930]:
+                      - generic:
+                        - group "1 / 14" [ref=f72e931]:
+                          - button [ref=f72e932] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Venus Fabric with Book Rack - Gold Vein Frame" [ref=f72e934]
+                        - group "2 / 14" [ref=f72e935]:
+                          - button [ref=f72e936] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Venus Fabric with Book Rack - Gold Vein Frame" [ref=f72e938]
+                        - group "3 / 14" [ref=f72e939]:
+                          - button [ref=f72e940] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Venus Fabric with Book Rack - Gold Vein Frame" [ref=f72e942]
+                        - group "4 / 14" [ref=f72e943]:
+                          - button [ref=f72e944] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Venus Fabric with Book Rack - Gold Vein Frame" [ref=f72e946]
+                        - group "5 / 14" [ref=f72e947]:
+                          - button [ref=f72e948] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Venus Fabric with Book Rack - Gold Vein Frame" [ref=f72e950]
+                        - group "6 / 14" [ref=f72e951]:
+                          - button [ref=f72e952] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Venus Fabric with Book Rack - Gold Vein Frame" [ref=f72e954]
+                        - group "7 / 14" [ref=f72e955]:
+                          - button [ref=f72e956] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Venus Fabric with Book Rack - Gold Vein Frame" [ref=f72e958]
+                        - group "8 / 14" [ref=f72e959]:
+                          - button [ref=f72e960] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Venus Fabric with Book Rack - Gold Vein Frame" [ref=f72e962]
+                        - group "9 / 14" [ref=f72e963]:
+                          - button [ref=f72e964] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Venus Fabric with Book Rack - Gold Vein Frame" [ref=f72e966]
+                        - group "10 / 14" [ref=f72e967]:
+                          - button [ref=f72e968] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Venus Fabric with Book Rack - Gold Vein Frame" [ref=f72e970]
+                        - group "11 / 14" [ref=f72e971]:
+                          - button [ref=f72e972] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Venus Fabric with Book Rack - Gold Vein Frame" [ref=f72e974]
+                        - group "12 / 14" [ref=f72e975]:
+                          - button [ref=f72e976] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Venus Fabric with Book Rack - Gold Vein Frame" [ref=f72e978]
+                        - group "13 / 14" [ref=f72e979]:
+                          - button [ref=f72e980] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Venus Fabric with Book Rack - Gold Vein Frame" [ref=f72e982]
+                        - group "14 / 14" [ref=f72e983]:
+                          - button [ref=f72e984] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Venus Fabric with Book Rack - Gold Vein Frame" [ref=f72e986]
+              - generic [ref=f72e987]:
+                - generic [ref=f72e988]:
+                  - link [ref=f72e989] [cursor=pointer]:
+                    - /url: /products/hercules-series-21w-church-chair-in-e-z-vinyl-with-book-rack-fd-ch-21-gv-unp-ezvyl-bas?variant=47753546563874
+                    - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame - View 1" [ref=f72e991]
+                    - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame - View 2" [ref=f72e993]
+                  - generic [ref=f72e994]: Bulk Discounts
+                - generic [ref=f72e996]:
+                  - paragraph [ref=f72e997]: FD-CH-21-GV-UNP-5836-HEIDI-BLACK-BAS-GG
+                  - link "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e998] [cursor=pointer]:
+                    - /url: /products/hercules-series-21w-church-chair-in-e-z-vinyl-with-book-rack-fd-ch-21-gv-unp-ezvyl-bas
+                  - paragraph [ref=f72e999]: E-Z Heidi Black Vinyl
+                  - generic [ref=f72e1000]: $94.31
+                  - generic [ref=f72e1002]:
+                    - button "Next slide" [ref=f72e1003] [cursor=pointer]
+                    - generic [ref=f72e1006]:
+                      - generic:
+                        - group "1 / 28" [ref=f72e1007]:
+                          - button [ref=f72e1008] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1010]
+                        - group "2 / 28" [ref=f72e1011]:
+                          - button [ref=f72e1012] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1014]
+                        - group "3 / 28" [ref=f72e1015]:
+                          - button [ref=f72e1016] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1018]
+                        - group "4 / 28" [ref=f72e1019]:
+                          - button [ref=f72e1020] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1022]
+                        - group "5 / 28" [ref=f72e1023]:
+                          - button [ref=f72e1024] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1026]
+                        - group "6 / 28" [ref=f72e1027]:
+                          - button [ref=f72e1028] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1030]
+                        - group "7 / 28" [ref=f72e1031]:
+                          - button [ref=f72e1032] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1034]
+                        - group "8 / 28" [ref=f72e1035]:
+                          - button [ref=f72e1036] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1038]
+                        - group "9 / 28" [ref=f72e1039]:
+                          - button [ref=f72e1040] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1042]
+                        - group "10 / 28" [ref=f72e1043]:
+                          - button [ref=f72e1044] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1046]
+                        - group "11 / 28" [ref=f72e1047]:
+                          - button [ref=f72e1048] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1050]
+                        - group "12 / 28" [ref=f72e1051]:
+                          - button [ref=f72e1052] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1054]
+                        - group "13 / 28" [ref=f72e1055]:
+                          - button [ref=f72e1056] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1058]
+                        - group "14 / 28" [ref=f72e1059]:
+                          - button [ref=f72e1060] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1062]
+                        - group "15 / 28" [ref=f72e1063]:
+                          - button [ref=f72e1064] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1066]
+                        - group "16 / 28" [ref=f72e1067]:
+                          - button [ref=f72e1068] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1070]
+                        - group "17 / 28" [ref=f72e1071]:
+                          - button [ref=f72e1072] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1074]
+                        - group "18 / 28" [ref=f72e1075]:
+                          - button [ref=f72e1076] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1078]
+                        - group "19 / 28" [ref=f72e1079]:
+                          - button [ref=f72e1080] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1082]
+                        - group "20 / 28" [ref=f72e1083]:
+                          - button [ref=f72e1084] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1086]
+                        - group "21 / 28" [ref=f72e1087]:
+                          - button [ref=f72e1088] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1090]
+                        - group "22 / 28" [ref=f72e1091]:
+                          - button [ref=f72e1092] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1094]
+                        - group "23 / 28" [ref=f72e1095]:
+                          - button [ref=f72e1096] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1098]
+                        - group "24 / 28" [ref=f72e1099]:
+                          - button [ref=f72e1100] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1102]
+                        - group "25 / 28" [ref=f72e1103]:
+                          - button [ref=f72e1104] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1106]
+                        - group "26 / 28" [ref=f72e1107]:
+                          - button [ref=f72e1108] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1110]
+                        - group "27 / 28" [ref=f72e1111]:
+                          - button [ref=f72e1112] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1114]
+                        - group "28 / 28" [ref=f72e1115]:
+                          - button [ref=f72e1116] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl with Book Rack - Gold Vein Frame" [ref=f72e1118]
+              - generic [ref=f72e1119]:
+                - link [ref=f72e1121] [cursor=pointer]:
+                  - /url: /products/21w-church-chair-in-cobblestone-fabric-with-book-rack-fd-ch-21-gv-unp-cirquefab?variant=47753548038434
+                  - img "Embroidered 21''W Church Chair in Cirque Fabric - Gold Vein Frame - View 1" [ref=f72e1123]
+                  - img "Embroidered 21''W Church Chair in Cirque Fabric - Gold Vein Frame - View 2" [ref=f72e1125]
+                - generic [ref=f72e1126]:
+                  - paragraph [ref=f72e1127]: FD-CH-21-GV-UNP-CIRQUE-005-EMB-GG
+                  - link "Embroidered 21''W Church Chair in Cirque Fabric - Gold Vein Frame" [ref=f72e1128] [cursor=pointer]:
+                    - /url: /products/21w-church-chair-in-cobblestone-fabric-with-book-rack-fd-ch-21-gv-unp-cirquefab
+                  - paragraph [ref=f72e1129]: Cirque Midnight Fabric
+                  - generic [ref=f72e1130]: $102.49
+                  - generic [ref=f72e1132]:
+                    - button "Next slide" [ref=f72e1133] [cursor=pointer]
+                    - generic [ref=f72e1136]:
+                      - generic:
+                        - group "1 / 12" [ref=f72e1137]:
+                          - button [ref=f72e1138] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Cirque Fabric - Gold Vein Frame" [ref=f72e1140]
+                        - group "2 / 12" [ref=f72e1141]:
+                          - button [ref=f72e1142] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Cirque Fabric - Gold Vein Frame" [ref=f72e1144]
+                        - group "3 / 12" [ref=f72e1145]:
+                          - button [ref=f72e1146] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Cirque Fabric - Gold Vein Frame" [ref=f72e1148]
+                        - group "4 / 12" [ref=f72e1149]:
+                          - button [ref=f72e1150] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Cirque Fabric - Gold Vein Frame" [ref=f72e1152]
+                        - group "5 / 12" [ref=f72e1153]:
+                          - button [ref=f72e1154] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Cirque Fabric - Gold Vein Frame" [ref=f72e1156]
+                        - group "6 / 12" [ref=f72e1157]:
+                          - button [ref=f72e1158] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Cirque Fabric - Gold Vein Frame" [ref=f72e1160]
+                        - group "7 / 12" [ref=f72e1161]:
+                          - button [ref=f72e1162] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Cirque Fabric - Gold Vein Frame" [ref=f72e1164]
+                        - group "8 / 12" [ref=f72e1165]:
+                          - button [ref=f72e1166] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Cirque Fabric - Gold Vein Frame" [ref=f72e1168]
+                        - group "9 / 12" [ref=f72e1169]:
+                          - button [ref=f72e1170] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Cirque Fabric - Gold Vein Frame" [ref=f72e1172]
+                        - group "10 / 12" [ref=f72e1173]:
+                          - button [ref=f72e1174] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Cirque Fabric - Gold Vein Frame" [ref=f72e1176]
+                        - group "11 / 12" [ref=f72e1177]:
+                          - button [ref=f72e1178] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Cirque Fabric - Gold Vein Frame" [ref=f72e1180]
+                        - group "12 / 12" [ref=f72e1181]:
+                          - button [ref=f72e1182] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Cirque Fabric - Gold Vein Frame" [ref=f72e1184]
+              - generic [ref=f72e1185]:
+                - generic [ref=f72e1186]:
+                  - link [ref=f72e1187] [cursor=pointer]:
+                    - /url: /products/embroidered-21w-church-chair-in-cirque-fabric-fd-ch-21-gv-unp-cirquefab-bas?variant=47753545384226
+                    - img "21''W Church Chair in Cirque Fabric with Book Rack - Gold Vein Frame - View 1" [ref=f72e1189]
+                    - img "21''W Church Chair in Cirque Fabric with Book Rack - Gold Vein Frame - View 2" [ref=f72e1191]
+                  - generic [ref=f72e1192]: Bulk Discounts
+                - generic [ref=f72e1194]:
+                  - paragraph [ref=f72e1195]: FD-CH-21-GV-UNP-CIRQUE-001-BAS-GG
+                  - link "21''W Church Chair in Cirque Fabric with Book Rack - Gold Vein Frame" [ref=f72e1196] [cursor=pointer]:
+                    - /url: /products/embroidered-21w-church-chair-in-cirque-fabric-fd-ch-21-gv-unp-cirquefab-bas
+                  - paragraph [ref=f72e1197]: Cirque Black Fabric
+                  - generic [ref=f72e1198]: $101.91
+                  - generic [ref=f72e1200]:
+                    - button "Next slide" [ref=f72e1201] [cursor=pointer]
+                    - generic [ref=f72e1204]:
+                      - generic:
+                        - group "1 / 12" [ref=f72e1205]:
+                          - button [ref=f72e1206] [cursor=pointer]:
+                            - img "21''W Church Chair in Cirque Fabric with Book Rack - Gold Vein Frame" [ref=f72e1208]
+                        - group "2 / 12" [ref=f72e1209]:
+                          - button [ref=f72e1210] [cursor=pointer]:
+                            - img "21''W Church Chair in Cirque Fabric with Book Rack - Gold Vein Frame" [ref=f72e1212]
+                        - group "3 / 12" [ref=f72e1213]:
+                          - button [ref=f72e1214] [cursor=pointer]:
+                            - img "21''W Church Chair in Cirque Fabric with Book Rack - Gold Vein Frame" [ref=f72e1216]
+                        - group "4 / 12" [ref=f72e1217]:
+                          - button [ref=f72e1218] [cursor=pointer]:
+                            - img "21''W Church Chair in Cirque Fabric with Book Rack - Gold Vein Frame" [ref=f72e1220]
+                        - group "5 / 12" [ref=f72e1221]:
+                          - button [ref=f72e1222] [cursor=pointer]:
+                            - img "21''W Church Chair in Cirque Fabric with Book Rack - Gold Vein Frame" [ref=f72e1224]
+                        - group "6 / 12" [ref=f72e1225]:
+                          - button [ref=f72e1226] [cursor=pointer]:
+                            - img "21''W Church Chair in Cirque Fabric with Book Rack - Gold Vein Frame" [ref=f72e1228]
+                        - group "7 / 12" [ref=f72e1229]:
+                          - button [ref=f72e1230] [cursor=pointer]:
+                            - img "21''W Church Chair in Cirque Fabric with Book Rack - Gold Vein Frame" [ref=f72e1232]
+                        - group "8 / 12" [ref=f72e1233]:
+                          - button [ref=f72e1234] [cursor=pointer]:
+                            - img "21''W Church Chair in Cirque Fabric with Book Rack - Gold Vein Frame" [ref=f72e1236]
+                        - group "9 / 12" [ref=f72e1237]:
+                          - button [ref=f72e1238] [cursor=pointer]:
+                            - img "21''W Church Chair in Cirque Fabric with Book Rack - Gold Vein Frame" [ref=f72e1240]
+                        - group "10 / 12" [ref=f72e1241]:
+                          - button [ref=f72e1242] [cursor=pointer]:
+                            - img "21''W Church Chair in Cirque Fabric with Book Rack - Gold Vein Frame" [ref=f72e1244]
+                        - group "11 / 12" [ref=f72e1245]:
+                          - button [ref=f72e1246] [cursor=pointer]:
+                            - img "21''W Church Chair in Cirque Fabric with Book Rack - Gold Vein Frame" [ref=f72e1248]
+                        - group "12 / 12" [ref=f72e1249]:
+                          - button [ref=f72e1250] [cursor=pointer]:
+                            - img "21''W Church Chair in Cirque Fabric with Book Rack - Gold Vein Frame" [ref=f72e1252]
+              - generic [ref=f72e1253]:
+                - link [ref=f72e1255] [cursor=pointer]:
+                  - /url: /products/embroidered-21w-church-chair-in-fiji-fabric-with-book-rack-fd-ch-21-gv-unp-fijifab-bas?variant=47753555444002
+                  - img "Embroidered 21''W Church Chair in Fiji Fabric with Book Rack - Gold Vein Frame - View 1" [ref=f72e1257]
+                  - img "Embroidered 21''W Church Chair in Fiji Fabric with Book Rack - Gold Vein Frame - View 2" [ref=f72e1259]
+                - generic [ref=f72e1260]:
+                  - paragraph [ref=f72e1261]: FD-CH-21-GV-UNP-FIJI-009-BAS-EMB-GG
+                  - link "Embroidered 21''W Church Chair in Fiji Fabric with Book Rack - Gold Vein Frame" [ref=f72e1262] [cursor=pointer]:
+                    - /url: /products/embroidered-21w-church-chair-in-fiji-fabric-with-book-rack-fd-ch-21-gv-unp-fijifab-bas
+                  - paragraph [ref=f72e1263]: Fiji Plum Fabric
+                  - generic [ref=f72e1264]: $105.49
+                  - generic [ref=f72e1266]:
+                    - button "Next slide" [ref=f72e1267] [cursor=pointer]
+                    - generic [ref=f72e1270]:
+                      - generic:
+                        - group "1 / 13" [ref=f72e1271]:
+                          - button [ref=f72e1272] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Fiji Fabric with Book Rack - Gold Vein Frame" [ref=f72e1274]
+                        - group "2 / 13" [ref=f72e1275]:
+                          - button [ref=f72e1276] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Fiji Fabric with Book Rack - Gold Vein Frame" [ref=f72e1278]
+                        - group "3 / 13" [ref=f72e1279]:
+                          - button [ref=f72e1280] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Fiji Fabric with Book Rack - Gold Vein Frame" [ref=f72e1282]
+                        - group "4 / 13" [ref=f72e1283]:
+                          - button [ref=f72e1284] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Fiji Fabric with Book Rack - Gold Vein Frame" [ref=f72e1286]
+                        - group "5 / 13" [ref=f72e1287]:
+                          - button [ref=f72e1288] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Fiji Fabric with Book Rack - Gold Vein Frame" [ref=f72e1290]
+                        - group "6 / 13" [ref=f72e1291]:
+                          - button [ref=f72e1292] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Fiji Fabric with Book Rack - Gold Vein Frame" [ref=f72e1294]
+                        - group "7 / 13" [ref=f72e1295]:
+                          - button [ref=f72e1296] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Fiji Fabric with Book Rack - Gold Vein Frame" [ref=f72e1298]
+                        - group "8 / 13" [ref=f72e1299]:
+                          - button [ref=f72e1300] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Fiji Fabric with Book Rack - Gold Vein Frame" [ref=f72e1302]
+                        - group "9 / 13" [ref=f72e1303]:
+                          - button [ref=f72e1304] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Fiji Fabric with Book Rack - Gold Vein Frame" [ref=f72e1306]
+                        - group "10 / 13" [ref=f72e1307]:
+                          - button [ref=f72e1308] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Fiji Fabric with Book Rack - Gold Vein Frame" [ref=f72e1310]
+                        - group "11 / 13" [ref=f72e1311]:
+                          - button [ref=f72e1312] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Fiji Fabric with Book Rack - Gold Vein Frame" [ref=f72e1314]
+                        - group "12 / 13" [ref=f72e1315]:
+                          - button [ref=f72e1316] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Fiji Fabric with Book Rack - Gold Vein Frame" [ref=f72e1318]
+                        - group "13 / 13" [ref=f72e1319]:
+                          - button [ref=f72e1320] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Fiji Fabric with Book Rack - Gold Vein Frame" [ref=f72e1322]
+              - generic [ref=f72e1323]:
+                - generic [ref=f72e1324]:
+                  - link [ref=f72e1325] [cursor=pointer]:
+                    - /url: /products/hercules-series-21w-church-chair-in-e-z-vinyl-fd-ch-21-gv-unp-ezvyl?variant=47753553379618
+                    - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame - View 1" [ref=f72e1327]
+                    - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame - View 2" [ref=f72e1329]
+                  - generic [ref=f72e1330]: Bulk Discounts
+                - generic [ref=f72e1332]:
+                  - paragraph [ref=f72e1333]: FD-CH-21-GV-UNP-5807-OLIVE-GG
+                  - link "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1334] [cursor=pointer]:
+                    - /url: /products/hercules-series-21w-church-chair-in-e-z-vinyl-fd-ch-21-gv-unp-ezvyl
+                  - paragraph [ref=f72e1335]: E-Z Wallaby Olive Vinyl
+                  - generic [ref=f72e1336]:
+                    - generic [ref=f72e1337]: As low as
+                    - generic [ref=f72e1338]: $91.78
+                  - generic [ref=f72e1339]:
+                    - button "Next slide" [ref=f72e1340] [cursor=pointer]
+                    - generic [ref=f72e1343]:
+                      - generic:
+                        - group "1 / 28" [ref=f72e1344]:
+                          - button [ref=f72e1345] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1347]
+                        - group "2 / 28" [ref=f72e1348]:
+                          - button [ref=f72e1349] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1351]
+                        - group "3 / 28" [ref=f72e1352]:
+                          - button [ref=f72e1353] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1355]
+                        - group "4 / 28" [ref=f72e1356]:
+                          - button [ref=f72e1357] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1359]
+                        - group "5 / 28" [ref=f72e1360]:
+                          - button [ref=f72e1361] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1363]
+                        - group "6 / 28" [ref=f72e1364]:
+                          - button [ref=f72e1365] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1367]
+                        - group "7 / 28" [ref=f72e1368]:
+                          - button [ref=f72e1369] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1371]
+                        - group "8 / 28" [ref=f72e1372]:
+                          - button [ref=f72e1373] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1375]
+                        - group "9 / 28" [ref=f72e1376]:
+                          - button [ref=f72e1377] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1379]
+                        - group "10 / 28" [ref=f72e1380]:
+                          - button [ref=f72e1381] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1383]
+                        - group "11 / 28" [ref=f72e1384]:
+                          - button [ref=f72e1385] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1387]
+                        - group "12 / 28" [ref=f72e1388]:
+                          - button [ref=f72e1389] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1391]
+                        - group "13 / 28" [ref=f72e1392]:
+                          - button [ref=f72e1393] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1395]
+                        - group "14 / 28" [ref=f72e1396]:
+                          - button [ref=f72e1397] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1399]
+                        - group "15 / 28" [ref=f72e1400]:
+                          - button [ref=f72e1401] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1403]
+                        - group "16 / 28" [ref=f72e1404]:
+                          - button [ref=f72e1405] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1407]
+                        - group "17 / 28" [ref=f72e1408]:
+                          - button [ref=f72e1409] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1411]
+                        - group "18 / 28" [ref=f72e1412]:
+                          - button [ref=f72e1413] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1415]
+                        - group "19 / 28" [ref=f72e1416]:
+                          - button [ref=f72e1417] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1419]
+                        - group "20 / 28" [ref=f72e1420]:
+                          - button [ref=f72e1421] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1423]
+                        - group "21 / 28" [ref=f72e1424]:
+                          - button [ref=f72e1425] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1427]
+                        - group "22 / 28" [ref=f72e1428]:
+                          - button [ref=f72e1429] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1431]
+                        - group "23 / 28" [ref=f72e1432]:
+                          - button [ref=f72e1433] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1435]
+                        - group "24 / 28" [ref=f72e1436]:
+                          - button [ref=f72e1437] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1439]
+                        - group "25 / 28" [ref=f72e1440]:
+                          - button [ref=f72e1441] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1443]
+                        - group "26 / 28" [ref=f72e1444]:
+                          - button [ref=f72e1445] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1447]
+                        - group "27 / 28" [ref=f72e1448]:
+                          - button [ref=f72e1449] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1451]
+                        - group "28 / 28" [ref=f72e1452]:
+                          - button [ref=f72e1453] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair in E-Z Vinyl - Gold Vein Frame" [ref=f72e1455]
+              - generic [ref=f72e1456]:
+                - link [ref=f72e1458] [cursor=pointer]:
+                  - /url: /products/embroidered-21w-church-chair-in-grace-fabric-with-book-rack-fd-ch-21-gv-unp-gracefab-bas?variant=47753546694946
+                  - img "Embroidered 21''W Church Chair in Grace Fabric with Book Rack - Gold Vein Frame - View 1" [ref=f72e1460]
+                  - img "Embroidered 21''W Church Chair in Grace Fabric with Book Rack - Gold Vein Frame - View 2" [ref=f72e1462]
+                - generic [ref=f72e1463]:
+                  - paragraph [ref=f72e1464]: FD-CH-21-GV-UNP-GRACE-002-BAS-EMB-GG
+                  - link "Embroidered 21''W Church Chair in Grace Fabric with Book Rack - Gold Vein Frame" [ref=f72e1465] [cursor=pointer]:
+                    - /url: /products/embroidered-21w-church-chair-in-grace-fabric-with-book-rack-fd-ch-21-gv-unp-gracefab-bas
+                  - paragraph [ref=f72e1466]: Grace Antique Fabric
+                  - generic [ref=f72e1467]: $105.49
+                  - generic [ref=f72e1469]:
+                    - button "Next slide" [ref=f72e1470] [cursor=pointer]
+                    - generic [ref=f72e1473]:
+                      - generic:
+                        - group "1 / 10" [ref=f72e1474]:
+                          - button [ref=f72e1475] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Grace Fabric with Book Rack - Gold Vein Frame" [ref=f72e1477]
+                        - group "2 / 10" [ref=f72e1478]:
+                          - button [ref=f72e1479] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Grace Fabric with Book Rack - Gold Vein Frame" [ref=f72e1481]
+                        - group "3 / 10" [ref=f72e1482]:
+                          - button [ref=f72e1483] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Grace Fabric with Book Rack - Gold Vein Frame" [ref=f72e1485]
+                        - group "4 / 10" [ref=f72e1486]:
+                          - button [ref=f72e1487] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Grace Fabric with Book Rack - Gold Vein Frame" [ref=f72e1489]
+                        - group "5 / 10" [ref=f72e1490]:
+                          - button [ref=f72e1491] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Grace Fabric with Book Rack - Gold Vein Frame" [ref=f72e1493]
+                        - group "6 / 10" [ref=f72e1494]:
+                          - button [ref=f72e1495] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Grace Fabric with Book Rack - Gold Vein Frame" [ref=f72e1497]
+                        - group "7 / 10" [ref=f72e1498]:
+                          - button [ref=f72e1499] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Grace Fabric with Book Rack - Gold Vein Frame" [ref=f72e1501]
+                        - group "8 / 10" [ref=f72e1502]:
+                          - button [ref=f72e1503] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Grace Fabric with Book Rack - Gold Vein Frame" [ref=f72e1505]
+                        - group "9 / 10" [ref=f72e1506]:
+                          - button [ref=f72e1507] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Grace Fabric with Book Rack - Gold Vein Frame" [ref=f72e1509]
+                        - group "10 / 10" [ref=f72e1510]:
+                          - button [ref=f72e1511] [cursor=pointer]:
+                            - img "Embroidered 21''W Church Chair in Grace Fabric with Book Rack - Gold Vein Frame" [ref=f72e1513]
+            - generic [ref=f72e1514]:
+              - navigation [ref=f72e1515]:
+                - link "Go to previous page" [ref=f72e1516] [cursor=pointer]:
+                  - /url: /collections/church-stack-chairs?page=1#collectionMain
+                - link "Page 1" [ref=f72e1520] [cursor=pointer]:
+                  - /url: /collections/church-stack-chairs?page=1#collectionMain
+                  - text: "1"
+                - link "Page 2" [disabled]: "2"
+                - link "Page 3" [ref=f72e1521] [cursor=pointer]:
+                  - /url: /collections/church-stack-chairs?page=3#collectionMain
+                  - text: "3"
+                - link "Page 4" [ref=f72e1522] [cursor=pointer]:
+                  - /url: /collections/church-stack-chairs?page=4#collectionMain
+                  - text: "4"
+                - generic [ref=f72e1523] [cursor=pointer]: …
+                - link "Page 25" [ref=f72e1524] [cursor=pointer]:
+                  - /url: /collections/church-stack-chairs?page=25#collectionMain
+                  - text: "25"
+                - link "Go to next page" [ref=f72e1525] [cursor=pointer]:
+                  - /url: /collections/church-stack-chairs?page=3#collectionMain
+              - paragraph [ref=f72e1529]: Showing 24 of 294 products
+    - article [ref=f72e1532]:
+      - generic [ref=f72e1534]:
+        - heading "Church Stack Chairs" [level=2] [ref=f72e1535]
+        - separator [ref=f72e1536]
+        - generic [ref=f72e1538]:
+          - paragraph [ref=f72e1539]:
+            - strong [ref=f72e1540]: "Transform Your Worship Space with Advantage Church Chairs: A Legacy of Over 35 Years"
+          - paragraph [ref=f72e1541]:
+            - strong [ref=f72e1542]: "Experience Excellence in Church Seating:"
+          - paragraph [ref=f72e1543]: Step into the world of superior church seating with Advantage Church Chairs, where over 35 years of expertise blend seamlessly with innovation. Discover the difference that decades of focused dedication to church furnishings can make in your worship space.
+          - paragraph [ref=f72e1544]:
+            - strong [ref=f72e1545]: "Perfect Fit for Every Space:"
+          - paragraph [ref=f72e1546]: Choose from a versatile array of chair sizes, including 18.5", 20", 20.5", and 21". Our extensive selection ensures that every corner of your church is accommodated, enhancing both aesthetics and comfort for your congregation.
+          - paragraph [ref=f72e1547]:
+            - strong [ref=f72e1548]: "Unleash Creativity with Customization:"
+          - paragraph [ref=f72e1549]: Why settle for standard when you can customize? Embrace our unique embroidery and personalization options to create chairs that truly resonate with the spirit of your church. Make your seating more than just functional; make it a reflection of your community's identity.
+          - paragraph [ref=f72e1550]:
+            - strong [ref=f72e1551]: "Uncompromised Durability Meets Unmatched Comfort:"
+          - paragraph [ref=f72e1552]: Invest in chairs that are built to last without sacrificing comfort. Our seating solutions are designed to withstand the test of time, ensuring that your investment today continues to serve your community for years to come.
+          - paragraph [ref=f72e1553]:
+            - strong [ref=f72e1554]: "Efficiency in Storage and Mobility:"
+          - paragraph [ref=f72e1555]: Enhance your church's functionality with our easy-to-move and store chair dollies. These efficient storage solutions are not just about saving space; they're about adding flexibility to how your church accommodates different events and gatherings.
+          - paragraph [ref=f72e1556]:
+            - strong [ref=f72e1557]: "Quality Within Reach:"
+          - paragraph [ref=f72e1558]: High-quality doesn’t have to mean high cost. At Advantage Church Chairs, we pride ourselves on offering premium seating solutions at prices that respect your budget. Experience the joy of quality furnishings that are both accessible and affordable.
+          - paragraph [ref=f72e1559]:
+            - strong [ref=f72e1560]: "A Promise of Satisfaction:"
+          - paragraph [ref=f72e1561]: Your satisfaction is the cornerstone of our mission. Join the multitude of satisfied customers who have experienced the Advantage Church Chairs difference – where quality, customer service, and value converge.
+          - paragraph [ref=f72e1562]:
+            - strong [ref=f72e1563]: "Your Customized Quote Awaits:"
+          - paragraph [ref=f72e1564]: Every church is unique, and so are your needs. Call us now at 1-855-294-0532 for a personalized quote. Let us help you embark on a journey to elevate your worship space with seating solutions tailored just for you.
+    - article [ref=f72e1567]:
+      - heading "Why Choose Us?" [level=2] [ref=f72e1570]
+    - generic [ref=f72e1574]:
+      - article [ref=f72e1576]:
+        - link [ref=f72e1577] [cursor=pointer]:
+          - /url: /collections/church-stack-chairs
+          - paragraph [ref=f72e1579]: Durable chairs designed for churches—offering dependable comfort and responsible pricing that supports good stewardship.
+        - generic:
+          - generic:
+            - img "HERCULES Series 21''W Stacking Church Chair"
+        - generic [ref=f72e1581]:
+          - heading "High Quality & Affordable" [level=3] [ref=f72e1582]
+          - paragraph [ref=f72e1585]: Durable chairs designed for churches—offering dependable comfort and responsible pricing that supports good stewardship.
+      - article [ref=f72e1587]:
+        - link [ref=f72e1588] [cursor=pointer]:
+          - /url: /collections/banquet-stack-chairs
+          - paragraph [ref=f72e1590]: A wide selection of church chairs kept in stock and ready to ship, helping you prepare your space on schedule without unnecessary delays.
+        - generic:
+          - generic:
+            - img "HERCULES Series Trapezoidal Back Stacking Banquet Chair with 2.5\" Thick Seat"
+        - generic [ref=f72e1592]:
+          - heading "In-Stock & Ready to Ship" [level=3] [ref=f72e1593]
+          - paragraph [ref=f72e1596]: A wide selection of church chairs kept in stock and ready to ship, helping you prepare your space on schedule without unnecessary delays.
+      - article [ref=f72e1598]:
+        - link [ref=f72e1599] [cursor=pointer]:
+          - /url: /pages/contact-us
+          - paragraph [ref=f72e1601]: Our knowledgeable team is here to serve you with care, providing guidance on chair selection, ordering, and delivery from start to finish.
+        - generic:
+          - generic:
+            - img "Customer Service representative taking a call"
+        - generic [ref=f72e1603]:
+          - heading "Great Customer Service" [level=3] [ref=f72e1604]
+          - paragraph [ref=f72e1607]: Our knowledgeable team is here to serve you with care, providing guidance on chair selection, ordering, and delivery from start to finish.
+      - article [ref=f72e1609]:
+        - generic:
+          - generic:
+            - img "Banquet scene with Premium Crown Back Banquet Chair"
+        - generic [ref=f72e1611]:
+          - heading "Large Order? Request a Quote Today" [level=3] [ref=f72e1612]
+          - paragraph [ref=f72e1615]:
+            - text: Planning a larger order or need assistance? Contact our team at
+            - strong [ref=f72e1616]: 1-855-294-0532
+            - text: to receive a custom quote and expert support.
+  - contentinfo [ref=f72e1618]:
+    - generic [ref=f72e1620]:
+      - generic [ref=f72e1621]:
+        - paragraph [ref=f72e1623]: Please Sign Up To Receive Updates & Discounts
+        - generic [ref=f72e1626]:
+          - textbox "Email" [ref=f72e1629]
+          - button [ref=f72e1631] [cursor=pointer]
+        - generic:
+          - list
+      - list [ref=f72e1637]:
+        - listitem [ref=f72e1638]:
+          - generic [ref=f72e1639]: Get to Know Us
+          - list [ref=f72e1640]:
+            - listitem [ref=f72e1641]:
+              - link "About Us" [ref=f72e1642] [cursor=pointer]:
+                - /url: /pages/about-us
+        - listitem [ref=f72e1643]:
+          - generic [ref=f72e1644]: Customer Service
+          - list [ref=f72e1645]:
+            - listitem [ref=f72e1646]:
+              - link "Delivery Information" [ref=f72e1647] [cursor=pointer]:
+                - /url: /pages/delivery-information
+            - listitem [ref=f72e1648]:
+              - link "Ordering Information" [ref=f72e1649] [cursor=pointer]:
+                - /url: /pages/ordering-information
+            - listitem [ref=f72e1650]:
+              - link "Payment Options" [ref=f72e1651] [cursor=pointer]:
+                - /url: /pages/payment-options
+            - listitem [ref=f72e1652]:
+              - link "Finance Options" [ref=f72e1653] [cursor=pointer]:
+                - /url: /pages/finance-options
+            - listitem [ref=f72e1654]:
+              - link "Shipping Information" [ref=f72e1655] [cursor=pointer]:
+                - /url: /pages/shipping-information
+            - listitem [ref=f72e1656]:
+              - link "Freight Charges" [ref=f72e1657] [cursor=pointer]:
+                - /url: /pages/freight-charges
+            - listitem [ref=f72e1658]:
+              - link "Returns Informations" [ref=f72e1659] [cursor=pointer]:
+                - /url: /pages/returns-information
+            - listitem [ref=f72e1660]:
+              - link "Product Warranty" [ref=f72e1661] [cursor=pointer]:
+                - /url: /pages/product-warranty
+        - listitem [ref=f72e1662]:
+          - generic [ref=f72e1663]: Get in Touch
+          - list [ref=f72e1664]:
+            - listitem [ref=f72e1665]:
+              - link "Contact Us" [ref=f72e1666] [cursor=pointer]:
+                - /url: /pages/contact-us
+            - listitem [ref=f72e1667]:
+              - generic [ref=f72e1668]: Call 1-855-294-0532
+            - listitem [ref=f72e1669]:
+              - generic [ref=f72e1670]: "Mon - Thu: 8AM - 8PM EST"
+            - listitem [ref=f72e1671]:
+              - generic [ref=f72e1672]: "Fri: 8AM - 5PM EST"
+    - generic [ref=f72e1675]:
+      - paragraph [ref=f72e1676]: Copyright 2026 . All rights reserved.
+      - list [ref=f72e1677]:
+        - listitem [ref=f72e1678]:
+          - link "Site Security" [ref=f72e1679] [cursor=pointer]:
+            - /url: /pages/site-security
+        - listitem [ref=f72e1680]:
+          - link "Privacy Policy" [ref=f72e1681] [cursor=pointer]:
+            - /url: /pages/privacy-policy
+        - listitem [ref=f72e1682]:
+          - link "California Privacy Rights" [ref=f72e1683] [cursor=pointer]:
+            - /url: /pages/privacy-policy
+        - listitem [ref=f72e1684]:
+          - link "Do Not Sell or Share" [ref=f72e1685] [cursor=pointer]:
+            - /url: /pages/do-not-sell-or-share-my-personal-information
+        - listitem [ref=f72e1686]:
+          - link "US Privacy" [ref=f72e1687] [cursor=pointer]:
+            - /url: /pages/us-privacy-requests
+        - listitem [ref=f72e1688]:
+          - link "PIPEDA" [ref=f72e1689] [cursor=pointer]:
+            - /url: /pages/canadian-privacy-rights-pipeda-quebec-law-25
+        - listitem [ref=f72e1690]:
+          - link "GDPR" [ref=f72e1691] [cursor=pointer]:
+            - /url: /pages/gdpr-privacy-requests
+        - listitem [ref=f72e1692]:
+          - link "Terms of Use" [ref=f72e1693] [cursor=pointer]:
+            - /url: /pages/terms-of-use
+        - listitem [ref=f72e1694]:
+          - link "Terms of Sale" [ref=f72e1695] [cursor=pointer]:
+            - /url: /pages/terms-of-sale
+        - listitem [ref=f72e1696]:
+          - link "Accessibility Statement" [ref=f72e1697] [cursor=pointer]:
+            - /url: /pages/accessibility
+        - listitem [ref=f72e1698]:
+          - link "Sitemap" [ref=f72e1699] [cursor=pointer]:
+            - /url: /tools/sitemap
+  - generic [ref=f72e1702]:
+    - generic [ref=f72e1703]: Discover More
+    - list [ref=f72e1704]:
+      - listitem [ref=f72e1705]:
+        - link "Quality Worship Furniture – Advantage Church Chairs" [ref=f72e1706] [cursor=pointer]:
+          - /url: https://www.advantagechurchchairs.com/
+      - listitem [ref=f72e1707]:
+        - link "18.5\" Church Chairs" [ref=f72e1708] [cursor=pointer]:
+          - /url: https://www.advantagechurchchairs.com/collections/18-5-church-chairs
+      - listitem [ref=f72e1709]:
+        - link "21\" Church Chairs" [ref=f72e1710] [cursor=pointer]:
+          - /url: https://www.advantagechurchchairs.com/collections/21-church-chairs
+  - button "Accessibility Widget, click to open" [ref=f72e1713] [cursor=pointer]
+  - dialog "FLYOUT Form" [ref=f72e1720]:
+    - generic [ref=f72e1725]:
+      - button "Close dialog" [ref=f72e1726] [cursor=pointer]
+      - generic [ref=f72e1731]:
+        - paragraph [ref=f72e1735]:
+          - strong [ref=f72e1737]: Unlock $300 Off
+        - paragraph [ref=f72e1741]: any order over $3000
+        - textbox "Email" [ref=f72e1745]
+        - button "Yes, I want to save!" [ref=f72e1748] [cursor=pointer]
+        - button "No, I'll pay full price." [ref=f72e1751] [cursor=pointer]
+      - alert [ref=f72e1752]
+```
+
+# Test source
+
+```ts
+  16  |     readonly leftArrow: Locator;
+  17  |     readonly pdpItem: Locator;
+  18  |     
+  19  | 
+  20  | 
+  21  |     constructor(page: any) {
+  22  |         this.page = page;
+  23  |         this.sort = page.locator("//select[@id='SortBy']");
+  24  |         this.firstItem = page.locator("//a[contains(text(),'Advantage Multipurpose Church Chairs - 18.5 in. Wi')]");
+  25  |         this.colorFam = page.locator("//button[normalize-space()='Color Family']");
+  26  |         this.showMore = page.locator("//div[@data-toggle-filter='color-family']");
+  27  |         this.green = page.locator("//label[contains(@for,'filter-p-m-filter-colors_green')]//div[contains(@class,'ra-choice__checkmark set--inherit-focus')]");
+  28  |         this.finish = page.locator("//button[normalize-space()='Finish']");
+  29  |         this.copper = page.locator("//span[contains(@class,'ra-choice__label')][normalize-space()='Copper Vein Metal']");
+  30  |         this.greenPill = page.locator("//button[contains(@data-param,'filter.p.m.filter.colors')]//span[contains(@class,'ra-icon')]//*[name()='svg']");
+  31  |         this.clearAll = page.locator("//button[normalize-space()='Clear All']");   
+  32  |         this.page2 = page.locator("//a[normalize-space()='2']"); 
+  33  |         this.rightArrow = page.locator("//a[@aria-label='Go to next page']");
+  34  |         this.leftArrow = page.locator("//a[@aria-label='Go to previous page']");
+  35  |         this.pdpItem = page.locator("//img[@alt=\"Embroidered 21''W Church Chair in Empire Fabric with Book Rack - Gold Vein Frame - View 2\"]");
+  36  |     
+  37  |     }
+  38  | 
+  39  | 
+  40  | async selectSorting () {
+  41  |     console.log({ message: "Sorting...." });
+  42  |     await this.sort.selectOption( {label: "Price, low to high"});
+  43  |     expect(this.firstItem).toContainText("Advantage Multipurpose Church Chairs");
+  44  |     await this.sort.selectOption( {label: "Best selling"});
+  45  | }
+  46  | 
+  47  | async selectColorFilter(){
+  48  |     console.log({ message: "Filtering by Colors...." });
+  49  |     await this.colorFam.isVisible();
+  50  |     await this.colorFam.click();
+  51  |     await this.showMore.isVisible();
+  52  |     //wait so it does not put up are you a robot prompt
+  53  |     await this.page.waitForTimeout(5000);
+  54  |     await this.page.mouse.click(0, 0);  
+  55  |     await this.showMore.click();
+  56  |     await this.green.isVisible();
+  57  |     await this.green.click();
+  58  |     await this.page.waitForTimeout(2000);
+  59  | }
+  60  | 
+  61  | async clickingfinishFilter () {
+  62  |     console.log({ message: "Filtering by Finish...." });
+  63  |     await this.finish.click();
+  64  |     await this.copper.isVisible();
+  65  |     await this.copper.click();
+  66  | }
+  67  | 
+  68  | async clearColorFilter () {
+  69  |     console.log({ message: "Clearing Color Filter...." });
+  70  |     //wait so it does not put up are you a robot prompt
+  71  |     await this.page.waitForTimeout(5000);
+  72  |     await this.page.mouse.click(0, 0);  
+  73  |     await this.greenPill.isVisible();
+  74  |     await this.greenPill.click();
+  75  | }
+  76  | async clearAllFilter () {
+  77  |     console.log({ message: "Clearing All Filters...." });
+  78  |     await this.clearAll.isVisible();
+  79  |     await this.clearAll.click();
+  80  | }
+  81  | 
+  82  | async clickPagination () {
+  83  |     console.log({ message: "Clicking Pagination...." });
+  84  |     //wait so it does not put up are you a robot prompt
+  85  |     await this.page.waitForTimeout(5000);
+  86  |     await this.page.mouse.click(0, 0);  
+  87  |     await this.page2.isVisible();
+  88  |     await this.page2.click();
+  89  |     expect(this.page.url()).toContain("page=2");
+  90  | }
+  91  | 
+  92  | async clickRightArrow () {
+  93  |     console.log({ message: "Clicking Right Arrow...." });
+  94  |     //wait so it does not put up are you a robot prompt
+  95  |     await this.page.waitForTimeout(5000);
+  96  |     await this.page.mouse.click(0, 0);  
+  97  |     await this.rightArrow.isVisible();
+  98  |     await this.rightArrow.click();
+  99  |     expect(this.page.url()).toContain("page=3");
+  100 | }
+  101 | async clickLeftArrow () {
+  102 |     console.log({ message: "Clicking Left Arrow...." });
+  103 |     //wait so it does not put up are you a robot prompt
+  104 |     await this.page.waitForTimeout(5000);
+  105 |     await this.page.mouse.click(0, 0);  
+  106 |     await this.leftArrow.isVisible();
+  107 |     await this.leftArrow.click();
+  108 |     expect(this.page.url()).toContain("page=2");
+  109 | }
+  110 | async clickPDP () {
+  111 |     console.log({ message: "Clicking PDP...." });
+  112 |     //wait so it does not put up are you a robot prompt
+  113 |     await this.page.waitForTimeout(5000);
+  114 |     await this.page.mouse.click(0, 0);  
+  115 |     await this.pdpItem.isVisible();
+> 116 |     await this.pdpItem.click();
+      |                        ^ Error: locator.click: Test timeout of 180000ms exceeded.
+  117 |     await this.page.waitForLoadState();
+  118 |     expect(this.page.url()).toContain("21w-church-chair-in-galaxy-fabric");
+  119 | }
+  120 | 
+  121 | 
+  122 | }
+```

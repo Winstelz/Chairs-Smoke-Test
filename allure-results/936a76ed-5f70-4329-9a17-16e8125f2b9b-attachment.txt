@@ -1,0 +1,16 @@
+{ message: 'Clicking Home Page....' }
+{ message: 'Clicking Shop All....' }
+{ message: 'Clicking Description' }
+{ message: 'Asserting PDP Header' }
+{ message: 'Asserting PDP Price' }
+{ message: 'Clicking Review Stars' }
+{ message: 'Click New Review' }
+{ message: 'Close Review' }
+{ message: 'Selecting Sort Filter' }
+{ message: 'Clicking Right Arrow Pagniation' }
+{ message: 'Asserting Review Number Page 1' }
+{ message: 'Clicking Left Arrow Pagniation' }
+{ message: 'Asserting Review Number Page 2' }
+{ message: 'Increasing QTY' }
+{ message: 'Decreasing QTY' }
+{ message: 'Click Add to Cart' }

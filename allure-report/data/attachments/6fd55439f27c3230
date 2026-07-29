@@ -1,0 +1,129 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: advantageChairs\AdvantageHeaderIcons.spec.ts >> AdvantageHeaderIcons Cart
+- Location: tests\advantageChairs\AdvantageHeaderIcons.spec.ts:41:1
+
+# Error details
+
+```
+Error: locator.click: Target page, context or browser has been closed
+Call log:
+  - waiting for getByRole('link', { name: 'cart' })
+
+```
+
+# Test source
+
+```ts
+  71  |     async clickChurchChairs() {
+  72  |         console.log({ message: `Clicking Church Chairs....`});
+  73  |         await this.churchChairs.click();
+  74  |         await this.page.waitForLoadState();
+  75  |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/church-stack-chairs');
+  76  |     }
+  77  | 
+  78  |     async clickBanquetChairs () {
+  79  |         console.log({ message: `Clicking Banquet Chairs....`});
+  80  |         await this.banquetChairs.click();
+  81  |         await this.page.waitForLoadState();
+  82  |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/banquet-stack-chairs');
+  83  |     }
+  84  | 
+  85  |     async clickFoldEvent () {
+  86  |         console.log({ message: `Clicking Fold Event....`});
+  87  |         await this.foldEvent.click();
+  88  |         await this.page.waitForLoadState();
+  89  |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/folding-event');
+  90  |     }
+  91  | 
+  92  |     async clickClassroom () {
+  93  |         console.log({ message: `Clicking Classroom....`});
+  94  |         await this.classroom.click();
+  95  |         await this.page.waitForLoadState();
+  96  |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/classroom');
+  97  | }
+  98  | 
+  99  |     async clickOfficeReception () {
+  100 |         console.log({ message: `Clicking Office & Reception....`});
+  101 |         await this.office.click();
+  102 |         await this.page.waitForLoadState();
+  103 |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/office');
+  104 | }
+  105 | 
+  106 | 
+  107 |     async hoverChurchChairs () {
+  108 |         await this.churchChairs.hover();
+  109 |         await this.dollies.click();
+  110 |         await this.page.waitForLoadState('load', { timeout: 60000 });
+  111 |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/church-banquet-stack-chair-dollies');
+  112 |     }
+  113 |     async hoverFoldEvent () {
+  114 |         await this.foldEvent.hover();
+  115 |         await this.resin.click();
+  116 |         await this.page.waitForLoadState('load', { timeout: 60000 });
+  117 |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/resin-folding-chairs');
+  118 |     }
+  119 |     async hoverClassroom () {
+  120 |         await this.classroom.hover();
+  121 |         await this.activity.click();
+  122 |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/classroom-activity-table-sets');
+  123 |     }
+  124 |     async hoverOffice () {
+  125 |         await this.office.hover();
+  126 |         await this.desks.click();
+  127 |         await this.page.waitForLoadState('load', { timeout: 60000 });
+  128 |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/desks');
+  129 |     }
+  130 |     async hoverMore () {
+  131 |         await this.more.hover();
+  132 |         await this.patio.click();
+  133 |         await this.page.waitForLoadState('load', { timeout: 60000 });
+  134 |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/patio-outdoor');
+  135 |     }
+  136 |     
+  137 |     async popUpClose() {
+  138 |         console.log({ message: `Awaiting Pop Up....`});
+  139 |         const popup = this.popUp;
+  140 |     try {
+  141 |         await popup.waitFor({ state: 'visible', timeout: 15000 });
+  142 |         console.log({ message: 'Klaviyo popup appeared — closing it' });
+  143 |         await this.commonUtil.closePopup.click();
+  144 |     } catch {
+  145 |         console.log({ message: 'Klaviyo popup did not appear — skipping close step' });
+  146 |     }
+  147 | }
+  148 | 
+  149 | async clickSearchIcon() {
+  150 |     console.log({ message: `Clicking Search Icon....`});
+  151 |     await this.searchIcon.click();
+  152 |     await this.page.waitForLoadState();
+  153 |     expect(this.page.url()).toContain(STORE_URLS.advantage);
+  154 | }
+  155 | 
+  156 | async searchForItem(item: string) {
+  157 |     console.log({ message: `Searching for item: ${item}....`});
+  158 |     await this.searchInput.fill(item);
+  159 |     await this.searchInput.press('Enter');
+  160 |     await this.page.waitForLoadState('load');
+  161 | }
+  162 | 
+  163 | async clickAccountIcon() {
+  164 |     console.log({ message: `Clicking Account Icon....`});
+  165 |     await this.accountIcon.click();
+  166 |     await this.page.waitForURL(/shopify\.com/);
+  167 | }
+  168 | 
+  169 | async clickCartIcon() {
+  170 |     console.log({ message: `Clicking Cart Icon....`});
+> 171 |     await this.cartIcon.click();
+      |                         ^ Error: locator.click: Target page, context or browser has been closed
+  172 | }
+  173 | }
+  174 | 
+```

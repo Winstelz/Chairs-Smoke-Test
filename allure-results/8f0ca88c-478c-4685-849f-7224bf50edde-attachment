@@ -1,0 +1,736 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: advantageChairs\AdvantagePDP.spec.ts >> AdvantagePDP Flow
+- Location: tests\advantageChairs\AdvantagePDP.spec.ts:7:5
+
+# Error details
+
+```
+Error: locator.selectOption: Error: Element is not a <select> element
+Call log:
+  - waiting for locator('#bv-dropdown-select-reviews')
+    - locator resolved to <span aria-hidden="true" id="bv-dropdown-select-reviews" class="bv-rnr__sc-13ijx62-4 fdAMbF">Sort by</span>
+  - attempting select option action
+    - waiting for element to be visible and enabled
+
+```
+
+```
+Error: expect(locator).toContainText(expected) failed
+
+Locator: locator('//div[@class=\'h3 flex-col items-end hidden md:flex\']//div[@class=\'h3 text-tertiary-900\'][normalize-space()=\'$38.99\']')
+Expected substring: "$38.99"
+Error: element(s) not found
+
+Call log:
+  - Expect "toContainText" with timeout 5000ms
+  - waiting for locator('//div[@class=\'h3 flex-col items-end hidden md:flex\']//div[@class=\'h3 text-tertiary-900\'][normalize-space()=\'$38.99\']')
+  - Test ended.
+
+```
+
+```yaml
+- button "Skip to main content"
+- button "Skip to footer"
+- button "Open widget"
+- group "1 / 4":
+  - paragraph: Affordable, High Quality Church Chairs
+- group "2 / 4":
+  - paragraph: 25,000 5-Star Reviews & Decades of Expertise!
+- group "3 / 4":
+  - paragraph: Need a Quote? Call Us 1-855-294-0532
+- group "4 / 4":
+  - paragraph: Hablamos español y estamos listos para ayudarte.
+- button "Previous slide"
+- button "Next slide"
+- list:
+  - listitem:
+    - link "Customer Support":
+      - /url: /pages/contact-us
+- link "Advantage Church Chairs logo":
+  - /url: https://www.advantagechurchchairs.com
+  - img "Advantage Church Chairs Logo"
+- text: Questions? Call Us at
+- link "1-855-294-0532":
+  - /url: tel:1-855-294-0532
+- list:
+  - listitem:
+    - button "search"
+  - listitem:
+    - link "account":
+      - /url: /account
+  - listitem:
+    - link "cart":
+      - /url: /cart
+- navigation:
+  - list:
+    - listitem:
+      - link "Shop All":
+        - /url: /collections/shop-all
+    - listitem:
+      - link "Church Chairs":
+        - /url: /collections/church-stack-chairs
+      - button "Church chairs menu"
+    - listitem:
+      - link "Banquet Chairs":
+        - /url: /collections/banquet-stack-chairs
+    - listitem:
+      - link "Folding & Event":
+        - /url: /collections/folding-event
+      - button "Folding event menu"
+    - listitem:
+      - link "Classroom":
+        - /url: /collections/classroom
+      - button "Classroom menu"
+    - listitem:
+      - link "Office & Reception":
+        - /url: /collections/office
+      - button "Office reception menu"
+    - listitem:
+      - link "Patio & Outdoor":
+        - /url: /collections/patio-outdoor
+- main:
+  - link "Church":
+    - /url: /collections/church
+  - link "Church Stack Chairs":
+    - /url: /collections/church-stack-chairs
+  - link "18.5\" Church Chairs":
+    - /url: /collections/18-5-church-chairs
+  - text: Advantage Multipurpose Church Chairs - 18.5 in. Wide
+  - button "1 / 1":
+    - img "Black Fabric/Silver Vein Frame |#| Black Multipurpose Church Chairs - 18.5 in. Wide"
+  - button "Previous slide" [disabled]:
+    - button "Previous slide" [disabled]
+  - button "Next slide" [disabled]:
+    - button "Next slide" [disabled]
+  - button "2 / 1":
+    - button "Navy Fabric/Silver Vein Frame |#| Navy Multipurpose Church Chairs - 18.5 in. Wide":
+      - img "Navy Fabric/Silver Vein Frame |#| Navy Multipurpose Church Chairs - 18.5 in. Wide"
+  - heading "Advantage Multipurpose Church Chairs - 18.5 in. Wide" [level=1]
+  - paragraph: "Item # SEPCHT185-108"
+  - link "4.9 out of 5 stars, average rating value. Read 34 Reviews. Same page link. 4.9 (34)":
+    - /url: "#ra-product-reviews"
+    - button "4.9 out of 5 stars, average rating value. Read 34 Reviews. Same page link. 4.9 (34)"
+  - text: "$49.36 Color: Black Fabric/Silver Vein Frame"
+  - button "Black Fabric/Silver Vein Frame" [pressed]
+  - button "Maroon Fabric/Silver Vein Frame"
+  - button "Charcoal Gray Fabric/Silver Vein Frame"
+  - button "Navy Fabric/Silver Vein Frame"
+  - text: Quantity
+  - button "Decrement Quantity":
+    - img
+  - spinbutton: "1"
+  - button "Increment Quantity":
+    - img
+  - text: Church Chair Seating Guide Buy More, Pay Less!
+  - paragraph: 50-199 units
+  - separator
+  - paragraph: $48.01
+  - text: 3% Off
+  - paragraph: 200-399 units
+  - separator
+  - paragraph: $46.67
+  - text: 5% Off
+  - paragraph: 400+ units
+  - separator
+  - paragraph: $44.87
+  - text: 9% Off
+  - button "Add to Cart"
+  - text: In Stock. Usually ships in 24 - 48 business hours
+  - paragraph:
+    - text: Need help? Talk to a specialist.
+    - link "1-855-294-0532":
+      - /url: tel:18552940532
+  - heading "Description" [level=6]:
+    - button "Description" [expanded]
+  - text: The Molded Foam Multipurpose Church Chair - 18.5 in. Wide provides a durable seating solution for your fellowship hall or convention center. This comfortably padded stack chair not only satisfies seating in Churches, but work well in hotel lobbies, banquet halls and conference facilities. Keep all guests engaged with the 2.25" thick foam padding containing zero fillers. Integrated ganging devices connect chairs together for uniform row seating. This padded chair was built to last with a 600 lb. weight capacity, 16 gauge steel frame and T-Nut construction with a metal on metal connection that's more durable than traditional wood screws. These beautifully crafted chairs go from the truck to your Sanctuary, as they don't require any assembly. Save your staff time and frustration with the purchase of these ready-to-use Stackable Church Chairs.
+  - heading "Why Buy" [level=6]:
+    - button "Why Buy"
+  - text: The padded church chair will keep people in your congregation comfortable while arranging seating that best coordinates with your venue or can be used as seating in your hospitality venue.
+  - heading "Features" [level=6]:
+    - button "Features"
+  - list:
+    - listitem: Multipurpose Church Chair
+    - listitem: 18 Gauge steel frame with rocker glides and welded ganging device
+    - listitem: 2.25-in Padded, 2lb. 100% virgin polyurethane foam seat
+    - listitem: T-NUTS to connect seats and backs to chair frame (stronger than wood screws)
+    - listitem: Plywood base for seats and backs
+    - listitem: Foam and Fabric meet flame retardant specification CA117
+    - listitem: Fabric durability- 200,000 double rubs (Wyzenbeek test)
+    - listitem: Weight limit- 600 lbs. (static weight)
+  - link "Product Specifications":
+    - /url: "#product-specs-grid"
+  - heading "Reviews" [level=2]
+  - alert
+  - heading "Reviews" [level=2]
+  - heading "Rating Snapshot" [level=3]
+  - text: Select a row below to filter reviews.
+  - group "Rating Snapshot":
+    - button "32 reviews with 5 stars."
+    - button "0 reviews with 4 stars."
+    - button "2 reviews with 3 stars."
+    - button "0 reviews with 2 stars."
+    - button "0 reviews with 1 star."
+  - region "Overall Rating":
+    - heading "Overall Rating" [level=3]
+    - text: "4.9"
+    - link "4.9 out of 5 stars. Read 34 reviews for Advantage Charcoal Gray Multipurpose Church Chairs - 18.5 in. Wide. This action will navigate to reviews.": 34 Reviews
+    - text: 20 out of 22 (91%) reviewers recommend this product
+  - heading "Review this Product" [level=3]
+  - group "Rating is 0 (out of 5 stars).":
+    - button "Select to rate the item with 1 star. This action will open submission form."
+    - button "Select to rate the item with 2 stars. This action will open submission form."
+    - button "Select to rate the item with 3 stars. This action will open submission form."
+    - button "Select to rate the item with 4 stars. This action will open submission form."
+    - button "Select to rate the item with 5 stars. This action will open submission form."
+  - text: Adding a review will require a valid email for verification
+  - heading "Average Customer Ratings" [level=3]
+  - text: Quality of Product, 4.8 out of 5 Value of Product, 4.8 out of 5
+  - heading "Most Helpful Favorable Review" [level=3]
+  - region "1 out of undefined , Ratings 5 out of 5":
+    - img "5 out of 5 stars."
+    - heading "Great Value" [level=3]
+    - button "See J Carrillo profile. This action will open a modal dialog.": J Carrillo
+    - text: 5 years ago We purchased 75 chairs for the funeral home, they blended great!
+  - button "Show Full Review This action will open a modal dialog."
+  - text: "12 people found this helpful Show Reviews:"
+  - button "See more 4 and 5 star reviews": 5 and 4
+  - heading "Most Helpful Critical Review" [level=3]
+  - region "2 out of undefined , Ratings 3 out of 5":
+    - img "3 out of 5 stars."
+    - heading "Good Chair for the price" [level=3]
+    - button "See fbcs profile. This action will open a modal dialog.": fbcs
+    - text: 6 years ago Overall the chairs look good in our new kid space. When you flip the chairs over, you will see the fabric is stapled together and covered with a piece of paper and not sewn. Since the chairs were delivered all stacked on top of the other, the crease marks from the bar has not come out of the foam seat, leaving an indention in all the chairs on the front side. They have sat in the space for the last month and the crease has not gone away.
+  - button "Show Full Review This action will open a modal dialog."
+  - text: "17 people found this helpful Show Reviews:"
+  - button "See more 1, 2, and 3 star reviews": 3 2 and 1
+  - heading "Customer Images and Videos" [level=3]
+  - tabpanel:
+    - button "Review photo 1. This action will open a modal dialog.":
+      - img "Review photo 1."
+    - button "Setting up the new chairs This action will open a modal dialog.":
+      - img "Setting up the new chairs"
+    - button "Review photo 3. This action will open a modal dialog.":
+      - img "Review photo 3."
+    - button "Review photo 4. This action will open a modal dialog.":
+      - img "Review photo 4."
+    - button "Review photo 5. This action will open a modal dialog.":
+      - img "Review photo 5."
+    - button "Review photo 6. This action will open a modal dialog.":
+      - img "Review photo 6."
+    - button "Emerald Chapel This action will open a modal dialog.":
+      - img "Emerald Chapel"
+    - button "Next Slides": Next
+  - heading "Filter Reviews" [level=3]
+  - search:
+    - text: Search topics and reviews search region
+    - textbox "Search topics and reviews search region":
+      - /placeholder: Search topics and reviews
+  - combobox "Menu, Filter by Rating": Rating
+  - combobox "Menu, Filter by Locale": Locale
+  - alert
+  - alert: 1 to 8 of 34 Reviews
+  - text: 1 – 8 of 34 Reviews
+  - combobox "Menu, Sort by Highest to Lowest Rating.": Highest to Lowest Rating
+  - region "Reviews":
+    - region "1 out of 8 , Ratings 5 out of 5":
+      - button "See ATP1 profile. This action will open a modal dialog.": ATP1
+      - text: nationwide
+      - img "5 out of 5 stars."
+      - heading "Lobby Chair" [level=3]
+      - text: a year ago We have been looking more a more cost effective lobby chair. Church chairs for less has one we are using nation wide. The entire process has been very smooth.
+      - paragraph: Yes, I recommend this product.
+      - button "Review photo 1. This action will open a modal dialog.":
+        - img "Review photo 1."
+      - group "Content helpfulness":
+        - text: Helpful?
+        - 'button "Yes: 0 people found this review by ATP1 helpful."':
+          - alert
+        - 'button "No: 0 people did not find this review by ATP1 helpful."':
+          - alert
+        - button "Report this review Lobby Chair by ATP1 as inappropriate.": Report
+        - alert
+      - text: "Quality of Product, 5.0 out of 5 Value of Product, 5.0 out of 5 Response from AdvantageChurchChairs: a year ago Customer Care Hi there! Thank you for being such a valued customer. We are thrilled that our products could provide the perfect solution for your lobby chairs. Customer Care (TR)"
+    - region "2 out of 8 , Ratings 5 out of 5":
+      - button "See Jason from Ohio profile. This action will open a modal dialog.": Jason from Ohio
+      - text: Richwood ohio
+      - img "5 out of 5 stars."
+      - heading "5 stars" [level=3]
+      - text: a year ago Good heavy duty chairs that are also comfortable to sit in
+      - paragraph: Yes, I recommend this product.
+      - group "Content helpfulness":
+        - text: Helpful?
+        - 'button "Yes: 1 person found this review by Jason from Ohio helpful."':
+          - alert
+        - 'button "No: 0 people did not find this review by Jason from Ohio helpful."':
+          - alert
+        - button "Report this review 5 stars by Jason from Ohio as inappropriate.": Report
+        - alert
+      - text: "Quality of Product, 5.0 out of 5 Value of Product, 5.0 out of 5 Response from AdvantageChurchChairs: a year ago Customer Care Hello! We are thrilled to hear that you are loving these chairs. We look forward to working with you again soon! Customer Care (TR)"
+    - region "3 out of 8 , Ratings 5 out of 5":
+      - text: Anonymous
+      - img "5 out of 5 stars."
+      - heading "love it" [level=3]
+      - text: a year ago great chairs ,love it ,me gustraon mucho y se los recomindo
+      - group "Content helpfulness":
+        - text: Helpful?
+        - 'button "Yes: 0 people found this review by Anonymous helpful."':
+          - alert
+        - 'button "No: 0 people did not find this review by Anonymous helpful."':
+          - alert
+        - button "Report this review love it by Anonymous as inappropriate.": Report
+        - alert
+      - text: "Quality of Product, 5.0 out of 5 Response from AdvantageChurchChairs: a year ago Customer Care Hello! Thank you for taking the time to leave such a wonderful review. We are thrilled to hear that you are loving the product and hope to work with you again soon! Customer Care (TR)"
+    - region "4 out of 8 , Ratings 5 out of 5":
+      - button "See Greater Shiloh MBC profile. This action will open a modal dialog.": Greater Shiloh MBC
+      - text: Waco Texas
+      - img "5 out of 5 stars."
+      - heading "Navy blue chair" [level=3]
+      - text: a year ago Perfect upgrade for our church sanctuary, love the tithe envelope pocket on the back of the chair
+      - paragraph: Yes, I recommend this product.
+      - button "Setting up the new chairs This action will open a modal dialog."
+      - group "Content helpfulness":
+        - text: Helpful?
+        - 'button "Yes: 5 people found this review by Greater Shiloh MBC helpful."':
+          - alert
+        - 'button "No: 0 people did not find this review by Greater Shiloh MBC helpful."':
+          - alert
+        - button "Report this review Navy blue chair by Greater Shiloh MBC as inappropriate.": Report
+        - alert
+      - text: "Quality of Product, 5.0 out of 5 Value of Product, 5.0 out of 5 Response from AdvantageChurchChairs: a year ago Customer Care Thanks! We’re thrilled that you were satisfied with our product. Your feedback is appreciated, and we hope to be of help again soon! Customer Care (SS)"
+    - region "5 out of 8 , Ratings 5 out of 5":
+      - button "See JonF profile. This action will open a modal dialog.": JonF
+      - text: Cape Cod
+      - img "5 out of 5 stars."
+      - heading "Happy with the purchase." [level=3]
+      - text: a year ago Great chairs. They connect and stack well. Very comfortable.
+      - paragraph: Yes, I recommend this product.
+      - button "Review photo 1. This action will open a modal dialog."
+      - group "Content helpfulness":
+        - text: Helpful?
+        - 'button "Yes: 0 people found this review by JonF helpful."':
+          - alert
+        - 'button "No: 0 people did not find this review by JonF helpful."':
+          - alert
+        - button "Report this review Happy with the purchase. by JonF as inappropriate.": Report
+        - alert
+      - text: "Quality of Product, 5.0 out of 5 Value of Product, 5.0 out of 5 Response from AdvantageChurchChairs: a year ago Customer Care Thanks! We’re thrilled that you were satisfied with our product. Your feedback is appreciated, and we hope to be of help again soon! Customer Care (SS)"
+    - region "6 out of 8 , Ratings 5 out of 5":
+      - button "See Chuck D. profile. This action will open a modal dialog.": Chuck D.
+      - text: Baltimore, MD Age 65 or over Gender Male
+      - img "5 out of 5 stars."
+      - heading "Excellent waiting room chairs" [level=3]
+      - text: 2 years ago I purchased these chairs for a dance studio waiting room. We are on a limited budget and these chairs are priced well and the construction is very sturdy. They're also very comfortable. I highly recommend them and will look to Advantage in the future for seating needs.
+      - paragraph: Yes, I recommend this product.
+      - group "Content helpfulness":
+        - text: Helpful?
+        - 'button "Yes: 0 people found this review by Chuck D. helpful."':
+          - alert
+        - 'button "No: 0 people did not find this review by Chuck D. helpful."':
+          - alert
+        - button "Report this review Excellent waiting room chairs by Chuck D. as inappropriate.": Report
+        - alert
+      - text: Quality of Product, 5.0 out of 5 Value of Product, 5.0 out of 5
+    - region "7 out of 8 , Ratings 5 out of 5":
+      - button "See CPRLC profile. This action will open a modal dialog.": CPRLC
+      - text: Bellevue, WA Age 55 to 64 Gender Female
+      - img "5 out of 5 stars."
+      - heading "Comfy and easy to stack" [level=3]
+      - text: 2 years ago bought chairs to set up our classroom style conference room. They are comfortable and easy to stack and move around.
+      - paragraph: Yes, I recommend this product.
+      - group "Content helpfulness":
+        - text: Helpful?
+        - 'button "Yes: 0 people found this review by CPRLC helpful."':
+          - alert
+        - 'button "No: 0 people did not find this review by CPRLC helpful."':
+          - alert
+        - button "Report this review Comfy and easy to stack by CPRLC as inappropriate.": Report
+        - alert
+      - text: Quality of Product, 5.0 out of 5 Value of Product, 5.0 out of 5
+    - region "8 out of 8 , Ratings 5 out of 5":
+      - button "See Mariposa profile. This action will open a modal dialog.": Mariposa
+      - img "5 out of 5 stars."
+      - text: 2 years ago I ordered my chairs for my kitchen table. I ordered 3 I love them I'm disabled and these Chairs a alot higher then those cheap folding chairs. I love them . It only Took 3 days got them fast . My kids are adult too and weight about 320 lbs which these chair hold up to 600 lbs. Thank you .
+      - paragraph: Yes, I recommend this product.
+      - button "Review photo 1. This action will open a modal dialog."
+      - group "Content helpfulness":
+        - text: Helpful?
+        - 'button "Yes: 1 person found this review by Mariposa helpful."':
+          - alert
+        - 'button "No: 1 person did not find this review by Mariposa helpful."':
+          - alert
+        - button "Report this review by Mariposa as inappropriate.": Report
+        - alert
+      - text: "Quality of Product, 5.0 out of 5 Value of Product, 5.0 out of 5 Response from AdvantageChurchChairs: 2 years ago Customer Care (TJ) Mariposa! We're thrilled our chairs are providing you with the comfort and support you need, especially considering your specific requirements. We appreciate your feedback and are glad we could meet your needs. If you ever need anything else, please don't hesitate to reach out to us at customerfeedback@theubiquegroup.com!"
+  - alert
+  - alert
+  - text: 1 – 8 of 34 Reviews
+  - button "Previous Reviews" [disabled]
+  - button "Next Reviews"
+  - alert
+  - heading "Questions" [level=2]
+  - search:
+    - text: Have a question? Ask people who own it.
+    - textbox "Have a question? Ask people who own it.":
+      - /placeholder: "Example: Shipping information"
+    - text: Start typing your question and we'll check if it was already asked and answered.
+  - alert: 1 - 10 of 46 Questions
+  - combobox "Menu, Sort by ."
+  - 'heading "Q: How wide is the pocket on the back of the chair?" [level=3]'
+  - button "See Chase profile. This action will open a modal dialog.": Chase
+  - text: a month ago 1 Answer
+  - button "Answer this question by Chase. This action will open a submission form.": Answer this Question
+  - 'region "1 Answers to Question: How wide is the pocket on the back of the chair?."':
+    - 'heading "A: Hello! Thank you for your question. This product does not have a pocket on the back. Have a great day. Customer Care (VB)" [level=4]'
+    - button "See Customer Care (VB) profile." [disabled]: Customer Care (VB)
+    - text: a month ago
+    - group "Content helpfulness":
+      - text: Helpful?
+      - 'button "Yes: 0 people found this answer by Customer Care (VB) helpful."'
+      - 'button "No: 0 people did not find this answer by Customer Care (VB) helpful."'
+      - button "Report this answer by Customer Care (VB) as inappropriate.": Report
+  - 'heading "Q: Is the fabric treated for stain-resistance?" [level=3]'
+  - button "See plarry15 profile. This action will open a modal dialog.": plarry15
+  - text: 2 months ago 1 Answer
+  - button "Answer this question by plarry15. This action will open a submission form.": Answer this Question
+  - 'region "1 Answers to Question: Is the fabric treated for stain-resistance?."':
+    - 'heading "A: Hello! Thank you for your question. The chair’s foam and fabric meet CA117 flammability standards; however, the upholstery has not been treated with a stain-resistant finish. Have a great day! Customer Care (SS)" [level=4]'
+    - button "See Customer Care (SS) profile." [disabled]: Customer Care (SS)
+    - text: 2 months ago
+    - group "Content helpfulness":
+      - text: Helpful?
+      - 'button "Yes: 0 people found this answer by Customer Care (SS) helpful."'
+      - 'button "No: 0 people did not find this answer by Customer Care (SS) helpful."'
+      - button "Report this answer by Customer Care (SS) as inappropriate.": Report
+  - 'heading "Q: How far is the seat from the floor" [level=3]'
+  - button "See CarlG profile. This action will open a modal dialog.": CarlG
+  - text: 10 months ago 1 Answer
+  - button "Answer this question by CarlG. This action will open a submission form.": Answer this Question
+  - 'region "1 Answers to Question: How far is the seat from the floor."':
+    - 'heading "A: Hi there. Thank you for your question. The seat height is 17.5 inches. Have a great day. Customer Care (VB)" [level=4]'
+    - button "See Customer Care (VB) profile." [disabled]: Customer Care (VB)
+    - text: 10 months ago
+    - group "Content helpfulness":
+      - text: Helpful?
+      - 'button "Yes: 0 people found this answer by Customer Care (VB) helpful."'
+      - 'button "No: 0 people did not find this answer by Customer Care (VB) helpful."'
+      - button "Report this answer by Customer Care (VB) as inappropriate.": Report
+  - 'heading "Q: What is the weight of this chair?" [level=3]'
+  - button "See B. Gobel profile. This action will open a modal dialog.": B. Gobel
+  - text: 11 months ago 1 Answer
+  - button "Answer this question by B. Gobel. This action will open a submission form.": Answer this Question
+  - 'region "1 Answers to Question: What is the weight of this chair?."':
+    - 'heading "A: Hi! Thank you for your question. This product is 15 pounds. Have a great day. Customer Care (VB)" [level=4]'
+    - button "See Customer Care (VB) profile." [disabled]: Customer Care (VB)
+    - text: 11 months ago
+    - group "Content helpfulness":
+      - text: Helpful?
+      - 'button "Yes: 0 people found this answer by Customer Care (VB) helpful."'
+      - 'button "No: 0 people did not find this answer by Customer Care (VB) helpful."'
+      - button "Report this answer by Customer Care (VB) as inappropriate.": Report
+  - 'heading "Q: how many of these chairs could be stacked together? Does that number change if they are on a cart?" [level=3]'
+  - button "See Sarah S. profile. This action will open a modal dialog.": Sarah S.
+  - text: a year ago 1 Answer
+  - button "Answer this question by Sarah S.. This action will open a submission form.": Answer this Question
+  - 'region "1 Answers to Question: how many of these chairs could be stacked together? Does that number change if they are on a cart?."':
+    - 'heading "A: Hi Sarah! Thank you for your question. The recommended stack amount is 11 chairs. This does not change if on a cart/dolly. Have a great day! Customer Care (VB)" [level=4]'
+    - button "See Customer Care (VB) profile." [disabled]: Customer Care (VB)
+    - text: a year ago
+    - group "Content helpfulness":
+      - text: Helpful?
+      - 'button "Yes: 0 people found this answer by Customer Care (VB) helpful."'
+      - 'button "No: 0 people did not find this answer by Customer Care (VB) helpful."'
+      - button "Report this answer by Customer Care (VB) as inappropriate.": Report
+  - 'heading "Q: Is there bulk discount pricing available?" [level=3]'
+  - button "See jaimck profile. This action will open a modal dialog.": jaimck
+  - text: a year ago 2 Answers
+  - button "Answer this question by jaimck. This action will open a submission form.": Answer this Question
+  - 'region "2 Answers to Question: Is there bulk discount pricing available?."':
+    - 'heading "A: We didn''t receive bulk discount pricing." [level=4]'
+    - button "See Outreach profile." [disabled]: Outreach
+    - text: a year ago
+    - group "Content helpfulness":
+      - text: Helpful?
+      - 'button "Yes: 0 people found this answer by Outreach helpful."'
+      - 'button "No: 0 people did not find this answer by Outreach helpful."'
+      - button "Report this answer by Outreach as inappropriate.": Report
+  - button "See answer (1)"
+  - 'heading "Q: I need 100 stacking church chairs" [level=3]'
+  - button "See Second Chance profile. This action will open a modal dialog.": Second Chance
+  - text: a year ago 1 Answer
+  - button "Answer this question by Second Chance. This action will open a submission form.": Answer this Question
+  - 'region "1 Answers to Question: I need 100 stacking church chairs."':
+    - 'heading "A: Hello and thank you for reaching out! We appreciate the opportunity to assist you with this purchasing question. You obviously see the benefits of our products and your question tells us you are just about ready to order! Please do not hesitate to reach out to us by calling 1-855-307-3862 to speak to one of our sales representatives. Customer Care (JW)" [level=4]'
+    - button "See CCJW profile." [disabled]: CCJW
+    - text: a year ago
+    - group "Content helpfulness":
+      - text: Helpful?
+      - 'button "Yes: 0 people found this answer by CCJW helpful."'
+      - 'button "No: 0 people did not find this answer by CCJW helpful."'
+      - button "Report this answer by CCJW as inappropriate.": Report
+  - 'heading "Q: Is there any discount benefit if we order more than a certain number when it comes to the shipping cost?" [level=3]'
+  - button "See Vera profile. This action will open a modal dialog.": Vera
+  - text: 2 years ago 1 Answer
+  - button "Answer this question by Vera. This action will open a submission form.": Answer this Question
+  - 'region "1 Answers to Question: Is there any discount benefit if we order more than a certain number when it comes to the shipping cost?."':
+    - 'heading "A: Hello Vera, We would love to help you with a quote specific to the product and quantity you are looking at. Please feel free to reach out to us at customerfeedback@theubiquegroup.com and we will be happy to look into the specifics of your needs. Customer Care (TJ)" [level=4]'
+    - button "See Tabs profile." [disabled]: Tabs
+    - text: 2 years ago
+    - group "Content helpfulness":
+      - text: Helpful?
+      - 'button "Yes: 0 people found this answer by Tabs helpful."'
+      - 'button "No: 0 people did not find this answer by Tabs helpful."'
+      - button "Report this answer by Tabs as inappropriate.": Report
+  - 'heading "Q: I need four hundred of these chairs for my church and is there a place in the New York City area that I can order them and can I get a shipping discount or military discount" [level=3]'
+  - button "See Rob A profile. This action will open a modal dialog.": Rob A
+  - text: 2 years ago 1 Answer
+  - button "Answer this question by Rob A. This action will open a submission form.": Answer this Question
+  - 'region "1 Answers to Question: I need four hundred of these chairs for my church and is there a place in the New York City area that I can order them and can I get a shipping discount or military discount ."':
+    - 'heading "A: Hello and thank you for reaching out, Rob! We appreciate the opportunity to assist you with this purchasing question. You obviously see the benefits of our products and your question tells us you are just about ready to order! To best assist you, I will have a representative reach out to you in the days ahead at the email you provided when you posted your question. Have a terrific day. Customer Care (TJ)" [level=4]'
+    - button "See Tabs profile." [disabled]: Tabs
+    - text: 2 years ago
+    - group "Content helpfulness":
+      - text: Helpful?
+      - 'button "Yes: 0 people found this answer by Tabs helpful."'
+      - 'button "No: 0 people did not find this answer by Tabs helpful."'
+      - button "Report this answer by Tabs as inappropriate.": Report
+  - 'heading "Q: We are planning to order 75 chairs for our church. Do you guys do Tax Exempt for churches?" [level=3]'
+  - button "See Daniel M profile. This action will open a modal dialog.": Daniel M
+  - text: 2 years ago 1 Answer
+  - button "Answer this question by Daniel M. This action will open a submission form.": Answer this Question
+  - 'region "1 Answers to Question: We are planning to order 75 chairs for our church. Do you guys do Tax Exempt for churches?."':
+    - 'heading "A: Hi Daniel, I am thrilled to help you here. We can absolutely process your documentation for tax exempt status. Please visit the product webpage and scroll to the bottom of the page. At the bottom you will see a heading \"Ordering Information\" where you will find the instructions for setting up an account and providing your exempt documentation. If you still have a concern or a question specific to your individual order or need, do not hesitate to connect with us at customerfeedback@theubiquegroup.com. Have a great day. Customer Care (TJ)" [level=4]'
+    - button "See Tabs profile." [disabled]: Tabs
+    - text: 2 years ago
+    - group "Content helpfulness":
+      - text: Helpful?
+      - 'button "Yes: 0 people found this answer by Tabs helpful."'
+      - 'button "No: 0 people did not find this answer by Tabs helpful."'
+      - button "Report this answer by Tabs as inappropriate.": Report
+  - text: 1 - 10 of 46 Questions
+  - button "Previous Questions" [disabled]
+  - button "Next Questions"
+  - heading "Product Specifications" [level=3]
+  - text: Rated For Commercial Use Yes Recommended Usage 6-8 Hours Warranty 5 Years Limited Materials Steel, Fabric, Plywood, Foam Wood Species Plywood Colors Black Style Classic Age Group Adult Cushion Attachment Fixed Back/Fixed Seat Floor Glides Fixed Weight Capacity 600 Width 18.5 Depth 23 Height 32 Foam Density 2 Rub Count 200000 Padded Yes Upholstery Black Fabric Back Materials Fabric Seat Materials Fabric Fill Material Polyurethane Foam Back Colors Black Frame Colors Black Seat Colors Black Back Type Full Back Style Square Base Style 4 Leg Seat Shape Square Seat Width Fixed 18.5 Seat Depth Fixed 16.5 Seat Height Fixed 17.5 Seat Pitch 5 Seat Thickness 2.5 Back Width Fixed 18.5 Back Height From Seat Fixed 16 Back Pitch 16 Recommended Egress Fixed 35 CAL 117 Certified Yes Metal Gauge Thickness 18
+- contentinfo:
+  - paragraph: Please Sign Up To Receive Updates & Discounts
+  - textbox "Email"
+  - button
+  - img
+  - list
+  - list:
+    - listitem:
+      - text: Get to Know Us
+      - list:
+        - listitem:
+          - link "About Us":
+            - /url: /pages/about-us
+    - listitem:
+      - text: Customer Service
+      - list:
+        - listitem:
+          - link "Delivery Information":
+            - /url: /pages/delivery-information
+        - listitem:
+          - link "Ordering Information":
+            - /url: /pages/ordering-information
+        - listitem:
+          - link "Payment Options":
+            - /url: /pages/payment-options
+        - listitem:
+          - link "Finance Options":
+            - /url: /pages/finance-options
+        - listitem:
+          - link "Shipping Information":
+            - /url: /pages/shipping-information
+        - listitem:
+          - link "Freight Charges":
+            - /url: /pages/freight-charges
+        - listitem:
+          - link "Returns Informations":
+            - /url: /pages/returns-information
+        - listitem:
+          - link "Product Warranty":
+            - /url: /pages/product-warranty
+    - listitem:
+      - text: Get in Touch
+      - list:
+        - listitem:
+          - link "Contact Us":
+            - /url: /pages/contact-us
+        - listitem: Call 1-855-294-0532
+        - listitem: "Mon - Thu: 8AM - 8PM EST"
+        - listitem: "Fri: 8AM - 5PM EST"
+  - paragraph: Copyright 2026 . All rights reserved.
+  - list:
+    - listitem:
+      - link "Site Security":
+        - /url: /pages/site-security
+    - listitem:
+      - link "Privacy Policy":
+        - /url: /pages/privacy-policy
+    - listitem:
+      - link "California Privacy Rights":
+        - /url: /pages/privacy-policy
+    - listitem:
+      - link "Do Not Sell or Share":
+        - /url: /pages/do-not-sell-or-share-my-personal-information
+    - listitem:
+      - link "US Privacy":
+        - /url: /pages/us-privacy-requests
+    - listitem:
+      - link "PIPEDA":
+        - /url: /pages/canadian-privacy-rights-pipeda-quebec-law-25
+    - listitem:
+      - link "GDPR":
+        - /url: /pages/gdpr-privacy-requests
+    - listitem:
+      - link "Terms of Use":
+        - /url: /pages/terms-of-use
+    - listitem:
+      - link "Terms of Sale":
+        - /url: /pages/terms-of-sale
+    - listitem:
+      - link "Accessibility Statement":
+        - /url: /pages/accessibility
+    - listitem:
+      - link "Sitemap":
+        - /url: /tools/sitemap
+- text: Discover More
+- list:
+  - listitem:
+    - link "Church Stack Chairs":
+      - /url: https://www.advantagechurchchairs.com/collections/church-stack-chairs
+  - listitem:
+    - link "18.5\" Church Chairs":
+      - /url: https://www.advantagechurchchairs.com/collections/18-5-church-chairs
+  - listitem:
+    - link "Church Chairs 18.5in. ADVG-PCHT185- –...":
+      - /url: https://www.advantagechurchchairs.com/products/advantage-church-chairs-185-in-wide-advg-pcht185
+- button "Accessibility Widget, click to open":
+  - img
+```
+
+# Test source
+
+```ts
+  1   | import { expect, type Locator, type Page } from '@playwright/test';
+  2   | 
+  3   | export class AdvantagePDP {
+  4   |     readonly page: Page;
+  5   |     readonly description: Locator;
+  6   |     readonly descrContent: Locator;
+  7   |     readonly pdpHeader: Locator;
+  8   |     readonly pdpPrice:  Locator;
+  9   |     readonly reviewStars: Locator;
+  10  |     readonly newReview: Locator;
+  11  |     readonly closeReview: Locator;
+  12  |     readonly sort: Locator;
+  13  |     readonly rightArrow: Locator;
+  14  |     readonly reviewNumber: Locator;
+  15  |     readonly leftArrow: Locator;
+  16  |     readonly qtyInc: Locator;
+  17  |     readonly qty: Locator;
+  18  |     readonly qtyDec: Locator;
+  19  |     readonly addToCart: Locator;
+  20  |     readonly cart: Locator;
+  21  | 
+  22  |     constructor(page: any) {
+  23  |         this.page = page;
+  24  |         this.description = page.locator("//button[normalize-space()='Description']");
+  25  |         this.descrContent = page.locator("//div[@id='content-description']");
+  26  |         this.pdpHeader = page.locator("//h1[contains(text(),'Advantage Multipurpose Church Chairs - 18.5 in. Wi')]");
+  27  |         this.pdpPrice = page.locator("//div[@class='h3 flex-col items-end hidden md:flex']//div[@class='h3 text-tertiary-900'][normalize-space()='$38.99']");
+  28  |         this.reviewStars = page.locator("//div[@class='bv_stars_component_container']//*[name()='svg']").nth(0);
+  29  |         this.newReview = page.locator("div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(5) > div:nth-child(1) > svg:nth-child(1)");
+  30  |         this.closeReview = page.locator(".ips__sc-hn2bh6-0.cbsYNK");
+  31  |         this.sort = page.locator("#bv-dropdown-select-reviews");
+  32  |         this.rightArrow = page.getByRole('button', { name: 'Next Reviews' });
+  33  |         this.reviewNumber = page.locator(".bv-rnr__sc-11r39gb-2.ghmrMg");
+  34  |         this.leftArrow = page.getByRole('button', { name: 'Previous Reviews' });
+  35  |         this.qtyInc = page.locator("//button[@aria-label='Increment Quantity']//*[name()='svg']");
+  36  |         this.qty = page.locator("//input[@type='number']");
+  37  |         this.qtyDec = page.locator("//button[@aria-label='Decrement Quantity']//*[name()='svg']");
+  38  |         this.addToCart = page.locator("//button[normalize-space()='Add to Cart']");
+  39  |         this.cart = page.locator("//span[@class='mr-2 font-light text-white text-e19 leading-120']");
+  40  |     
+  41  |     }
+  42  | 
+  43  | 
+  44  | async clickDescription () {
+  45  |     await this.description.click();
+  46  |     expect(this.descrContent).toContainText("The Molded Foam Multipurpose Church Chair - 18.5 in. Wide provides a durable seating solution for your fellowship hall or convention center. This comfortably padded stack chair not only satisfies seating in Churches, but work well in hotel lobbies, banquet halls and conference facilities.");
+  47  | }
+  48  | async assertPDPHeader () {
+  49  |     expect(this.pdpHeader).toContainText("Advantage Multipurpose Church Chairs - 18.5 in. Wide");
+  50  | }
+  51  | 
+  52  | async assertPDPPrice () {
+> 53  |     expect(this.pdpPrice).toContainText("$38.99");   
+      |                           ^ Error: expect(locator).toContainText(expected) failed
+  54  | }
+  55  | 
+  56  | async clickReviewStars () {
+  57  |     await this.reviewStars.click();
+  58  | }
+  59  | 
+  60  | async clickNewReview () {
+  61  |     await this.newReview.click();
+  62  | }
+  63  | 
+  64  | async clickCloseReview () {
+  65  |     await this.closeReview.click();
+  66  | }
+  67  | 
+  68  | async sortFilter() {
+  69  |     await this.sort.hover();
+  70  |     await this.sort.selectOption({ label: 'Lowest to Highest Rating' });
+  71  |     await this.sort.selectOption({ label: 'Most Recent' });
+  72  | }
+  73  | 
+  74  | async rightArrowPagniation () {
+  75  |     await this.rightArrow.click();
+  76  |     await this.page.waitForTimeout(3000);
+  77  | }
+  78  | async leftArrowPagniation () {
+  79  |     await this.leftArrow.click();
+  80  |     await this.page.waitForTimeout(3000);
+  81  | }
+  82  |     
+  83  | async reviewNumber1 () {
+  84  |     await this.reviewNumber.isVisible();
+  85  |     expect(this.reviewNumber).toContainText("9 – 23");
+  86  | }
+  87  | 
+  88  | async reviewNumber2 () {
+  89  |     await this.page.waitForTimeout(3000);
+  90  |     await this.reviewNumber.isVisible();
+  91  |     expect(this.reviewNumber).toContainText("1 – 8");
+  92  | }
+  93  | async qtyIncrease () {
+  94  |     await this.qtyInc.click();
+  95  |     await this.qtyInc.click();
+  96  |     await this.qtyInc.click();
+  97  |     expect(this.qty).toHaveValue('4');
+  98  | }
+  99  | 
+  100 | async qtyDecrease () {
+  101 |     await this.qtyDec.click();
+  102 |     await this.qtyDec.click();
+  103 |     await this.qtyDec.click();
+  104 |     expect(this.qty).toHaveValue('1');
+  105 | }
+  106 | 
+  107 | async clickAddToCart () {
+  108 |     await this.addToCart.click();
+  109 |     await this.cart.click();
+  110 | }
+  111 | 
+  112 | }
+```

@@ -1,0 +1,907 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: advantageChairs\advantagePLP.spec.ts >> AdvantagePLP Flow
+- Location: tests\advantageChairs\advantagePLP.spec.ts:7:5
+
+# Error details
+
+```
+Test timeout of 180000ms exceeded.
+```
+
+```
+Error: locator.click: Test timeout of 180000ms exceeded.
+Call log:
+  - waiting for locator('//a[normalize-space()=\'2\']')
+    - locator resolved to <a aria-label="Page 2" href="/collections/church-stack-chairs?page=2#collectionMain" class="ra-pagination__item ra-pagination__item--number ra-button ra-button--tertiary !font-primary !font-light !leading-e120 !rounded-none">2</a>
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+  - element was detached from the DOM, retrying
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=f8e1]:
+  - generic:
+    - button "Skip to main content" [ref=f8e2] [cursor=pointer]:
+      - text: Skip to main content
+      - generic [ref=f8e3]: ENTER
+    - button "Skip to footer" [ref=f8e7] [cursor=pointer]:
+      - text: Skip to footer
+      - generic [ref=f8e8]: ENTER
+    - button "Open widget" [ref=f8e12] [cursor=pointer]:
+      - text: Open widget
+      - generic [ref=f8e13]: ENTER
+  - generic [ref=f8e18]:
+    - generic [ref=f8e20]:
+      - generic [ref=f8e22]:
+        - generic:
+          - group "2 / 4" [ref=f8e23]:
+            - paragraph [ref=f8e25]: 25,000 5-Star Reviews & Decades of Expertise!
+          - group "3 / 4" [ref=f8e26]:
+            - paragraph [ref=f8e28]: Need a Quote? Call Us 1-855-294-0532
+          - group "4 / 4" [ref=f8e29]:
+            - paragraph [ref=f8e31]: Hablamos español y estamos listos para ayudarte.
+          - group "1 / 4" [ref=f8e32]:
+            - paragraph [ref=f8e34]: Affordable, High Quality Church Chairs
+      - button "Previous slide" [ref=f8e35] [cursor=pointer]
+      - button "Next slide" [ref=f8e39] [cursor=pointer]
+    - list [ref=f8e43]:
+      - listitem [ref=f8e44]:
+        - link "Customer Support" [ref=f8e45] [cursor=pointer]:
+          - /url: /pages/contact-us
+  - generic [ref=f8e49]:
+    - generic [ref=f8e50]:
+      - link "Advantage Church Chairs logo" [ref=f8e51] [cursor=pointer]:
+        - /url: https://www.advantagechurchchairs.com
+        - img "Advantage Church Chairs Logo" [ref=f8e52]
+      - generic [ref=f8e54]:
+        - generic [ref=f8e55]:
+          - text: Questions? Call Us at
+          - link "1-855-294-0532" [ref=f8e56] [cursor=pointer]:
+            - /url: tel:1-855-294-0532
+        - list [ref=f8e58]:
+          - listitem [ref=f8e59]:
+            - button "search" [ref=f8e60] [cursor=pointer]
+          - listitem [ref=f8e64]:
+            - link "account" [ref=f8e65] [cursor=pointer]:
+              - /url: /account
+          - listitem [ref=f8e69]:
+            - link "cart" [ref=f8e71] [cursor=pointer]:
+              - /url: /cart
+    - navigation [ref=f8e75]:
+      - list [ref=f8e76] [cursor=pointer]:
+        - listitem [ref=f8e77]:
+          - generic "Shop All" [ref=f8e78]:
+            - link "Shop All" [ref=f8e79]:
+              - /url: /collections/shop-all
+        - listitem [ref=f8e80]:
+          - generic "Church Chairs" [ref=f8e81]:
+            - link "Church Chairs" [ref=f8e82]:
+              - /url: /collections/church-stack-chairs
+            - button "Church chairs menu" [ref=f8e83]
+        - listitem [ref=f8e86]:
+          - generic "Banquet Chairs" [ref=f8e87]:
+            - link "Banquet Chairs" [ref=f8e88]:
+              - /url: /collections/banquet-stack-chairs
+        - listitem [ref=f8e89]:
+          - generic "Folding & Event" [ref=f8e90]:
+            - link "Folding & Event" [ref=f8e91]:
+              - /url: /collections/folding-event
+            - button "Folding event menu" [ref=f8e92]
+        - listitem [ref=f8e95]:
+          - generic "Classroom" [ref=f8e96]:
+            - link "Classroom" [ref=f8e97]:
+              - /url: /collections/classroom
+            - button "Classroom menu" [ref=f8e98]
+        - listitem [ref=f8e101]:
+          - generic "Office & Reception" [ref=f8e102]:
+            - link "Office & Reception" [ref=f8e103]:
+              - /url: /collections/office
+            - button "Office reception menu" [ref=f8e104]
+        - listitem [ref=f8e107]:
+          - generic "Patio & Outdoor" [ref=f8e108]:
+            - link "Patio & Outdoor" [ref=f8e109]:
+              - /url: /collections/patio-outdoor
+  - main [active] [ref=f8e110]:
+    - generic [ref=f8e112]:
+      - generic [ref=f8e115]:
+        - link "Church" [ref=f8e116] [cursor=pointer]:
+          - /url: /collections/church
+        - generic [ref=f8e120]: Church Stack Chairs
+      - generic [ref=f8e122]:
+        - complementary [ref=f8e124]:
+          - generic [ref=f8e125]:
+            - generic [ref=f8e126]:
+              - generic [ref=f8e127]: Filters
+              - button "Clear All" [ref=f8e128] [cursor=pointer]
+            - generic [ref=f8e130]:
+              - generic [ref=f8e131]: Copper Vein Metal
+              - button [ref=f8e132] [cursor=pointer]
+            - generic [ref=f8e137]:
+              - generic [ref=f8e138]:
+                - heading [level=6] [ref=f8e139] [cursor=pointer]:
+                  - button [expanded] [ref=f8e140]
+                - list [ref=f8e146]:
+                  - listitem [ref=f8e147]:
+                    - generic [ref=f8e148]:
+                      - checkbox "In stock" [ref=f8e149]
+                      - generic [ref=f8e150] [cursor=pointer]: In stock
+                  - listitem [ref=f8e156]:
+                    - generic [ref=f8e157]:
+                      - checkbox "Out of stock" [disabled] [ref=f8e158]
+                      - generic: Out of stock
+              - generic [ref=f8e159]:
+                - heading [level=6] [ref=f8e160] [cursor=pointer]:
+                  - button [expanded] [ref=f8e161]
+                - generic [ref=f8e170]:
+                  - slider [ref=f8e173]:
+                    - generic [ref=f8e175]: "0"
+                  - slider [ref=f8e176]:
+                    - generic [ref=f8e178]: "128"
+              - generic [ref=f8e179]:
+                - heading [level=6] [ref=f8e180] [cursor=pointer]:
+                  - button [ref=f8e181]
+                - generic [ref=f8e185]:
+                  - list [ref=f8e186]:
+                    - listitem [ref=f8e187]:
+                      - generic [ref=f8e188]:
+                        - checkbox "18.5\" Church Chairs" [ref=f8e189]
+                        - generic [ref=f8e190] [cursor=pointer]: 18.5" Church Chairs
+                    - listitem [ref=f8e196]:
+                      - generic [ref=f8e197]:
+                        - checkbox "21\" Church Chairs" [ref=f8e198]
+                        - generic [ref=f8e199] [cursor=pointer]: 21" Church Chairs
+                    - listitem [ref=f8e205]:
+                      - generic [ref=f8e206]:
+                        - checkbox "18.5\" Custom Church Chairs" [disabled] [ref=f8e207]
+                        - generic: 18.5" Custom Church Chairs
+                    - listitem [ref=f8e208]:
+                      - generic [ref=f8e209]:
+                        - checkbox "21\" Custom Church Chairs" [disabled] [ref=f8e210]
+                        - generic: 21" Custom Church Chairs
+                    - listitem [ref=f8e211]:
+                      - generic [ref=f8e212]:
+                        - checkbox "20\" & 20.5\" Church Chairs" [disabled] [ref=f8e213]
+                        - generic: 20" & 20.5" Church Chairs
+                  - generic [ref=f8e214] [cursor=pointer]: show more
+              - generic [ref=f8e215]:
+                - heading [level=6] [ref=f8e216] [cursor=pointer]:
+                  - button [ref=f8e217]
+                - generic [ref=f8e221]:
+                  - list [ref=f8e222]:
+                    - listitem [ref=f8e223]:
+                      - generic [ref=f8e224]:
+                        - checkbox "ANSI BIFMA Certified" [ref=f8e225]
+                        - generic [ref=f8e226] [cursor=pointer]: ANSI BIFMA Certified
+                    - listitem [ref=f8e232]:
+                      - generic [ref=f8e233]:
+                        - checkbox "Arms" [disabled] [ref=f8e234]
+                        - generic: Arms
+                    - listitem [ref=f8e235]:
+                      - generic [ref=f8e236]:
+                        - checkbox "Assembly Required" [ref=f8e237]
+                        - generic [ref=f8e238] [cursor=pointer]: Assembly Required
+                    - listitem [ref=f8e244]:
+                      - generic [ref=f8e245]:
+                        - checkbox "CAL 117 Certified" [ref=f8e246]
+                        - generic [ref=f8e247] [cursor=pointer]: CAL 117 Certified
+                    - listitem [ref=f8e253]:
+                      - generic [ref=f8e254]:
+                        - checkbox "Green Certified" [disabled] [ref=f8e255]
+                        - generic: Green Certified
+                  - generic [ref=f8e256] [cursor=pointer]: show more
+              - generic [ref=f8e257]:
+                - heading [level=6] [ref=f8e258] [cursor=pointer]:
+                  - button [ref=f8e259]
+                - generic [ref=f8e263]:
+                  - list [ref=f8e264]:
+                    - listitem [ref=f8e265]:
+                      - generic [ref=f8e266]:
+                        - checkbox "Beige/Tan" [ref=f8e267]
+                        - generic [ref=f8e268] [cursor=pointer]: Beige/Tan
+                    - listitem [ref=f8e274]:
+                      - generic [ref=f8e275]:
+                        - checkbox "Black" [ref=f8e276]
+                        - generic [ref=f8e277] [cursor=pointer]: Black
+                    - listitem [ref=f8e283]:
+                      - generic [ref=f8e284]:
+                        - checkbox "Blue/Navy" [ref=f8e285]
+                        - generic [ref=f8e286] [cursor=pointer]: Blue/Navy
+                    - listitem [ref=f8e292]:
+                      - generic [ref=f8e293]:
+                        - checkbox "Bronze/Copper" [ref=f8e294]
+                        - generic [ref=f8e295] [cursor=pointer]: Bronze/Copper
+                    - listitem [ref=f8e301]:
+                      - generic [ref=f8e302]:
+                        - checkbox "Brown" [ref=f8e303]
+                        - generic [ref=f8e304] [cursor=pointer]: Brown
+                  - generic [ref=f8e310] [cursor=pointer]: show more
+              - generic [ref=f8e311]:
+                - heading [level=6] [ref=f8e312] [cursor=pointer]:
+                  - button [expanded] [ref=f8e313]
+                - generic [ref=f8e318]:
+                  - list [ref=f8e319]:
+                    - listitem [ref=f8e320]:
+                      - generic [ref=f8e321]:
+                        - checkbox "Black Powder Coat" [ref=f8e322]
+                        - generic [ref=f8e323] [cursor=pointer]: Black Powder Coat
+                    - listitem [ref=f8e329]:
+                      - generic [ref=f8e330]:
+                        - checkbox "Brown Powder Coat" [ref=f8e331]
+                        - generic [ref=f8e332] [cursor=pointer]: Brown Powder Coat
+                    - listitem [ref=f8e338]:
+                      - generic [ref=f8e339]:
+                        - checkbox "Copper Vein Metal" [checked] [ref=f8e340]
+                        - generic [ref=f8e341] [cursor=pointer]: Copper Vein Metal
+                    - listitem [ref=f8e347]:
+                      - generic [ref=f8e348]:
+                        - checkbox "Gold Vein Metal" [ref=f8e349]
+                        - generic [ref=f8e350] [cursor=pointer]: Gold Vein Metal
+                    - listitem [ref=f8e356]:
+                      - generic [ref=f8e357]:
+                        - checkbox "Gray Powder Coat" [ref=f8e358]
+                        - generic [ref=f8e359] [cursor=pointer]: Gray Powder Coat
+                  - generic [ref=f8e365] [cursor=pointer]: show more
+              - generic [ref=f8e366]:
+                - heading [level=6] [ref=f8e367] [cursor=pointer]:
+                  - button [ref=f8e368]
+                - generic [ref=f8e372]:
+                  - list [ref=f8e373]:
+                    - listitem [ref=f8e374]:
+                      - generic [ref=f8e375]:
+                        - checkbox "Beige Fabric" [ref=f8e376]
+                        - generic [ref=f8e377] [cursor=pointer]: Beige Fabric
+                    - listitem [ref=f8e383]:
+                      - generic [ref=f8e384]:
+                        - checkbox "Black Fabric" [ref=f8e385]
+                        - generic [ref=f8e386] [cursor=pointer]: Black Fabric
+                    - listitem [ref=f8e392]:
+                      - generic [ref=f8e393]:
+                        - checkbox "Black Vinyl" [disabled] [ref=f8e394]
+                        - generic: Black Vinyl
+                    - listitem [ref=f8e395]:
+                      - generic [ref=f8e396]:
+                        - checkbox "Blue Fabric" [ref=f8e397]
+                        - generic [ref=f8e398] [cursor=pointer]: Blue Fabric
+                    - listitem [ref=f8e404]:
+                      - generic [ref=f8e405]:
+                        - checkbox "Brown Fabric" [ref=f8e406]
+                        - generic [ref=f8e407] [cursor=pointer]: Brown Fabric
+                  - generic [ref=f8e413] [cursor=pointer]: show more
+              - generic [ref=f8e414]:
+                - heading [level=6] [ref=f8e415] [cursor=pointer]:
+                  - button [ref=f8e416]
+                - list [ref=f8e421]:
+                  - listitem [ref=f8e422]:
+                    - generic [ref=f8e423]:
+                      - checkbox "Solid" [disabled] [ref=f8e424]
+                      - generic: Solid
+                  - listitem [ref=f8e425]:
+                    - generic [ref=f8e426]:
+                      - checkbox "Square" [ref=f8e427]
+                      - generic [ref=f8e428] [cursor=pointer]: Square
+              - generic [ref=f8e434]:
+                - heading [level=6] [ref=f8e435] [cursor=pointer]:
+                  - button [ref=f8e436]
+                - list [ref=f8e441]:
+                  - listitem [ref=f8e442]:
+                    - generic [ref=f8e443]:
+                      - checkbox "Full" [ref=f8e444]
+                      - generic [ref=f8e445] [cursor=pointer]: Full
+              - generic [ref=f8e451]:
+                - heading [level=6] [ref=f8e452] [cursor=pointer]:
+                  - button [ref=f8e453]
+                - list [ref=f8e458]:
+                  - listitem [ref=f8e459]:
+                    - generic [ref=f8e460]:
+                      - checkbox "Square" [ref=f8e461]
+                      - generic [ref=f8e462] [cursor=pointer]: Square
+              - generic [ref=f8e468]:
+                - heading [level=6] [ref=f8e469] [cursor=pointer]:
+                  - button [ref=f8e470]
+                - list [ref=f8e475]:
+                  - listitem [ref=f8e476]:
+                    - generic [ref=f8e477]:
+                      - checkbox "8" [disabled] [ref=f8e478]
+                      - generic: "8"
+                  - listitem [ref=f8e479]:
+                    - generic [ref=f8e480]:
+                      - checkbox "10" [ref=f8e481]
+                      - generic [ref=f8e482] [cursor=pointer]: "10"
+        - generic [ref=f8e489]:
+          - heading "Church Stack Chairs" [level=1] [ref=f8e490]
+          - separator [ref=f8e491]
+          - generic [ref=f8e492]:
+            - heading "Featured Church Chair Categories" [level=4] [ref=f8e494]
+            - generic [ref=f8e496]:
+              - generic:
+                - group "1 / 5" [ref=f8e497]:
+                  - article [ref=f8e498]:
+                    - img "18.5\" Church Chairs" [ref=f8e501]
+                    - generic [ref=f8e503]:
+                      - heading "18.5\" Church Chairs" [level=3] [ref=f8e504]
+                      - link "Click Me, navigate out" [ref=f8e507] [cursor=pointer]:
+                        - /url: /collections/18-5-church-chairs
+                        - text: Shop
+                - group "2 / 5" [ref=f8e511]:
+                  - article [ref=f8e512]:
+                    - img "20\" & 20.5\" Church Chairs" [ref=f8e515]
+                    - generic [ref=f8e517]:
+                      - heading "20\" & 20.5\" Church Chairs" [level=3] [ref=f8e518]
+                      - link "Click Me, navigate out" [ref=f8e521] [cursor=pointer]:
+                        - /url: /collections/20-20-5-church-chairs
+                        - text: Shop
+                - group "3 / 5" [ref=f8e525]:
+                  - article [ref=f8e526]:
+                    - img "21\" Church Chairs" [ref=f8e529]
+                    - generic [ref=f8e531]:
+                      - heading "21\" Church Chairs" [level=3] [ref=f8e532]
+                      - link "Click Me, navigate out" [ref=f8e535] [cursor=pointer]:
+                        - /url: /collections/21-church-chairs
+                        - text: Shop
+                - group "4 / 5" [ref=f8e539]:
+                  - article [ref=f8e540]:
+                    - img "Custom & Personalized Church Chairs" [ref=f8e543]
+                    - generic [ref=f8e545]:
+                      - heading "Custom Church Chairs" [level=3] [ref=f8e546]
+                      - link "Click Me, navigate out" [ref=f8e549] [cursor=pointer]:
+                        - /url: /collections/custom-personalized-church-chairs
+                        - text: Shop
+                - group "5 / 5" [ref=f8e553]:
+                  - article [ref=f8e554]:
+                    - generic [ref=f8e559]:
+                      - heading "Dollies & Carts" [level=3] [ref=f8e560]
+                      - link "Click Me, navigate out" [ref=f8e563] [cursor=pointer]:
+                        - /url: /collections/dollies-carts
+                        - text: Shop
+            - separator [ref=f8e567]
+          - generic [ref=f8e568]:
+            - generic [ref=f8e569]: Showing 4 of 4 products
+            - combobox [ref=f8e574]:
+              - option "Featured"
+              - option "Most relevant"
+              - option "Best selling" [selected]
+              - option "Alphabetically, A-Z"
+              - option "Alphabetically, Z-A"
+              - option "Price, low to high"
+              - option "Price, high to low"
+              - option "Date, old to new"
+              - option "Date, new to old"
+          - generic [ref=f8e575]:
+            - generic [ref=f8e576]:
+              - generic [ref=f8e577]:
+                - generic [ref=f8e578]:
+                  - link [ref=f8e579] [cursor=pointer]:
+                    - /url: /products/21w-church-chair-with-book-rack-fd-ch0221-4-bas?variant=47182051246370
+                    - img "HERCULES Series 21''W Church Chair with Book Rack - View 1" [ref=f8e581]
+                    - img "HERCULES Series 21''W Church Chair with Book Rack - View 2" [ref=f8e583]
+                  - generic [ref=f8e584]: Bulk Discounts
+                - generic [ref=f8e586]:
+                  - paragraph [ref=f8e587]: FD-CH0221-4-SV-RED-BAS-GG
+                  - link "HERCULES Series 21''W Church Chair with Book Rack" [ref=f8e588] [cursor=pointer]:
+                    - /url: /products/21w-church-chair-with-book-rack-fd-ch0221-4-bas?_pos=1&_fid=91e488995&_ss=c
+                  - paragraph [ref=f8e589]: Crimson Fabric/Silver Vein Frame
+                  - generic [ref=f8e590]: $63.29
+                  - generic [ref=f8e592]:
+                    - button "Next slide" [ref=f8e593] [cursor=pointer]
+                    - generic [ref=f8e596]:
+                      - generic:
+                        - group "1 / 15" [ref=f8e597]:
+                          - button [ref=f8e598] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair with Book Rack" [ref=f8e600]
+                        - group "2 / 15" [ref=f8e601]:
+                          - button [ref=f8e602] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair with Book Rack" [ref=f8e604]
+                        - group "3 / 15" [ref=f8e605]:
+                          - button [ref=f8e606] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair with Book Rack" [ref=f8e608]
+                        - group "4 / 15" [ref=f8e609]:
+                          - button [ref=f8e610] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair with Book Rack" [ref=f8e612]
+                        - group "5 / 15" [ref=f8e613]:
+                          - button [ref=f8e614] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair with Book Rack" [ref=f8e616]
+                        - group "6 / 15" [ref=f8e617]:
+                          - button [ref=f8e618] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair with Book Rack" [ref=f8e620]
+                        - group "7 / 15" [ref=f8e621]:
+                          - button [ref=f8e622] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair with Book Rack" [ref=f8e624]
+                        - group "8 / 15" [ref=f8e625]:
+                          - button [ref=f8e626] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair with Book Rack" [ref=f8e628]
+                        - group "9 / 15" [ref=f8e629]:
+                          - button [ref=f8e630] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair with Book Rack" [ref=f8e632]
+                        - group "10 / 15" [ref=f8e633]:
+                          - button [ref=f8e634] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair with Book Rack" [ref=f8e636]
+                        - group "11 / 15" [ref=f8e637]:
+                          - button [ref=f8e638] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair with Book Rack" [ref=f8e640]
+                        - group "12 / 15" [ref=f8e641]:
+                          - button [ref=f8e642] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair with Book Rack" [ref=f8e644]
+                        - group "13 / 15" [ref=f8e645]:
+                          - button [ref=f8e646] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair with Book Rack" [ref=f8e648]
+                        - group "14 / 15" [ref=f8e649]:
+                          - button [ref=f8e650] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair with Book Rack" [ref=f8e652]
+                        - group "15 / 15" [ref=f8e653]:
+                          - button [ref=f8e654] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Church Chair with Book Rack" [ref=f8e656]
+              - generic [ref=f8e657]:
+                - generic [ref=f8e658]:
+                  - link [ref=f8e659] [cursor=pointer]:
+                    - /url: /products/21w-stacking-church-chair-fd-ch0221-4?variant=47182048166178
+                    - img "HERCULES Series 21''W Stacking Church Chair - View 1" [ref=f8e661]
+                    - img "HERCULES Series 21''W Stacking Church Chair - View 2" [ref=f8e663]
+                  - generic [ref=f8e664]: Bulk Discounts
+                - generic [ref=f8e666]:
+                  - paragraph [ref=f8e667]: FD-CH0221-4-SV-NB24-GG
+                  - link "HERCULES Series 21''W Stacking Church Chair" [ref=f8e668] [cursor=pointer]:
+                    - /url: /products/21w-stacking-church-chair-fd-ch0221-4?_pos=2&_fid=91e488995&_ss=c
+                  - paragraph [ref=f8e669]: Navy Blue Fabric/Silver Vein Frame
+                  - generic [ref=f8e670]: $63.29
+                  - generic [ref=f8e672]:
+                    - button "Next slide" [ref=f8e673] [cursor=pointer]
+                    - generic [ref=f8e676]:
+                      - generic:
+                        - group "1 / 15" [ref=f8e677]:
+                          - button [ref=f8e678] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Stacking Church Chair" [ref=f8e680]
+                        - group "2 / 15" [ref=f8e681]:
+                          - button [ref=f8e682] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Stacking Church Chair" [ref=f8e684]
+                        - group "3 / 15" [ref=f8e685]:
+                          - button [ref=f8e686] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Stacking Church Chair" [ref=f8e688]
+                        - group "4 / 15" [ref=f8e689]:
+                          - button [ref=f8e690] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Stacking Church Chair" [ref=f8e692]
+                        - group "5 / 15" [ref=f8e693]:
+                          - button [ref=f8e694] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Stacking Church Chair" [ref=f8e696]
+                        - group "6 / 15" [ref=f8e697]:
+                          - button [ref=f8e698] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Stacking Church Chair" [ref=f8e700]
+                        - group "7 / 15" [ref=f8e701]:
+                          - button [ref=f8e702] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Stacking Church Chair" [ref=f8e704]
+                        - group "8 / 15" [ref=f8e705]:
+                          - button [ref=f8e706] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Stacking Church Chair" [ref=f8e708]
+                        - group "9 / 15" [ref=f8e709]:
+                          - button [ref=f8e710] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Stacking Church Chair" [ref=f8e712]
+                        - group "10 / 15" [ref=f8e713]:
+                          - button [ref=f8e714] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Stacking Church Chair" [ref=f8e716]
+                        - group "11 / 15" [ref=f8e717]:
+                          - button [ref=f8e718] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Stacking Church Chair" [ref=f8e720]
+                        - group "12 / 15" [ref=f8e721]:
+                          - button [ref=f8e722] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Stacking Church Chair" [ref=f8e724]
+                        - group "13 / 15" [ref=f8e725]:
+                          - button [ref=f8e726] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Stacking Church Chair" [ref=f8e728]
+                        - group "14 / 15" [ref=f8e729]:
+                          - button [ref=f8e730] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Stacking Church Chair" [ref=f8e732]
+                        - group "15 / 15" [ref=f8e733]:
+                          - button [ref=f8e734] [cursor=pointer]:
+                            - img "HERCULES Series 21''W Stacking Church Chair" [ref=f8e736]
+              - generic [ref=f8e737]:
+                - generic [ref=f8e738]:
+                  - link [ref=f8e739] [cursor=pointer]:
+                    - /url: /products/185w-stacking-church-chair-in-fabric-copper-vein-frame-fd-ch02185?variant=47182049378594
+                    - img "HERCULES Series 18.5''W Stackable Church Chair - View 1" [ref=f8e741]
+                    - img "HERCULES Series 18.5''W Stackable Church Chair - View 2" [ref=f8e743]
+                  - generic [ref=f8e744]: Bulk Discounts
+                - generic [ref=f8e746]:
+                  - paragraph [ref=f8e747]: FD-CH02185-GV-005-GG
+                  - link "HERCULES Series 18.5''W Stackable Church Chair" [ref=f8e748] [cursor=pointer]:
+                    - /url: /products/185w-stacking-church-chair-in-fabric-copper-vein-frame-fd-ch02185?_pos=3&_fid=91e488995&_ss=c
+                  - paragraph [ref=f8e749]: Plum Fabric/Gold Vein Frame
+                  - generic [ref=f8e750]: $59.49
+                  - generic [ref=f8e752]:
+                    - button "Next slide" [ref=f8e753] [cursor=pointer]
+                    - generic [ref=f8e756]:
+                      - generic:
+                        - group "1 / 11" [ref=f8e757]:
+                          - button [ref=f8e758] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Stackable Church Chair" [ref=f8e760]
+                        - group "2 / 11" [ref=f8e761]:
+                          - button [ref=f8e762] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Stackable Church Chair" [ref=f8e764]
+                        - group "3 / 11" [ref=f8e765]:
+                          - button [ref=f8e766] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Stackable Church Chair" [ref=f8e768]
+                        - group "4 / 11" [ref=f8e769]:
+                          - button [ref=f8e770] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Stackable Church Chair" [ref=f8e772]
+                        - group "5 / 11" [ref=f8e773]:
+                          - button [ref=f8e774] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Stackable Church Chair" [ref=f8e776]
+                        - group "6 / 11" [ref=f8e777]:
+                          - button [ref=f8e778] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Stackable Church Chair" [ref=f8e780]
+                        - group "7 / 11" [ref=f8e781]:
+                          - button [ref=f8e782] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Stackable Church Chair" [ref=f8e784]
+                        - group "8 / 11" [ref=f8e785]:
+                          - button [ref=f8e786] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Stackable Church Chair" [ref=f8e788]
+                        - group "9 / 11" [ref=f8e789]:
+                          - button [ref=f8e790] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Stackable Church Chair" [ref=f8e792]
+                        - group "10 / 11" [ref=f8e793]:
+                          - button [ref=f8e794] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Stackable Church Chair" [ref=f8e796]
+                        - group "11 / 11" [ref=f8e797]:
+                          - button [ref=f8e798] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Stackable Church Chair" [ref=f8e800]
+              - generic [ref=f8e801]:
+                - generic [ref=f8e802]:
+                  - link [ref=f8e803] [cursor=pointer]:
+                    - /url: /products/185w-church-chair-in-fabric-with-book-rack-copper-vein-frame-fd-ch02185-bas?variant=47182045806882
+                    - img "HERCULES Series 18.5''W Church Chair with Book Rack - View 1" [ref=f8e805]
+                    - img "HERCULES Series 18.5''W Church Chair with Book Rack - View 2" [ref=f8e807]
+                  - generic [ref=f8e808]: Bulk Discounts
+                - generic [ref=f8e810]:
+                  - paragraph [ref=f8e811]: FD-CH02185-SV-GYDOT-BAS-GG
+                  - link "HERCULES Series 18.5''W Church Chair with Book Rack" [ref=f8e812] [cursor=pointer]:
+                    - /url: /products/185w-church-chair-in-fabric-with-book-rack-copper-vein-frame-fd-ch02185-bas?_pos=4&_fid=91e488995&_ss=c
+                  - paragraph [ref=f8e813]: Gray Dot Fabric/Silver Vein Frame
+                  - generic [ref=f8e814]: $59.49
+                  - generic [ref=f8e816]:
+                    - button "Next slide" [ref=f8e817] [cursor=pointer]
+                    - generic [ref=f8e820]:
+                      - generic:
+                        - group "1 / 11" [ref=f8e821]:
+                          - button [ref=f8e822] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair with Book Rack" [ref=f8e824]
+                        - group "2 / 11" [ref=f8e825]:
+                          - button [ref=f8e826] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair with Book Rack" [ref=f8e828]
+                        - group "3 / 11" [ref=f8e829]:
+                          - button [ref=f8e830] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair with Book Rack" [ref=f8e832]
+                        - group "4 / 11" [ref=f8e833]:
+                          - button [ref=f8e834] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair with Book Rack" [ref=f8e836]
+                        - group "5 / 11" [ref=f8e837]:
+                          - button [ref=f8e838] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair with Book Rack" [ref=f8e840]
+                        - group "6 / 11" [ref=f8e841]:
+                          - button [ref=f8e842] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair with Book Rack" [ref=f8e844]
+                        - group "7 / 11" [ref=f8e845]:
+                          - button [ref=f8e846] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair with Book Rack" [ref=f8e848]
+                        - group "8 / 11" [ref=f8e849]:
+                          - button [ref=f8e850] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair with Book Rack" [ref=f8e852]
+                        - group "9 / 11" [ref=f8e853]:
+                          - button [ref=f8e854] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair with Book Rack" [ref=f8e856]
+                        - group "10 / 11" [ref=f8e857]:
+                          - button [ref=f8e858] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair with Book Rack" [ref=f8e860]
+                        - group "11 / 11" [ref=f8e861]:
+                          - button [ref=f8e862] [cursor=pointer]:
+                            - img "HERCULES Series 18.5''W Church Chair with Book Rack" [ref=f8e864]
+            - paragraph [ref=f8e866]: Showing 4 of 4 products
+    - article [ref=f8e869]:
+      - generic [ref=f8e871]:
+        - heading "Church Stack Chairs" [level=2] [ref=f8e872]
+        - separator [ref=f8e873]
+        - generic [ref=f8e875]:
+          - paragraph [ref=f8e876]:
+            - strong [ref=f8e877]: "Transform Your Worship Space with Advantage Church Chairs: A Legacy of Over 35 Years"
+          - paragraph [ref=f8e878]:
+            - strong [ref=f8e879]: "Experience Excellence in Church Seating:"
+          - paragraph [ref=f8e880]: Step into the world of superior church seating with Advantage Church Chairs, where over 35 years of expertise blend seamlessly with innovation. Discover the difference that decades of focused dedication to church furnishings can make in your worship space.
+          - paragraph [ref=f8e881]:
+            - strong [ref=f8e882]: "Perfect Fit for Every Space:"
+          - paragraph [ref=f8e883]: Choose from a versatile array of chair sizes, including 18.5", 20", 20.5", and 21". Our extensive selection ensures that every corner of your church is accommodated, enhancing both aesthetics and comfort for your congregation.
+          - paragraph [ref=f8e884]:
+            - strong [ref=f8e885]: "Unleash Creativity with Customization:"
+          - paragraph [ref=f8e886]: Why settle for standard when you can customize? Embrace our unique embroidery and personalization options to create chairs that truly resonate with the spirit of your church. Make your seating more than just functional; make it a reflection of your community's identity.
+          - paragraph [ref=f8e887]:
+            - strong [ref=f8e888]: "Uncompromised Durability Meets Unmatched Comfort:"
+          - paragraph [ref=f8e889]: Invest in chairs that are built to last without sacrificing comfort. Our seating solutions are designed to withstand the test of time, ensuring that your investment today continues to serve your community for years to come.
+          - paragraph [ref=f8e890]:
+            - strong [ref=f8e891]: "Efficiency in Storage and Mobility:"
+          - paragraph [ref=f8e892]: Enhance your church's functionality with our easy-to-move and store chair dollies. These efficient storage solutions are not just about saving space; they're about adding flexibility to how your church accommodates different events and gatherings.
+          - paragraph [ref=f8e893]:
+            - strong [ref=f8e894]: "Quality Within Reach:"
+          - paragraph [ref=f8e895]: High-quality doesn’t have to mean high cost. At Advantage Church Chairs, we pride ourselves on offering premium seating solutions at prices that respect your budget. Experience the joy of quality furnishings that are both accessible and affordable.
+          - paragraph [ref=f8e896]:
+            - strong [ref=f8e897]: "A Promise of Satisfaction:"
+          - paragraph [ref=f8e898]: Your satisfaction is the cornerstone of our mission. Join the multitude of satisfied customers who have experienced the Advantage Church Chairs difference – where quality, customer service, and value converge.
+          - paragraph [ref=f8e899]:
+            - strong [ref=f8e900]: "Your Customized Quote Awaits:"
+          - paragraph [ref=f8e901]: Every church is unique, and so are your needs. Call us now at 1-855-294-0532 for a personalized quote. Let us help you embark on a journey to elevate your worship space with seating solutions tailored just for you.
+    - article [ref=f8e904]:
+      - heading "Why Choose Us?" [level=2] [ref=f8e907]
+    - generic [ref=f8e911]:
+      - article [ref=f8e913]:
+        - link [ref=f8e914] [cursor=pointer]:
+          - /url: /collections/church-stack-chairs
+          - paragraph [ref=f8e916]: Durable chairs designed for churches—offering dependable comfort and responsible pricing that supports good stewardship.
+        - img "HERCULES Series 21''W Stacking Church Chair" [ref=f8e919]
+        - generic [ref=f8e921]:
+          - heading "High Quality & Affordable" [level=3] [ref=f8e922]
+          - paragraph [ref=f8e925]: Durable chairs designed for churches—offering dependable comfort and responsible pricing that supports good stewardship.
+      - article [ref=f8e927]:
+        - link [ref=f8e928] [cursor=pointer]:
+          - /url: /collections/banquet-stack-chairs
+          - paragraph [ref=f8e930]: A wide selection of church chairs kept in stock and ready to ship, helping you prepare your space on schedule without unnecessary delays.
+        - img "HERCULES Series Trapezoidal Back Stacking Banquet Chair with 2.5\" Thick Seat" [ref=f8e933]
+        - generic [ref=f8e935]:
+          - heading "In-Stock & Ready to Ship" [level=3] [ref=f8e936]
+          - paragraph [ref=f8e939]: A wide selection of church chairs kept in stock and ready to ship, helping you prepare your space on schedule without unnecessary delays.
+      - article [ref=f8e941]:
+        - link [ref=f8e942] [cursor=pointer]:
+          - /url: /pages/contact-us
+          - paragraph [ref=f8e944]: Our knowledgeable team is here to serve you with care, providing guidance on chair selection, ordering, and delivery from start to finish.
+        - img "Customer Service representative taking a call" [ref=f8e947]
+        - generic [ref=f8e949]:
+          - heading "Great Customer Service" [level=3] [ref=f8e950]
+          - paragraph [ref=f8e953]: Our knowledgeable team is here to serve you with care, providing guidance on chair selection, ordering, and delivery from start to finish.
+      - article [ref=f8e955]:
+        - img "Banquet scene with Premium Crown Back Banquet Chair" [ref=f8e958]
+        - generic [ref=f8e960]:
+          - heading "Large Order? Request a Quote Today" [level=3] [ref=f8e961]
+          - paragraph [ref=f8e964]:
+            - text: Planning a larger order or need assistance? Contact our team at
+            - strong [ref=f8e965]: 1-855-294-0532
+            - text: to receive a custom quote and expert support.
+  - contentinfo [ref=f8e967]:
+    - generic [ref=f8e969]:
+      - generic [ref=f8e970]:
+        - paragraph [ref=f8e972]: Please Sign Up To Receive Updates & Discounts
+        - generic [ref=f8e975]:
+          - textbox "Email" [ref=f8e978]
+          - button [ref=f8e980] [cursor=pointer]
+        - generic:
+          - list
+      - list [ref=f8e986]:
+        - listitem [ref=f8e987]:
+          - generic [ref=f8e988]: Get to Know Us
+          - list [ref=f8e989]:
+            - listitem [ref=f8e990]:
+              - link "About Us" [ref=f8e991] [cursor=pointer]:
+                - /url: /pages/about-us
+        - listitem [ref=f8e992]:
+          - generic [ref=f8e993]: Customer Service
+          - list [ref=f8e994]:
+            - listitem [ref=f8e995]:
+              - link "Delivery Information" [ref=f8e996] [cursor=pointer]:
+                - /url: /pages/delivery-information
+            - listitem [ref=f8e997]:
+              - link "Ordering Information" [ref=f8e998] [cursor=pointer]:
+                - /url: /pages/ordering-information
+            - listitem [ref=f8e999]:
+              - link "Payment Options" [ref=f8e1000] [cursor=pointer]:
+                - /url: /pages/payment-options
+            - listitem [ref=f8e1001]:
+              - link "Finance Options" [ref=f8e1002] [cursor=pointer]:
+                - /url: /pages/finance-options
+            - listitem [ref=f8e1003]:
+              - link "Shipping Information" [ref=f8e1004] [cursor=pointer]:
+                - /url: /pages/shipping-information
+            - listitem [ref=f8e1005]:
+              - link "Freight Charges" [ref=f8e1006] [cursor=pointer]:
+                - /url: /pages/freight-charges
+            - listitem [ref=f8e1007]:
+              - link "Returns Informations" [ref=f8e1008] [cursor=pointer]:
+                - /url: /pages/returns-information
+            - listitem [ref=f8e1009]:
+              - link "Product Warranty" [ref=f8e1010] [cursor=pointer]:
+                - /url: /pages/product-warranty
+        - listitem [ref=f8e1011]:
+          - generic [ref=f8e1012]: Get in Touch
+          - list [ref=f8e1013]:
+            - listitem [ref=f8e1014]:
+              - link "Contact Us" [ref=f8e1015] [cursor=pointer]:
+                - /url: /pages/contact-us
+            - listitem [ref=f8e1016]:
+              - generic [ref=f8e1017]: Call 1-855-294-0532
+            - listitem [ref=f8e1018]:
+              - generic [ref=f8e1019]: "Mon - Thu: 8AM - 8PM EST"
+            - listitem [ref=f8e1020]:
+              - generic [ref=f8e1021]: "Fri: 8AM - 5PM EST"
+    - generic [ref=f8e1024]:
+      - paragraph [ref=f8e1025]: Copyright 2026 . All rights reserved.
+      - list [ref=f8e1026]:
+        - listitem [ref=f8e1027]:
+          - link "Site Security" [ref=f8e1028] [cursor=pointer]:
+            - /url: /pages/site-security
+        - listitem [ref=f8e1029]:
+          - link "Privacy Policy" [ref=f8e1030] [cursor=pointer]:
+            - /url: /pages/privacy-policy
+        - listitem [ref=f8e1031]:
+          - link "California Privacy Rights" [ref=f8e1032] [cursor=pointer]:
+            - /url: /pages/privacy-policy
+        - listitem [ref=f8e1033]:
+          - link "Do Not Sell or Share" [ref=f8e1034] [cursor=pointer]:
+            - /url: /pages/do-not-sell-or-share-my-personal-information
+        - listitem [ref=f8e1035]:
+          - link "US Privacy" [ref=f8e1036] [cursor=pointer]:
+            - /url: /pages/us-privacy-requests
+        - listitem [ref=f8e1037]:
+          - link "PIPEDA" [ref=f8e1038] [cursor=pointer]:
+            - /url: /pages/canadian-privacy-rights-pipeda-quebec-law-25
+        - listitem [ref=f8e1039]:
+          - link "GDPR" [ref=f8e1040] [cursor=pointer]:
+            - /url: /pages/gdpr-privacy-requests
+        - listitem [ref=f8e1041]:
+          - link "Terms of Use" [ref=f8e1042] [cursor=pointer]:
+            - /url: /pages/terms-of-use
+        - listitem [ref=f8e1043]:
+          - link "Terms of Sale" [ref=f8e1044] [cursor=pointer]:
+            - /url: /pages/terms-of-sale
+        - listitem [ref=f8e1045]:
+          - link "Accessibility Statement" [ref=f8e1046] [cursor=pointer]:
+            - /url: /pages/accessibility
+        - listitem [ref=f8e1047]:
+          - link "Sitemap" [ref=f8e1048] [cursor=pointer]:
+            - /url: /tools/sitemap
+  - generic [ref=f8e1051]:
+    - generic [ref=f8e1052]: Discover More
+    - list [ref=f8e1053]:
+      - listitem [ref=f8e1054]:
+        - link "Quality Worship Furniture – Advantage Church Chairs" [ref=f8e1055] [cursor=pointer]:
+          - /url: https://www.advantagechurchchairs.com/
+      - listitem [ref=f8e1056]:
+        - link "18.5\" Church Chairs" [ref=f8e1057] [cursor=pointer]:
+          - /url: https://www.advantagechurchchairs.com/collections/18-5-church-chairs
+      - listitem [ref=f8e1058]:
+        - link "21\" Church Chairs" [ref=f8e1059] [cursor=pointer]:
+          - /url: https://www.advantagechurchchairs.com/collections/21-church-chairs
+  - button "Accessibility Widget, click to open" [ref=f8e1062] [cursor=pointer]
+  - generic [ref=f8e1070]:
+    - button [ref=f8e1071] [cursor=pointer]:
+      - strong [ref=f8e1077]: Unlock $300 Off
+    - button "Close teaser" [ref=f8e1078] [cursor=pointer]
+```
+
+# Test source
+
+```ts
+  1   | import { expect, type Locator, type Page } from '@playwright/test';
+  2   | 
+  3   | export class AdvantagePLP {
+  4   |     readonly page: Page;
+  5   |     readonly sort: Locator;
+  6   |     readonly firstItem: Locator
+  7   |     readonly colorFam: Locator
+  8   |     readonly showMore: Locator
+  9   |     readonly green: Locator;
+  10  |     readonly finish: Locator;
+  11  |     readonly copper: Locator;
+  12  |     readonly greenPill: Locator;
+  13  |     readonly clearAll: Locator
+  14  |     readonly page2: Locator;
+  15  |     readonly rightArrow: Locator;
+  16  |     readonly leftArrow: Locator;
+  17  |     readonly pdpItem: Locator;
+  18  |     
+  19  | 
+  20  | 
+  21  |     constructor(page: any) {
+  22  |         this.page = page;
+  23  |         this.sort = page.locator("//select[@id='SortBy']");
+  24  |         this.firstItem = page.locator("//a[contains(text(),'Advantage Multipurpose Church Chairs - 18.5 in. Wi')]");
+  25  |         this.colorFam = page.locator("//button[normalize-space()='Color Family']");
+  26  |         this.showMore = page.locator("//div[@data-toggle-filter='color-family']");
+  27  |         this.green = page.locator("//label[contains(@for,'filter-p-m-filter-colors_green')]//div[contains(@class,'ra-choice__checkmark set--inherit-focus')]");
+  28  |         this.finish = page.locator("//button[normalize-space()='Finish']");
+  29  |         this.copper = page.locator("//span[contains(@class,'ra-choice__label')][normalize-space()='Copper Vein Metal']");
+  30  |         this.greenPill = page.locator("//button[contains(@data-param,'filter.p.m.filter.colors')]//span[contains(@class,'ra-icon')]//*[name()='svg']");
+  31  |         this.clearAll = page.locator("//button[normalize-space()='Clear All']");   
+  32  |         this.page2 = page.locator("//a[normalize-space()='2']"); 
+  33  |         this.rightArrow = page.locator("//a[@aria-label='Go to next page']");
+  34  |         this.leftArrow = page.locator("//a[@aria-label='Go to previous page']");
+  35  |         this.pdpItem = page.getByRole('img', { name: /HERCULES Series 21"W Stacking Wood Accent Arm Church Chair - View 2/i })
+  36  |     
+  37  |     }
+  38  | 
+  39  | 
+  40  | async selectSorting () {
+  41  |     console.log({ message: "Sorting...." });
+  42  |     await this.sort.selectOption( {label: "Price, low to high"});
+  43  |     expect(this.firstItem).toContainText("Advantage Multipurpose Church Chairs");
+  44  |     await this.sort.selectOption( {label: "Best selling"});
+  45  | }
+  46  | 
+  47  | async selectColorFilter(){
+  48  |     console.log({ message: "Filtering by Colors...." });
+  49  |     await this.colorFam.isVisible();
+  50  |     await this.colorFam.click();
+  51  |     await this.showMore.isVisible();
+  52  |     //wait so it does not put up are you a robot prompt
+  53  |     await this.page.waitForTimeout(5000);
+  54  |     await this.page.mouse.click(0, 0);  
+  55  |     await this.showMore.click();
+  56  |     await this.green.isVisible();
+  57  |     await this.green.click();
+  58  |     await this.page.waitForTimeout(2000);
+  59  | }
+  60  | 
+  61  | async clickingfinishFilter () {
+  62  |     console.log({ message: "Filtering by Finish...." });
+  63  |     await this.finish.click();
+  64  |     await this.copper.isVisible();
+  65  |     await this.copper.click();
+  66  | }
+  67  | 
+  68  | async clearColorFilter () {
+  69  |     console.log({ message: "Clearing Color Filter...." });
+  70  |     //wait so it does not put up are you a robot prompt
+  71  |     await this.page.waitForTimeout(5000);
+  72  |     await this.page.mouse.click(0, 0);  
+  73  |     await this.greenPill.isVisible();
+  74  |     await this.greenPill.click();
+  75  | }
+  76  | 
+  77  | 
+  78  | async clearFinishFilter () {
+  79  |     console.log({ message: "Clearing Finish Filter...." });
+  80  |     //wait so it does not put up are you a robot prompt
+  81  |     await this.page.waitForTimeout(5000);
+  82  |     await this.page.mouse.click(0, 0);  
+  83  |     await this.greenPill.isVisible();
+  84  |     await this.greenPill.click();
+> 85  | }
+      |                      ^ Error: locator.click: Test timeout of 180000ms exceeded.
+  86  | async clearAllFilter () {
+  87  |     console.log({ message: "Clearing All Filters...." });
+  88  |     await this.clearAll.isVisible();
+  89  |     await this.clearAll.click();
+  90  | }
+  91  | 
+  92  | async clickPagination () {
+  93  |     console.log({ message: "Clicking Pagination...." });
+  94  |     await this.page2.isVisible();
+  95  |     await this.page2.click();
+  96  |     expect(this.page.url()).toContain("page=2");
+  97  | }
+  98  | 
+  99  | async clickRightArrow () {
+  100 |     console.log({ message: "Clicking Right Arrow...." });
+  101 |     await this.rightArrow.isVisible();
+  102 |     await this.rightArrow.click();
+  103 |     expect(this.page.url()).toContain("page=3");
+  104 | }
+  105 | async clickLeftArrow () {
+  106 |     console.log({ message: "Clicking Left Arrow...." });
+  107 |     await this.leftArrow.isVisible();
+  108 |     await this.leftArrow.click();
+  109 |     expect(this.page.url()).toContain("page=2");
+  110 | }
+  111 | async clickPDP () {
+  112 |     console.log({ message: "Clicking PDP...." });
+  113 |     await this.page.waitForLoadState();
+  114 |     await this.pdpItem.isVisible();
+  115 |     await this.pdpItem.click();
+  116 |     await this.page.waitForLoadState();
+  117 |     expect(this.page.url()).toContain("21-stackable-church-chair-with-arms-xu-dg-60156");
+  118 | }
+  119 | 
+  120 | 
+  121 | }
+```

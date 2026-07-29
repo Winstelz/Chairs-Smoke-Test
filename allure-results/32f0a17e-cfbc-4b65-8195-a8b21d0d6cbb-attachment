@@ -1,0 +1,430 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: advantageChairs\AdvantageHeaderIcons.spec.ts >> AdvantageHeaderIcons Search
+- Location: tests\advantageChairs\AdvantageHeaderIcons.spec.ts:6:5
+
+# Error details
+
+```
+Error: expect(received).toContain(expected) // indexOf
+
+Expected substring: "https://www.advantagechurchchairs.com/search"
+Received string:    "https://www.advantagechurchchairs.com/"
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic:
+    - button "Skip to main content" [ref=e2] [cursor=pointer]:
+      - text: Skip to main content
+      - generic [ref=e3]:
+        - img [ref=e4]
+        - generic [ref=e6]: ENTER
+    - button "Skip to footer" [ref=e7] [cursor=pointer]:
+      - text: Skip to footer
+      - generic [ref=e8]:
+        - img [ref=e9]
+        - generic [ref=e11]: ENTER
+    - button "Open widget" [ref=e12] [cursor=pointer]:
+      - text: Open widget
+      - generic [ref=e13]:
+        - img [ref=e14]
+        - generic [ref=e16]: ENTER
+  - generic [ref=e18]:
+    - generic [ref=e20]:
+      - generic [ref=e22]:
+        - generic:
+          - group "1 / 4" [ref=e23]:
+            - paragraph [ref=e25]: Affordable, High Quality Church Chairs
+          - group "2 / 4" [ref=e26]:
+            - paragraph [ref=e28]: 25,000 5-Star Reviews & Decades of Expertise!
+          - group "3 / 4" [ref=e29]:
+            - paragraph [ref=e31]: Need a Quote? Call Us 1-855-294-0532
+          - group "4 / 4" [ref=e32]:
+            - paragraph [ref=e34]: Hablamos español y estamos listos para ayudarte.
+      - button "Previous slide" [ref=e35] [cursor=pointer]:
+        - img [ref=e37]
+      - button "Next slide" [ref=e39] [cursor=pointer]:
+        - img [ref=e41]
+    - list [ref=e43]:
+      - listitem [ref=e44]:
+        - link "Customer Support" [ref=e45] [cursor=pointer]:
+          - /url: /pages/contact-us
+  - generic [ref=e49]:
+    - generic [ref=e50]:
+      - link "Advantage Church Chairs logo" [ref=e51] [cursor=pointer]:
+        - /url: https://www.advantagechurchchairs.com
+        - img "Advantage Church Chairs Logo" [ref=e52]
+      - generic [ref=e54]:
+        - generic [ref=e55]:
+          - text: Questions? Call Us at
+          - link "1-855-294-0532" [ref=e56] [cursor=pointer]:
+            - /url: tel:1-855-294-0532
+        - list [ref=e58]:
+          - listitem [ref=e59]:
+            - button "search" [ref=e60] [cursor=pointer]:
+              - img [ref=e62]
+          - listitem [ref=e64]:
+            - link "account" [ref=e65] [cursor=pointer]:
+              - /url: /account
+              - img [ref=e67]
+          - listitem [ref=e69]:
+            - link "cart" [ref=e71] [cursor=pointer]:
+              - /url: /cart
+              - img [ref=e73]
+    - navigation [ref=e75]:
+      - list [ref=e76] [cursor=pointer]:
+        - listitem [ref=e77]:
+          - generic "Shop All" [ref=e78]:
+            - link "Shop All" [ref=e79]:
+              - /url: /collections/shop-all
+        - listitem [ref=e80]:
+          - generic "Church Chairs" [ref=e81]:
+            - link "Church Chairs" [ref=e82]:
+              - /url: /collections/church-stack-chairs
+            - button "Church chairs menu" [ref=e83]:
+              - img [ref=e84]
+        - listitem [ref=e86]:
+          - generic "Banquet Chairs" [ref=e87]:
+            - link "Banquet Chairs" [ref=e88]:
+              - /url: /collections/banquet-stack-chairs
+        - listitem [ref=e89]:
+          - generic "Folding & Event" [ref=e90]:
+            - link "Folding & Event" [ref=e91]:
+              - /url: /collections/folding-event
+            - button "Folding event menu" [ref=e92]:
+              - img [ref=e93]
+        - listitem [ref=e95]:
+          - generic "Classroom" [ref=e96]:
+            - link "Classroom" [ref=e97]:
+              - /url: /collections/classroom
+            - button "Classroom menu" [ref=e98]:
+              - img [ref=e99]
+        - listitem [ref=e101]:
+          - generic "Office & Reception" [ref=e102]:
+            - link "Office & Reception" [ref=e103]:
+              - /url: /collections/office
+            - button "Office reception menu" [ref=e104]:
+              - img [ref=e105]
+        - listitem [ref=e107]:
+          - generic "Patio & Outdoor" [ref=e108]:
+            - link "Patio & Outdoor" [ref=e109]:
+              - /url: /collections/patio-outdoor
+  - main [ref=e110]:
+    - article [ref=e113]:
+      - heading "America’s Go-To Source for Affordable Church Chairs Since 2001" [level=2] [ref=e116]
+    - article [ref=e126]:
+      - generic [ref=e128]:
+        - heading "Durable Church Seating for Every Space" [level=2] [ref=e129]
+        - separator [ref=e130]
+        - generic [ref=e131]:
+          - paragraph [ref=e132]: Choosing the right church seating means balancing comfort, durability, flexibility, and budget. Advantage Church Chairs offers a wide selection of stackable church chairs, metal frame sanctuary chairs, banquet chairs, and folding seating designed specifically for ministry environments.
+          - paragraph
+          - paragraph [ref=e133]: We proudly serve churches, ministries, schools, and event spaces nationwide with reliable church chairs and bulk seating solutions.
+    - generic [ref=e136]:
+      - heading "Featured Collections" [level=2] [ref=e139]
+      - generic [ref=e142]:
+        - generic:
+          - group "1 / 4" [ref=e143]:
+            - article [ref=e144]:
+              - link [ref=e145] [cursor=pointer]:
+                - /url: /collections/church-stack-chairs
+              - img [ref=e148]
+              - heading "Church Chairs" [level=3] [ref=e151]:
+                - generic [ref=e152]: Church Chairs
+                - img [ref=e154]
+          - group "2 / 4" [ref=e156]:
+            - article [ref=e157]:
+              - link [ref=e158] [cursor=pointer]:
+                - /url: /collections/folding-event
+              - img "Candid view of padded metal folding chairs from front right" [ref=e161]
+              - heading "Folding Chairs" [level=3] [ref=e164]:
+                - generic [ref=e165]: Folding Chairs
+                - img [ref=e167]
+          - group "3 / 4" [ref=e169]:
+            - article [ref=e170]:
+              - link [ref=e171] [cursor=pointer]:
+                - /url: /collections/banquet-stack-chairs
+              - img "Banquet scene with Premium Crown Back Banquet Chair" [ref=e174]
+              - heading "Banquet Chairs" [level=3] [ref=e177]:
+                - generic [ref=e178]: Banquet Chairs
+                - img [ref=e180]
+          - group "4 / 4" [ref=e182]:
+            - article [ref=e183]:
+              - link [ref=e184] [cursor=pointer]:
+                - /url: /collections/folding-tables
+              - img "Folding training table with breakfast in full fellowship hall" [ref=e187]
+              - heading "Folding Tables" [level=3] [ref=e190]:
+                - generic [ref=e191]: Folding Tables
+                - img [ref=e193]
+    - article [ref=e197]:
+      - generic [ref=e200]:
+        - paragraph [ref=e201]: Advantage Church Chairs provides high-quality commercial seating designed for worship spaces, fellowship halls, multipurpose facilities, and high-traffic environments. We combine durability, comfort, and cost-effective pricing to help churches, ministries, and organizations furnish their spaces with confidence.
+        - paragraph [ref=e202]: With over 20 years of industry experience and access to a large in-stock inventory, we deliver reliable church chairs and commercial furniture solutions with fast shipping and dependable customer support. Our seating is engineered to withstand frequent use while maintaining a professional, welcoming appearance.
+        - paragraph [ref=e203]: As part of the Ubique Group, headquartered in Canton, Georgia, we are committed to delivering trusted furniture solutions that support churches, schools, government facilities, hospitality venues, and businesses nationwide.
+    - article [ref=e206]:
+      - heading "Why Choose Us?" [level=2] [ref=e209]
+    - generic [ref=e213]:
+      - article [ref=e215]:
+        - link "Durable chairs designed for churches—offering dependable comfort and responsible pricing that supports good stewardship." [ref=e216] [cursor=pointer]:
+          - /url: /collections/church-stack-chairs
+          - paragraph [ref=e218]: Durable chairs designed for churches—offering dependable comfort and responsible pricing that supports good stewardship.
+        - img "HERCULES Series 21''W Stacking Church Chair" [ref=e221]
+        - generic [ref=e223]:
+          - heading "High Quality & Affordable" [level=3] [ref=e224]:
+            - generic [ref=e225]: High Quality & Affordable
+          - paragraph [ref=e227]: Durable chairs designed for churches—offering dependable comfort and responsible pricing that supports good stewardship.
+      - article [ref=e229]:
+        - link "A wide selection of church chairs kept in stock and ready to ship, helping you prepare your space on schedule without unnecessary delays." [ref=e230] [cursor=pointer]:
+          - /url: /collections/banquet-stack-chairs
+          - paragraph [ref=e232]: A wide selection of church chairs kept in stock and ready to ship, helping you prepare your space on schedule without unnecessary delays.
+        - img "HERCULES Series Trapezoidal Back Stacking Banquet Chair with 2.5\" Thick Seat" [ref=e235]
+        - generic [ref=e237]:
+          - heading "In-Stock & Ready to Ship" [level=3] [ref=e238]:
+            - generic [ref=e239]: In-Stock & Ready to Ship
+          - paragraph [ref=e241]: A wide selection of church chairs kept in stock and ready to ship, helping you prepare your space on schedule without unnecessary delays.
+      - article [ref=e243]:
+        - link "Our knowledgeable team is here to serve you with care, providing guidance on chair selection, ordering, and delivery from start to finish." [ref=e244] [cursor=pointer]:
+          - /url: /pages/contact-us
+          - paragraph [ref=e246]: Our knowledgeable team is here to serve you with care, providing guidance on chair selection, ordering, and delivery from start to finish.
+        - img "Customer Service representative taking a call" [ref=e249]
+        - generic [ref=e251]:
+          - heading "Great Customer Service" [level=3] [ref=e252]:
+            - generic [ref=e253]: Great Customer Service
+          - paragraph [ref=e255]: Our knowledgeable team is here to serve you with care, providing guidance on chair selection, ordering, and delivery from start to finish.
+      - article [ref=e257]:
+        - img "Banquet scene with Premium Crown Back Banquet Chair" [ref=e260]
+        - generic [ref=e262]:
+          - heading "Large Order? Request a Quote Today" [level=3] [ref=e263]:
+            - generic [ref=e264]: Large Order? Request a Quote Today
+          - paragraph [ref=e266]:
+            - text: Planning a larger order or need assistance? Contact our team at
+            - strong [ref=e267]: 1-855-294-0532
+            - text: to receive a custom quote and expert support.
+  - contentinfo [ref=e269]:
+    - generic [ref=e271]:
+      - generic [ref=e272]:
+        - paragraph [ref=e274]: Please Sign Up To Receive Updates & Discounts
+        - generic [ref=e276]:
+          - generic [ref=e277]:
+            - textbox "Email" [ref=e280]
+            - button [ref=e282] [cursor=pointer]:
+              - img [ref=e284]
+          - img [ref=e287]
+        - generic:
+          - list
+      - list [ref=e288]:
+        - listitem [ref=e289]:
+          - generic [ref=e290]: Get to Know Us
+          - list [ref=e291]:
+            - listitem [ref=e292]:
+              - link "About Us" [ref=e293] [cursor=pointer]:
+                - /url: /pages/about-us
+        - listitem [ref=e294]:
+          - generic [ref=e295]: Customer Service
+          - list [ref=e296]:
+            - listitem [ref=e297]:
+              - link "Delivery Information" [ref=e298] [cursor=pointer]:
+                - /url: /pages/delivery-information
+            - listitem [ref=e299]:
+              - link "Ordering Information" [ref=e300] [cursor=pointer]:
+                - /url: /pages/ordering-information
+            - listitem [ref=e301]:
+              - link "Payment Options" [ref=e302] [cursor=pointer]:
+                - /url: /pages/payment-options
+            - listitem [ref=e303]:
+              - link "Finance Options" [ref=e304] [cursor=pointer]:
+                - /url: /pages/finance-options
+            - listitem [ref=e305]:
+              - link "Shipping Information" [ref=e306] [cursor=pointer]:
+                - /url: /pages/shipping-information
+            - listitem [ref=e307]:
+              - link "Freight Charges" [ref=e308] [cursor=pointer]:
+                - /url: /pages/freight-charges
+            - listitem [ref=e309]:
+              - link "Returns Informations" [ref=e310] [cursor=pointer]:
+                - /url: /pages/returns-information
+            - listitem [ref=e311]:
+              - link "Product Warranty" [ref=e312] [cursor=pointer]:
+                - /url: /pages/product-warranty
+        - listitem [ref=e313]:
+          - generic [ref=e314]: Get in Touch
+          - list [ref=e315]:
+            - listitem [ref=e316]:
+              - link "Contact Us" [ref=e317] [cursor=pointer]:
+                - /url: /pages/contact-us
+            - listitem [ref=e318]:
+              - generic [ref=e319]: Call 1-855-294-0532
+            - listitem [ref=e320]:
+              - generic [ref=e321]: "Mon - Thu: 8AM - 8PM EST"
+            - listitem [ref=e322]:
+              - generic [ref=e323]: "Fri: 8AM - 5PM EST"
+    - generic [ref=e326]:
+      - paragraph [ref=e327]: Copyright 2026 . All rights reserved.
+      - list [ref=e328]:
+        - listitem [ref=e329]:
+          - link "Site Security" [ref=e330] [cursor=pointer]:
+            - /url: /pages/site-security
+        - listitem [ref=e331]:
+          - link "Privacy Policy" [ref=e332] [cursor=pointer]:
+            - /url: /pages/privacy-policy
+        - listitem [ref=e333]:
+          - link "California Privacy Rights" [ref=e334] [cursor=pointer]:
+            - /url: /pages/privacy-policy
+        - listitem [ref=e335]:
+          - link "Do Not Sell or Share" [ref=e336] [cursor=pointer]:
+            - /url: /pages/do-not-sell-or-share-my-personal-information
+        - listitem [ref=e337]:
+          - link "US Privacy" [ref=e338] [cursor=pointer]:
+            - /url: /pages/us-privacy-requests
+        - listitem [ref=e339]:
+          - link "PIPEDA" [ref=e340] [cursor=pointer]:
+            - /url: /pages/canadian-privacy-rights-pipeda-quebec-law-25
+        - listitem [ref=e341]:
+          - link "GDPR" [ref=e342] [cursor=pointer]:
+            - /url: /pages/gdpr-privacy-requests
+        - listitem [ref=e343]:
+          - link "Terms of Use" [ref=e344] [cursor=pointer]:
+            - /url: /pages/terms-of-use
+        - listitem [ref=e345]:
+          - link "Terms of Sale" [ref=e346] [cursor=pointer]:
+            - /url: /pages/terms-of-sale
+        - listitem [ref=e347]:
+          - link "Accessibility Statement" [ref=e348] [cursor=pointer]:
+            - /url: /pages/accessibility
+        - listitem [ref=e349]:
+          - link "Sitemap" [ref=e350] [cursor=pointer]:
+            - /url: /tools/sitemap
+  - generic [ref=e353]:
+    - generic [ref=e354]: Discover More
+    - list [ref=e355]:
+      - listitem [ref=e356]:
+        - link "Banquet Stack Chairs" [ref=e357] [cursor=pointer]:
+          - /url: https://www.advantagechurchchairs.com/collections/banquet-stack-chairs
+      - listitem [ref=e358]:
+        - link "Metal Folding Chairs" [ref=e359] [cursor=pointer]:
+          - /url: https://www.advantagechurchchairs.com/collections/metal-folding-chairs
+      - listitem [ref=e360]:
+        - link "Slat Wood Folding Chair 4-WFC-SLAT- –..." [ref=e361] [cursor=pointer]:
+          - /url: https://www.advantagechurchchairs.com/products/slatted-wood-folding-wedding-chair-event-chair-set-of-4-advg-wfc
+  - button "Accessibility Widget, click to open" [ref=e364] [cursor=pointer]:
+    - img [ref=e366]
+```
+
+# Test source
+
+```ts
+  58  |         expect(this.page.url()).toContain(STORE_URLS.advantage);
+  59  |     }
+  60  | 
+  61  |     async clickShopAll() {
+  62  |         console.log({ message: `Clicking Shop All....`});
+  63  |         await this.shopAll.click();
+  64  |         await this.page.waitForLoadState();
+  65  |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/shop-all');
+  66  |     }
+  67  |     async clickChurchChairs() {
+  68  |         console.log({ message: `Clicking Church Chairs....`});
+  69  |         await this.churchChairs.click();
+  70  |         await this.page.waitForLoadState();
+  71  |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/church-stack-chairs');
+  72  |     }
+  73  | 
+  74  |     async clickBanquetChairs () {
+  75  |         console.log({ message: `Clicking Banquet Chairs....`});
+  76  |         await this.banquetChairs.click();
+  77  |         await this.page.waitForLoadState();
+  78  |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/banquet-stack-chairs');
+  79  |     }
+  80  | 
+  81  |     async clickFoldEvent () {
+  82  |         console.log({ message: `Clicking Fold Event....`});
+  83  |         await this.foldEvent.click();
+  84  |         await this.page.waitForLoadState();
+  85  |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/folding-event');
+  86  |     }
+  87  | 
+  88  |     async clickClassroom () {
+  89  |         console.log({ message: `Clicking Classroom....`});
+  90  |         await this.classroom.click();
+  91  |         await this.page.waitForLoadState();
+  92  |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/classroom');
+  93  | }
+  94  | 
+  95  |     async clickOfficeReception () {
+  96  |         console.log({ message: `Clicking Office & Reception....`});
+  97  |         await this.office.click();
+  98  |         await this.page.waitForLoadState();
+  99  |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/office');
+  100 | }
+  101 | 
+  102 | 
+  103 |     async hoverChurchChairs () {
+  104 |         await this.churchChairs.hover();
+  105 |         await this.dollies.click();
+  106 |         await this.page.waitForLoadState('load', { timeout: 60000 });
+  107 |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/church-banquet-stack-chair-dollies');
+  108 |     }
+  109 |     async hoverFoldEvent () {
+  110 |         await this.foldEvent.hover();
+  111 |         await this.resin.click();
+  112 |         await this.page.waitForLoadState('load', { timeout: 60000 });
+  113 |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/resin-folding-chairs');
+  114 |     }
+  115 |     async hoverClassroom () {
+  116 |         await this.classroom.hover();
+  117 |         await this.activity.click();
+  118 |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/classroom-activity-table-sets');
+  119 |     }
+  120 |     async hoverOffice () {
+  121 |         await this.office.hover();
+  122 |         await this.desks.click();
+  123 |         await this.page.waitForLoadState('load', { timeout: 60000 });
+  124 |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/desks');
+  125 |     }
+  126 |     async hoverMore () {
+  127 |         await this.more.hover();
+  128 |         await this.patio.click();
+  129 |         await this.page.waitForLoadState('load', { timeout: 60000 });
+  130 |         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/patio-outdoor');
+  131 |     }
+  132 |     
+  133 |     async popUpClose() {
+  134 |         console.log({ message: `Awaiting Pop Up....`});
+  135 |         const popup = this.popUp;
+  136 |     try {
+  137 |         await popup.waitFor({ state: 'visible', timeout: 15000 });
+  138 |         console.log({ message: 'Klaviyo popup appeared — closing it' });
+  139 |         await this.commonUtil.closePopup.click();
+  140 |     } catch {
+  141 |         console.log({ message: 'Klaviyo popup did not appear — skipping close step' });
+  142 |     }
+  143 | }
+  144 | 
+  145 | async clickSearchIcon() {
+  146 |     console.log({ message: `Clicking Search Icon....`});
+  147 |     await this.searchIcon.click();
+  148 |     await this.page.waitForLoadState();
+  149 |     expect(this.page.url()).toContain(STORE_URLS.advantage);
+  150 | }
+  151 | 
+  152 | async searchForItem(item: string) {
+  153 |     console.log({ message: `Searching for item: ${item}....`});
+  154 |     await this.searchInput.fill(item);
+  155 |     await this.page.waitForLoadState();
+  156 |     await this.page.locator("//ra-search-bar[@class='header__search w-full justify-center grid-cols-5 py-12 bg-tertiary-800 fixed top-0 left-0 right-0 max-md:!hidden grid']//span[1]").click();
+  157 |     await this.page.waitForLoadState();
+> 158 |     expect(this.page.url()).toContain(STORE_URLS.advantage + '/search');
+      |                             ^ Error: expect(received).toContain(expected) // indexOf
+  159 | }
+  160 | }
+  161 | 
+```

@@ -1,0 +1,4 @@
+{ message: 'Clicking Home Page....' }
+{ message: 'Clicking Cart Icon....' }
+{ message: 'Asserting Empty Cart Header....' }
+{ message: 'Clicking Empty Cart Link....' }

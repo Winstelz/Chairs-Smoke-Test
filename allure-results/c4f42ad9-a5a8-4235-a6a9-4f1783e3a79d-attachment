@@ -1,0 +1,1308 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: advantageChairs\AdvantagePDP.spec.ts >> AdvantagePDP Flow
+- Location: tests\advantageChairs\AdvantagePDP.spec.ts:7:5
+
+# Error details
+
+```
+TypeError: this.sort.cl is not a function
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=f16e1]:
+  - generic:
+    - button "Skip to main content" [ref=f16e2] [cursor=pointer]:
+      - text: Skip to main content
+      - generic [ref=f16e3]: ENTER
+    - button "Skip to footer" [ref=f16e7] [cursor=pointer]:
+      - text: Skip to footer
+      - generic [ref=f16e8]: ENTER
+    - button "Open widget" [ref=f16e12] [cursor=pointer]:
+      - text: Open widget
+      - generic [ref=f16e13]: ENTER
+  - generic [ref=f16e18]:
+    - generic [ref=f16e20]:
+      - generic [ref=f16e22]:
+        - generic:
+          - group "1 / 4" [ref=f16e23]:
+            - paragraph [ref=f16e25]: Affordable, High Quality Church Chairs
+          - group "2 / 4" [ref=f16e26]:
+            - paragraph [ref=f16e28]: 25,000 5-Star Reviews & Decades of Expertise!
+          - group "3 / 4" [ref=f16e29]:
+            - paragraph [ref=f16e31]: Need a Quote? Call Us 1-855-294-0532
+          - group "4 / 4" [ref=f16e32]:
+            - paragraph [ref=f16e34]: Hablamos español y estamos listos para ayudarte.
+      - button "Previous slide" [ref=f16e35] [cursor=pointer]
+      - button "Next slide" [ref=f16e39] [cursor=pointer]
+    - list [ref=f16e43]:
+      - listitem [ref=f16e44]:
+        - link "Customer Support" [ref=f16e45] [cursor=pointer]:
+          - /url: /pages/contact-us
+  - generic [ref=f16e49]:
+    - generic [ref=f16e50]:
+      - link "Advantage Church Chairs logo" [ref=f16e51] [cursor=pointer]:
+        - /url: https://www.advantagechurchchairs.com
+        - img "Advantage Church Chairs Logo" [ref=f16e52]
+      - generic [ref=f16e54]:
+        - generic [ref=f16e55]:
+          - text: Questions? Call Us at
+          - link "1-855-294-0532" [ref=f16e56] [cursor=pointer]:
+            - /url: tel:1-855-294-0532
+        - list [ref=f16e58]:
+          - listitem [ref=f16e59]:
+            - button "search" [ref=f16e60] [cursor=pointer]
+          - listitem [ref=f16e64]:
+            - link "account" [ref=f16e65] [cursor=pointer]:
+              - /url: /account
+          - listitem [ref=f16e69]:
+            - link "cart" [ref=f16e71] [cursor=pointer]:
+              - /url: /cart
+    - navigation [ref=f16e75]:
+      - list [ref=f16e76] [cursor=pointer]:
+        - listitem [ref=f16e77]:
+          - generic "Shop All" [ref=f16e78]:
+            - link "Shop All" [ref=f16e79]:
+              - /url: /collections/shop-all
+        - listitem [ref=f16e80]:
+          - generic "Church Chairs" [ref=f16e81]:
+            - link "Church Chairs" [ref=f16e82]:
+              - /url: /collections/church-stack-chairs
+            - button "Church chairs menu" [ref=f16e83]
+        - listitem [ref=f16e86]:
+          - generic "Banquet Chairs" [ref=f16e87]:
+            - link "Banquet Chairs" [ref=f16e88]:
+              - /url: /collections/banquet-stack-chairs
+        - listitem [ref=f16e89]:
+          - generic "Folding & Event" [ref=f16e90]:
+            - link "Folding & Event" [ref=f16e91]:
+              - /url: /collections/folding-event
+            - button "Folding event menu" [ref=f16e92]
+        - listitem [ref=f16e95]:
+          - generic "Classroom" [ref=f16e96]:
+            - link "Classroom" [ref=f16e97]:
+              - /url: /collections/classroom
+            - button "Classroom menu" [ref=f16e98]
+        - listitem [ref=f16e101]:
+          - generic "Office & Reception" [ref=f16e102]:
+            - link "Office & Reception" [ref=f16e103]:
+              - /url: /collections/office
+            - button "Office reception menu" [ref=f16e104]
+        - listitem [ref=f16e107]:
+          - generic "Patio & Outdoor" [ref=f16e108]:
+            - link "Patio & Outdoor" [ref=f16e109]:
+              - /url: /collections/patio-outdoor
+  - main [ref=f16e110]:
+    - generic [ref=f16e114]:
+      - generic [ref=f16e116]:
+        - link "Church" [ref=f16e117] [cursor=pointer]:
+          - /url: /collections/church
+        - link "Church Stack Chairs" [ref=f16e121] [cursor=pointer]:
+          - /url: /collections/church-stack-chairs
+        - link "18.5\" Church Chairs" [ref=f16e125] [cursor=pointer]:
+          - /url: /collections/18-5-church-chairs
+        - generic [ref=f16e129]: Advantage Multipurpose Church Chairs - 18.5 in. Wide
+      - generic [ref=f16e130]:
+        - generic [ref=f16e133]:
+          - generic [ref=f16e134]:
+            - button "1 / 1" [ref=f16e137] [cursor=pointer]:
+              - img "Black Fabric/Silver Vein Frame |#| Black Multipurpose Church Chairs - 18.5 in. Wide" [ref=f16e138]
+            - button "Previous slide" [disabled] [ref=f16e139]:
+              - button "Previous slide" [disabled] [ref=f16e140]
+            - button "Next slide" [disabled] [ref=f16e143]:
+              - button "Next slide" [disabled] [ref=f16e144]
+          - button "2 / 1" [ref=f16e150] [cursor=pointer]:
+            - button [ref=f16e151]:
+              - img "Navy Fabric/Silver Vein Frame |#| Navy Multipurpose Church Chairs - 18.5 in. Wide" [ref=f16e152]
+        - generic [ref=f16e154]:
+          - generic [ref=f16e156]:
+            - generic [ref=f16e157]:
+              - generic [ref=f16e158]:
+                - heading "Advantage Multipurpose Church Chairs - 18.5 in. Wide" [level=1] [ref=f16e159]
+                - paragraph [ref=f16e160]: "Item # SEPCHT185-108"
+                - link [ref=f16e163] [cursor=pointer]:
+                  - /url: "#ra-product-reviews"
+                  - button "4.9 out of 5 stars, average rating value. Read 34 Reviews. Same page link. 4.9 (34)" [ref=f16e166]:
+                    - generic [ref=f16e167]: 4.9 out of 5 stars, average rating value. Read 34 Reviews. Same page link.
+                    - generic [ref=f16e179]: "4.9"
+                    - generic [ref=f16e180]: (34)
+              - generic [ref=f16e182]: $49.36
+            - generic [ref=f16e184]:
+              - generic [ref=f16e186]:
+                - generic [ref=f16e187]:
+                  - generic [ref=f16e188]: "Color:"
+                  - generic [ref=f16e189]: Black Fabric/Silver Vein Frame
+                - generic [ref=f16e191]:
+                  - button "Black Fabric/Silver Vein Frame" [pressed] [ref=f16e192] [cursor=pointer]
+                  - button "Maroon Fabric/Silver Vein Frame" [ref=f16e193] [cursor=pointer]
+                  - button "Charcoal Gray Fabric/Silver Vein Frame" [ref=f16e194] [cursor=pointer]
+                  - button "Navy Fabric/Silver Vein Frame" [ref=f16e195] [cursor=pointer]
+              - generic [ref=f16e196]:
+                - generic [ref=f16e198]:
+                  - generic [ref=f16e199]: Quantity
+                  - generic "Quantity" [ref=f16e200]:
+                    - button "Decrement Quantity" [ref=f16e201] [cursor=pointer]
+                    - spinbutton [ref=f16e206]: "1"
+                    - button "Increment Quantity" [ref=f16e207] [cursor=pointer]
+                  - generic [ref=f16e210] [cursor=pointer]: Church Chair Seating Guide
+                - generic [ref=f16e216]:
+                  - generic [ref=f16e217]: Buy More, Pay Less!
+                  - generic [ref=f16e218]:
+                    - generic [ref=f16e219]:
+                      - paragraph [ref=f16e220]: 50-199 units
+                      - separator [ref=f16e221]
+                      - paragraph [ref=f16e222]: $48.01
+                      - generic [ref=f16e223]: 3% Off
+                    - generic [ref=f16e224]:
+                      - paragraph [ref=f16e225]: 200-399 units
+                      - separator [ref=f16e226]
+                      - paragraph [ref=f16e227]: $46.67
+                      - generic [ref=f16e228]: 5% Off
+                    - generic [ref=f16e229]:
+                      - paragraph [ref=f16e230]: 400+ units
+                      - separator [ref=f16e231]
+                      - paragraph [ref=f16e232]: $44.87
+                      - generic [ref=f16e233]: 9% Off
+              - button "Add to Cart" [ref=f16e236] [cursor=pointer]
+              - button [ref=f16e239] [cursor=pointer]
+              - generic [ref=f16e243]: In Stock. Usually ships in 24 - 48 business hours
+          - generic [ref=f16e248]:
+            - paragraph [ref=f16e256]:
+              - text: Need help? Talk to a specialist.
+              - link "1-855-294-0532" [ref=f16e257] [cursor=pointer]:
+                - /url: tel:18552940532
+            - generic [ref=f16e258]:
+              - generic [ref=f16e259]:
+                - generic [ref=f16e260]:
+                  - heading [level=6] [ref=f16e261] [cursor=pointer]:
+                    - button [expanded] [ref=f16e262]
+                  - generic [ref=f16e266]: The Molded Foam Multipurpose Church Chair - 18.5 in. Wide provides a durable seating solution for your fellowship hall or convention center. This comfortably padded stack chair not only satisfies seating in Churches, but work well in hotel lobbies, banquet halls and conference facilities. Keep all guests engaged with the 2.25" thick foam padding containing zero fillers. Integrated ganging devices connect chairs together for uniform row seating. This padded chair was built to last with a 600 lb. weight capacity, 16 gauge steel frame and T-Nut construction with a metal on metal connection that's more durable than traditional wood screws. These beautifully crafted chairs go from the truck to your Sanctuary, as they don't require any assembly. Save your staff time and frustration with the purchase of these ready-to-use Stackable Church Chairs.
+                - generic [ref=f16e268]:
+                  - heading [level=6] [ref=f16e269] [cursor=pointer]:
+                    - button [ref=f16e270]
+                  - generic: The padded church chair will keep people in your congregation comfortable while arranging seating that best coordinates with your venue or can be used as seating in your hospitality venue.
+                - generic [ref=f16e275]:
+                  - heading [level=6] [ref=f16e276] [cursor=pointer]:
+                    - button [ref=f16e277]
+                  - list [ref=f16e282]:
+                    - listitem [ref=f16e283]: Multipurpose Church Chair
+                    - listitem [ref=f16e284]: 18 Gauge steel frame with rocker glides and welded ganging device
+                    - listitem [ref=f16e285]: 2.25-in Padded, 2lb. 100% virgin polyurethane foam seat
+                    - listitem [ref=f16e286]: T-NUTS to connect seats and backs to chair frame (stronger than wood screws)
+                    - listitem [ref=f16e287]: Plywood base for seats and backs
+                    - listitem [ref=f16e288]: Foam and Fabric meet flame retardant specification CA117
+                    - listitem [ref=f16e289]: Fabric durability- 200,000 double rubs (Wyzenbeek test)
+                    - listitem [ref=f16e290]: Weight limit- 600 lbs. (static weight)
+              - link [ref=f16e291] [cursor=pointer]:
+                - /url: "#product-specs-grid"
+    - generic [ref=f16e296]:
+      - heading "Reviews" [level=2] [ref=f16e297]
+      - generic [ref=f16e299]:
+        - alert [ref=f16e300]: Reviews are sorted by Lowest to Highest Rating.
+        - generic [ref=f16e301]:
+          - heading "Reviews" [level=2] [ref=f16e303]
+          - generic [ref=f16e304]:
+            - generic [ref=f16e305]:
+              - generic [ref=f16e307]:
+                - heading "Rating Snapshot" [level=3] [ref=f16e308]
+                - generic [ref=f16e309]:
+                  - generic [ref=f16e310]: Select a row below to filter reviews.
+                  - group "Rating Snapshot" [ref=f16e311]:
+                    - button "32 reviews with 5 stars." [ref=f16e312]:
+                      - paragraph [ref=f16e313]:
+                        - text: 5 stars
+                        - generic [ref=f16e314]: stars
+                      - generic [ref=f16e317]:
+                        - text: "32"
+                        - generic: 32 reviews with 5 stars.
+                    - button "0 reviews with 4 stars." [ref=f16e319]:
+                      - paragraph [ref=f16e320]:
+                        - text: 4 stars
+                        - generic [ref=f16e321]: stars
+                      - generic [ref=f16e323]:
+                        - text: "0"
+                        - generic: 0 reviews with 4 stars.
+                    - button "2 reviews with 3 stars." [ref=f16e325]:
+                      - paragraph [ref=f16e326]:
+                        - text: 3 stars
+                        - generic [ref=f16e327]: stars
+                      - generic [ref=f16e330]:
+                        - text: "2"
+                        - generic: 2 reviews with 3 stars.
+                    - button "0 reviews with 2 stars." [ref=f16e332]:
+                      - paragraph [ref=f16e333]:
+                        - text: 2 stars
+                        - generic [ref=f16e334]: stars
+                      - generic [ref=f16e336]:
+                        - text: "0"
+                        - generic: 0 reviews with 2 stars.
+                    - button "0 reviews with 1 star." [ref=f16e338]:
+                      - paragraph [ref=f16e339]:
+                        - text: 1 star
+                        - generic [ref=f16e340]: stars
+                      - generic [ref=f16e342]:
+                        - text: "0"
+                        - generic: 0 reviews with 1 star.
+              - region "Overall Rating" [ref=f16e345]:
+                - heading "Overall Rating" [level=3] [ref=f16e346]
+                - generic [ref=f16e347]:
+                  - generic [ref=f16e348]:
+                    - generic [ref=f16e349]: "4.9"
+                    - link "4.9 out of 5 stars. Read 34 reviews for Advantage Charcoal Gray Multipurpose Church Chairs - 18.5 in. Wide. This action will navigate to reviews." [ref=f16e350] [cursor=pointer]:
+                      - generic [ref=f16e351]: 34 Reviews
+                  - generic [ref=f16e363]: 20 out of 22 (91%) reviewers recommend this product
+              - generic [ref=f16e365]:
+                - heading "Review this Product" [level=3] [ref=f16e366]
+                - group "Rating is 0 (out of 5 stars)." [ref=f16e368]:
+                  - button "Select to rate the item with 1 star. This action will open submission form." [ref=f16e369]
+                  - button "Select to rate the item with 2 stars. This action will open submission form." [ref=f16e379]
+                  - button "Select to rate the item with 3 stars. This action will open submission form." [ref=f16e389]
+                  - button "Select to rate the item with 4 stars. This action will open submission form." [ref=f16e399]
+                  - button "Select to rate the item with 5 stars. This action will open submission form." [ref=f16e409]
+                - generic [ref=f16e419]: Adding a review will require a valid email for verification
+            - generic [ref=f16e421]:
+              - heading "Average Customer Ratings" [level=3] [ref=f16e422]
+              - generic [ref=f16e423]:
+                - generic [ref=f16e424]: Quality of Product
+                - generic [ref=f16e425]: Quality of Product, 4.8 out of 5
+                - generic [ref=f16e426]: "4.8"
+              - generic [ref=f16e434]:
+                - generic [ref=f16e435]: Value of Product
+                - generic [ref=f16e436]: Value of Product, 4.8 out of 5
+                - generic [ref=f16e437]: "4.8"
+          - generic [ref=f16e446]:
+            - generic [ref=f16e447]:
+              - heading "Most Helpful Favorable Review" [level=3] [ref=f16e449]
+              - generic [ref=f16e450]:
+                - region "1 out of undefined , Ratings 5 out of 5" [ref=f16e451]:
+                  - generic [ref=f16e456]:
+                    - generic [ref=f16e457]:
+                      - img "5 out of 5 stars." [ref=f16e458]
+                      - generic [ref=f16e471]:
+                        - heading "Great Value" [level=3] [ref=f16e472]
+                        - generic [ref=f16e474]:
+                          - button "See J Carrillo profile. This action will open a modal dialog." [ref=f16e477] [cursor=pointer]: J Carrillo
+                          - generic [ref=f16e479]: 5 years ago
+                    - generic [ref=f16e481]: We purchased 75 chairs for the funeral home, they blended great!
+                - button "Show Full Review This action will open a modal dialog." [ref=f16e485] [cursor=pointer]:
+                  - text: Show Full Review
+                  - generic [ref=f16e486]: This action will open a modal dialog.
+              - generic [ref=f16e489]:
+                - generic [ref=f16e490]: 12 people found this helpful
+                - generic [ref=f16e497]:
+                  - generic [ref=f16e498]: "Show Reviews:"
+                  - button "See more 4 and 5 star reviews" [ref=f16e501] [cursor=pointer]:
+                    - generic [ref=f16e502]: "5"
+                    - generic [ref=f16e505]: and 4
+            - generic [ref=f16e508]:
+              - heading "Most Helpful Critical Review" [level=3] [ref=f16e510]
+              - generic [ref=f16e511]:
+                - region "2 out of undefined , Ratings 3 out of 5" [ref=f16e512]:
+                  - generic [ref=f16e517]:
+                    - generic [ref=f16e518]:
+                      - img "3 out of 5 stars." [ref=f16e519]
+                      - generic [ref=f16e532]:
+                        - heading "Good Chair for the price" [level=3] [ref=f16e533]
+                        - generic [ref=f16e535]:
+                          - button "See fbcs profile. This action will open a modal dialog." [ref=f16e538] [cursor=pointer]: fbcs
+                          - generic [ref=f16e540]: 6 years ago
+                    - generic [ref=f16e542]: Overall the chairs look good in our new kid space. When you flip the chairs over, you will see the fabric is stapled together and covered with a piece of paper and not sewn. Since the chairs were delivered all stacked on top of the other, the crease marks from the bar has not come out of the foam seat, leaving an indention in all the chairs on the front side. They have sat in the space for the last month and the crease has not gone away.
+                - button "Show Full Review This action will open a modal dialog." [ref=f16e546] [cursor=pointer]:
+                  - text: Show Full Review
+                  - generic [ref=f16e547]: This action will open a modal dialog.
+              - generic [ref=f16e550]:
+                - generic [ref=f16e551]: 17 people found this helpful
+                - generic [ref=f16e558]:
+                  - generic [ref=f16e559]: "Show Reviews:"
+                  - button "See more 1, 2, and 3 star reviews" [ref=f16e562] [cursor=pointer]:
+                    - generic [ref=f16e563]: "3"
+                    - generic [ref=f16e566]: "2"
+                    - generic [ref=f16e569]: and 1
+          - generic [ref=f16e572]:
+            - heading "Customer Images and Videos" [level=3] [ref=f16e573]
+            - tabpanel [ref=f16e574]:
+              - generic [ref=f16e575]:
+                - button "Review photo 1. This action will open a modal dialog." [ref=f16e578]
+                - button "Setting up the new chairs This action will open a modal dialog." [ref=f16e582]
+                - button "Review photo 3. This action will open a modal dialog." [ref=f16e586]
+                - button "Review photo 4. This action will open a modal dialog." [ref=f16e590]
+                - button "Review photo 5. This action will open a modal dialog." [ref=f16e594]
+                - button "Review photo 6. This action will open a modal dialog." [ref=f16e598]
+                - button "Emerald Chapel This action will open a modal dialog." [ref=f16e602]
+              - button "Next Slides" [ref=f16e604] [cursor=pointer]:
+                - generic [ref=f16e611]: Next
+          - generic [ref=f16e612]:
+            - heading "Filter Reviews" [level=3] [ref=f16e613]
+            - search [ref=f16e616]:
+              - generic: Search topics and reviews search region
+              - textbox "Search topics and reviews search region" [ref=f16e618]:
+                - /placeholder: Search topics and reviews
+            - generic [ref=f16e622]:
+              - combobox "Menu, Filter by Rating" [ref=f16e624] [cursor=pointer]: Rating
+              - combobox "Menu, Filter by Locale" [ref=f16e632] [cursor=pointer]: Locale
+          - generic [ref=f16e639]:
+            - alert [ref=f16e640]
+            - alert [ref=f16e641]: 1 to 8 of 34 Reviews
+            - generic [ref=f16e642]:
+              - generic [ref=f16e643]: 1 – 8 of 34 Reviews
+              - generic [ref=f16e648]:
+                - generic [ref=f16e649]: Sort by
+                - combobox "Menu, Sort by Lowest to Highest Rating." [expanded] [ref=f16e651] [cursor=pointer]:
+                  - generic [ref=f16e652]: Lowest to Highest Rating
+                - listbox [ref=f16e661]:
+                  - listitem [ref=f16e662]:
+                    - option "Most Relevant" [ref=f16e663]
+                  - listitem [ref=f16e666]:
+                    - option "Most Helpful" [ref=f16e667]
+                  - listitem [ref=f16e670]:
+                    - option "Highest to Lowest Rating" [ref=f16e671]
+                  - listitem [ref=f16e674]:
+                    - option "Lowest to Highest Rating" [selected] [ref=f16e675]
+                  - listitem [ref=f16e680]:
+                    - option "Most Recent" [ref=f16e681]
+          - region "Reviews" [ref=f16e684]:
+            - region "1 out of 8 , Ratings 3 out of 5" [ref=f16e685]:
+              - generic [ref=f16e687]:
+                - generic [ref=f16e689]:
+                  - button "See YoliBE profile. This action will open a modal dialog." [ref=f16e690]: YoliBE
+                  - generic [ref=f16e691]: Chicago
+                - generic [ref=f16e693]:
+                  - generic [ref=f16e694]:
+                    - generic [ref=f16e695]:
+                      - generic [ref=f16e696]:
+                        - img "3 out of 5 stars." [ref=f16e697]
+                        - generic [ref=f16e710]:
+                          - heading "Low to the ground" [level=3] [ref=f16e711]
+                          - generic [ref=f16e712]: 2 years ago
+                      - generic [ref=f16e717]:
+                        - generic [ref=f16e718]: Sturdy but short. The chairs are good and if they were 2 inches taller they would be perfect!
+                        - group "Content helpfulness" [ref=f16e721]:
+                          - generic [ref=f16e722]: Helpful?
+                          - generic [ref=f16e724]:
+                            - 'button "Yes: 1 person found this review by YoliBE helpful." [ref=f16e725] [cursor=pointer]':
+                              - generic [ref=f16e726]: (1)
+                              - alert
+                            - 'button "No: 0 people did not find this review by YoliBE helpful." [ref=f16e732] [cursor=pointer]':
+                              - generic [ref=f16e733]: (0)
+                              - alert
+                            - generic [ref=f16e738]:
+                              - button "Report this review Low to the ground by YoliBE as inappropriate." [ref=f16e739] [cursor=pointer]: Report
+                              - alert
+                    - generic [ref=f16e742]:
+                      - generic [ref=f16e743]: Quality of Product
+                      - generic [ref=f16e744]: Quality of Product, 3.0 out of 5
+                      - generic [ref=f16e751]: "3.0"
+                      - generic [ref=f16e752]: Value of Product
+                      - generic [ref=f16e753]: Value of Product, 3.0 out of 5
+                      - generic [ref=f16e760]: "3.0"
+                  - generic [ref=f16e762]:
+                    - generic [ref=f16e768]:
+                      - generic [ref=f16e769]: "Response from AdvantageChurchChairs:"
+                      - generic [ref=f16e771]: 2 years ago
+                    - generic [ref=f16e775]:
+                      - generic [ref=f16e776]: Customer Care (TJ)
+                      - generic [ref=f16e777]: Thank you for your feedback on our chairs. We're glad to hear you find them sturdy. We understand your desire for extra height, and we appreciate your suggestion. If you have any further questions or need assistance, please feel free to check out the product specifications on our website or reach out to us directly at customerfeedback@theubiquegroup.com. We're here to help!
+            - region "2 out of 8 , Ratings 3 out of 5" [ref=f16e778]:
+              - generic [ref=f16e780]:
+                - generic [ref=f16e782]:
+                  - button "See fbcs profile. This action will open a modal dialog." [ref=f16e783]: fbcs
+                  - generic [ref=f16e784]: NC
+                - generic [ref=f16e787]:
+                  - generic [ref=f16e788]:
+                    - generic [ref=f16e789]:
+                      - img "3 out of 5 stars." [ref=f16e790]
+                      - generic [ref=f16e803]:
+                        - heading "Good Chair for the price" [level=3] [ref=f16e804]
+                        - generic [ref=f16e805]: 6 years ago
+                    - generic [ref=f16e810]:
+                      - generic [ref=f16e811]: Overall the chairs look good in our new kid space. When you flip the chairs over, you will see the fabric is stapled together and covered with a piece of paper and not sewn. Since the chairs were delivered all stacked on top of the other, the crease marks from the bar has not come out of the foam seat, leaving an indention in all the chairs on the front side. They have sat in the space for the last month and the crease has not gone away.
+                      - paragraph [ref=f16e820]: No, I do not recommend this product.
+                      - group "Content helpfulness" [ref=f16e823]:
+                        - generic [ref=f16e824]: Helpful?
+                        - generic [ref=f16e826]:
+                          - 'button "Yes: 17 people found this review by fbcs helpful." [ref=f16e827] [cursor=pointer]':
+                            - generic [ref=f16e828]: (17)
+                            - alert
+                          - 'button "No: 0 people did not find this review by fbcs helpful." [ref=f16e834] [cursor=pointer]':
+                            - generic [ref=f16e835]: (0)
+                            - alert
+                          - generic [ref=f16e840]:
+                            - button "Report this review Good Chair for the price by fbcs as inappropriate." [ref=f16e841] [cursor=pointer]: Report
+                            - alert
+                  - generic [ref=f16e844]:
+                    - generic [ref=f16e845]: Quality of Product
+                    - generic [ref=f16e846]: Quality of Product, 2.0 out of 5
+                    - generic [ref=f16e853]: "2.0"
+                    - generic [ref=f16e854]: Value of Product
+                    - generic [ref=f16e855]: Value of Product, 3.0 out of 5
+                    - generic [ref=f16e862]: "3.0"
+            - region "3 out of 8 , Ratings 5 out of 5" [ref=f16e863]:
+              - generic [ref=f16e865]:
+                - generic [ref=f16e867]:
+                  - button "See ATP1 profile. This action will open a modal dialog." [ref=f16e868]: ATP1
+                  - generic [ref=f16e869]: nationwide
+                - generic [ref=f16e871]:
+                  - generic [ref=f16e872]:
+                    - generic [ref=f16e873]:
+                      - generic [ref=f16e874]:
+                        - img "5 out of 5 stars." [ref=f16e875]
+                        - generic [ref=f16e888]:
+                          - heading "Lobby Chair" [level=3] [ref=f16e889]
+                          - generic [ref=f16e890]: a year ago
+                      - generic [ref=f16e895]:
+                        - generic [ref=f16e896]: We have been looking more a more cost effective lobby chair. Church chairs for less has one we are using nation wide. The entire process has been very smooth.
+                        - paragraph [ref=f16e911]: Yes, I recommend this product.
+                        - button "Review photo 1. This action will open a modal dialog." [ref=f16e914]
+                        - group "Content helpfulness" [ref=f16e918]:
+                          - generic [ref=f16e919]: Helpful?
+                          - generic [ref=f16e921]:
+                            - 'button "Yes: 0 people found this review by ATP1 helpful." [ref=f16e922] [cursor=pointer]':
+                              - generic [ref=f16e923]: (0)
+                              - alert
+                            - 'button "No: 0 people did not find this review by ATP1 helpful." [ref=f16e929] [cursor=pointer]':
+                              - generic [ref=f16e930]: (0)
+                              - alert
+                            - generic [ref=f16e935]:
+                              - button "Report this review Lobby Chair by ATP1 as inappropriate." [ref=f16e936] [cursor=pointer]: Report
+                              - alert
+                    - generic [ref=f16e939]:
+                      - generic [ref=f16e940]: Quality of Product
+                      - generic [ref=f16e941]: Quality of Product, 5.0 out of 5
+                      - generic [ref=f16e948]: "5.0"
+                      - generic [ref=f16e949]: Value of Product
+                      - generic [ref=f16e950]: Value of Product, 5.0 out of 5
+                      - generic [ref=f16e957]: "5.0"
+                  - generic [ref=f16e959]:
+                    - generic [ref=f16e965]:
+                      - generic [ref=f16e966]: "Response from AdvantageChurchChairs:"
+                      - generic [ref=f16e968]: a year ago
+                    - generic [ref=f16e972]:
+                      - generic [ref=f16e973]: Customer Care
+                      - generic [ref=f16e974]: Hi there! Thank you for being such a valued customer. We are thrilled that our products could provide the perfect solution for your lobby chairs. Customer Care (TR)
+            - region "4 out of 8 , Ratings 5 out of 5" [ref=f16e975]:
+              - generic [ref=f16e977]:
+                - generic [ref=f16e979]:
+                  - button "See Jason from Ohio profile. This action will open a modal dialog." [ref=f16e980]: Jason from Ohio
+                  - generic [ref=f16e981]: Richwood ohio
+                - generic [ref=f16e983]:
+                  - generic [ref=f16e984]:
+                    - generic [ref=f16e985]:
+                      - generic [ref=f16e986]:
+                        - img "5 out of 5 stars." [ref=f16e987]
+                        - generic [ref=f16e1000]:
+                          - heading "5 stars" [level=3] [ref=f16e1001]
+                          - generic [ref=f16e1002]: a year ago
+                      - generic [ref=f16e1007]:
+                        - generic [ref=f16e1008]: Good heavy duty chairs that are also comfortable to sit in
+                        - paragraph [ref=f16e1023]: Yes, I recommend this product.
+                        - group "Content helpfulness" [ref=f16e1026]:
+                          - generic [ref=f16e1027]: Helpful?
+                          - generic [ref=f16e1029]:
+                            - 'button "Yes: 1 person found this review by Jason from Ohio helpful." [ref=f16e1030] [cursor=pointer]':
+                              - generic [ref=f16e1031]: (1)
+                              - alert
+                            - 'button "No: 0 people did not find this review by Jason from Ohio helpful." [ref=f16e1037] [cursor=pointer]':
+                              - generic [ref=f16e1038]: (0)
+                              - alert
+                            - generic [ref=f16e1043]:
+                              - button "Report this review 5 stars by Jason from Ohio as inappropriate." [ref=f16e1044] [cursor=pointer]: Report
+                              - alert
+                    - generic [ref=f16e1047]:
+                      - generic [ref=f16e1048]: Quality of Product
+                      - generic [ref=f16e1049]: Quality of Product, 5.0 out of 5
+                      - generic [ref=f16e1056]: "5.0"
+                      - generic [ref=f16e1057]: Value of Product
+                      - generic [ref=f16e1058]: Value of Product, 5.0 out of 5
+                      - generic [ref=f16e1065]: "5.0"
+                  - generic [ref=f16e1067]:
+                    - generic [ref=f16e1073]:
+                      - generic [ref=f16e1074]: "Response from AdvantageChurchChairs:"
+                      - generic [ref=f16e1076]: a year ago
+                    - generic [ref=f16e1080]:
+                      - generic [ref=f16e1081]: Customer Care
+                      - generic [ref=f16e1082]: Hello! We are thrilled to hear that you are loving these chairs. We look forward to working with you again soon! Customer Care (TR)
+            - region "5 out of 8 , Ratings 5 out of 5" [ref=f16e1083]:
+              - generic [ref=f16e1085]:
+                - generic [ref=f16e1086]: Anonymous
+                - generic [ref=f16e1089]:
+                  - generic [ref=f16e1090]:
+                    - generic [ref=f16e1091]:
+                      - generic [ref=f16e1092]:
+                        - img "5 out of 5 stars." [ref=f16e1093]
+                        - generic [ref=f16e1106]:
+                          - heading "love it" [level=3] [ref=f16e1107]
+                          - generic [ref=f16e1108]: a year ago
+                      - generic [ref=f16e1113]:
+                        - generic [ref=f16e1114]: great chairs ,love it ,me gustraon mucho y se los recomindo
+                        - group "Content helpfulness" [ref=f16e1117]:
+                          - generic [ref=f16e1118]: Helpful?
+                          - generic [ref=f16e1120]:
+                            - 'button "Yes: 0 people found this review by Anonymous helpful." [ref=f16e1121] [cursor=pointer]':
+                              - generic [ref=f16e1122]: (0)
+                              - alert
+                            - 'button "No: 0 people did not find this review by Anonymous helpful." [ref=f16e1128] [cursor=pointer]':
+                              - generic [ref=f16e1129]: (0)
+                              - alert
+                            - generic [ref=f16e1134]:
+                              - button "Report this review love it by Anonymous as inappropriate." [ref=f16e1135] [cursor=pointer]: Report
+                              - alert
+                    - generic [ref=f16e1138]:
+                      - generic [ref=f16e1139]: Quality of Product
+                      - generic [ref=f16e1140]: Quality of Product, 5.0 out of 5
+                      - generic [ref=f16e1147]: "5.0"
+                  - generic [ref=f16e1149]:
+                    - generic [ref=f16e1155]:
+                      - generic [ref=f16e1156]: "Response from AdvantageChurchChairs:"
+                      - generic [ref=f16e1158]: a year ago
+                    - generic [ref=f16e1162]:
+                      - generic [ref=f16e1163]: Customer Care
+                      - generic [ref=f16e1164]: Hello! Thank you for taking the time to leave such a wonderful review. We are thrilled to hear that you are loving the product and hope to work with you again soon! Customer Care (TR)
+            - region "6 out of 8 , Ratings 5 out of 5" [ref=f16e1165]:
+              - generic [ref=f16e1167]:
+                - generic [ref=f16e1169]:
+                  - button "See Greater Shiloh MBC profile. This action will open a modal dialog." [ref=f16e1170]: Greater Shiloh MBC
+                  - generic [ref=f16e1171]: Waco Texas
+                - generic [ref=f16e1173]:
+                  - generic [ref=f16e1174]:
+                    - generic [ref=f16e1175]:
+                      - generic [ref=f16e1176]:
+                        - img "5 out of 5 stars." [ref=f16e1177]
+                        - generic [ref=f16e1190]:
+                          - heading "Navy blue chair" [level=3] [ref=f16e1191]
+                          - generic [ref=f16e1192]: a year ago
+                      - generic [ref=f16e1197]:
+                        - generic [ref=f16e1198]: Perfect upgrade for our church sanctuary, love the tithe envelope pocket on the back of the chair
+                        - paragraph [ref=f16e1213]: Yes, I recommend this product.
+                        - button "Setting up the new chairs This action will open a modal dialog." [ref=f16e1216]
+                        - group "Content helpfulness" [ref=f16e1220]:
+                          - generic [ref=f16e1221]: Helpful?
+                          - generic [ref=f16e1223]:
+                            - 'button "Yes: 5 people found this review by Greater Shiloh MBC helpful." [ref=f16e1224] [cursor=pointer]':
+                              - generic [ref=f16e1225]: (5)
+                              - alert
+                            - 'button "No: 0 people did not find this review by Greater Shiloh MBC helpful." [ref=f16e1231] [cursor=pointer]':
+                              - generic [ref=f16e1232]: (0)
+                              - alert
+                            - generic [ref=f16e1237]:
+                              - button "Report this review Navy blue chair by Greater Shiloh MBC as inappropriate." [ref=f16e1238] [cursor=pointer]: Report
+                              - alert
+                    - generic [ref=f16e1241]:
+                      - generic [ref=f16e1242]: Quality of Product
+                      - generic [ref=f16e1243]: Quality of Product, 5.0 out of 5
+                      - generic [ref=f16e1250]: "5.0"
+                      - generic [ref=f16e1251]: Value of Product
+                      - generic [ref=f16e1252]: Value of Product, 5.0 out of 5
+                      - generic [ref=f16e1259]: "5.0"
+                  - generic [ref=f16e1261]:
+                    - generic [ref=f16e1267]:
+                      - generic [ref=f16e1268]: "Response from AdvantageChurchChairs:"
+                      - generic [ref=f16e1270]: a year ago
+                    - generic [ref=f16e1274]:
+                      - generic [ref=f16e1275]: Customer Care
+                      - generic [ref=f16e1276]: Thanks! We’re thrilled that you were satisfied with our product. Your feedback is appreciated, and we hope to be of help again soon! Customer Care (SS)
+            - region "7 out of 8 , Ratings 5 out of 5" [ref=f16e1277]:
+              - generic [ref=f16e1279]:
+                - generic [ref=f16e1281]:
+                  - button "See JonF profile. This action will open a modal dialog." [ref=f16e1282]: JonF
+                  - generic [ref=f16e1283]: Cape Cod
+                - generic [ref=f16e1285]:
+                  - generic [ref=f16e1286]:
+                    - generic [ref=f16e1287]:
+                      - generic [ref=f16e1288]:
+                        - img "5 out of 5 stars." [ref=f16e1289]
+                        - generic [ref=f16e1302]:
+                          - heading "Happy with the purchase." [level=3] [ref=f16e1303]
+                          - generic [ref=f16e1304]: a year ago
+                      - generic [ref=f16e1309]:
+                        - generic [ref=f16e1310]: Great chairs. They connect and stack well. Very comfortable.
+                        - paragraph [ref=f16e1325]: Yes, I recommend this product.
+                        - button "Review photo 1. This action will open a modal dialog." [ref=f16e1328]
+                        - group "Content helpfulness" [ref=f16e1332]:
+                          - generic [ref=f16e1333]: Helpful?
+                          - generic [ref=f16e1335]:
+                            - 'button "Yes: 0 people found this review by JonF helpful." [ref=f16e1336] [cursor=pointer]':
+                              - generic [ref=f16e1337]: (0)
+                              - alert
+                            - 'button "No: 0 people did not find this review by JonF helpful." [ref=f16e1343] [cursor=pointer]':
+                              - generic [ref=f16e1344]: (0)
+                              - alert
+                            - generic [ref=f16e1349]:
+                              - button "Report this review Happy with the purchase. by JonF as inappropriate." [ref=f16e1350] [cursor=pointer]: Report
+                              - alert
+                    - generic [ref=f16e1353]:
+                      - generic [ref=f16e1354]: Quality of Product
+                      - generic [ref=f16e1355]: Quality of Product, 5.0 out of 5
+                      - generic [ref=f16e1362]: "5.0"
+                      - generic [ref=f16e1363]: Value of Product
+                      - generic [ref=f16e1364]: Value of Product, 5.0 out of 5
+                      - generic [ref=f16e1371]: "5.0"
+                  - generic [ref=f16e1373]:
+                    - generic [ref=f16e1379]:
+                      - generic [ref=f16e1380]: "Response from AdvantageChurchChairs:"
+                      - generic [ref=f16e1382]: a year ago
+                    - generic [ref=f16e1386]:
+                      - generic [ref=f16e1387]: Customer Care
+                      - generic [ref=f16e1388]: Thanks! We’re thrilled that you were satisfied with our product. Your feedback is appreciated, and we hope to be of help again soon! Customer Care (SS)
+            - region "8 out of 8 , Ratings 5 out of 5" [ref=f16e1389]:
+              - generic [ref=f16e1391]:
+                - generic [ref=f16e1393]:
+                  - button "See Chuck D. profile. This action will open a modal dialog." [ref=f16e1394]: Chuck D.
+                  - generic [ref=f16e1395]:
+                    - generic [ref=f16e1396]: Baltimore, MD
+                    - generic [ref=f16e1398]:
+                      - generic [ref=f16e1400]:
+                        - text: Age
+                        - generic [ref=f16e1401]: 65 or over
+                      - generic [ref=f16e1403]:
+                        - text: Gender
+                        - generic [ref=f16e1404]: Male
+                - generic [ref=f16e1406]:
+                  - generic [ref=f16e1407]:
+                    - generic [ref=f16e1408]:
+                      - img "5 out of 5 stars." [ref=f16e1409]
+                      - generic [ref=f16e1422]:
+                        - heading "Excellent waiting room chairs" [level=3] [ref=f16e1423]
+                        - generic [ref=f16e1424]: 2 years ago
+                    - generic [ref=f16e1429]:
+                      - generic [ref=f16e1430]: I purchased these chairs for a dance studio waiting room. We are on a limited budget and these chairs are priced well and the construction is very sturdy. They're also very comfortable. I highly recommend them and will look to Advantage in the future for seating needs.
+                      - paragraph [ref=f16e1445]: Yes, I recommend this product.
+                      - group "Content helpfulness" [ref=f16e1448]:
+                        - generic [ref=f16e1449]: Helpful?
+                        - generic [ref=f16e1451]:
+                          - 'button "Yes: 0 people found this review by Chuck D. helpful." [ref=f16e1452] [cursor=pointer]':
+                            - generic [ref=f16e1453]: (0)
+                            - alert
+                          - 'button "No: 0 people did not find this review by Chuck D. helpful." [ref=f16e1459] [cursor=pointer]':
+                            - generic [ref=f16e1460]: (0)
+                            - alert
+                          - generic [ref=f16e1465]:
+                            - button "Report this review Excellent waiting room chairs by Chuck D. as inappropriate." [ref=f16e1466] [cursor=pointer]: Report
+                            - alert
+                  - generic [ref=f16e1469]:
+                    - generic [ref=f16e1470]: Quality of Product
+                    - generic [ref=f16e1471]: Quality of Product, 5.0 out of 5
+                    - generic [ref=f16e1478]: "5.0"
+                    - generic [ref=f16e1479]: Value of Product
+                    - generic [ref=f16e1480]: Value of Product, 5.0 out of 5
+                    - generic [ref=f16e1487]: "5.0"
+          - generic [ref=f16e1488]:
+            - alert [ref=f16e1489]
+            - alert [ref=f16e1490]
+            - generic [ref=f16e1491]:
+              - generic [ref=f16e1492]: 1 – 8 of 34 Reviews
+              - button "Previous Reviews" [disabled] [ref=f16e1493]
+              - button "Next Reviews" [ref=f16e1502] [cursor=pointer]
+      - generic [ref=f16e1512]:
+        - alert
+        - heading "Questions" [level=2] [ref=f16e1513]
+        - search [ref=f16e1514]:
+          - generic [ref=f16e1515]:
+            - generic [ref=f16e1516]: Have a question? Ask people who own it.
+            - textbox "Have a question? Ask people who own it." [ref=f16e1518]:
+              - /placeholder: "Example: Shipping information"
+            - generic [ref=f16e1522]: Start typing your question and we'll check if it was already asked and answered.
+        - generic [ref=f16e1523]:
+          - alert [ref=f16e1526]: 1 - 10 of 46 Questions
+          - generic [ref=f16e1530]:
+            - generic [ref=f16e1531]: Sort by
+            - combobox "Menu, Sort by .":
+              - generic:
+                - generic "defaultOption"
+        - generic [ref=f16e1539]:
+          - generic [ref=f16e1540]:
+            - 'heading "Q: How wide is the pocket on the back of the chair?" [level=3] [ref=f16e1541]'
+            - button "See Chase profile. This action will open a modal dialog." [ref=f16e1542] [cursor=pointer]: Chase
+            - generic [ref=f16e1543]: a month ago
+          - generic [ref=f16e1544]:
+            - generic [ref=f16e1545]: 1 Answer
+            - button "Answer this question by Chase. This action will open a submission form." [ref=f16e1546] [cursor=pointer]: Answer this Question
+          - 'region "1 Answers to Question: How wide is the pocket on the back of the chair?." [ref=f16e1547]':
+            - generic [ref=f16e1550]:
+              - 'heading "A: Hello! Thank you for your question. This product does not have a pocket on the back. Have a great day. Customer Care (VB)" [level=4] [ref=f16e1551]'
+              - button "See Customer Care (VB) profile." [disabled] [ref=f16e1552]: Customer Care (VB)
+              - generic [ref=f16e1553]: a month ago
+              - group "Content helpfulness" [ref=f16e1555]:
+                - generic [ref=f16e1556]: Helpful?
+                - generic [ref=f16e1558]:
+                  - 'button "Yes: 0 people found this answer by Customer Care (VB) helpful." [ref=f16e1559] [cursor=pointer]':
+                    - generic [ref=f16e1562]: (0)
+                  - 'button "No: 0 people did not find this answer by Customer Care (VB) helpful." [ref=f16e1563] [cursor=pointer]':
+                    - generic [ref=f16e1566]: (0)
+                  - button "Report this answer by Customer Care (VB) as inappropriate." [ref=f16e1568] [cursor=pointer]: Report
+        - generic [ref=f16e1569]:
+          - generic [ref=f16e1570]:
+            - 'heading "Q: Is the fabric treated for stain-resistance?" [level=3] [ref=f16e1571]'
+            - button "See plarry15 profile. This action will open a modal dialog." [ref=f16e1572] [cursor=pointer]: plarry15
+            - generic [ref=f16e1573]: 2 months ago
+          - generic [ref=f16e1574]:
+            - generic [ref=f16e1575]: 1 Answer
+            - button "Answer this question by plarry15. This action will open a submission form." [ref=f16e1576] [cursor=pointer]: Answer this Question
+          - 'region "1 Answers to Question: Is the fabric treated for stain-resistance?." [ref=f16e1577]':
+            - generic [ref=f16e1580]:
+              - 'heading "A: Hello! Thank you for your question. The chair’s foam and fabric meet CA117 flammability standards; however, the upholstery has not been treated with a stain-resistant finish. Have a great day! Customer Care (SS)" [level=4] [ref=f16e1581]'
+              - button "See Customer Care (SS) profile." [disabled] [ref=f16e1582]: Customer Care (SS)
+              - generic [ref=f16e1583]: 2 months ago
+              - group "Content helpfulness" [ref=f16e1585]:
+                - generic [ref=f16e1586]: Helpful?
+                - generic [ref=f16e1588]:
+                  - 'button "Yes: 0 people found this answer by Customer Care (SS) helpful." [ref=f16e1589] [cursor=pointer]':
+                    - generic [ref=f16e1592]: (0)
+                  - 'button "No: 0 people did not find this answer by Customer Care (SS) helpful." [ref=f16e1593] [cursor=pointer]':
+                    - generic [ref=f16e1596]: (0)
+                  - button "Report this answer by Customer Care (SS) as inappropriate." [ref=f16e1598] [cursor=pointer]: Report
+        - generic [ref=f16e1599]:
+          - generic [ref=f16e1600]:
+            - 'heading "Q: How far is the seat from the floor" [level=3] [ref=f16e1601]'
+            - button "See CarlG profile. This action will open a modal dialog." [ref=f16e1602] [cursor=pointer]: CarlG
+            - generic [ref=f16e1603]: 10 months ago
+          - generic [ref=f16e1604]:
+            - generic [ref=f16e1605]: 1 Answer
+            - button "Answer this question by CarlG. This action will open a submission form." [ref=f16e1606] [cursor=pointer]: Answer this Question
+          - 'region "1 Answers to Question: How far is the seat from the floor." [ref=f16e1607]':
+            - generic [ref=f16e1610]:
+              - 'heading "A: Hi there. Thank you for your question. The seat height is 17.5 inches. Have a great day. Customer Care (VB)" [level=4] [ref=f16e1611]'
+              - button "See Customer Care (VB) profile." [disabled] [ref=f16e1612]: Customer Care (VB)
+              - generic [ref=f16e1613]: 10 months ago
+              - group "Content helpfulness" [ref=f16e1615]:
+                - generic [ref=f16e1616]: Helpful?
+                - generic [ref=f16e1618]:
+                  - 'button "Yes: 0 people found this answer by Customer Care (VB) helpful." [ref=f16e1619] [cursor=pointer]':
+                    - generic [ref=f16e1622]: (0)
+                  - 'button "No: 0 people did not find this answer by Customer Care (VB) helpful." [ref=f16e1623] [cursor=pointer]':
+                    - generic [ref=f16e1626]: (0)
+                  - button "Report this answer by Customer Care (VB) as inappropriate." [ref=f16e1628] [cursor=pointer]: Report
+        - generic [ref=f16e1629]:
+          - generic [ref=f16e1630]:
+            - 'heading "Q: What is the weight of this chair?" [level=3] [ref=f16e1631]'
+            - button "See B. Gobel profile. This action will open a modal dialog." [ref=f16e1632] [cursor=pointer]: B. Gobel
+            - generic [ref=f16e1633]: 11 months ago
+          - generic [ref=f16e1634]:
+            - generic [ref=f16e1635]: 1 Answer
+            - button "Answer this question by B. Gobel. This action will open a submission form." [ref=f16e1636] [cursor=pointer]: Answer this Question
+          - 'region "1 Answers to Question: What is the weight of this chair?." [ref=f16e1637]':
+            - generic [ref=f16e1640]:
+              - 'heading "A: Hi! Thank you for your question. This product is 15 pounds. Have a great day. Customer Care (VB)" [level=4] [ref=f16e1641]'
+              - button "See Customer Care (VB) profile." [disabled] [ref=f16e1642]: Customer Care (VB)
+              - generic [ref=f16e1643]: 11 months ago
+              - group "Content helpfulness" [ref=f16e1645]:
+                - generic [ref=f16e1646]: Helpful?
+                - generic [ref=f16e1648]:
+                  - 'button "Yes: 0 people found this answer by Customer Care (VB) helpful." [ref=f16e1649] [cursor=pointer]':
+                    - generic [ref=f16e1652]: (0)
+                  - 'button "No: 0 people did not find this answer by Customer Care (VB) helpful." [ref=f16e1653] [cursor=pointer]':
+                    - generic [ref=f16e1656]: (0)
+                  - button "Report this answer by Customer Care (VB) as inappropriate." [ref=f16e1658] [cursor=pointer]: Report
+        - generic [ref=f16e1659]:
+          - generic [ref=f16e1660]:
+            - 'heading "Q: how many of these chairs could be stacked together? Does that number change if they are on a cart?" [level=3] [ref=f16e1661]'
+            - button "See Sarah S. profile. This action will open a modal dialog." [ref=f16e1662] [cursor=pointer]: Sarah S.
+            - generic [ref=f16e1663]: a year ago
+          - generic [ref=f16e1664]:
+            - generic [ref=f16e1665]: 1 Answer
+            - button "Answer this question by Sarah S.. This action will open a submission form." [ref=f16e1666] [cursor=pointer]: Answer this Question
+          - 'region "1 Answers to Question: how many of these chairs could be stacked together? Does that number change if they are on a cart?." [ref=f16e1667]':
+            - generic [ref=f16e1670]:
+              - 'heading "A: Hi Sarah! Thank you for your question. The recommended stack amount is 11 chairs. This does not change if on a cart/dolly. Have a great day! Customer Care (VB)" [level=4] [ref=f16e1671]'
+              - button "See Customer Care (VB) profile." [disabled] [ref=f16e1672]: Customer Care (VB)
+              - generic [ref=f16e1673]: a year ago
+              - group "Content helpfulness" [ref=f16e1675]:
+                - generic [ref=f16e1676]: Helpful?
+                - generic [ref=f16e1678]:
+                  - 'button "Yes: 0 people found this answer by Customer Care (VB) helpful." [ref=f16e1679] [cursor=pointer]':
+                    - generic [ref=f16e1682]: (0)
+                  - 'button "No: 0 people did not find this answer by Customer Care (VB) helpful." [ref=f16e1683] [cursor=pointer]':
+                    - generic [ref=f16e1686]: (0)
+                  - button "Report this answer by Customer Care (VB) as inappropriate." [ref=f16e1688] [cursor=pointer]: Report
+        - generic [ref=f16e1689]:
+          - generic [ref=f16e1690]:
+            - 'heading "Q: Is there bulk discount pricing available?" [level=3] [ref=f16e1691]'
+            - button "See jaimck profile. This action will open a modal dialog." [ref=f16e1692] [cursor=pointer]: jaimck
+            - generic [ref=f16e1693]: a year ago
+          - generic [ref=f16e1694]:
+            - generic [ref=f16e1695]: 2 Answers
+            - button "Answer this question by jaimck. This action will open a submission form." [ref=f16e1696] [cursor=pointer]: Answer this Question
+          - 'region "2 Answers to Question: Is there bulk discount pricing available?." [ref=f16e1697]':
+            - generic [ref=f16e1700]:
+              - 'heading "A: We didn''t receive bulk discount pricing." [level=4] [ref=f16e1701]'
+              - button "See Outreach profile." [disabled] [ref=f16e1702]: Outreach
+              - generic [ref=f16e1703]: a year ago
+              - group "Content helpfulness" [ref=f16e1705]:
+                - generic [ref=f16e1706]: Helpful?
+                - generic [ref=f16e1708]:
+                  - 'button "Yes: 0 people found this answer by Outreach helpful." [ref=f16e1709] [cursor=pointer]':
+                    - generic [ref=f16e1712]: (0)
+                  - 'button "No: 0 people did not find this answer by Outreach helpful." [ref=f16e1713] [cursor=pointer]':
+                    - generic [ref=f16e1716]: (0)
+                  - button "Report this answer by Outreach as inappropriate." [ref=f16e1718] [cursor=pointer]: Report
+          - button "See answer (1)" [ref=f16e1720] [cursor=pointer]
+        - generic [ref=f16e1721]:
+          - generic [ref=f16e1722]:
+            - 'heading "Q: I need 100 stacking church chairs" [level=3] [ref=f16e1723]'
+            - button "See Second Chance profile. This action will open a modal dialog." [ref=f16e1724] [cursor=pointer]: Second Chance
+            - generic [ref=f16e1725]: a year ago
+          - generic [ref=f16e1726]:
+            - generic [ref=f16e1727]: 1 Answer
+            - button "Answer this question by Second Chance. This action will open a submission form." [ref=f16e1728] [cursor=pointer]: Answer this Question
+          - 'region "1 Answers to Question: I need 100 stacking church chairs." [ref=f16e1729]':
+            - generic [ref=f16e1732]:
+              - 'heading "A: Hello and thank you for reaching out! We appreciate the opportunity to assist you with this purchasing question. You obviously see the benefits of our products and your question tells us you are just about ready to order! Please do not hesitate to reach out to us by calling 1-855-307-3862 to speak to one of our sales representatives. Customer Care (JW)" [level=4] [ref=f16e1733]'
+              - button "See CCJW profile." [disabled] [ref=f16e1734]: CCJW
+              - generic [ref=f16e1735]: a year ago
+              - group "Content helpfulness" [ref=f16e1737]:
+                - generic [ref=f16e1738]: Helpful?
+                - generic [ref=f16e1740]:
+                  - 'button "Yes: 0 people found this answer by CCJW helpful." [ref=f16e1741] [cursor=pointer]':
+                    - generic [ref=f16e1744]: (0)
+                  - 'button "No: 0 people did not find this answer by CCJW helpful." [ref=f16e1745] [cursor=pointer]':
+                    - generic [ref=f16e1748]: (0)
+                  - button "Report this answer by CCJW as inappropriate." [ref=f16e1750] [cursor=pointer]: Report
+        - generic [ref=f16e1751]:
+          - generic [ref=f16e1752]:
+            - 'heading "Q: Is there any discount benefit if we order more than a certain number when it comes to the shipping cost?" [level=3] [ref=f16e1753]'
+            - button "See Vera profile. This action will open a modal dialog." [ref=f16e1754] [cursor=pointer]: Vera
+            - generic [ref=f16e1755]: 2 years ago
+          - generic [ref=f16e1756]:
+            - generic [ref=f16e1757]: 1 Answer
+            - button "Answer this question by Vera. This action will open a submission form." [ref=f16e1758] [cursor=pointer]: Answer this Question
+          - 'region "1 Answers to Question: Is there any discount benefit if we order more than a certain number when it comes to the shipping cost?." [ref=f16e1759]':
+            - generic [ref=f16e1762]:
+              - 'heading "A: Hello Vera, We would love to help you with a quote specific to the product and quantity you are looking at. Please feel free to reach out to us at customerfeedback@theubiquegroup.com and we will be happy to look into the specifics of your needs. Customer Care (TJ)" [level=4] [ref=f16e1763]'
+              - button "See Tabs profile." [disabled] [ref=f16e1764]: Tabs
+              - generic [ref=f16e1765]: 2 years ago
+              - group "Content helpfulness" [ref=f16e1767]:
+                - generic [ref=f16e1768]: Helpful?
+                - generic [ref=f16e1770]:
+                  - 'button "Yes: 0 people found this answer by Tabs helpful." [ref=f16e1771] [cursor=pointer]':
+                    - generic [ref=f16e1774]: (0)
+                  - 'button "No: 0 people did not find this answer by Tabs helpful." [ref=f16e1775] [cursor=pointer]':
+                    - generic [ref=f16e1778]: (0)
+                  - button "Report this answer by Tabs as inappropriate." [ref=f16e1780] [cursor=pointer]: Report
+        - generic [ref=f16e1781]:
+          - generic [ref=f16e1782]:
+            - 'heading "Q: I need four hundred of these chairs for my church and is there a place in the New York City area that I can order them and can I get a shipping discount or military discount" [level=3] [ref=f16e1783]'
+            - button "See Rob A profile. This action will open a modal dialog." [ref=f16e1784] [cursor=pointer]: Rob A
+            - generic [ref=f16e1785]: 2 years ago
+          - generic [ref=f16e1786]:
+            - generic [ref=f16e1787]: 1 Answer
+            - button "Answer this question by Rob A. This action will open a submission form." [ref=f16e1788] [cursor=pointer]: Answer this Question
+          - 'region "1 Answers to Question: I need four hundred of these chairs for my church and is there a place in the New York City area that I can order them and can I get a shipping discount or military discount ." [ref=f16e1789]':
+            - generic [ref=f16e1792]:
+              - 'heading "A: Hello and thank you for reaching out, Rob! We appreciate the opportunity to assist you with this purchasing question. You obviously see the benefits of our products and your question tells us you are just about ready to order! To best assist you, I will have a representative reach out to you in the days ahead at the email you provided when you posted your question. Have a terrific day. Customer Care (TJ)" [level=4] [ref=f16e1793]'
+              - button "See Tabs profile." [disabled] [ref=f16e1794]: Tabs
+              - generic [ref=f16e1795]: 2 years ago
+              - group "Content helpfulness" [ref=f16e1797]:
+                - generic [ref=f16e1798]: Helpful?
+                - generic [ref=f16e1800]:
+                  - 'button "Yes: 0 people found this answer by Tabs helpful." [ref=f16e1801] [cursor=pointer]':
+                    - generic [ref=f16e1804]: (0)
+                  - 'button "No: 0 people did not find this answer by Tabs helpful." [ref=f16e1805] [cursor=pointer]':
+                    - generic [ref=f16e1808]: (0)
+                  - button "Report this answer by Tabs as inappropriate." [ref=f16e1810] [cursor=pointer]: Report
+        - generic [ref=f16e1811]:
+          - generic [ref=f16e1812]:
+            - 'heading "Q: We are planning to order 75 chairs for our church. Do you guys do Tax Exempt for churches?" [level=3] [ref=f16e1813]'
+            - button "See Daniel M profile. This action will open a modal dialog." [ref=f16e1814] [cursor=pointer]: Daniel M
+            - generic [ref=f16e1815]: 2 years ago
+          - generic [ref=f16e1816]:
+            - generic [ref=f16e1817]: 1 Answer
+            - button "Answer this question by Daniel M. This action will open a submission form." [ref=f16e1818] [cursor=pointer]: Answer this Question
+          - 'region "1 Answers to Question: We are planning to order 75 chairs for our church. Do you guys do Tax Exempt for churches?." [ref=f16e1819]':
+            - generic [ref=f16e1822]:
+              - 'heading "A: Hi Daniel, I am thrilled to help you here. We can absolutely process your documentation for tax exempt status. Please visit the product webpage and scroll to the bottom of the page. At the bottom you will see a heading \"Ordering Information\" where you will find the instructions for setting up an account and providing your exempt documentation. If you still have a concern or a question specific to your individual order or need, do not hesitate to connect with us at customerfeedback@theubiquegroup.com. Have a great day. Customer Care (TJ)" [level=4] [ref=f16e1823]'
+              - button "See Tabs profile." [disabled] [ref=f16e1824]: Tabs
+              - generic [ref=f16e1825]: 2 years ago
+              - group "Content helpfulness" [ref=f16e1827]:
+                - generic [ref=f16e1828]: Helpful?
+                - generic [ref=f16e1830]:
+                  - 'button "Yes: 0 people found this answer by Tabs helpful." [ref=f16e1831] [cursor=pointer]':
+                    - generic [ref=f16e1834]: (0)
+                  - 'button "No: 0 people did not find this answer by Tabs helpful." [ref=f16e1835] [cursor=pointer]':
+                    - generic [ref=f16e1838]: (0)
+                  - button "Report this answer by Tabs as inappropriate." [ref=f16e1840] [cursor=pointer]: Report
+        - generic [ref=f16e1841]:
+          - generic [ref=f16e1842]: 1 - 10 of 46 Questions
+          - button "Previous Questions" [disabled] [ref=f16e1843]
+          - button "Next Questions" [ref=f16e1852] [cursor=pointer]
+    - generic [ref=f16e1862]:
+      - heading "Product Specifications" [level=3] [ref=f16e1863]
+      - generic [ref=f16e1864]:
+        - generic [ref=f16e1866]:
+          - generic [ref=f16e1867]: Rated For Commercial Use
+          - generic [ref=f16e1868]: "Yes"
+        - generic [ref=f16e1870]:
+          - generic [ref=f16e1871]: Recommended Usage
+          - generic [ref=f16e1872]: 6-8 Hours
+        - generic [ref=f16e1874]:
+          - generic [ref=f16e1875]: Warranty
+          - generic [ref=f16e1876]: 5 Years Limited
+        - generic [ref=f16e1878]:
+          - generic [ref=f16e1879]: Materials
+          - generic [ref=f16e1880]: Steel, Fabric, Plywood, Foam
+        - generic [ref=f16e1882]:
+          - generic [ref=f16e1883]: Wood Species
+          - generic [ref=f16e1884]: Plywood
+        - generic [ref=f16e1886]:
+          - generic [ref=f16e1887]: Colors
+          - generic [ref=f16e1888]: Black
+        - generic [ref=f16e1890]:
+          - generic [ref=f16e1891]: Style
+          - generic [ref=f16e1892]: Classic
+        - generic [ref=f16e1894]:
+          - generic [ref=f16e1895]: Age Group
+          - generic [ref=f16e1896]: Adult
+        - generic [ref=f16e1898]:
+          - generic [ref=f16e1899]: Cushion Attachment
+          - generic [ref=f16e1900]: Fixed Back/Fixed Seat
+        - generic [ref=f16e1902]:
+          - generic [ref=f16e1903]: Floor Glides
+          - generic [ref=f16e1904]: Fixed
+        - generic [ref=f16e1906]:
+          - generic [ref=f16e1907]: Weight Capacity
+          - generic [ref=f16e1908]: "600"
+        - generic [ref=f16e1910]:
+          - generic [ref=f16e1911]: Width
+          - generic [ref=f16e1912]: "18.5"
+        - generic [ref=f16e1914]:
+          - generic [ref=f16e1915]: Depth
+          - generic [ref=f16e1916]: "23"
+        - generic [ref=f16e1918]:
+          - generic [ref=f16e1919]: Height
+          - generic [ref=f16e1920]: "32"
+        - generic [ref=f16e1922]:
+          - generic [ref=f16e1923]: Foam Density
+          - generic [ref=f16e1924]: "2"
+        - generic [ref=f16e1926]:
+          - generic [ref=f16e1927]: Rub Count
+          - generic [ref=f16e1928]: "200000"
+        - generic [ref=f16e1930]:
+          - generic [ref=f16e1931]: Padded
+          - generic [ref=f16e1932]: "Yes"
+        - generic [ref=f16e1934]:
+          - generic [ref=f16e1935]: Upholstery
+          - generic [ref=f16e1936]: Black Fabric
+        - generic [ref=f16e1938]:
+          - generic [ref=f16e1939]: Back Materials
+          - generic [ref=f16e1940]: Fabric
+        - generic [ref=f16e1942]:
+          - generic [ref=f16e1943]: Seat Materials
+          - generic [ref=f16e1944]: Fabric
+        - generic [ref=f16e1946]:
+          - generic [ref=f16e1947]: Fill Material
+          - generic [ref=f16e1948]: Polyurethane Foam
+        - generic [ref=f16e1950]:
+          - generic [ref=f16e1951]: Back Colors
+          - generic [ref=f16e1952]: Black
+        - generic [ref=f16e1954]:
+          - generic [ref=f16e1955]: Frame Colors
+          - generic [ref=f16e1956]: Black
+        - generic [ref=f16e1958]:
+          - generic [ref=f16e1959]: Seat Colors
+          - generic [ref=f16e1960]: Black
+        - generic [ref=f16e1962]:
+          - generic [ref=f16e1963]: Back Type
+          - generic [ref=f16e1964]: Full
+        - generic [ref=f16e1966]:
+          - generic [ref=f16e1967]: Back Style
+          - generic [ref=f16e1968]: Square
+        - generic [ref=f16e1970]:
+          - generic [ref=f16e1971]: Base Style
+          - generic [ref=f16e1972]: 4 Leg
+        - generic [ref=f16e1974]:
+          - generic [ref=f16e1975]: Seat Shape
+          - generic [ref=f16e1976]: Square
+        - generic [ref=f16e1978]:
+          - generic [ref=f16e1979]: Seat Width Fixed
+          - generic [ref=f16e1980]: "18.5"
+        - generic [ref=f16e1982]:
+          - generic [ref=f16e1983]: Seat Depth Fixed
+          - generic [ref=f16e1984]: "16.5"
+        - generic [ref=f16e1986]:
+          - generic [ref=f16e1987]: Seat Height Fixed
+          - generic [ref=f16e1988]: "17.5"
+        - generic [ref=f16e1990]:
+          - generic [ref=f16e1991]: Seat Pitch
+          - generic [ref=f16e1992]: "5"
+        - generic [ref=f16e1994]:
+          - generic [ref=f16e1995]: Seat Thickness
+          - generic [ref=f16e1996]: "2.5"
+        - generic [ref=f16e1998]:
+          - generic [ref=f16e1999]: Back Width Fixed
+          - generic [ref=f16e2000]: "18.5"
+        - generic [ref=f16e2002]:
+          - generic [ref=f16e2003]: Back Height From Seat Fixed
+          - generic [ref=f16e2004]: "16"
+        - generic [ref=f16e2006]:
+          - generic [ref=f16e2007]: Back Pitch
+          - generic [ref=f16e2008]: "16"
+        - generic [ref=f16e2010]:
+          - generic [ref=f16e2011]: Recommended Egress Fixed
+          - generic [ref=f16e2012]: "35"
+        - generic [ref=f16e2014]:
+          - generic [ref=f16e2015]: CAL 117 Certified
+          - generic [ref=f16e2016]: "Yes"
+        - generic [ref=f16e2018]:
+          - generic [ref=f16e2019]: Metal Gauge Thickness
+          - generic [ref=f16e2020]: "18"
+  - contentinfo [ref=f16e2022]:
+    - generic [ref=f16e2024]:
+      - generic [ref=f16e2025]:
+        - paragraph [ref=f16e2027]: Please Sign Up To Receive Updates & Discounts
+        - generic [ref=f16e2030]:
+          - textbox "Email" [ref=f16e2033]
+          - button [ref=f16e2035] [cursor=pointer]
+        - generic:
+          - list
+      - list [ref=f16e2041]:
+        - listitem [ref=f16e2042]:
+          - generic [ref=f16e2043]: Get to Know Us
+          - list [ref=f16e2044]:
+            - listitem [ref=f16e2045]:
+              - link "About Us" [ref=f16e2046] [cursor=pointer]:
+                - /url: /pages/about-us
+        - listitem [ref=f16e2047]:
+          - generic [ref=f16e2048]: Customer Service
+          - list [ref=f16e2049]:
+            - listitem [ref=f16e2050]:
+              - link "Delivery Information" [ref=f16e2051] [cursor=pointer]:
+                - /url: /pages/delivery-information
+            - listitem [ref=f16e2052]:
+              - link "Ordering Information" [ref=f16e2053] [cursor=pointer]:
+                - /url: /pages/ordering-information
+            - listitem [ref=f16e2054]:
+              - link "Payment Options" [ref=f16e2055] [cursor=pointer]:
+                - /url: /pages/payment-options
+            - listitem [ref=f16e2056]:
+              - link "Finance Options" [ref=f16e2057] [cursor=pointer]:
+                - /url: /pages/finance-options
+            - listitem [ref=f16e2058]:
+              - link "Shipping Information" [ref=f16e2059] [cursor=pointer]:
+                - /url: /pages/shipping-information
+            - listitem [ref=f16e2060]:
+              - link "Freight Charges" [ref=f16e2061] [cursor=pointer]:
+                - /url: /pages/freight-charges
+            - listitem [ref=f16e2062]:
+              - link "Returns Informations" [ref=f16e2063] [cursor=pointer]:
+                - /url: /pages/returns-information
+            - listitem [ref=f16e2064]:
+              - link "Product Warranty" [ref=f16e2065] [cursor=pointer]:
+                - /url: /pages/product-warranty
+        - listitem [ref=f16e2066]:
+          - generic [ref=f16e2067]: Get in Touch
+          - list [ref=f16e2068]:
+            - listitem [ref=f16e2069]:
+              - link "Contact Us" [ref=f16e2070] [cursor=pointer]:
+                - /url: /pages/contact-us
+            - listitem [ref=f16e2071]:
+              - generic [ref=f16e2072]: Call 1-855-294-0532
+            - listitem [ref=f16e2073]:
+              - generic [ref=f16e2074]: "Mon - Thu: 8AM - 8PM EST"
+            - listitem [ref=f16e2075]:
+              - generic [ref=f16e2076]: "Fri: 8AM - 5PM EST"
+    - generic [ref=f16e2079]:
+      - paragraph [ref=f16e2080]: Copyright 2026 . All rights reserved.
+      - list [ref=f16e2081]:
+        - listitem [ref=f16e2082]:
+          - link "Site Security" [ref=f16e2083] [cursor=pointer]:
+            - /url: /pages/site-security
+        - listitem [ref=f16e2084]:
+          - link "Privacy Policy" [ref=f16e2085] [cursor=pointer]:
+            - /url: /pages/privacy-policy
+        - listitem [ref=f16e2086]:
+          - link "California Privacy Rights" [ref=f16e2087] [cursor=pointer]:
+            - /url: /pages/privacy-policy
+        - listitem [ref=f16e2088]:
+          - link "Do Not Sell or Share" [ref=f16e2089] [cursor=pointer]:
+            - /url: /pages/do-not-sell-or-share-my-personal-information
+        - listitem [ref=f16e2090]:
+          - link "US Privacy" [ref=f16e2091] [cursor=pointer]:
+            - /url: /pages/us-privacy-requests
+        - listitem [ref=f16e2092]:
+          - link "PIPEDA" [ref=f16e2093] [cursor=pointer]:
+            - /url: /pages/canadian-privacy-rights-pipeda-quebec-law-25
+        - listitem [ref=f16e2094]:
+          - link "GDPR" [ref=f16e2095] [cursor=pointer]:
+            - /url: /pages/gdpr-privacy-requests
+        - listitem [ref=f16e2096]:
+          - link "Terms of Use" [ref=f16e2097] [cursor=pointer]:
+            - /url: /pages/terms-of-use
+        - listitem [ref=f16e2098]:
+          - link "Terms of Sale" [ref=f16e2099] [cursor=pointer]:
+            - /url: /pages/terms-of-sale
+        - listitem [ref=f16e2100]:
+          - link "Accessibility Statement" [ref=f16e2101] [cursor=pointer]:
+            - /url: /pages/accessibility
+        - listitem [ref=f16e2102]:
+          - link "Sitemap" [ref=f16e2103] [cursor=pointer]:
+            - /url: /tools/sitemap
+  - generic [ref=f16e2106]:
+    - generic [ref=f16e2107]: Discover More
+    - list [ref=f16e2108]:
+      - listitem [ref=f16e2109]:
+        - link "Church Stack Chairs" [ref=f16e2110] [cursor=pointer]:
+          - /url: https://www.advantagechurchchairs.com/collections/church-stack-chairs
+      - listitem [ref=f16e2111]:
+        - link "18.5\" Church Chairs" [ref=f16e2112] [cursor=pointer]:
+          - /url: https://www.advantagechurchchairs.com/collections/18-5-church-chairs
+      - listitem [ref=f16e2113]:
+        - link "Church Chairs 18.5in. ADVG-PCHT185- –..." [ref=f16e2114] [cursor=pointer]:
+          - /url: https://www.advantagechurchchairs.com/products/advantage-church-chairs-185-in-wide-advg-pcht185
+  - button "Accessibility Widget, click to open" [ref=f16e2117] [cursor=pointer]
+  - dialog "FLYOUT Form" [ref=f16e2124]:
+    - generic [ref=f16e2129]:
+      - button "Close dialog" [ref=f16e2130] [cursor=pointer]
+      - generic [ref=f16e2135]:
+        - paragraph [ref=f16e2139]:
+          - strong [ref=f16e2141]: Unlock $300 Off
+        - paragraph [ref=f16e2145]: any order over $3000
+        - textbox "Email" [ref=f16e2149]
+        - button "Yes, I want to save!" [ref=f16e2152] [cursor=pointer]
+        - button "No, I'll pay full price." [ref=f16e2155] [cursor=pointer]
+      - alert [ref=f16e2156]
+```
+
+# Test source
+
+```ts
+  1   | import { expect, type Locator, type Page } from '@playwright/test';
+  2   | 
+  3   | export class AdvantagePDP {
+  4   |     readonly page: Page;
+  5   |     readonly description: Locator;
+  6   |     readonly descrContent: Locator;
+  7   |     readonly pdpHeader: Locator;
+  8   |     readonly pdpPrice:  Locator;
+  9   |     readonly reviewStars: Locator;
+  10  |     readonly newReview: Locator;
+  11  |     readonly closeReview: Locator;
+  12  |     readonly sort: Locator;
+  13  |     readonly lowToHighSort: Locator;
+  14  |     readonly mostRecentSort: Locator;
+  15  |     readonly rightArrow: Locator;
+  16  |     readonly reviewNumber: Locator;
+  17  |     readonly leftArrow: Locator;
+  18  |     readonly qtyInc: Locator;
+  19  |     readonly qty: Locator;
+  20  |     readonly qtyDec: Locator;
+  21  |     readonly addToCart: Locator;
+  22  |     readonly cart: Locator;
+  23  | 
+  24  |     constructor(page: any) {
+  25  |         this.page = page;
+  26  |         this.description = page.locator("//button[normalize-space()='Description']");
+  27  |         this.descrContent = page.locator("//div[@id='content-description']");
+  28  |         this.pdpHeader = page.locator("//h1[contains(text(),'Advantage Multipurpose Church Chairs - 18.5 in. Wi')]");
+  29  |         this.pdpPrice = page.locator("//div[@class='h3 flex-col items-end hidden md:flex']//div[@class='h3 text-tertiary-900']");
+  30  |         this.reviewStars = page.locator("//div[@class='bv_stars_component_container']//*[name()='svg']").nth(0);
+  31  |         this.newReview = page.locator("div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(5) > div:nth-child(1) > svg:nth-child(1)");
+  32  |         this.closeReview = page.locator(".ips__sc-hn2bh6-0.cbsYNK");
+  33  |         this.sort = page.locator('[role="combobox"][aria-controls^="bv-reviews-sort-by"]');
+  34  |         this.lowToHighSort = page.getByRole('option', { name: 'Lowest to Highest Rating' });
+  35  |         this.mostRecentSort = page.getByRole('option', { name: 'Most Recent' });
+  36  |         this.rightArrow = page.getByRole('button', { name: 'Next Reviews' });
+  37  |         this.reviewNumber = page.locator(".bv-rnr__sc-11r39gb-2.ghmrMg");
+  38  |         this.leftArrow = page.getByRole('button', { name: 'Previous Reviews' });
+  39  |         this.qtyInc = page.locator("//button[@aria-label='Increment Quantity']//*[name()='svg']");
+  40  |         this.qty = page.locator("//input[@type='number']");
+  41  |         this.qtyDec = page.locator("//button[@aria-label='Decrement Quantity']//*[name()='svg']");
+  42  |         this.addToCart = page.locator("//button[normalize-space()='Add to Cart']");
+  43  |         this.cart = page.locator("//span[@class='mr-2 font-light text-white text-e19 leading-120']");
+  44  |     
+  45  |     }
+  46  | 
+  47  | 
+  48  | async clickDescription () {
+  49  |     console.log({ message: `Clicking Description` });
+  50  |     await this.description.click();
+  51  |     expect(this.descrContent).toContainText("The Molded Foam Multipurpose Church Chair - 18.5 in. Wide provides a durable seating solution for your fellowship hall or convention center. This comfortably padded stack chair not only satisfies seating in Churches, but work well in hotel lobbies, banquet halls and conference facilities.");
+  52  | }
+  53  | async assertPDPHeader () {
+  54  |     console.log({ message: `Asserting PDP Header` });
+  55  |     expect(this.pdpHeader).toContainText("Advantage Multipurpose Church Chairs - 18.5 in. Wide");
+  56  | }
+  57  | 
+  58  | async assertPDPPrice () {
+  59  |     console.log({ message: `Asserting PDP Price` });
+  60  |     expect(this.pdpPrice).toContainText("$49.36");   
+  61  | }
+  62  | 
+  63  | async clickReviewStars () {
+  64  |     console.log({ message: `Clicking Review Stars` });
+  65  |     await this.reviewStars.click();
+  66  | }
+  67  | 
+  68  | async clickNewReview () {
+  69  |     console.log({ message: `Click New Review` });
+  70  |     await this.newReview.click();
+  71  | }
+  72  | 
+  73  | async clickCloseReview () {
+  74  |     console.log({ message: `Close Review` });
+  75  |     await this.closeReview.click();
+  76  | }
+  77  | 
+  78  | async sortFilter() {
+  79  |     console.log({ message: `Selecting Sort Filter` });
+  80  |     await this.sort.hover();
+  81  |     await this.lowToHighSort.hover();
+  82  |     await this.lowToHighSort.click();
+> 83  |     await this.sort.hover();
+      |                     ^ TypeError: this.sort.cl is not a function
+  84  |     await this.mostRecentSort.hover();
+  85  |     await this.mostRecentSort.click();
+  86  | }
+  87  | 
+  88  | async rightArrowPagniation () {
+  89  |     console.log({ message: `Clicking Right Arrow Pagniation` });
+  90  |     await this.rightArrow.click();
+  91  |     await this.page.waitForTimeout(3000);
+  92  | }
+  93  | async leftArrowPagniation () {
+  94  |     console.log({ message: `Clicking Left Arrow Pagniation` });
+  95  |     await this.leftArrow.click();
+  96  |     await this.page.waitForTimeout(3000);
+  97  | }
+  98  |     
+  99  | async assertReviewNumber1 () {
+  100 |     console.log({ message: `Asserting Review Number Page 1` });
+  101 |     await this.reviewNumber.isVisible();
+  102 |     expect(this.reviewNumber).toContainText("9 – 26");
+  103 | }
+  104 | 
+  105 | async assertReviewNumber2 () {
+  106 |     console.log({ message: `Asserting Review Number Page 2` });
+  107 |     await this.page.waitForTimeout(3000);
+  108 |     await this.reviewNumber.isVisible();
+  109 |     expect(this.reviewNumber).toContainText("1 – 8");
+  110 | }
+  111 | async qtyIncrease () {
+  112 |     console.log({ message: `Increasing QTY` });
+  113 |     await this.qtyInc.click();
+  114 |     await this.qtyInc.click();
+  115 |     await this.qtyInc.click();
+  116 |     expect(this.qty).toHaveValue('4');
+  117 | }
+  118 | 
+  119 | async qtyDecrease () {
+  120 |     console.log({ message: `Decreasing QTY` });
+  121 |     await this.qtyDec.click();
+  122 |     await this.qtyDec.click();
+  123 |     await this.qtyDec.click();
+  124 |     expect(this.qty).toHaveValue('1');
+  125 | }
+  126 | 
+  127 | async clickAddToCart () {
+  128 |     console.log({ message: `Click Add to Cart` });
+  129 |     await this.addToCart.click();
+  130 |     await this.cart.click();
+  131 | }
+  132 | 
+  133 | }
+```

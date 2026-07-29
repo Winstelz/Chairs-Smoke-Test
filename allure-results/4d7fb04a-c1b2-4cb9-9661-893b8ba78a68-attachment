@@ -1,0 +1,73 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: advantageChairs\AdvantageHeaderIcons.spec.ts >> AdvantageHeaderIcons Account
+- Location: tests\advantageChairs\AdvantageHeaderIcons.spec.ts:23:1
+
+# Error details
+
+```
+Error: locator.click: Target page, context or browser has been closed
+Call log:
+  - waiting for locator('xpath=(//a[@title=\'account\'])[1]')
+    - waiting for" https://www.advantagechurchchairs.com/account" navigation to finish...
+    - navigated to "https://shopify.com/authentication/76442763554/login?analytics_trace_id=81ccc4df-3cd8-41fb-b9f9-e4c69f9667cb&client_id=e0d0c031-6163-4c12-8dca-599d27d347fe&locale=en-US&redirect_uri=%2Fauthentication…"
+
+```
+
+# Test source
+
+```ts
+  1  | import base, { test as baseTest, expect, type Page } from '@playwright/test';
+  2  | import { AdvantageHomePage } from '../../src/pom/AdvantageChairs/AdvantageHomePage';
+  3  | 
+  4  | type TestFixtures = {
+  5  |   homePage: AdvantageHomePage;
+  6  | };
+  7  | 
+  8  | const test = base.extend<TestFixtures>({
+  9  |   homePage: async ({ page }, use) => {
+  10 |     await use(new AdvantageHomePage(page));
+  11 |   },
+  12 | });
+  13 | 
+  14 | test('AdvantageHeaderIcons Search', async ({ homePage }) => {
+  15 |   // Navigate to Advantage site
+  16 |   await homePage.gotoHomePage();
+  17 | 
+  18 |   // Click Search Icon, type search, and submit
+  19 |   await homePage.clickSearchIcon();
+  20 |   await homePage.searchForItem('Cha');
+  21 | });
+  22 | 
+  23 | test('AdvantageHeaderIcons Account', async ({ homePage, page }) => {
+  24 |   // Navigate to Advantage site
+  25 |   await homePage.gotoHomePage();
+  26 | 
+  27 |   // Click Account Icon
+  28 |   await homePage.clickAccountIcon();
+  29 |   const account = page.locator("(//a[@title='account'])[1]");
+> 30 |   await account.click();
+     |                 ^ Error: locator.click: Target page, context or browser has been closed
+  31 |   //Assert land on correct page
+  32 |   await expect(page).toHaveURL(/.*account/);
+  33 | });
+  34 | /*
+  35 | test('AdvantageHeaderIcons Cart', async ({ page }) => {
+  36 |     const homePage = new AdvantageHomePage(page);
+  37 | 
+  38 |     // Click Inline Cart
+  39 |     const cart = page.locator("//body/div[@id='shopify-section-sections--21855799083298__header']/ra-header[@class='header flex items-center justify-center fixed w-full left-0 transition-all duration-300 z-10 flex-col max-md:py-4 border-b !border-grey-200']/div[@class='header__wrapper flex h-full flex-wrap justify-between md:justify-start w-full container max-md:!px-3']/div[@class='header__inner w-full justify-between items-center flex-col md:pt-5 max-md:!flex flex']/div[@class='flex items-center w-full max-md:justify-between']/div[@class='m-0 md:ml-auto']/div[@class='flex flex-row gap-6']/ul[@class='flex justify-center items-center h-full']/li[@class='header__action-item flex justify-center items-center h-full mr-4 last:mr-0 leading-[0] relative']/ra-cart-toggle/a[@title='cart']/span[1]//*[name()='svg']");
+  40 |     await cart.click();
+  41 |     const firstLink = page.locator("//a[@class='ra-button ra-button ra-button--primary ra-button--lg mb-4'][normalize-space()='Church Chairs']");
+  42 |     expect(firstLink).toContainText('Church Chairs');
+  43 |     await page.locator("//span[@class='ra-icon p-1 cursor-pointer']").click();
+  44 | });
+  45 | */
+  46 | 
+```

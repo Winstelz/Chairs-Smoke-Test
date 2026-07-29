@@ -1,0 +1,135 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: advantageChairs\AdvantageInlineCart.spec.ts >> AdvantageInlineCart Flow
+- Location: tests\advantageChairs\AdvantageInlineCart.spec.ts:34:1
+
+# Error details
+
+```
+Error: locator.click: Target page, context or browser has been closed
+Call log:
+  - waiting for getByRole('button', { name: 'remove-item' })
+    - waiting for" https://www.advantagechurchchairs.com/cart" navigation to finish...
+    - navigated to "https://www.advantagechurchchairs.com/cart"
+    - waiting for" https://www.advantagechurchchairs.com/" navigation to finish...
+    - navigated to "https://www.advantagechurchchairs.com/"
+
+```
+
+# Test source
+
+```ts
+  16  |     readonly calculateShippingButton: Locator;
+  17  |     readonly checkoutButton: Locator;
+  18  |     readonly logo: Locator;
+  19  |     readonly cart: Locator;
+  20  |     readonly trashCan: Locator;
+  21  |     readonly emptyLink: Locator;
+  22  | 
+  23  | 
+  24  |     constructor(page: any) {
+  25  |         this.page = page;
+  26  |         this.cartPage = new AdvantageCart(page);
+  27  |         this.product = page.locator("//a[contains(text(),'Advantage Multipurpose Church Chairs - 18.5 in. Wi')]");
+  28  |         this.qtyIncr = page.locator("(//button[@aria-label='Increment Quantity'])[2]");
+  29  |         this.qtyDecr = page.locator("(//button[@aria-label='Decrement Quantity'])[2]");
+  30  |         this.qty = page.locator("(//input[@type='number'])[2]");
+  31  |         this.rightArrow = page.locator("//button[@aria-label='Next slide']//span[@class='ra-icon ra-icon--sm']//*[name()='svg']");
+  32  |         this.leftArrow = page.locator("//button[@aria-label='Previous slide']//span[@class='ra-icon ra-icon--sm']//*[name()='svg']");
+  33  |         this.plus = page.locator("//span[@class='ra-icon']//*[name()='svg']");
+  34  |         this.zip = page.locator("//input[@placeholder='Enter Zip or Postal Code']");
+  35  |         this.address = page.locator("//select[@name='addressType']");
+  36  |         this.calculateShippingButton = page.locator("//button[normalize-space()='Calculate Shipping']");
+  37  |         this.checkoutButton = page.locator("//button[normalize-space()='Proceed to Checkout']")
+  38  |         this.logo = page.locator("//header[@class='EAjaz Xx7bI _1fragemr6']//div//div//div[@class='_1fragem2i _1fragempf _16s97g73r']");
+  39  |         this.cart =  page.locator("//body/div[@id='shopify-section-sections--21855799083298__header']/ra-header[@class='header flex items-center justify-center fixed w-full left-0 transition-all duration-300 z-10 flex-col max-md:py-4 border-b !border-grey-200']/div[@class='header__wrapper flex h-full flex-wrap justify-between md:justify-start w-full container max-md:!px-3']/div[@class='header__inner flex w-full justify-between items-center flex-col md:pt-5 max-md:!flex']/div[@class='flex items-center w-full max-md:justify-between']/div[@class='m-0 md:ml-auto']/div[@class='flex flex-row gap-6']/ul[@class='flex justify-center items-center h-full']/li[@class='header__action-item flex justify-center items-center h-full mr-4 last:mr-0 leading-/ra-cart-toggle/a[@title='cart']/span[1]");
+  40  |         this.trashCan = page.getByRole('button', { name: 'remove-item' });
+  41  |         this.emptyLink =  page.locator("//a[@class='ra-button ra-button ra-button--primary ra-button--lg mb-4'][normalize-space()='Church Chairs']");
+  42  |     
+  43  |     }
+  44  | 
+  45  | 
+  46  | async assertProduct () {
+  47  | console.log({ message: `Asserting Product in Cart....`});
+  48  |     await this.product.isVisible();
+  49  |     expect(this.product).toHaveText("Advantage Multipurpose Church Chairs - 18.5 in. Wide");
+  50  | }
+  51  | async qtyIncrease () {
+  52  | console.log({ message: `Increasing Quantity in Cart....`});
+  53  |         await this.qtyIncr.click();
+  54  |         await this.page.waitForTimeout(1000);
+  55  |         await this.qtyIncr.click();
+  56  |         await this.page.waitForTimeout(1000);
+  57  |         await this.qtyIncr.click();
+  58  |         await this.page.waitForTimeout(1000);
+  59  |         await this.qtyIncr.click();
+  60  |         await this.page.waitForTimeout(2000);
+  61  |         await expect(this.qty).toHaveValue("5");
+  62  | }
+  63  | async qtyDecrease () {
+  64  | console.log({ message: `Decreasing Quantity in Cart....`});
+  65  |         await this.qtyDecr.click();
+  66  |         await this.page.waitForTimeout(1000);
+  67  |         await this.qtyDecr.click();
+  68  |         await this.page.waitForTimeout(2000);
+  69  |         await expect(this.qty).toHaveValue("3");
+  70  | }
+  71  | async qtyInput () {
+  72  | console.log({ message: `Inputting Quantity in Cart....`});
+  73  |         await this.qty.click();
+  74  |         await this.qty.fill("10");
+  75  |         await this.page.waitForTimeout(2000);
+  76  |         await expect(this.qty).toHaveValue("10");
+  77  | }
+  78  | 
+  79  | async youMayLikeCarousel () {
+  80  | console.log({ message: `Navigating through You May Like Carousel....`});
+  81  |     await this.rightArrow.click();
+  82  |     await this.rightArrow.click();
+  83  |     await this.leftArrow.click();
+  84  |     await this.leftArrow.click();
+  85  | }
+  86  | /*async calculateShipping () {
+  87  |     console.log({ message: `Calculating Shipping....`});
+  88  |     await this.plus.click();
+  89  |     await this.zip.click();
+  90  |     await this.zip.fill("45014");
+  91  |     await this.address.click();
+  92  |     await this.address.selectOption('Residential');
+  93  | 
+  94  |     const shippingResponse = this.page.waitForResponse(
+  95  |         response =>
+  96  |             response.url().includes('Ubique.Gateway.ThirdParty/shopify/freight/cart') &&
+  97  |             response.status() >= 200 &&
+  98  |             response.status() < 400,
+  99  |         { timeout: 15000 }
+  100 |     );
+  101 | 
+  102 |     await this.calculateShippingButton.click();
+  103 |     await shippingResponse;
+  104 |     await this.shippingSummary.waitFor({ state: 'visible', timeout: 15000 });
+  105 | }*/
+  106 | /*async clickCheckout () {
+  107 |     console.log({ message: `Checking out....`});
+  108 |     await this.checkoutButton.click();
+  109 |     await this.logo.click();
+  110 |     await this.page.waitForLoadState();
+  111 |     await this.cart.click();
+  112 | }*/
+  113 | async deleteItem () {
+  114 |     console.log({ message: `Deleting Item from Cart....`});
+  115 |     await this.page.waitForTimeout(2000);
+> 116 |     await this.trashCan.click();
+      |                         ^ Error: locator.click: Target page, context or browser has been closed
+  117 |     await this.emptyLink.click();
+  118 |     expect(this.page.url()).toContain("/collections/church-stack-chairs");
+  119 | }
+  120 | 
+  121 | }
+```

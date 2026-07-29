@@ -1,0 +1,140 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: advantageChairs\advantagePLP.spec.ts >> AdvantagePLP Flow
+- Location: tests\advantageChairs\advantagePLP.spec.ts:7:5
+
+# Error details
+
+```
+Error: locator.click: Target page, context or browser has been closed
+Call log:
+  - waiting for locator('//a[normalize-space()=\'2\']')
+
+```
+
+# Test source
+
+```ts
+  1   | import { expect, type Locator, type Page } from '@playwright/test';
+  2   | 
+  3   | export class AdvantagePLP {
+  4   |     readonly page: Page;
+  5   |     readonly sort: Locator;
+  6   |     readonly firstItem: Locator
+  7   |     readonly colorFam: Locator
+  8   |     readonly showMore: Locator
+  9   |     readonly green: Locator;
+  10  |     readonly finish: Locator;
+  11  |     readonly copper: Locator;
+  12  |     readonly greenPill: Locator;
+  13  |     readonly clearFinish: Locator;
+  14  |     readonly clearAll: Locator
+  15  |     readonly page2: Locator;
+  16  |     readonly rightArrow: Locator;
+  17  |     readonly leftArrow: Locator;
+  18  |     readonly pdpItem: Locator;
+  19  |     
+  20  | 
+  21  | 
+  22  |     constructor(page: any) {
+  23  |         this.page = page;
+  24  |         this.sort = page.locator("//select[@id='SortBy']");
+  25  |         this.firstItem = page.locator("//a[contains(text(),'Advantage Multipurpose Church Chairs - 18.5 in. Wi')]");
+  26  |         this.colorFam = page.locator("//button[normalize-space()='Color Family']");
+  27  |         this.showMore = page.locator("//div[@data-toggle-filter='color-family']");
+  28  |         this.green = page.locator("//label[contains(@for,'filter-p-m-filter-colors_green')]//div[contains(@class,'ra-choice__checkmark set--inherit-focus')]");
+  29  |         this.finish = page.locator("//button[normalize-space()='Finish']");
+  30  |         this.copper = page.locator("//span[contains(@class,'ra-choice__label')][normalize-space()='Copper Vein Metal']");
+  31  |         this.greenPill = page.locator("//button[contains(@data-param,'filter.p.m.filter.colors')]//span[contains(@class,'ra-icon')]//*[name()='svg']");
+  32  |         this.clearFinish = page.locator("//button[contains(@data-param,'filter.p.m.filter.finish')]//span[contains(@class,'ra-icon')]//*[name()='svg']");
+  33  |         this.clearAll = page.locator("//button[normalize-space()='Clear All']");   
+  34  |         this.page2 = page.locator("//a[normalize-space()='2']"); 
+  35  |         this.rightArrow = page.locator("//a[@aria-label='Go to next page']");
+  36  |         this.leftArrow = page.locator("//a[@aria-label='Go to previous page']");
+  37  |         this.pdpItem = page.getByRole('img', { name: /HERCULES Series 21"W Stacking Wood Accent Arm Church Chair - View 2/i })
+  38  |     
+  39  |     }
+  40  | 
+  41  | 
+  42  | async selectSorting () {
+  43  |     console.log({ message: "Sorting...." });
+  44  |     await this.sort.selectOption( {label: "Price, low to high"});
+  45  |     expect(this.firstItem).toContainText("Advantage Multipurpose Church Chairs");
+  46  |     await this.sort.selectOption( {label: "Best selling"});
+  47  | }
+  48  | 
+  49  | async selectColorFilter(){
+  50  |     console.log({ message: "Filtering by Colors...." });
+  51  |     await expect(this.colorFam).toBeVisible();
+  52  |     await this.colorFam.click();
+  53  |     await expect(this.showMore).toBeVisible();
+  54  |     //wait so it does not put up are you a robot prompt
+  55  |     await this.page.waitForTimeout(5000);
+  56  |     await this.page.mouse.click(0, 0);  
+  57  |     await this.showMore.click();
+  58  |     await expect(this.green).toBeVisible();
+  59  |     await this.green.click();
+  60  |     await this.page.waitForTimeout(2000);
+  61  | }
+  62  | 
+  63  | async clickingfinishFilter () {
+  64  |     console.log({ message: "Filtering by Finish...." });
+  65  |     await this.finish.click();
+  66  |     await expect(this.copper).toBeVisible();
+  67  |     await this.copper.click();
+  68  | }
+  69  | 
+  70  | async clearColorFilter () {
+  71  |     console.log({ message: "Clearing Color Filter...." });
+  72  |     //wait so it does not put up are you a robot prompt
+  73  |     await this.page.waitForTimeout(5000);
+  74  |     await this.page.mouse.click(0, 0);  
+  75  |     await this.greenPill.click();
+  76  | }
+  77  | 
+  78  | 
+  79  | async clearFinishFilter () {
+  80  |     console.log({ message: "Clearing Finish Filter...." });
+  81  |     await this.page.waitForTimeout(5000); // consider replacing with a proper wait condition later
+  82  |     await this.page.mouse.click(0, 0);
+  83  |     await this.clearFinish.first().click();
+  84  | }
+  85  | async clearAllFilter () {
+  86  |     console.log({ message: "Clearing All Filters...." });
+  87  |     await this.clearAll.click();
+  88  | }
+  89  | 
+  90  | async clickPagination () {
+  91  |     console.log({ message: "Clicking Pagination...." });
+> 92  |     await this.page2.click();
+      |                      ^ Error: locator.click: Target page, context or browser has been closed
+  93  |     expect(this.page.url()).toContain("page=2");
+  94  | }
+  95  | 
+  96  | async clickRightArrow () {
+  97  |     console.log({ message: "Clicking Right Arrow...." });
+  98  |     await this.rightArrow.click();
+  99  |     expect(this.page.url()).toContain("page=3");
+  100 | }
+  101 | async clickLeftArrow () {
+  102 |     console.log({ message: "Clicking Left Arrow...." });
+  103 |     await this.leftArrow.click();
+  104 |     expect(this.page.url()).toContain("page=2");
+  105 | }
+  106 | async clickPDP () {
+  107 |     console.log({ message: "Clicking PDP...." });
+  108 |     await this.page.waitForLoadState();
+  109 |     await this.pdpItem.click();
+  110 |     await this.page.waitForLoadState();
+  111 |     expect(this.page.url()).toContain("21-stackable-church-chair-with-arms-xu-dg-60156");
+  112 | }
+  113 | 
+  114 | 
+  115 | }
+```

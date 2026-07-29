@@ -1,0 +1,82 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: advantageChairs\AdvantagePDP.spec.ts >> AdvantagePDP Flow
+- Location: tests\advantageChairs\AdvantagePDP.spec.ts:7:5
+
+# Error details
+
+```
+Error: locator.click: Target page, context or browser has been closed
+Call log:
+  - waiting for locator('//button[@aria-label=\'Increment Quantity\']//*[name()=\'svg\']')
+    - locator resolved to <svg class="ra-icon">…</svg>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <form novalidate="" aria-live="polite" data-testid="klaviyo-form-SMG4ZK" class="needsclick klaviyo-form klaviyo-form-version-cid_1 go3279073480 kl-private-reset-css-Xuajs1">…</form> from <div>…</div> subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <form novalidate="" aria-live="polite" data-testid="klaviyo-form-SMG4ZK" class="needsclick klaviyo-form klaviyo-form-version-cid_1 go3279073480 kl-private-reset-css-Xuajs1">…</form> from <div>…</div> subtree intercepts pointer events
+  2 × retrying click action
+      - waiting 100ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div class="header__inner flex w-full justify-between items-center flex-col md:pt-5 max-md:!flex">…</div> from <div id="shopify-section-sections--23479412195618__header" class="shopify-section shopify-section-group-header-group">…</div> subtree intercepts pointer events
+  6 × retrying click action
+      - waiting 500ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <form novalidate="" aria-live="polite" data-testid="klaviyo-form-SMG4ZK" class="needsclick klaviyo-form klaviyo-form-version-cid_1 go3279073480 kl-private-reset-css-Xuajs1">…</form> from <div>…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 500ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <form novalidate="" aria-live="polite" data-testid="klaviyo-form-SMG4ZK" class="needsclick klaviyo-form klaviyo-form-version-cid_1 go3279073480 kl-private-reset-css-Xuajs1">…</form> from <div>…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 500ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div class="header__inner flex w-full justify-between items-center flex-col md:pt-5 max-md:!flex">…</div> from <div id="shopify-section-sections--23479412195618__header" class="shopify-section shopify-section-group-header-group">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 500ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div class="header__inner flex w-full justify-between items-center flex-col md:pt-5 max-md:!flex">…</div> from <div id="shopify-section-sections--23479412195618__header" class="shopify-section shopify-section-group-header-group">…</div> subtree intercepts pointer events
+  2 × retrying click action
+      - waiting 500ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <form novalidate="" aria-live="polite" data-testid="klaviyo-form-SMG4ZK" class="needsclick klaviyo-form klaviyo-form-version-cid_1 go3279073480 kl-private-reset-css-Xuajs1">…</form> from <div>…</div> subtree intercepts pointer events
+  - retrying click action
+    - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+
+```
+
+```
+Error: apiRequestContext._wrapApiCall: file data stream has unexpected number of bytes
+```
