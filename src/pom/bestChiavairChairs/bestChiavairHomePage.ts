@@ -2,7 +2,7 @@ import { expect, type Locator, type Page } from '@playwright/test';
 import { CommonUtil } from '../../commonUtil';
 import { STORE_URLS } from '../../config/urls';
 
-export class AdvantageHomePage {
+export class BestChiavairHomePage {
     readonly page: Page;
     readonly commonUtil: CommonUtil;
 
@@ -30,7 +30,7 @@ export class AdvantageHomePage {
 constructor(page: any) {
     this.page = page;
     this.commonUtil = new CommonUtil(page);
-    this.bannerContainer = page.locator('#shopify-section-sections--23479412195618__preheader');
+    this.bannerContainer = page.locator('#shopify-section-sections--21362195661088__preheader');
     this.shopAll = page.locator("//span[@title='Shop All']//a[normalize-space()='Shop All']");
     this.logo = page.locator("//img[@alt='Advantage Church Chairs Logo']");
     this.churchChairs = page.locator("//span[@title='Church Chairs']");
@@ -53,8 +53,8 @@ constructor(page: any) {
 
 
     async gotoHomePage() {
-        console.log({ message: `Clicking Home Page....`});
-        await this.page.goto(STORE_URLS.advantage);
+        console.log({ message: `Navigating to Home Page....`});
+        await this.page.goto(STORE_URLS.bestChiavari);
     }
 
     async clickLogo()   {
