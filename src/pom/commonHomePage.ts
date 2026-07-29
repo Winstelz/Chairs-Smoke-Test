@@ -1,11 +1,10 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 
-export class AdvantageAnnoucementBar {
+export class CommonHomePage {
     readonly page: Page;
     readonly bannerContainer: Locator;
     readonly rightArrow: Locator;
     readonly leftArrow: Locator;
-    readonly activeSlide: Locator;
     
 
 constructor(page: any) {
@@ -13,15 +12,14 @@ constructor(page: any) {
     this.bannerContainer = page.locator('#shopify-section-sections--23479412195618__preheader')
     this.rightArrow = page.locator("//div[@aria-label='Next slide']//span[1]");
     this.leftArrow = page.locator("//div[@aria-label='Previous slide']//span[1]");
-    this.activeSlide = this.bannerContainer.locator('.swiper-slide-active');
 
 }
-async clickBanner () {
+async clickBanner (container: Locator) {
     console.log({message: `Clicking Banner Arrows...`});
-
+    const activeSlide = container.locator('.swiper-slide-active');
    // Grab the active slide's index before clicking
   const getActiveIndex = async () => {
-    return await this.activeSlide.getAttribute('data-swiper-slide-index');
+    return await activeSlide.getAttribute('data-swiper-slide-index');
   };
 
   const index1 = await getActiveIndex();
@@ -50,4 +48,3 @@ async clickBanner () {
   await this.page.waitForTimeout(2000);
 }
 }
-

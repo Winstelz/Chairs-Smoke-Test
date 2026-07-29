@@ -1,24 +1,17 @@
 import { test, expect } from '@playwright/test';
+import { BestChiavairHomePage } from '../../src/pom/bestChiavairChairs/bestChiavairHomePage';
+import { CommonHomePage } from '../../src/pom/commonHomePage';
 
 
 
-test('AnnoucementBar', async ({ page }) => {
-    //Navigate to Best Chiavari site    
-        await page.goto('https://www.bestchiavarichairs.com/?_ab=0&_fd=0&_sc=1&preview_theme_id=161761132832');
+test('AnnoucementBar Flow', async ({ page }) => {
+    const homePage = new BestChiavairHomePage(page);
+    const commonHomePage = new CommonHomePage(page);
+
+//Navigate to Best Chiavari site    
+    await homePage.gotoHomePage();
 //Click through the Bar
-    const RightArrow = await page.locator("//div[@aria-label='Next slide']//span[1]");
-    const LeftArrow = await page.locator("//div[@aria-label='Previous slide']//span[1]");
-    await RightArrow.click();
-    await page.waitForTimeout(2000);
-    await RightArrow.click();
-    await page.waitForTimeout(2000);
-    await LeftArrow.click();
-    await page.waitForTimeout(2000);
-    await LeftArrow.click();
-    await page.waitForTimeout(2000);
-    await RightArrow.click();
-    await page.waitForTimeout(2000);
-
+    await commonHomePage.clickBanner(homePage.bannerContainer);
 
 
 
