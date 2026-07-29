@@ -1,5 +1,5 @@
 import  base, { test as baseTest, expect, type Page } from '@playwright/test';
-import { AdvantageHomePage } from '../../src/pom/AdvantageChairs/AdvantageHomePage';
+import { AdvantageHomePage } from '../../src/pom/advantageChairs/advantageHomePage';
 
 type PageObjects = {
   homePage: AdvantageHomePage;

@@ -1,9 +1,9 @@
 import { test as base } from '@playwright/test';
-import { AdvantageHomePage } from '../../src/pom/AdvantageChairs/AdvantageHomePage';
-import { AdvantagePLP } from '../../src/pom/AdvantageChairs/AdvantagePLP';
-import { AdvantagePDP } from '../../src/pom/AdvantageChairs/AdvantagePDP';
-import { AdvantageInlineCart } from '../../src/pom/AdvantageChairs/AdvantageInlineCart';
-import { AdvantageCart } from '../../src/pom/AdvantageChairs/AdvantageCart';
+import { AdvantageHomePage } from '../../src/pom/advantageChairs/advantageHomePage';
+import { AdvantagePLP } from '../../src/pom/advantageChairs/advantagePLP';
+import { AdvantagePDP } from '../../src/pom/advantageChairs/advantagePDP';
+import { AdvantageInlineCart } from '../../src/pom/advantageChairs/advantageInlineCart';
+import { AdvantageCart } from '../../src/pom/advantageChairs/advantageCart';
 
 type PageObjects = {
   homePage: AdvantageHomePage;
