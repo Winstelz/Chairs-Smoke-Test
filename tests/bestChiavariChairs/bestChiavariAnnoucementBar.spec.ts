@@ -1,11 +1,11 @@
 import { test, expect } from '@playwright/test';
-import { BestChiavairHomePage } from '../../src/pom/bestChiavairChairs/bestChiavairHomePage';
+import { BestChiavariHomePage } from '../../src/pom/bestChiavariChairs/bestChiavariHomePage';
 import { CommonHomePage } from '../../src/pom/commonHomePage';
 
 
 
 test('AnnoucementBar Flow', async ({ page }) => {
-    const homePage = new BestChiavairHomePage(page);
+    const homePage = new BestChiavariHomePage(page);
     const commonHomePage = new CommonHomePage(page);
 
 //Navigate to Best Chiavari site    
