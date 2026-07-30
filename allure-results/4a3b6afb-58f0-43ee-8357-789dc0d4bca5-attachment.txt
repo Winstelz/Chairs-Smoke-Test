@@ -1,8 +1,0 @@
-{ message: 'Clicking Home Page....' }
-{ message: 'Clicking Church Chairs....' }
-{ message: 'Sorting....' }
-{ message: 'Filtering by Colors....' }
-{ message: 'Filtering by Finish....' }
-{ message: 'Clearing Color Filter....' }
-{ message: 'Clearing Finish Filter....' }
-{ message: 'Clicking Pagination....' }

@@ -1,4 +1,0 @@
-{ message: 'Clicking Home Page....' }
-{ message: 'Hovering Church Chairs....' }
-{ message: 'Hovering Folding & Event....' }
-{ message: 'Hovering Classroom....' }

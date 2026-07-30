@@ -1,11 +1,13 @@
 import { test, expect } from '@playwright/test';
+import { BestChiavariHomePage } from '../../src/pom/bestChiavariChairs/bestChiavariHomePage';
 
 
 
 
 test('BestChiavariCart', async ({ page }) => {
+    const homePage = new BestChiavariHomePage(page);
     //Navigate to Best Chiavari site    
-        await page.goto('https://www.bestchiavarichairs.com/?_ab=0&_fd=0&_sc=1&preview_theme_id=161761132832');
+        await homePage.gotoHomePage();
     //Navigate to PLP
     const ShopAll = page.locator("//span[@title='Banquet Chairs']//a[normalize-space()='Banquet Chairs']");
     await ShopAll.click();

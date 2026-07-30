@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { BestChiavairHomePage } from '../../src/pom/bestChiavairChairs/bestChiavairHomePage';
+import { BestChiavairHomePage } from '../../src/pom/bestChiavariChairs/bestChiavariHomePage';
 import { CommonHomePage } from '../../src/pom/commonHomePage';
 
 

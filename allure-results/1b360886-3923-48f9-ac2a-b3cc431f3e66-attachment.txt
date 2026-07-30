@@ -1,8 +1,0 @@
-{ message: 'Clicking Home Page....' }
-{ message: 'Clicking Logo....' }
-{ message: 'Clicking Shop All....' }
-{ message: 'Clicking Church Chairs....' }
-{ message: 'Clicking Banquet Chairs....' }
-{ message: 'Clicking Folding & Event....' }
-{ message: 'Clicking Classroom....' }
-{ message: 'Clicking Office & Reception....' }

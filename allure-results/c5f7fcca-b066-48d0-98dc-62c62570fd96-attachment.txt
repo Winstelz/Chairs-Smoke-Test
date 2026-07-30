@@ -1,3 +1,0 @@
-{ message: 'Clicking Home Page....' }
-{ message: 'Clicking Search Icon....' }
-{ message: 'Searching for item: Cha....' }
