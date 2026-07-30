@@ -1,2 +1,0 @@
-{ message: 'Clicking Home Page....' }
-{ message: 'Clicking Account Icon....' }

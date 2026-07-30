@@ -1,6 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","37756","AdvantageInlineCart Flow","","2026-07-27","passed","2026-07-27","","advantageChairs\AdvantageInlineCart.spec.ts","",""
-"","4459","AdvantageHeaderIcons Search","","2026-07-24","passed","2026-07-24","","advantageChairs\AdvantageHeaderIcons.spec.ts","",""
-"","13917","AdvantageFooter WorkFlow","","2026-07-24","passed","2026-07-24","","advantageChairs\AdvantageFooter.spec.ts","",""
-"","6517","AdvantageHeaderIcons Cart","","2026-07-27","failed","2026-07-27","","advantageChairs\AdvantageHeaderIcons.spec.ts","",""
-"","7827","AdvantageHeaderIcons Account","","2026-07-24","passed","2026-07-24","","advantageChairs\AdvantageHeaderIcons.spec.ts","",""
