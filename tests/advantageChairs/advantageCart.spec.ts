@@ -4,6 +4,7 @@ import { AdvantagePLP }from '../../src/pom/advantageChairs/advantagePLP';
 import { AdvantagePDP } from '../../src/pom/advantageChairs/advantagePDP';
 import { AdvantageInlineCart } from '../../src/pom/advantageChairs/advantageInlineCart';
 import { AdvantageCart } from '../../src/pom/advantageChairs/advantageCart';
+import { CommonUtil } from '../../src/commonUtil';
 
 
 
@@ -15,6 +16,7 @@ test('Advantage Cart WorkFlow', async ({ page }) => {
     const pdp = new AdvantagePDP(page)
     const inlineCart = new AdvantageInlineCart(page)
     const cart = new AdvantageCart(page)
+    const commonUtil = new CommonUtil(page)
 //Navigate to Advantage site    
     await homePage.gotoHomePage();
 //Await for Pop Up and Close
@@ -25,20 +27,20 @@ test('Advantage Cart WorkFlow', async ({ page }) => {
     await plp.firstItem.click();
 //Add Item to Cart
     await pdp.clickAddToCart();
-//Verify Product is in Cart
+//Assert Product is in Cart
     await inlineCart.assertProduct();
 //Click Cart Page
-    await cart.clickCart(); 
+    await commonUtil.clickViewCart();
 //click anywhere to remove nav bar from blocking the QTY buttons
     await page.mouse.click(0, 0);          
 //Increase QTY
-    await cart.increaseQTY();
+    await commonUtil.clickQtyIncrease
 //Decrease QTY
-    await cart.decreaseQTY();
+    await commonUtil.clickQtyDecrease();
 //Input QTY
-    await cart.inputQTY();
+    await commonUtil.InputQtyInput();
 //You May Also Like Carousel Clicking
-    await cart.clickYouMayLike();
+    await commonUtil.clickThroughYouMayAlsoLikeArrows();
 //Calculate Shipping
     await cart.clickCalculateShipping();
 //Close Teaser
