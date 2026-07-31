@@ -60,7 +60,7 @@ async selectColorFilter(){
     await this.page.waitForTimeout(2000);
 }
 
-async clickingfinishFilter () {
+async clickingFinishFilter () {
     console.log({ message: "Filtering by Finish...." });
     await this.finish.click();
     await expect(this.copper).toBeVisible();

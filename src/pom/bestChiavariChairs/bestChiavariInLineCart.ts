@@ -20,8 +20,8 @@ export class BestChiavariInlineCart {
 
     constructor(page: any) {
         this.page = page;
-        //this.cartPage = new AdvantageCart(page);
-        this.product = page.locator("//a[contains(text(),'Advantage X-Back Chair')]");
+
+        this.product = page.locator('.cart-product-tile__title', { hasText: 'Advantage X-Back Chair' });
         this.rightArrow = page.locator("//button[@aria-label='Next slide']//span[@class='ra-icon ra-icon--sm']//*[name()='svg']");
         this.leftArrow = page.locator("//button[@aria-label='Previous slide']//span[@class='ra-icon ra-icon--sm']//*[name()='svg']");
         this.plus = page.locator("//span[@class='ra-icon']//*[name()='svg']");

@@ -5,10 +5,7 @@ import { CommonUtil } from '../../src/commonUtil';
 import { BestChiavariInlineCart } from '../../src/pom/bestChiavariChairs/bestChiavariInLineCart';
 
 
-
-
-
-test('BestChiavariCart', async ({ page }) => {
+test('BestChiavari Cart Flow', async ({ page }) => {
     const homePage = new BestChiavariHomePage(page);
     const plp = new BestChiavariPLP(page);
     const commonUtil = new CommonUtil(page);
@@ -17,7 +14,7 @@ test('BestChiavariCart', async ({ page }) => {
 //Navigate to Best Chiavari site    
     await homePage.gotoHomePage();
 //Await for Pop Up and Close
-    await homePage.popUpClose(); 
+    //await homePage.popUpClose(); 
 //Navigate to PLP
     await homePage.clickCrossBackChairs();
 //Click First Item
@@ -29,28 +26,32 @@ test('BestChiavariCart', async ({ page }) => {
 //Click Cart Page
     await commonUtil.clickViewCart();
 //click anywhere to remove nav bar from blocking the QTY buttons
-    await page.mouse.click(0, 0);          
+    await page.mouse.click(0, 0);   
+//Close Teaser
+    await commonUtil.clickCloseTeaser();         
 //Increase QTY
     await commonUtil.clickQtyIncrease();
 //Decrease QTY
     await commonUtil.clickQtyDecrease();
 //Input QTY
     await commonUtil.InputQtyInput();
+//Await for Pop Up and Close
+    await homePage.popUpClose();     
 //You May Also Like Carousel Clicking
     await commonUtil.clickThroughYouMayAlsoLikeArrows();
-/*//Calculate Shipping   WORKIng ON UPDATING WITH COMMONUTIL
-    await cart.clickCalculateShipping();
+//Calculate Shipping
+    await commonUtil.clickCalculateShipping();
 //Close Teaser
-    await cart.closeTeaser();    
+    //await commonUtil.clickCloseTeaser();    
 //Click Checkout
-    await cart.clickCheckout();
+    await commonUtil.clickCheckout();
 //Click Checkout Logo
-    await cart.clickCheckoutLogo();
+    await commonUtil.clickCheckoutLogo('bestChiavari');
 //Click Cart Page
-    await cart.goToCart();
+    await commonUtil.goToCart('bestChiavari');
 //Delete Item from Inline Cart
-    await cart.clickTrashIcon();
-    await cart.assertEmptyCart();
+    await commonUtil.clickTrashIcon();
+    await commonUtil.assertEmptyCart();
 //Assert can click empty link and good to that page
-    await cart.clickShopAllEmptyLink();*/
+    await commonUtil.clickEmptyCartLink(commonUtil.shopAllTables, 'collections/banquet-cocktail-and-dining-tables');
 });

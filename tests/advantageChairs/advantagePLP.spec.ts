@@ -13,14 +13,14 @@ test('AdvantagePLP Flow', async ({ page }) => {
     await homePage.gotoHomePage() 
 //Click Church Chairs Menu
     await homePage.clickChurchChairs();
+//Remove popUp if shown
+    await homePage.popUpClose(); 
 //Click Sort button Price low to high
     await plp.selectSorting();
 //Click Color Family -> Green
     await plp.selectColorFilter();
 //Click Finish -> Copper Vein Metal
-    await plp.clickingfinishFilter();
-//Remove popUp is shown
-    await homePage.popUpClose();    
+    await plp.clickingFinishFilter();   
 //Clear Filter Pills
     await plp.clearColorFilter();
     await plp.clearFinishFilter();
