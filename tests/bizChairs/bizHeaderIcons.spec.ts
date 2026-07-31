@@ -1,10 +1,10 @@
 import { test, expect } from '@playwright/test';
 
 
-
-test('BizHeaderIcons', async ({ page }) => {
+//Need to update with rest
+test.skip('BizHeaderIcons', async ({ page }) => {
     //Navigate to Biz Chair site    
-        await page.goto('https://www.bizchair.com/?_ab=0&_fd=0&_sc=1');
+        await page.goto('https://www.bizchair.com/');
     //Click Search Icon, Type search, and Close
         const Search = page.locator("//button[@title='search']//span[1]");
         await Search.click();

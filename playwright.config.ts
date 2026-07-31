@@ -7,6 +7,7 @@ export default defineConfig({
   expect: {
     timeout: 5000,
   },
+  maxFailures: 3, // abort after 3rd failure
   use: {
     headless: process.env.CI ? true : false,
     screenshot: 'only-on-failure',

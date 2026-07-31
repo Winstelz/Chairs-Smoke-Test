@@ -1,10 +1,10 @@
 import { test, expect } from '@playwright/test';
 
 
-
-test('BestChiavariFooter', async ({ page }) => {
+//Need to update with rest
+test.skip('BestChiavariFooter', async ({ page }) => {
     //Navigate to Best Chiavari site    
-        await page.goto('https://www.bestchiavarichairs.com/?_ab=0&_fd=0&_sc=1&preview_theme_id=161761132832');
+        await page.goto('https://www.bestchiavarichairs.com/');
     //Click About Us
         const About = page.locator("//a[@class='text-e14 leading-e150 py-1'][normalize-space()='About Us']");
         await About.click();

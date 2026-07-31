@@ -1,10 +1,10 @@
 import { test, expect } from '@playwright/test';
-import { BizChairHomePage }from '../../src/pom/BizChairHomePage';
+import { BizChairsHomePage } from '../../src/pom/bizChairs/bizChairsHomePage';
 
 
 test('BizHomePageHeader', async ({ page }) => {
 
-    const HomePage = new BizChairHomePage(page)
+    const HomePage = new BizChairsHomePage(page)
 
 //Navigate to BizChair site    
     await HomePage.gotoHomePage();
