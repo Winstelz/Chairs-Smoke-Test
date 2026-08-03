@@ -1,5 +1,5 @@
 import { expect, type Locator, type Page } from '@playwright/test';
-import { CommonUtil } from '../../commonUtil';
+import { CommonUtil } from '../commonUtil';
 import { STORE_URLS } from '../../config/urls';
 
 export class BestChiavariHomePage {

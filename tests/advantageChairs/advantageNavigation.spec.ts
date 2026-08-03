@@ -16,7 +16,7 @@ test.beforeEach(async ({ homePage }) => {
   await homePage.gotoHomePage();
 });
 
-test('AdvantageHomePageHeader Click Flow', async ({ homePage }) => {
+test('Advantage Home Page Navigation Click Flow', async ({ homePage }) => {
 //Click Logo and assert on homepage
     await homePage.clickLogo();
 //Click Shop All Menu
@@ -33,7 +33,7 @@ test('AdvantageHomePageHeader Click Flow', async ({ homePage }) => {
     await homePage.clickOfficeReception();
     
 });
-test('AdvantageHomePageHeader Hover Flow', async ({ homePage }) => {
+test('Advantage Home Page Navigation Hover Flow', async ({ homePage }) => {
 //Hover Church Chairs Menu & Click Church & Stack Chairs Dollies
     await homePage.hoverChurchChairs();
 //Hover Folding & Event Menu & Click Resin Folding Chairs

@@ -1,11 +1,9 @@
 import { expect, type Locator, type Page } from '@playwright/test';
-import { STORE_URLS } from './config/urls';
+import { STORE_URLS } from '../../config/urls';
 
-export class CommonUtil {
+export class CommonCart {
     readonly page: Page;
 
-    readonly closePopup: Locator;
-    readonly closeTeaser: Locator;
     readonly addToCartButton: Locator;
     readonly qtyIncrease: Locator;
     readonly qtyDecrease: Locator;
@@ -30,8 +28,6 @@ export class CommonUtil {
     constructor(page: any) {
         this.page = page;
 
-        this.closePopup = page.getByRole('button', { name: 'Close dialog' });
-        this.closeTeaser = page.locator('button[aria-label="Close teaser"], button:has(svg[aria-hidden="true"])').first();
         this.addToCartButton = page.locator("//button[normalize-space()='Add to Cart']");
         this.qtyIncrease = page.locator("(//button[@aria-label='Increment Quantity'])");
         this.qtyDecrease = page.locator("(//button[@aria-label='Decrement Quantity'])");

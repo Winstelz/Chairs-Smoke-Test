@@ -1,22 +1,20 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 import { AdvantageHomePage }from '../../src/pom/advantageChairs/advantageHomePage';
 import { AdvantagePLP }from '../../src/pom/advantageChairs/advantagePLP';
 import { AdvantagePDP } from '../../src/pom/advantageChairs/advantagePDP';
 import { AdvantageInlineCart } from '../../src/pom/advantageChairs/advantageInlineCart';
-import { AdvantageCart } from '../../src/pom/advantageChairs/advantageCart';
-import { CommonUtil } from '../../src/commonUtil';
+import { CommonCart } from '../../src/pom/commonPages/commonCart';
 
 
 
 
 test('Advantage Cart WorkFlow', async ({ page }) => {
 
-    const homePage = new AdvantageHomePage(page)
-    const plp = new AdvantagePLP(page)
-    const pdp = new AdvantagePDP(page)
-    const inlineCart = new AdvantageInlineCart(page)
-    const cart = new AdvantageCart(page)
-    const commonUtil = new CommonUtil(page)
+    const homePage = new AdvantageHomePage(page);
+    const plp = new AdvantagePLP(page);
+    const pdp = new AdvantagePDP(page);
+    const inlineCart = new AdvantageInlineCart(page);
+    const commonCart = new CommonCart(page);
 //Navigate to Advantage site    
     await homePage.gotoHomePage();
 //Await for Pop Up and Close
@@ -29,33 +27,33 @@ test('Advantage Cart WorkFlow', async ({ page }) => {
     await pdp.clickAddToCart();
 //Assert Product is in Cart
     await inlineCart.assertProduct();
-//Click Cart Page
-    await commonUtil.clickViewCart();
+//Click View Cart Page
+    await commonCart.clickViewCart();
 //click anywhere to remove nav bar from blocking the QTY buttons
     await page.mouse.click(0, 0);          
 //Increase QTY
-    await commonUtil.clickQtyIncrease
+    await commonCart.clickQtyIncrease();
 //Decrease QTY
-    await commonUtil.clickQtyDecrease();
+    await commonCart.clickQtyDecrease();
 //Input QTY
-    await commonUtil.InputQtyInput();
+    await commonCart.InputQtyInput;
 //You May Also Like Carousel Clicking
-    await commonUtil.clickThroughYouMayAlsoLikeArrows();
+    await commonCart.clickThroughYouMayAlsoLikeArrows();
 //Calculate Shipping
-    await cart.clickCalculateShipping();
+    await commonCart.clickCalculateShipping();
 //Close Teaser
-    await cart.closeTeaser();    
+    await commonCart.clickCloseTeaser();    
 //Click Checkout
-    await cart.clickCheckout();
+    await commonCart.clickCheckout();
 //Click Checkout Logo
-    await cart.clickCheckoutLogo();
+    await commonCart.clickCheckoutLogo("advantage");
 //Click Cart Page
-    await cart.goToCart();
+    await commonCart.goToCart("advantage");
 //Delete Item from Inline Cart
-    await cart.clickTrashIcon();
-    await cart.assertEmptyCart();
+    await commonCart.clickTrashIcon();
+    await commonCart.assertEmptyCart();
 //Assert can click empty link and good to that page
-    await cart.clickShopAllEmptyLink();
+    await commonCart.clickEmptyCartLink(commonCart.shopAllEmptyLink, 'collections/banquet-cocktail-and-dining-tables');
 
     
     
