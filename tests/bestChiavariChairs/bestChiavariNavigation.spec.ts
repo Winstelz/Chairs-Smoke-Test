@@ -16,7 +16,7 @@ test.beforeEach(async ({ homePage }) => {
   await homePage.gotoHomePage();
 });
 
-test('BestChiavari Click Flow', async ({ homePage }) => {
+test('Best Chiavari Navigation Click Flow', async ({ homePage }) => {
 //Click Logo and assert on homepage
     await homePage.clickLogo();
 //Click Chiavari Chairs Menu
@@ -35,7 +35,7 @@ test('BestChiavari Click Flow', async ({ homePage }) => {
     await homePage.clickDolliesCarts();    
     
 });
-test('BestChiavari Hover Flow', async ({ homePage }) => {
+test('Best Chiavari Navigation Hover Flow', async ({ homePage }) => {
 //Hover Chiavari Chairs Menu & Click Wood Chiavari Chairs
     await homePage.hoverChiavariChairs();
 //Hover Tables & Click Wood Folding Tables

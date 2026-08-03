@@ -1,19 +1,14 @@
 import { test, expect } from '@playwright/test';
-import { BestChiavariHomePage } from '../../src/pom/bestChiavariChairs/bestChiavariHomePage';
-import { CommonHomePage } from '../../src/pom/commonHomePage';
+import { AdvantageHomePage } from '../../src/pom/advantageChairs/advantageHomePage';
+import { CommonHomePage } from '../../src/pom/commonPages/commonHomePage';
 
 
 
 test('AnnoucementBar Flow', async ({ page }) => {
-    const homePage = new BestChiavariHomePage(page);
+    const homePage = new AdvantageHomePage(page)
     const commonHomePage = new CommonHomePage(page);
-
-//Navigate to Best Chiavari site    
+ //Navigate to Advantage site    
     await homePage.gotoHomePage();
 //Click through the Bar
     await commonHomePage.clickBanner(homePage.bannerContainer);
-
-
-
-
 });
