@@ -1,10 +1,15 @@
 import { expect, type Locator, type Page } from '@playwright/test';
+import { STORE_URLS } from '../../config/urls';
 
 export class CommonHomePage {
     readonly page: Page;
     readonly bannerContainer: Locator;
     readonly rightArrow: Locator;
     readonly leftArrow: Locator;
+    readonly searchIcon: Locator;
+    readonly searchInput: Locator;
+    readonly accountIcon: Locator;
+    readonly cartIcon: Locator;
     
 
 constructor(page: any) {
@@ -12,6 +17,10 @@ constructor(page: any) {
     this.bannerContainer = page.locator('#shopify-section-sections--23479412195618__preheader')
     this.rightArrow = page.locator("//div[@aria-label='Next slide']//span[1]");
     this.leftArrow = page.locator("//div[@aria-label='Previous slide']//span[1]");
+    this.searchIcon = page.getByRole('button', { name: 'search' });
+    this.searchInput = page.locator("//input[@id='autocomplete-0-input']");
+    this.accountIcon = page.getByRole('link', { name: 'account' });
+    this.cartIcon = page.getByRole('link', { name: 'cart' });
 
 }
 async clickBanner (container: Locator) {
@@ -46,5 +55,31 @@ async clickBanner (container: Locator) {
 
   await this.rightArrow.click();
   await this.page.waitForTimeout(2000);
+}
+
+
+async clickSearchIcon(url: keyof typeof STORE_URLS) {
+    console.log({ message: `Clicking Search Icon....`});
+    await this.searchIcon.click();
+    await this.page.waitForLoadState();
+    expect(this.page.url()).toContain(STORE_URLS[url] + '/search');
+}
+
+async searchForItem(item: string) {
+    console.log({ message: `Searching for item: ${item}....`});
+    await this.searchInput.fill(item);
+    await this.searchInput.press('Enter');
+    await this.page.waitForLoadState('load');
+}
+
+async clickAccountIcon() {
+    console.log({ message: `Clicking Account Icon....`});
+    await this.accountIcon.click();
+    await this.page.waitForURL(/shopify\.com/);
+}
+
+async clickCartIcon() {
+    console.log({ message: `Clicking Cart Icon....`});
+    await this.cartIcon.click();
 }
 }

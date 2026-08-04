@@ -1,36 +1,42 @@
 import { defineConfig } from '@playwright/test';
 
+const isCI = !!process.env.CI;
+
 export default defineConfig({
   testDir: './tests',
   timeout: 180000,
-  
-  // CRITICAL: Change 4 to 1. Chromebooks cannot handle 4 parallel browsers.
-  workers: 1, 
-  
+
+  // 1 worker locally on the Chromebook, more in CI where resources are plentiful
+  workers: isCI ? undefined : 1,
+
   expect: {
     timeout: 5000,
   },
-  maxFailures: 3, 
-  
+
+  // Only cap failures locally so a bad local run doesn't burn your Chromebook;
+  // let CI run everything so you get the full picture in Allure
+  maxFailures: isCI ? undefined : 3,
+
   use: {
-    // Keeps your original screenshot and trace settings
-    headless: process.env.CI ? true : false,
+    headless: isCI ? true : false,
     screenshot: 'only-on-failure',
     trace: 'retain-on-failure',
-    
-    // Injects the Chromebook performance flags into the browser launch step
-    launchOptions: {
-      args: [
-        '--disable-gpu',
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '--disable-dev-shm-usage', 
-        '--single-process',
-        '--js-flags="--max-old-space-size=512"'        
-      ],
-    },
+
+    // Chromebook-only performance flags — omitted entirely in CI
+    launchOptions: isCI
+      ? {}
+      : {
+          args: [
+            '--disable-gpu',
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--single-process',
+            '--js-flags=--max-old-space-size=512',
+          ],
+        },
   },
-  
+
   reporter: [
     ['list'],
     ['html', { outputFolder: 'playwright-report', open: 'never' }],

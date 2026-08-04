@@ -12,9 +12,7 @@ test('BestChiavari Cart Flow', async ({ page }) => {
     const inlineCart = new BestChiavariInlineCart(page);
 
 //Navigate to Best Chiavari site    
-    await homePage.gotoHomePage();
-//Await for Pop Up and Close
-    //await homePage.popUpClose(); 
+    await homePage.gotoHomePage(); 
 //Navigate to PLP
     await homePage.clickCrossBackChairs();
 //Click First Item
@@ -46,7 +44,7 @@ test('BestChiavari Cart Flow', async ({ page }) => {
 //Click Checkout
     await commonCart.clickCheckout();
 //Click Checkout Logo
-    await commonCart.clickCheckoutLogo('bestChiavari');
+    await commonCart.clickCheckoutLogo('bestChiavari', commonCart.chiavariLogo);
 //Click Cart Page
     await commonCart.goToCart('bestChiavari');
 //Delete Item from Inline Cart

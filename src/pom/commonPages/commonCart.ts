@@ -23,6 +23,8 @@ export class CommonCart {
     readonly emptyCartMessage: Locator; 
     readonly shopAllEmptyLink: Locator;
     readonly shopAllTables: Locator;
+    readonly advantageLogo: Locator;
+    readonly chiavariLogo: Locator;
 
 
     constructor(page: any) {
@@ -47,6 +49,8 @@ export class CommonCart {
         this.emptyCartMessage = page.locator('text=Your Cart Is Empty');
         this.shopAllEmptyLink = page.locator('a.ra-button.ra-button--primary.ra-button--lg').filter({ hasText: 'Shop All' });
         this.shopAllTables = page.locator('a.ra-button.ra-button--primary.ra-button--lg').filter({ hasText: 'Shop All Tables' });
+        this.advantageLogo = page.locator("//img[@alt='Advantage Church Chairs Logo']");
+        this.chiavariLogo = page.locator("//img[@alt='Best Chiavari Chairs Logo']");
     }
 
 async clickAddToCartButton() {
@@ -122,11 +126,11 @@ async clickCheckout () {
     await this.checkoutButton.click();
 }
 
-async clickCheckoutLogo (url: keyof typeof STORE_URLS) {
+async clickCheckoutLogo (url: keyof typeof STORE_URLS, logo: Locator) {
     console.log({ message: `Clicking Checkout Logo....`});
     // On Shopify checkout, logo should navigate back to store
     try {
-        const checkoutLogoLink = this.page.locator('a:has(img[alt="Advantage Church Chairs"])').first();
+        const checkoutLogoLink = this.logo.first();
         const attached = await checkoutLogoLink.count();
         if (attached > 0) {
             await checkoutLogoLink.scrollIntoViewIfNeeded();
