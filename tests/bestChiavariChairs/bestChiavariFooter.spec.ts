@@ -1,54 +1,73 @@
-import { test, expect } from '@playwright/test';
+import { test as base } from '@playwright/test';
+import { BestChiavariHomePage } from '../../src/pom/bestChiavariChairs/bestChiavariHomePage';
+import { CommonFooter } from '../../src/pom/commonPages/commonFooter';
 
+type PageObjects = {
+  homePage: BestChiavariHomePage;
+  commonFooter: CommonFooter;
+};
 
-//Need to update with rest
-test.skip('BestChiavariFooter', async ({ page }) => {
-    //Navigate to Best Chiavari site    
-        await page.goto('https://www.bestchiavarichairs.com/');
+export const test = base.extend<PageObjects>({
+  homePage: async ({ page }, use) => {
+    await use(new BestChiavariHomePage(page));
+  },
+  commonFooter: async ({ page }, use) => {
+    await use(new CommonFooter(page));
+  },
+
+});
+test.beforeEach(async ({ homePage }) => {
+  await homePage.gotoHomePage();
+});
+
+test('BestChiavari Information Footer', async ({ homePage, commonFooter }) => {
+    //Await for Pop Up and Close
+        await homePage.popUpClose();
     //Click About Us
-        const About = page.locator("//a[@class='text-e14 leading-e150 py-1'][normalize-space()='About Us']");
-        await About.click();
-        expect(page.url()).toContain("about-us");
+        await commonFooter.clickAboutUs();
+    //Click Delivery Information
+        await commonFooter.clickDeliveryInformation();
+    //Click Ordering Information
+        await commonFooter.clickOrderingInformation();
     //Click Payment Option
-        const Payment = page.locator("//a[@class='text-e14 leading-e150 py-1'][normalize-space()='Payment Options']");
-        await Payment.click();
-        expect(page.url()).toContain("payment-options");
-     //Click Shipping Information
-        const Shipping = page.locator("//a[@class='text-e14 leading-e150 py-1'][normalize-space()='Shipping Information']");
-        await Shipping.click();
-        expect(page.url()).toContain("shipping-information");
-     //Click Site Security
-        const SiteSecurity = page.locator("//a[normalize-space()='Site Security']").nth(0);
-        await SiteSecurity.click();
-        expect(page.url()).toContain("site-security");
+        await commonFooter.clickPaymentOption();
+    //Click Finance Options
+        await commonFooter.clickFinanceOptions();
+    //Click Shipping Information
+        await commonFooter.clickShippingInformation();
+    //Click Freight Charges
+        await commonFooter.clickFreightCharges();
+    //Click Returns Information
+        await commonFooter.clickReturnsInformation();
+    //Click Product Warranty
+        await commonFooter.clickProductWarranty();
+    //Click Contact Us
+        await commonFooter.clickContactUs();
+    });
+
+test('BestChiavari Terms Footer', async ({ homePage, commonFooter }) => {
+    //Await for Pop Up and Close
+        await homePage.popUpClose();
+    //Click Site Security
+        await commonFooter.clickSiteSecurity();
     //Click Privacy Policy
-        const Privacy = page.locator("//a[normalize-space()='Privacy Policy']");
-        await Privacy.click();
-        expect(page.url()).toContain("privacy-policy");
+        await commonFooter.clickPrivacyPolicy();
     //Click CA Privacy
-        const CAPrivacy = page.locator("//a[normalize-space()='California Privacy Rights']");
-        await CAPrivacy.click();
-        expect(page.url()).toContain("privacy-policy");
+        await commonFooter.clickCAPrivacyPolicy();
+    //Click Do Not Sell or Share
+        await commonFooter.clickDoNotSellOrShare();
+    //Click US Privacy
+        await commonFooter.clickUSPrivacy();
+    //Click PIPEDA
+        await commonFooter.clickPIPEDA();
+    //Click GDPR
+        await commonFooter.clickGDPR();
     //Click Terms of Use
-        const TermsOU = page.locator("//a[normalize-space()='Terms of Use']");
-        await TermsOU.click();
-        expect(page.url()).toContain("terms-of-use");
+        await commonFooter.clickTermsOfUse();
     //Click Terms of Sale
-        const TermsOS = page.locator("//a[normalize-space()='Terms of Sale']");
-        await TermsOS.click();
-        expect(page.url()).toContain("terms-of-sale");
+        await commonFooter.clickTermsOfSale();
     //Click Accessibility Statement
-        const Access = page.locator("//a[normalize-space()='Accessibility Statement']");
-        await Access.click();
-        expect(page.url()).toContain("accessibility");
+        await commonFooter.clickAccessibilityStatement();
     //Click Site Map
-        const Sitemap = page.locator("//a[normalize-space()='Sitemap']");
-        await Sitemap.click();
-        expect(page.url()).toContain("sitemap");
-    
-     
-
-
-
-
+        await commonFooter.clickSiteMap();
     });

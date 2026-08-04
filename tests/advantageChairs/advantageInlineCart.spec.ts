@@ -4,6 +4,8 @@ import { AdvantagePLP } from '../../src/pom/advantageChairs/advantagePLP';
 import { AdvantagePDP } from '../../src/pom/advantageChairs/advantagePDP';
 import { AdvantageInlineCart } from '../../src/pom/advantageChairs/advantageInlineCart';
 import { AdvantageCart } from '../../src/pom/advantageChairs/advantageCart';
+import { CommonCart } from '../../src/pom/commonPages/commonCart';
+import { CommonHomePage } from '../../src/pom/commonPages/commonHomePage';
 
 type PageObjects = {
   homePage: AdvantageHomePage;
@@ -11,6 +13,8 @@ type PageObjects = {
   pdp: AdvantagePDP;
   inlineCart: AdvantageInlineCart;
   cart: AdvantageCart;
+  commonCart: CommonCart;
+  commonHomePage: CommonHomePage;
 };
 
 export const test = base.extend<PageObjects>({
@@ -28,10 +32,16 @@ export const test = base.extend<PageObjects>({
   },
   cart: async ({ page }, use) => {
     await use(new AdvantageCart(page));
+  },
+  commonCart: async ({ page }, use) => {
+    await use(new CommonCart(page));
+  },
+  commonHomePage: async ({ page }, use) => {
+    await use(new CommonHomePage(page));
   }
 });
 
-test('AdvantageInlineCart Flow', async ({ cart, homePage, plp, pdp, inlineCart }) => {
+test('AdvantageInlineCart Flow', async ({ commonCart, commonHomePage, homePage, plp, pdp, inlineCart }) => {
 //Navigate to Home Page    
   await homePage.gotoHomePage();
 //Click Shop All  
@@ -52,13 +62,13 @@ test('AdvantageInlineCart Flow', async ({ cart, homePage, plp, pdp, inlineCart }
 //Navigate through You May Liek Carousel  
   await inlineCart.youMayLikeCarousel();
 //Calculate Shipping
-  await cart.clickCalculateShipping();
+  await commonCart.clickCalculateShipping();
 //Checkout
-  await cart.clickCheckout();
+  await commonCart.clickCheckout();
 //Click Checkout Logo to Navigate Back to Home Page
-  await cart.clickCheckoutLogo();
+  await commonCart.clickCheckoutLogo('advantage', commonCart.advantageLogo);
 //Click Cart to Navigate Back to Cart Page
-  await homePage.clickCartIcon();
+  await commonHomePage.clickCartIcon();
 //Assert on Cart Inline Page
   await inlineCart.cartHeader.isVisible();  
 //Delete Item from Cart      

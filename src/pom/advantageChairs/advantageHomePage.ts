@@ -21,10 +21,7 @@ export class AdvantageHomePage {
     readonly classroom: Locator;
     readonly office: Locator;
     readonly popUp: Locator;
-    readonly searchIcon: Locator;
-    readonly searchInput: Locator;
-    readonly accountIcon: Locator;
-    readonly cartIcon: Locator;
+
 
 
 constructor(page: any) {
@@ -45,10 +42,7 @@ constructor(page: any) {
     this.classroom = page.locator("//span[@title='Classroom']//a[normalize-space()='Classroom']");
     this.office = page.locator("//span[@title='Office & Reception']//a[normalize-space()='Office & Reception']");
     this.popUp = page.locator('form[data-testid="klaviyo-form-SMG4ZK"]').getByPlaceholder('Email');
-    this.searchIcon = page.getByRole('button', { name: 'search' });
-    this.searchInput = page.locator("//input[@id='autocomplete-0-input']");
-    this.accountIcon = page.getByRole('link', { name: 'account' });
-    this.cartIcon = page.getByRole('link', { name: 'cart' });
+
 }  
 
 
@@ -172,28 +166,5 @@ constructor(page: any) {
     }
 }
 
-async clickSearchIcon() {
-    console.log({ message: `Clicking Search Icon....`});
-    await this.searchIcon.click();
-    await this.page.waitForLoadState();
-    expect(this.page.url()).toContain(STORE_URLS.advantage);
-}
 
-async searchForItem(item: string) {
-    console.log({ message: `Searching for item: ${item}....`});
-    await this.searchInput.fill(item);
-    await this.searchInput.press('Enter');
-    await this.page.waitForLoadState('load');
-}
-
-async clickAccountIcon() {
-    console.log({ message: `Clicking Account Icon....`});
-    await this.accountIcon.click();
-    await this.page.waitForURL(/shopify\.com/);
-}
-
-async clickCartIcon() {
-    console.log({ message: `Clicking Cart Icon....`});
-    await this.cartIcon.click();
-}
 }

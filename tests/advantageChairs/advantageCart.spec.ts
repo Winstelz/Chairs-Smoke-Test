@@ -46,14 +46,14 @@ test('Advantage Cart WorkFlow', async ({ page }) => {
 //Click Checkout
     await commonCart.clickCheckout();
 //Click Checkout Logo
-    await commonCart.clickCheckoutLogo("advantage");
+    await commonCart.clickCheckoutLogo("advantage", commonCart.advantageLogo);
 //Click Cart Page
     await commonCart.goToCart("advantage");
 //Delete Item from Inline Cart
     await commonCart.clickTrashIcon();
     await commonCart.assertEmptyCart();
 //Assert can click empty link and good to that page
-    await commonCart.clickEmptyCartLink(commonCart.shopAllEmptyLink, 'collections/banquet-cocktail-and-dining-tables');
+    await commonCart.clickEmptyCartLink(commonCart.shopAllEmptyLink, '/collections/shop-all');
 
     
     
