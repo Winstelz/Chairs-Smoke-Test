@@ -3,7 +3,6 @@ import { AdvantageHomePage } from '../../src/pom/advantageChairs/advantageHomePa
 import { AdvantagePLP } from '../../src/pom/advantageChairs/advantagePLP';
 import { AdvantagePDP } from '../../src/pom/advantageChairs/advantagePDP';
 import { AdvantageInlineCart } from '../../src/pom/advantageChairs/advantageInlineCart';
-import { AdvantageCart } from '../../src/pom/advantageChairs/advantageCart';
 import { CommonCart } from '../../src/pom/commonPages/commonCart';
 import { CommonHomePage } from '../../src/pom/commonPages/commonHomePage';
 
@@ -12,7 +11,6 @@ type PageObjects = {
   plp: AdvantagePLP;
   pdp: AdvantagePDP;
   inlineCart: AdvantageInlineCart;
-  cart: AdvantageCart;
   commonCart: CommonCart;
   commonHomePage: CommonHomePage;
 };
@@ -29,9 +27,6 @@ export const test = base.extend<PageObjects>({
   },
   inlineCart: async ({ page }, use) => {
     await use(new AdvantageInlineCart(page));
-  },
-  cart: async ({ page }, use) => {
-    await use(new AdvantageCart(page));
   },
   commonCart: async ({ page }, use) => {
     await use(new CommonCart(page));
