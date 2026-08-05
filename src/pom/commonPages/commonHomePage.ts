@@ -3,7 +3,6 @@ import { STORE_URLS } from '../../config/urls';
 
 export class CommonHomePage {
     readonly page: Page;
-    readonly bannerContainer: Locator;
     readonly rightArrow: Locator;
     readonly leftArrow: Locator;
     readonly searchIcon: Locator;
@@ -14,13 +13,12 @@ export class CommonHomePage {
 
 constructor(page: any) {
     this.page = page;
-    this.bannerContainer = page.locator('#shopify-section-sections--23479412195618__preheader')
     this.rightArrow = page.locator("//div[@aria-label='Next slide']//span[1]");
     this.leftArrow = page.locator("//div[@aria-label='Previous slide']//span[1]");
     this.searchIcon = page.getByRole('button', { name: 'search' });
     this.searchInput = page.locator("//input[@id='autocomplete-0-input']");
     this.accountIcon = page.getByRole('link', { name: 'account' });
-    this.cartIcon = page.getByRole('link', { name: 'cart' });
+    this.cartIcon = page.getByRole('link', { name: 'cart', exact: true });
 
 }
 async clickBanner (container: Locator) {
@@ -58,18 +56,18 @@ async clickBanner (container: Locator) {
 }
 
 
-async clickSearchIcon(url: keyof typeof STORE_URLS) {
+async clickSearchIcon() {
     console.log({ message: `Clicking Search Icon....`});
     await this.searchIcon.click();
     await this.page.waitForLoadState();
-    expect(this.page.url()).toContain(STORE_URLS[url] + '/search');
 }
 
-async searchForItem(item: string) {
+async searchForItem(item: string, url: keyof typeof STORE_URLS) {
     console.log({ message: `Searching for item: ${item}....`});
     await this.searchInput.fill(item);
     await this.searchInput.press('Enter');
     await this.page.waitForLoadState('load');
+     expect(this.page.url()).toContain(STORE_URLS[url] + '/search');
 }
 
 async clickAccountIcon() {
