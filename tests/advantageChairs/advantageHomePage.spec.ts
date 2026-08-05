@@ -1,19 +1,20 @@
-import { test, expect } from '@playwright/test';
-import { AdvantageHomePage } from '../../src/pom/advantageChairs/advantageHomePage';
+import { test as base, expect } from '@playwright/test';
 import { CommonHomePage } from '../../src/pom/commonPages/commonHomePage';
 import { CommonInlineCart } from '../../src/pom/commonPages/commonInlineCart';
+import { CommonCart } from '../../src/pom/commonPages/commonCart';
+import { AdvantageHomePage } from '../../src/pom/advantageChairs/advantageHomePage';
 
 type PageObjects = {
-  homePage: BestChiavariHomePage;
   commonHomePage: CommonHomePage;
   commonCart: CommonCart;
-  commonInlineCart: CommonInlineCart
+  commonInlineCart: CommonInlineCart;
+  homePage: AdvantageHomePage
 
 };
 
 export const test = base.extend<PageObjects>({
   homePage: async ({ page }, use) => {
-    await use(new BestChiavariHomePage(page));
+    await use(new AdvantageHomePage(page));
   },
   commonHomePage: async ({ page }, use) => {
     await use(new CommonHomePage(page));
@@ -24,15 +25,16 @@ export const test = base.extend<PageObjects>({
   commonCart: async ({ page }, use) => {
     await use(new CommonCart(page));
   },
-}),
+});
+
 test.beforeEach(async ({ homePage }) => {
   await homePage.gotoHomePage();
 });
 
 
-test('AnnoucementBar Flow', async ({ commonHomePage }) => {
-//Click through the Bar
-    await commonHomePage.clickBanner(homePage.bannerContainer);
+test('AnnoucementBar Flow', async ({ commonHomePage, homePage }) => {
+  // Click through the Bar
+  await commonHomePage.clickBanner(homePage.bannerContainer);
 });
 test('Advantage Header Icons Search', async ({ commonHomePage, homePage }) => {
   // Click Search Icon, type search, and submit
@@ -49,11 +51,11 @@ test('Advantage Header Icons Account', async ({ commonHomePage, homePage }) => {
   // Assert land on the Shopify auth page
   await expect(homePage.page).toHaveURL(/shopify\.com/);
 });
-test('Advantage Header Icons Cart', async ({ commonHomePage, commonInlineCart }) => {
+test('Advantage Header Icons Cart', async ({ commonHomePage, commonInlineCart, commonCart }) => {
     // Click Inline Cart
     await commonHomePage.clickCartIcon();
     // Assert land on the Cart page
     await commonInlineCart.assertEmptyCartHeader();
-    // CLick and Assert Empty Cart Link
+    // Click and Assert Empty Cart Link
     await commonCart.clickEmptyCartLink(commonCart.shopAllEmptyLink, 'collections/shop-all');
 });

@@ -3,7 +3,6 @@ import { STORE_URLS } from '../../config/urls';
 
 export class CommonHomePage {
     readonly page: Page;
-    readonly bannerContainer: Locator;
     readonly rightArrow: Locator;
     readonly leftArrow: Locator;
     readonly searchIcon: Locator;
@@ -14,7 +13,6 @@ export class CommonHomePage {
 
 constructor(page: any) {
     this.page = page;
-    this.bannerContainer = page.locator('#shopify-section-sections--23479412195618__preheader')
     this.rightArrow = page.locator("//div[@aria-label='Next slide']//span[1]");
     this.leftArrow = page.locator("//div[@aria-label='Previous slide']//span[1]");
     this.searchIcon = page.getByRole('button', { name: 'search' });
