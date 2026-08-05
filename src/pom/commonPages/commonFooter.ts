@@ -138,7 +138,7 @@ async clickCaliforniaPrivacyRights () {
 async clickDoNotSellOrShare () {
     console.log({ message: `Clicking Do Not Sell or Share....`});
     await this.doNotSellOrShare.click();
-    await expect(this.page.url()).toContain("do-not-sell-or-share");
+    await expect(this.page.url()).toContain("do-not-sell-or-share-my-personal-information");
 }
 
 async clickUSPrivacy () {
@@ -150,7 +150,7 @@ async clickUSPrivacy () {
 async clickPIPEDA () {
     console.log({ message: `Clicking PIPEDA....`});
     await this.pipeda.click();
-    await expect(this.page.url()).toContain("pipeda");
+    await expect(this.page.url()).toContain("canadian-laws-compliance");
 }
 
 async clickGDPR () {
