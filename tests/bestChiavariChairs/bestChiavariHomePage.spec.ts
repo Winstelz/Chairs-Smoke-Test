@@ -39,22 +39,22 @@ test('AnnoucementBar Flow', async ({ commonHomePage, homePage }) => {
     await commonHomePage.clickBanner(homePage.bannerContainer);
 });
 
-test('BestChiavari HeaderIcons Search', async ({ commonHomePage, homePage }) => {
+test('BestChiavari Icons Search', async ({ commonHomePage, homePage }) => {
   // Click Search Icon, type search, and submit
-  await commonHomePage.clickSearchIcon('bestChiavari');
-  await commonHomePage.searchForItem('Cha');
+  await commonHomePage.clickSearchIcon();
+  await commonHomePage.searchForItem('Cha', 'bestChiavari');
   //Assert land on correct page
   await expect(homePage.page).toHaveURL(/.*search/);
 });
 
-test('AdvantageHeaderIcons Account', async ({ commonHomePage, homePage }) => {
+test('BestChiavari Icons Account', async ({ commonHomePage, homePage }) => {
   // Click Account Icon and wait for the auth flow to start
   await commonHomePage.clickAccountIcon();
   // Assert land on the Shopify auth page
   await expect(homePage.page).toHaveURL(/shopify\.com/);
 });
 
-test('AdvantageHeaderIcons Cart', async ({ commonCart, commonHomePage, commonInlineCart }) => {
+test('BestChiavari Icons Cart', async ({ commonCart, commonHomePage, commonInlineCart }) => {
     // Click Inline Cart
     await commonHomePage.clickCartIcon();
     // Assert land on the Cart page

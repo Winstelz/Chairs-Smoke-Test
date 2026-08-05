@@ -38,8 +38,8 @@ test('AnnoucementBar Flow', async ({ commonHomePage, homePage }) => {
 });
 test('Advantage Header Icons Search', async ({ commonHomePage, homePage }) => {
   // Click Search Icon, type search, and submit
-  await commonHomePage.clickSearchIcon('advantage');
-  await commonHomePage.searchForItem('Cha');
+  await commonHomePage.clickSearchIcon();
+  await commonHomePage.searchForItem('Cha', 'advantage');
   //Assert land on correct page
   await expect(homePage.page).toHaveURL(/.*search/);
 });

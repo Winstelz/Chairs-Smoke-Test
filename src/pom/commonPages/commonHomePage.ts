@@ -18,7 +18,7 @@ constructor(page: any) {
     this.searchIcon = page.getByRole('button', { name: 'search' });
     this.searchInput = page.locator("//input[@id='autocomplete-0-input']");
     this.accountIcon = page.getByRole('link', { name: 'account' });
-    this.cartIcon = page.getByRole('link', { name: 'cart' });
+    this.cartIcon = page.getByRole('link', { name: 'cart', exact: true });
 
 }
 async clickBanner (container: Locator) {
@@ -56,18 +56,18 @@ async clickBanner (container: Locator) {
 }
 
 
-async clickSearchIcon(url: keyof typeof STORE_URLS) {
+async clickSearchIcon() {
     console.log({ message: `Clicking Search Icon....`});
     await this.searchIcon.click();
     await this.page.waitForLoadState();
-    expect(this.page.url()).toContain(STORE_URLS[url] + '/search');
 }
 
-async searchForItem(item: string) {
+async searchForItem(item: string, url: keyof typeof STORE_URLS) {
     console.log({ message: `Searching for item: ${item}....`});
     await this.searchInput.fill(item);
     await this.searchInput.press('Enter');
     await this.page.waitForLoadState('load');
+     expect(this.page.url()).toContain(STORE_URLS[url] + '/search');
 }
 
 async clickAccountIcon() {
