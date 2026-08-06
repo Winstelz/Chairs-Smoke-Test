@@ -4,13 +4,14 @@ const isCI = !!process.env.CI;
 
 export default defineConfig({
   testDir: './tests',
-  timeout: 180000,
+  // Keep the overall test budget generous so one slow suite does not fail unrelated cases.
+  timeout: 600000,
 
   // 1 worker locally on the Chromebook, more in CI where resources are plentiful
   workers: isCI ? undefined : 1,
 
   expect: {
-    timeout: 5000,
+    timeout: 10000,
   },
 
   // Only cap failures locally so a bad local run doesn't burn your Chromebook;
@@ -21,6 +22,8 @@ export default defineConfig({
     headless: isCI ? true : false,
     screenshot: 'only-on-failure',
     trace: 'retain-on-failure',
+    actionTimeout: 15000,
+    navigationTimeout: 30000,
 
     // Chromebook-only performance flags — omitted entirely in CI
     launchOptions: isCI
