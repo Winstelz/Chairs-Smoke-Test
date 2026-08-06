@@ -57,7 +57,7 @@ test('BestChiavari nlineCart', async ({ inlineCart, commonCart, commonHomePage, 
 //Decrease QTY
     await commonCart.clickQtyDecrease(commonInlineCart.qtyDecrease);
 //Input QTY
-    await commonCart.InputQtyInput();
+    await commonCart.InputQtyInput(commonInlineCart.qty);
 //Await for Pop Up and Close
     await homePage.popUpClose(); 
 //Calculate Shipping
