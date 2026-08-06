@@ -1,16 +1,38 @@
-import { test, expect } from '@playwright/test';
+import { test as base} from '@playwright/test';
 import { BestChiavariHomePage } from '../../src/pom/bestChiavariChairs/bestChiavariHomePage';
 import { BestChiavariPLP } from '../../src/pom/bestChiavariChairs/bestChiavariPLP';
 import { CommonCart } from '../../src/pom/commonPages/commonCart';
 import { BestChiavariInlineCart } from '../../src/pom/bestChiavariChairs/bestChiavariInLineCart';
+import { CommonInlineCart } from '../../src/pom/commonPages/commonInlineCart';
+
+type PageObjects = {
+  homePage: BestChiavariHomePage;
+  plp: BestChiavariPLP;
+  commonCart: CommonCart;
+  inlineCart: BestChiavariInlineCart;
+  commonInlineCart: CommonInlineCart;
+};
+
+export const test = base.extend<PageObjects>({
+  homePage: async ({ page }, use) => {
+    await use(new BestChiavariHomePage(page));
+  },
+ plp: async ({ page }, use) => {
+    await use(new BestChiavariPLP(page));
+  },
+  commonCart: async ({ page }, use) => {
+    await use(new CommonCart(page));
+  },
+  inlineCart: async ({ page }, use) => {
+    await use(new BestChiavariInlineCart(page));
+  },
+  commonInlineCart: async ({ page }, use) => {
+    await use(new CommonInlineCart(page));
+  },
+});
 
 
-test('BestChiavari Cart Flow', async ({ page }) => {
-    const homePage = new BestChiavariHomePage(page);
-    const plp = new BestChiavariPLP(page);
-    const commonCart = new CommonCart(page);
-    const inlineCart = new BestChiavariInlineCart(page);
-
+test('BestChiavari Cart Flow', async ({ commonCart, commonInlineCart, homePage, inlineCart, page, plp }) => {
 //Navigate to Best Chiavari site    
     await homePage.gotoHomePage(); 
 //Navigate to PLP
@@ -20,7 +42,7 @@ test('BestChiavari Cart Flow', async ({ page }) => {
 //Add Item to Cart
     await commonCart.clickAddToCartButton();
 //Assert Product is in Cart
-    await inlineCart.assertProduct();
+   await commonInlineCart.assertProduct(inlineCart.product, "Advantage X-Back Chair");
 //Click Cart Page
     await commonCart.clickViewCart();
 //click anywhere to remove nav bar from blocking the QTY buttons
@@ -28,28 +50,26 @@ test('BestChiavari Cart Flow', async ({ page }) => {
 //Close Teaser
     await commonCart.clickCloseTeaser();         
 //Increase QTY
-    await commonCart.clickQtyIncrease();
+    await commonCart.clickQtyIncrease(commonInlineCart.qtyIncrease);
 //Decrease QTY
-    await commonCart.clickQtyDecrease();
+    await commonCart.clickQtyDecrease(commonInlineCart.qtyDecrease);
 //Input QTY
-    await commonCart.InputQtyInput();
+    await commonCart.InputQtyInput(commonCart.qtyInput);
 //Await for Pop Up and Close
     await homePage.popUpClose();     
 //You May Also Like Carousel Clicking
     await commonCart.clickThroughYouMayAlsoLikeArrows();
 //Calculate Shipping
-    await commonCart.clickCalculateShipping();
-//Close Teaser
-    //await commonUtil.clickCloseTeaser();    
+    await commonCart.clickCalculateShipping(); 
 //Click Checkout
     await commonCart.clickCheckout();
 //Click Checkout Logo
     await commonCart.clickCheckoutLogo('bestChiavari', commonCart.chiavariLogo);
 //Click Cart Page
     await commonCart.goToCart('bestChiavari');
-//Delete Item from Inline Cart
+//Delete Item from Cart
     await commonCart.clickTrashIcon();
     await commonCart.assertEmptyCart();
-//Assert can click empty link and good to that page
+//Assert can click empty link and go to that page
     await commonCart.clickEmptyCartLink(commonCart.shopAllTables, 'collections/banquet-cocktail-and-dining-tables');
 });

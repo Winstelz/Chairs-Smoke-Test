@@ -58,32 +58,32 @@ async clickAddToCartButton() {
         await this.addToCartButton.click();
     }
 
-async clickQtyIncrease () {
+async clickQtyIncrease (qtyLocator: Locator) {
         console.log({ message: `Increasing Quantity in Cart....`});
-        await this.qtyIncrease.click();
+        await qtyLocator.click();
         await this.page.waitForTimeout(1000);
-        await this.qtyIncrease.click();
+        await qtyLocator.click();
         await this.page.waitForTimeout(1000);
-        await this.qtyIncrease.click();
+        await qtyLocator.click();
         await this.page.waitForTimeout(1000);
-        await this.qtyIncrease.click();
-        await this.page.waitForTimeout(2000);
+        await qtyLocator.click();
+        await this.page.waitForTimeout(1000);
         await expect(this.qtyInput).toHaveValue("5");
 }
-async clickQtyDecrease () {
+async clickQtyDecrease (qtyLocator: Locator) {
         console.log({ message: `Decreasing Quantity in Cart....`});
-        await this.qtyDecrease.click();
+        await qtyLocator.click();
         await this.page.waitForTimeout(1000);
-        await this.qtyDecrease.click();
+        await qtyLocator.click();
         await this.page.waitForTimeout(2000);
         await expect(this.qtyInput).toHaveValue("3");
 }
-async InputQtyInput () {
+async InputQtyInput (inputLocator: Locator) {
 console.log({ message: `Inputting Quantity in Cart....`});
-        await this.qtyInput.click();
-        await this.qtyInput.fill("10");
+        await inputLocator.click();
+        await inputLocator.fill("10");
         await this.page.waitForTimeout(2000);
-        await expect(this.qtyInput).toHaveValue("10");
+        await expect(inputLocator).toHaveValue("10");
 }
 
 async clickViewCart (){

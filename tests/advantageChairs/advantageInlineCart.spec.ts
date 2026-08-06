@@ -5,6 +5,7 @@ import { AdvantagePDP } from '../../src/pom/advantageChairs/advantagePDP';
 import { AdvantageInlineCart } from '../../src/pom/advantageChairs/advantageInlineCart';
 import { CommonCart } from '../../src/pom/commonPages/commonCart';
 import { CommonHomePage } from '../../src/pom/commonPages/commonHomePage';
+import { CommonInlineCart } from '../../src/pom/commonPages/commonInlineCart';
 
 type PageObjects = {
   homePage: AdvantageHomePage;
@@ -13,6 +14,7 @@ type PageObjects = {
   inlineCart: AdvantageInlineCart;
   commonCart: CommonCart;
   commonHomePage: CommonHomePage;
+  commonInlineCart: CommonInlineCart;
 };
 
 export const test = base.extend<PageObjects>({
@@ -33,10 +35,13 @@ export const test = base.extend<PageObjects>({
   },
   commonHomePage: async ({ page }, use) => {
     await use(new CommonHomePage(page));
-  }
+  },
+  commonInlineCart: async ({ page }, use) => {
+    await use(new CommonInlineCart(page));
+  },
 });
 
-test('AdvantageInlineCart Flow', async ({ commonCart, commonHomePage, homePage, plp, pdp, inlineCart }) => {
+test('Advantage InlineCart Flow', async ({ commonCart, commonHomePage, commonInlineCart, homePage, plp, pdp, inlineCart }) => {
 //Navigate to Home Page    
   await homePage.gotoHomePage();
 //Click Shop All  
@@ -46,28 +51,28 @@ test('AdvantageInlineCart Flow', async ({ commonCart, commonHomePage, homePage, 
 //Click Add to Cart on PDP  
   await pdp.clickAddToCart();
 //Assert Product in Cart
-  await inlineCart.assertProduct();
+  await commonInlineCart.assertProduct(inlineCart.product, "Advantage Multipurpose Church Chairs - 18.5 in. Wide");
 //await cart popup
   await homePage.popUpClose(); 
 //Increase and Decrease Quantity in Cart  
-  await inlineCart.qtyIncrease();
-  await inlineCart.qtyDecrease();
+  await commonCart.clickQtyIncrease(commonInlineCart.qtyIncrease);
+  await commonCart.clickQtyDecrease(commonInlineCart.qtyDecrease);
 //Input Quantity in Cart  
-  await inlineCart.qtyInput();
+  await commonCart.InputQtyInput(commonInlineCart.qty);
 //Navigate through You May Liek Carousel  
-  await inlineCart.youMayLikeCarousel();
+  await commonCart.clickThroughYouMayAlsoLikeArrows();
 //Calculate Shipping
   await commonCart.clickCalculateShipping();
 //Checkout
   await commonCart.clickCheckout();
 //Click Checkout Logo to Navigate Back to Home Page
   await commonCart.clickCheckoutLogo('advantage', commonCart.advantageLogo);
-//Click Cart to Navigate Back to Cart Page
-  await commonHomePage.clickCartIcon();
-//Assert on Cart Inline Page
-  await inlineCart.cartHeader.isVisible();  
-//Delete Item from Cart      
-  await inlineCart.deleteItem();
-//Click Empty Cart Link
-  await inlineCart.clickInlineCartEmptyLink();
+//Navigate to Inline Cart
+    await commonHomePage.clickCartIcon();
+//Delete Item from Inline Cart
+    await commonCart.clickTrashIcon();
+    await commonCart.assertEmptyCart();
+//Assert can click empty link and go to that page
+    await commonCart.clickEmptyCartLink(commonCart.shopAllEmptyLink, 'collections/banquet-cocktail-and-dining-tables');
+
 });
