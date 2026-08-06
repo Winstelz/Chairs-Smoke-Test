@@ -42,7 +42,7 @@ test.beforeEach(async ({ homePage }) => {
   await homePage.gotoHomePage();
 });
 
-test('BestChiavari nlineCart', async ({ inlineCart, commonCart, commonHomePage, commonInlineCart, homePage, plp }) => {
+test('BestChiavari InlineCart', async ({ inlineCart, commonCart, commonHomePage, commonInlineCart, homePage, plp }) => {
 //Navigate to PLP
     await homePage.clickCrossBackChairs();
 //Click First Item
