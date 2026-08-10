@@ -56,7 +56,8 @@ test('BestChiavari Cart Flow', async ({ commonCart, commonInlineCart, homePage, 
 //Input QTY
     await commonCart.InputQtyInput(commonCart.qtyInput);
 //Await for Pop Up and Close
-    await homePage.popUpClose();     
+    await homePage.popUpClose();
+    await commonCart.clickCloseTeaser();     
 //You May Also Like Carousel Clicking
     await commonCart.clickThroughYouMayAlsoLikeArrows();
 //Calculate Shipping
