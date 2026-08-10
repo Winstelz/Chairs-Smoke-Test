@@ -14,8 +14,8 @@ export class CommonInlineCart {
     this.emptyHeader = page.locator('h3', {hasText: /Your cart is empty/i });
     this.qtyIncrease = page.locator("#inline_cart_container").getByRole("button", { name: "Increment Quantity" });
     this.qtyDecrease = page.locator("#inline_cart_container").getByRole("button", { name: "Decrement Quantity" });
-    this.qty = page.locator("(//input[@type='number'])[2]");
-    
+    this.qty = page.locator("#inline_cart_container").getByRole("spinbutton");
+
 }
 
 async assertEmptyCartHeader() {

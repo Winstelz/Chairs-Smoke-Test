@@ -31,9 +31,9 @@ export class CommonCart {
         this.page = page;
 
         this.addToCartButton = page.locator("//button[normalize-space()='Add to Cart']");
-        this.qtyIncrease = page.locator("#ra-main-product").getByRole("button", { name: "Increment Quantity" });
-        this.qtyDecrease = page.locator("#ra-main-product").getByRole("button", { name: "Decrement Quantity" });
-        this.qtyInput = page.locator("(//input[@type='number'])");
+        this.qtyIncrease = page.getByRole("button", { name: "Increment Quantity" }).first();
+        this.qtyDecrease = page.getByRole("button", { name: "Decrement Quantity" }).first();
+        this.qtyInput = page.getByRole("spinbutton").first();
         this.viewCartButton = page.getByRole('link', { name: 'View Cart' });
         this.youMayAlsoLikeRightArrow = page.locator("//button[@aria-label='Next slide']//span[@class='ra-icon ra-icon--sm']//*[name()='svg']");
         this.youMayAlsoLikeLeftArrow = page.locator("//button[@aria-label='Previous slide']//span[@class='ra-icon ra-icon--sm']//*[name()='svg']");
