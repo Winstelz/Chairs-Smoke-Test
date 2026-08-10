@@ -38,7 +38,7 @@ test('BestChiavari Information Footer', async ({ homePage, commonFooter }) => {
     //Click Freight Charges
         await commonFooter.clickFreightCharges();
     //Click Returns Information
-        await commonFooter.clickReturnsInformation();
+        await commonFooter.clickReturnsInformation(commonFooter.returnsInformations);
     //Click Product Warranty
         await commonFooter.clickProductWarranty();
     //Click Contact Us

@@ -1,10 +1,12 @@
 import { test as base } from '@playwright/test';
 import { AdvantageHomePage } from '../../src/pom/advantageChairs/advantageHomePage';
 import { CommonFooter } from '../../src/pom/commonPages/commonFooter';
+import { AdvantageFooter } from '../../src/pom/advantageChairs/advantageFooter';
 
 type PageObjects = {
   homePage: AdvantageHomePage;
   commonFooter: CommonFooter;
+  footer: AdvantageFooter;
 };
 
 export const test = base.extend<PageObjects>({
@@ -14,6 +16,9 @@ export const test = base.extend<PageObjects>({
   commonFooter: async ({ page }, use) => {
     await use(new CommonFooter(page));
   },
+  footer: async ({ page }, use) => {
+    await use(new AdvantageFooter(page));
+  },
 
 });
 
@@ -21,7 +26,7 @@ test.beforeEach(async ({ homePage }) => {
   await homePage.gotoHomePage();
 });
 
-test('Advantage Information Footer', async ({ homePage, commonFooter }) => {
+test('Advantage Information Footer', async ({ footer, homePage, commonFooter }) => {
     //Await for Pop Up and Close
         await homePage.popUpClose();
     //Click About Us
@@ -39,7 +44,7 @@ test('Advantage Information Footer', async ({ homePage, commonFooter }) => {
     //Click Freight Charges
         await commonFooter.clickFreightCharges();
     //Click Returns Information
-        await commonFooter.clickReturnsInformation();
+        await commonFooter.clickReturnsInformation(footer.returnsInformations);
     //Click Product Warranty
         await commonFooter.clickProductWarranty();
     //Click Contact Us

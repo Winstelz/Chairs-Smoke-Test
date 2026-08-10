@@ -94,10 +94,10 @@ async clickFreightCharges () {
     await expect(this.page.url()).toContain("freight-charges");
 }
 
-async clickReturnsInformation () {
+async clickReturnsInformation(text: Locator) {
     console.log({ message: `Clicking Return Information....`});
-    await this.returnsInformations.click();
-    await expect(this.page.url()).toContain("returns-information");
+    await text.click();
+    await expect(this.page.url()).toContain(`returns-information`);
 }
 
 async clickProductWarranty () {
