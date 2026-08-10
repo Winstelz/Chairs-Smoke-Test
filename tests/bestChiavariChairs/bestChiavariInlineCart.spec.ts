@@ -53,11 +53,11 @@ test('BestChiavari InlineCart', async ({ inlineCart, commonCart, commonHomePage,
 //Assert Product is in Cart
     await commonInlineCart.assertProduct(inlineCart.product, "Advantage X-Back Chair");
 //Increase QTY
-    await commonCart.clickQtyIncrease(commonInlineCart.qtyIncrease);
+    await commonCart.clickQtyIncrease(commonCart.qtyIncrease);
 //Decrease QTY
-    await commonCart.clickQtyDecrease(commonInlineCart.qtyDecrease);
+    await commonCart.clickQtyDecrease(commonCart.qtyDecrease);
 //Input QTY
-    await commonCart.InputQtyInput(commonInlineCart.qty);
+    await commonCart.InputQtyInput(commonCart.qtyInput);
 //Await for Pop Up and Close
     await homePage.popUpClose(); 
 //Calculate Shipping

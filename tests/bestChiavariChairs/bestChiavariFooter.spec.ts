@@ -59,7 +59,7 @@ test('BestChiavari Terms Footer', async ({ homePage, commonFooter }) => {
     //Click US Privacy
         await commonFooter.clickUSPrivacy();
     //Click PIPEDA
-        await commonFooter.clickPIPEDA();
+        await commonFooter.clickPIPEDA('canadian-laws-compliance');
     //Click GDPR
         await commonFooter.clickGDPR();
     //Click Terms of Use

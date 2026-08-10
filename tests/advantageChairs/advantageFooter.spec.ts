@@ -64,7 +64,7 @@ test('Advantage Term Footer', async ({ commonFooter }) => {
     //Click US Privacy
         await commonFooter.clickUSPrivacy();
     //Click PIPEDA
-        await commonFooter.clickPIPEDA();
+        await commonFooter.clickPIPEDA(`canadian-privacy-rights-pipeda-quebec-law-25`);
     //Click GDPR
         await commonFooter.clickGDPR();
     //Click Terms of Use
