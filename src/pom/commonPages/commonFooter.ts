@@ -35,7 +35,7 @@ constructor(page: any) {
     this.financeOptions = page.locator("//a[@class='text-e14 leading-e150 py-1'][normalize-space()='Finance Options']");
     this.shippingInformation = page.locator("//a[@class='text-e14 leading-e150 py-1'][normalize-space()='Shipping Information']");
     this.freightCharges = page.locator("//a[@class='text-e14 leading-e150 py-1'][normalize-space()='Freight Charges']");
-    this.returnsInformations = page.locator("//a[@class='text-e14 leading-e150 py-1'][normalize-space()='Return Information']");
+    this.returnsInformations = page.locator("//a[@class='text-e14 leading-e150 py-1'][normalize-space()='Returns Information']");
     this.productWarranty = page.locator("//a[@class='text-e14 leading-e150 py-1'][normalize-space()='Product Warranty']");
     this.contactUs = page.locator("//a[@class='text-e14 leading-e150 py-1'][normalize-space()='Contact Us']");
     
@@ -94,10 +94,10 @@ async clickFreightCharges () {
     await expect(this.page.url()).toContain("freight-charges");
 }
 
-async clickReturnsInformation () {
+async clickReturnsInformation(text: Locator) {
     console.log({ message: `Clicking Return Information....`});
-    await this.returnsInformations.click();
-    await expect(this.page.url()).toContain("returns-information");
+    await text.click();
+    await expect(this.page.url()).toContain(`returns-information`);
 }
 
 async clickProductWarranty () {
@@ -147,10 +147,10 @@ async clickUSPrivacy () {
     await expect(this.page.url()).toContain("us-privacy");
 }
 
-async clickPIPEDA () {
+async clickPIPEDA (site: string) {
     console.log({ message: `Clicking PIPEDA....`});
     await this.pipeda.click();
-    await expect(this.page.url()).toContain("canadian-laws-compliance");
+    await expect(this.page.url()).toContain(site);
 }
 
 async clickGDPR () {
