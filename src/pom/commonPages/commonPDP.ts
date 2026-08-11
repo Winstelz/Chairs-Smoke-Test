@@ -33,9 +33,9 @@ export class CommonPDP {
         this.sort = page.locator('[role="combobox"][aria-controls^="bv-reviews-sort-by"]');
         this.lowToHighSort = page.getByRole('option', { name: 'Lowest to Highest Rating' });
         this.mostRecentSort = page.getByRole('option', { name: 'Most Recent' });
-        this.rightArrow = page.getByRole('button', { name: 'Next Reviews' });
+        this.rightArrow = page.getByRole('button', { name: /Next\s+Reviews/ });
         this.reviewNumber = page.getByText(/\d+\s*–\s*\d+\s*of\s*\d+\s*Reviews/).first();
-        this.leftArrow = page.getByRole('button', { name: 'Previous Reviews' });
+        this.leftArrow = page.getByRole('button', { name: /Previous\s+Reviews/ });
         this.qtyIncrement = page.getByRole('button', { name: 'Increment Quantity' });
         this.qty = page.locator("//input[@type='number']");
         this.qtyDecrement = page.getByRole('button', { name: 'Decrement Quantity' });
