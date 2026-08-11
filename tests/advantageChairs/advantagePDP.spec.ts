@@ -1,46 +1,61 @@
-import { test, expect } from '@playwright/test';
+import { test as base } from '@playwright/test';
 import { AdvantageHomePage } from '../../src/pom/advantageChairs/advantageHomePage';
 import { AdvantagePLP } from '../../src/pom/advantageChairs/advantagePLP';
-import { AdvantagePDP } from '../../src/pom/advantageChairs/advantagePDP';
+import { CommonPDP } from '../../src/pom/commonPages/commonPDP';
 
+type PageObjects = {
+  homePage: AdvantageHomePage;
+  plp: AdvantagePLP;
+  commonPDP: CommonPDP;
+};
 
-test('AdvantagePDP Flow', async ({ page }) => {
+export const test = base.extend<PageObjects>({
+  homePage: async ({ page }, use) => {
+    await use(new AdvantageHomePage(page));
+  },
+  plp: async ({ page }, use) => {
+    await use(new AdvantagePLP(page));
+  },
+  commonPDP: async ({ page }, use) => {
+    await use(new CommonPDP(page));
+  },
+});
 
-    const homePage = new AdvantageHomePage(page)
-    const plp = new AdvantagePLP(page)
-    const pdp = new AdvantagePDP(page)
-    //Navigate to Advantage site    
-        await homePage.gotoHomePage();
+test.beforeEach(async ({ homePage }) => {
+  await homePage.gotoHomePage();
+});
+
+test('AdvantagePDP Flow', async ({ commonPDP, homePage, plp }) => {
     //Navigate to PLP
         await homePage.clickShopAll();
     //Click First Item
         await plp.firstItem.click();
     //Click Description
-        await pdp.clickDescription();
+        await commonPDP.clickDescription("The Molded Foam Multipurpose Church Chair - 18.5 in. Wide provides a durable seating solution for your fellowship hall or convention center. This comfortably padded stack chair not only satisfies seating in Churches, but work well in hotel lobbies, banquet halls and conference facilities.");
     // Verify PDP Header
-        await pdp.assertPDPHeader();
+        await commonPDP.assertPDPHeader("Advantage Multipurpose Church Chairs - 18.5 in. Wide");
     // Verify PDP Price
-        await pdp.assertPDPPrice();  
+        await commonPDP.assertPDPPrice("$49.36");  
     //Click Review Stars    
-        await pdp.clickReviewStars();
+        await commonPDP.clickReviewStars();
     //Click New Review
-        await pdp.clickNewReview();
-        await pdp.clickCloseReview();
+        await commonPDP.clickNewReview();
+        await commonPDP.clickCloseReview();
     //Sort Reviews 
-        await pdp.sortFilter();
+        await commonPDP.sortFilter();
     //Review Pagination Rigth
-        await pdp.rightArrowPagniation();
-        await pdp.assertReviewNumber1();
+        await commonPDP.rightArrowPagniation();
+        await commonPDP.assertReviewNumber1();
     //Review Pagination left
-        await pdp.leftArrowPagniation();
-        await pdp.assertReviewNumber2();
+        await commonPDP.leftArrowPagniation();
+        await commonPDP.assertReviewNumber2();
     //remove popUp if shown
         await homePage.popUpClose();    
     //Qty Increase
-        await pdp.qtyIncrease();  
+        await commonPDP.qtyIncrease();  
     //Qty Decrease
-        await pdp.qtyDecrease();       
+        await commonPDP.qtyDecrease();       
     //Add Item to Cart
-        await pdp.clickAddToCart();
+        await commonPDP.clickAddToCart();
 
 });

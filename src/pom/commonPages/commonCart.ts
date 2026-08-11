@@ -35,8 +35,8 @@ export class CommonCart {
         this.qtyDecrease = page.getByRole("button", { name: "Decrement Quantity" }).first();
         this.qtyInput = page.getByRole("spinbutton").first();
         this.viewCartButton = page.getByRole('link', { name: 'View Cart' });
-        this.youMayAlsoLikeRightArrow = this.youMayAlsoLikeRightArrow = this.youMayAlsoLikeRightArrow = page.locator('button[aria-label="Next slide"]').first();
-        this.youMayAlsoLikeLeftArrow = this.youMayAlsoLikeRightArrow = page.locator('button[aria-label="Previous slide"]').first();;
+        this.youMayAlsoLikeRightArrow = page.locator('button[aria-label="Next slide"]').first();
+        this.youMayAlsoLikeLeftArrow = page.locator('button[aria-label="Previous slide"]').first();
         this.zip = page.locator("//input[@placeholder='Enter Zip or Postal Code']");
         this.address = page.locator("//select[@name='addressType']");
         this.calculateShipping = page.locator("//span[@class='ra-icon']//*[name()='svg']");
