@@ -25,7 +25,7 @@ export class CommonPDP {
         this.page = page;
         this.description = page.locator("//button[normalize-space()='Description']");
         this.descrContent = page.locator("//div[@id='content-description']");
-        this.pdpHeader = page.locator('[data-testid="product-header"]').getByRole('heading', { level: 1 });
+        this.pdpHeader = page.getByRole('heading', { level: 1 });
         this.pdpPrice = page.locator("//div[@class='h3 flex-col items-end hidden md:flex']//div[@class='h3 text-tertiary-900']");
         this.reviewStars = page.locator("//div[@class='bv_stars_component_container']//*[name()='svg']").nth(0);
         this.newReview = page.locator("div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(5) > div:nth-child(1) > svg:nth-child(1)");
