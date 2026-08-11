@@ -1,6 +1,6 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 
-export class AdvantagePDP {
+export class CommonPDP {
     readonly page: Page;
     readonly description: Locator;
     readonly descrContent: Locator;
@@ -15,9 +15,9 @@ export class AdvantagePDP {
     readonly rightArrow: Locator;
     readonly reviewNumber: Locator;
     readonly leftArrow: Locator;
-    readonly qtyInc: Locator;
+    readonly qtyIncrement: Locator;
     readonly qty: Locator;
-    readonly qtyDec: Locator;
+    readonly qtyDecrement: Locator;
     readonly addToCart: Locator;
     readonly cart: Locator;
 
@@ -36,28 +36,29 @@ export class AdvantagePDP {
         this.rightArrow = page.getByRole('button', { name: 'Next Reviews' });
         this.reviewNumber = page.getByText(/\d+\s*–\s*\d+\s*of\s*\d+\s*Reviews/).first();
         this.leftArrow = page.getByRole('button', { name: 'Previous Reviews' });
-        this.qtyInc = page.locator("//button[@aria-label='Increment Quantity']//*[name()='svg']");
+        this.qtyIncrement = page.getByRole('button', { name: 'Increment Quantity' });
         this.qty = page.locator("//input[@type='number']");
-        this.qtyDec = page.locator("//button[@aria-label='Decrement Quantity']//*[name()='svg']");
+        this.qtyDecrement = page.getByRole('button', { name: 'Decrement Quantity' });
         this.addToCart = page.locator("//button[normalize-space()='Add to Cart']");
         this.cart = page.locator("//span[@class='mr-2 font-light text-white text-e19 leading-120']");
     
     }
 
 
-async clickDescription () {
+async clickDescription (text: string) {
     console.log({ message: `Clicking Description` });
     await this.description.click();
-    expect(this.descrContent).toContainText("The Molded Foam Multipurpose Church Chair - 18.5 in. Wide provides a durable seating solution for your fellowship hall or convention center. This comfortably padded stack chair not only satisfies seating in Churches, but work well in hotel lobbies, banquet halls and conference facilities.");
-}
-async assertPDPHeader () {
-    console.log({ message: `Asserting PDP Header` });
-    expect(this.pdpHeader).toContainText("Advantage Multipurpose Church Chairs - 18.5 in. Wide");
+    expect(this.descrContent).toContainText(text);
 }
 
-async assertPDPPrice () {
+async assertPDPHeader (text: string) {
+    console.log({ message: `Asserting PDP Header` });
+    expect(this.pdpHeader).toContainText(text);
+}
+
+async assertPDPPrice (price: string) {
     console.log({ message: `Asserting PDP Price` });
-    expect(this.pdpPrice).toContainText("$49.36");   
+    expect(this.pdpPrice).toContainText(price);   
 }
 
 async clickReviewStars () {
@@ -74,6 +75,7 @@ async clickCloseReview () {
     console.log({ message: `Close Review` });
     await this.closeReview.click();
 }
+
 
 async sortFilter() {
     console.log({ message: `Selecting Sort Filter` });
@@ -95,7 +97,7 @@ async leftArrowPagniation () {
     await this.leftArrow.click();
     await this.page.waitForTimeout(3000);
 }
-    
+
 async assertReviewNumber1 () {
     console.log({ message: `Asserting Review Number Page 1` });
     await expect(this.reviewNumber).toContainText("9 – 26");
@@ -106,19 +108,20 @@ async assertReviewNumber2 () {
     await this.page.waitForTimeout(3000);
     await expect(this.reviewNumber).toContainText("1 – 8");
 }
+
 async qtyIncrease () {
     console.log({ message: `Increasing QTY` });
-    await this.qtyInc.click();
-    await this.qtyInc.click();
-    await this.qtyInc.click();
+    await this.qtyIncrement.click();
+    await this.qtyIncrement.click();
+    await this.qtyIncrement.click();
     expect(this.qty).toHaveValue('4');
 }
 
 async qtyDecrease () {
     console.log({ message: `Decreasing QTY` });
-    await this.qtyDec.click();
-    await this.qtyDec.click();
-    await this.qtyDec.click();
+    await this.qtyDecrement.click();
+    await this.qtyDecrement.click();
+    await this.qtyDecrement.click();
     expect(this.qty).toHaveValue('1');
 }
 
@@ -127,5 +130,4 @@ async clickAddToCart () {
     await this.addToCart.click();
     await this.cart.click();
 }
-
 }
