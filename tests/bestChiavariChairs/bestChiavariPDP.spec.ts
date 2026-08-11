@@ -30,7 +30,7 @@ test('Best Chiavari PDP', async ({ commonPDP, homePage, plp }) => {
     //Click First Item
         await plp.clickBanquetFirstItem();
     //Click Description
-        await commonPDP.clickDescription("TMake an impressive presentation in your banquet hall when clients come to visit your facility with these ballroom chairs. Built for the commercial industry these popular crown back banquet chairs have been tested to hold up to 500 pounds. With a high seating capacity these stack chairs are perfect for the event rental business.");
+        await commonPDP.clickDescription("Make an impressive presentation in your banquet hall when clients come to visit your facility with these ballroom chairs. Built for the commercial industry these popular crown back banquet chairs have been tested to hold up to 500 pounds. With a high seating capacity these stack chairs are perfect for the event rental business.");
     //Assert PDP Header
         await commonPDP.assertPDPHeader("HERCULES Series Crown Back Stacking Banquet Chair");
     //Assert PDP Price
