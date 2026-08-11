@@ -42,9 +42,13 @@ test('Best Chiavari PDP', async ({ commonPDP, homePage, plp }) => {
         await commonPDP.clickCloseReview();
     //Sort Reviews 
         await commonPDP.sortFilter();
-    //Review Pagination Rigth
+    //remove popUp if shown
+        await homePage.popUpClose();
+    //Review Pagination Right
         await commonPDP.rightArrowPagniation();
         await commonPDP.assertReviewNumber1();
+    //remove popUp if shown
+        await homePage.popUpClose();
     //Review Pagination left
         await commonPDP.leftArrowPagniation();
         await commonPDP.assertReviewNumber2();
