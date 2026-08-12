@@ -92,8 +92,8 @@ async clearAllFilter () {
 
 async clickPagination () {
     console.log({ message: "Clicking Pagination...." });
-    await this.page2.scrollIntoViewIfNeeded();
-    await this.page2.waitFor({ state: 'visible' });
+    await this.page.evaluate(() => window.scrollTo({ top: document.body.scrollHeight }));
+    await this.page2.waitFor({ state: 'visible', timeout: 30000 });
     await this.page2.click();
     expect(this.page.url()).toContain("page=2");
 }
