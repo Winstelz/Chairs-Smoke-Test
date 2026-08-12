@@ -13,7 +13,7 @@ export class BestChiavariPLP {
 
     this.crossBackFirstItem = page.locator("//img[@alt='Advantage X-Back Chair - View 2']");
     this.banquetFirstItem = page.locator("//img[@alt='HERCULES Series Crown Back Stacking Banquet Chair - View 2']");
-    this.firstItem = page.locator("//a[contains(text(),'HERCULES Series Trapezoidal Back Stacking Banquet Chair with 1.5 ')]");
+    this.firstItem = page.locator("//a[contains(text(),/HERCULES Series Trapezoidal Back Stacking Banquet Chair with 1.5/i)]");
     this.pdpItem = page.getByRole('img', { name: /HERCULES Series Crown Back Stacking Banquet Chair - View 2/i })
 }
 
