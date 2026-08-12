@@ -90,12 +90,20 @@ async clearAllFilter () {
     await this.clearAll.click();
 }
 
-async clickPagination () {
-    console.log({ message: "Clicking Pagination...." });
-    await this.page.evaluate(() => window.scrollTo({ top: document.body.scrollHeight }));
-    await this.page2.waitFor({ state: 'visible', timeout: 30000 });
-    await this.page2.click();
-    expect(this.page.url()).toContain("page=2");
+async clickPagination() {
+  console.log({ message: "Clicking Pagination...." });
+
+  
+  // Trigger any lazy loading first
+  await this.page.waitForLoadState('networkidle');
+
+  // Scroll an element close to pagination into view
+  await this.page.evaluate(() => window.scrollBy(0, window.innerHeight));
+  await this.page2.scrollIntoViewIfNeeded();
+
+  await this.page2.waitFor({ state: 'visible', timeout: 30000 });
+  await this.page2.click();
+  await expect(this.page).toHaveURL(/page=2/);
 }
 
 async clickRightArrow () {
