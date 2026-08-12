@@ -1,70 +1,53 @@
-import { test, expect } from '@playwright/test';
+import { test as base } from '@playwright/test';
+import { BestChiavariHomePage } from '../../src/pom/bestChiavariChairs/bestChiavariHomePage';
+import { BestChiavariPLP } from '../../src/pom/bestChiavariChairs/bestChiavariPLP';
+import { CommonPDP } from '../../src/pom/commonPages/commonPDP';
+import { CommonPLP } from '../../src/pom/commonPages/commonPLP';
 
+type PageObjects = {
+  homePage: BestChiavariHomePage;
+  commonPDP: CommonPDP;
+  plp: BestChiavariPLP;
+  commonPLP: CommonPLP;
 
-//Need to update with rest
-test.skip('BestChiavariPLP', async ({ page }) => {
-    //Navigate to Best Chiavari site    
-        await page.goto('https://www.bestchiavarichairs.com/');
+};
+
+export const test = base.extend<PageObjects>({
+  homePage: async ({ page }, use) => {
+    await use(new BestChiavariHomePage(page));
+  },
+    commonPDP: async ({ page }, use) => {
+        await use(new CommonPDP(page));
+    },
+    plp: async ({ page }, use) => {
+        await use(new BestChiavariPLP(page));
+    },
+    commonPLP: async ({ page }, use) => {
+        await use(new CommonPLP(page));
+    },
+});
+
+test('BestChiavari PLP', async ({ commonPLP, homePage, plp }) => {
+//Navigate to Best Chiavari site    
+    await homePage.gotoHomePage();
 //Click Chiavari Chairs Menu
-    const ChiavairChairs = page.locator("//span[@title='Chiavari Chairs']//a[normalize-space()='Chiavari Chairs']");
-    await ChiavairChairs.click(); 
-    expect(page.url()).toContain('/collections/chiavari-chairs');
+    await homePage.clickChiavariChairs();
 //Click Sort button Price low to high
-    const Sort = page.locator("//select[@id='SortBy']");
-    await Sort.selectOption("Price, low to high");
-    await page.waitForTimeout(1000);
-    const FirstItem = page.locator("//a[normalize-space()='Fabric Chiavari Chair Storage Cover']");
-    expect(FirstItem).toContainText("Fabric Chiavari Chair Storage Cover");
-//Click Color Family -> Gold
-    const ColorFam = await page.locator("//button[normalize-space()='Color Family']");
-    await ColorFam.isVisible();
-    await ColorFam.click();
-    const Gold = await page.locator("//label[contains(@for,'filter-p-m-filter-colors_gold')]//div[@class='ra-choice__checkmark set--inherit-focus']");
-    await Gold.isVisible();
-    await Gold.click();
-    await page.waitForTimeout(2000);
-//Click Finish -> Walnut Wood
-    const Finish = await page.locator("//button[normalize-space()='Finish']");
-    await Finish.isVisible();
-    await Finish.click();
-    const Walnut = await page.locator("//label[contains(@for,'filter-p-m-filter-finish_walnut-wood')]//div[contains(@class,'ra-choice__checkmark set--inherit-focus')]");
-    await Walnut.isVisible();
-    await Walnut.click();
+    await commonPLP.selectSorting("HERCULES Series Trapezoidal Back Stacking Banquet Chair with 1.5", plp.firstItem, );
+//Click Color Family -> Green
+    await commonPLP.selectColorFilter();
+//Click Finish -> Copper Vein Metal
+    await commonPLP.clickingFinishFilter();  
 //Clear Filter Pills
-    const GoldPill = await page.locator('#CollectionActiveFilters').getByRole('button');
-    await GoldPill.isVisible();
-    await GoldPill.click();
-    await page.waitForTimeout(1000);
-    const ClearAll = await page.getByRole('button', { name: 'Clear All' });
-    await ClearAll.isVisible();
-    await ClearAll.click();
-//Click Pagination
-    const Page2 = await page.locator("//a[normalize-space()='2']");
-    await Page2.isVisible();
-    await Page2.click();
-    expect(page.url()).toContain("page=2");
-    await page.waitForLoadState();
-//Click Pagination Left Arrow
-    const LeftArrow = await page.locator("//a[@aria-label='Go to previous page']");
-    await LeftArrow.isVisible();
-    await LeftArrow.click();
-expect(page.url()).toContain("page=1"); 
+    await commonPLP.clearColorFilter();
+    await commonPLP.clearFinishFilter();
+//There are no PLP with multiple pages so no need to test pagination.
+/*//Click Pagination
+   await commonPLP.clickPagination();
 //Click Pagination Right Arrow
-    const RightArrow = await page.locator("//a[@aria-label='Go to next page']");
-    await RightArrow.isVisible();
-    await RightArrow.click();
-    expect(page.url()).toContain("page=2");
+    await commonPLP.clickRightArrow()
+//Click Pagination Left Arrow
+    await commonPLP.clickLeftArrow();*/
 //Click on PDP
-    await page.waitForLoadState();
-    const PDPItem = await page.getByRole('link', { name: 'Kids Soft Fabric Chiavari Chair Cushion - View 1 Kids Soft Fabric Chiavari' })
-    await PDPItem.isVisible();
-    await PDPItem.click();
-    await page.waitForTimeout(1000);
-    expect(page.url()).toContain("products/kids-soft-fabric-chiavari-chair-cushion-chair-and-event-accessories");
-
-    
-
-
-
-
+    await commonPLP.clickPDP(plp.pdpItem, "crown-back-stacking-banquet-chair-fd-c01?variant=47302183747872" );
 });

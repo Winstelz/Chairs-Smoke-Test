@@ -1,13 +1,33 @@
-import { test, expect } from '@playwright/test';
+import { test as base } from '@playwright/test';
 import { AdvantageHomePage } from '../../src/pom/advantageChairs/advantageHomePage';
 import { AdvantagePLP } from '../../src/pom/advantageChairs/advantagePLP';
+import { CommonPDP } from '../../src/pom/commonPages/commonPDP';
+import { CommonPLP } from '../../src/pom/commonPages/commonPLP';
 
+type PageObjects = {
+  homePage: AdvantageHomePage;
+  commonPDP: CommonPDP;
+  plp: AdvantagePLP;
+  commonPLP: CommonPLP;
 
+};
 
-test('AdvantagePLP Flow', async ({ page }) => {
+export const test = base.extend<PageObjects>({
+  homePage: async ({ page }, use) => {
+    await use(new AdvantageHomePage(page));
+  },
+    commonPDP: async ({ page }, use) => {
+        await use(new CommonPDP(page));
+    },
+    plp: async ({ page }, use) => {
+        await use(new AdvantagePLP(page));
+    },
+    commonPLP: async ({ page }, use) => {
+        await use(new CommonPLP(page));
+    },
+});
 
-    const homePage = new AdvantageHomePage(page)
-    const plp = new AdvantagePLP(page)
+test('AdvantagePLP Flow', async ({ commonPLP, homePage, plp }) => {
     
 //Navigate to Advantage site   
     await homePage.gotoHomePage() 
@@ -16,26 +36,20 @@ test('AdvantagePLP Flow', async ({ page }) => {
 //Remove popUp if shown
     await homePage.popUpClose(); 
 //Click Sort button Price low to high
-    await plp.selectSorting();
+    await commonPLP.selectSorting("Advantage Multipurpose Church Chairs", plp.firstItem, );
 //Click Color Family -> Green
-    await plp.selectColorFilter();
+    await commonPLP.selectColorFilter();
 //Click Finish -> Copper Vein Metal
-    await plp.clickingFinishFilter();   
+    await commonPLP.clickingFinishFilter();   
 //Clear Filter Pills
-    await plp.clearColorFilter();
-    await plp.clearFinishFilter();
+    await commonPLP.clearColorFilter();
+    await commonPLP.clearFinishFilter();
 //Click Pagination
-   await plp.clickPagination();
+   await commonPLP.clickPagination();
 //Click Pagination Right Arrow
-    await plp.clickRightArrow()
+    await commonPLP.clickRightArrow()
 //Click Pagination Left Arrow
-    await plp.clickLeftArrow();
+    await commonPLP.clickLeftArrow();
 //Click on PDP
-    await plp.clickPDP();
-
-    
-
-
-
-
+    await commonPLP.clickPDP(plp.pdpItem, "21-stackable-church-chair-with-arms-xu-dg-60156" );
 });
