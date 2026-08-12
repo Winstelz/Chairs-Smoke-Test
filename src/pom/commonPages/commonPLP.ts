@@ -34,7 +34,7 @@ export class CommonPLP {
         this.greenPill = page.locator("//button[contains(@data-param,'filter.p.m.filter.colors')]");
         this.clearFinish = page.locator("//button[contains(@data-param,'filter.p.m.filter.finish')]");
         this.clearAll = page.locator("//button[normalize-space()='Clear All']");   
-        this.page2 = page.locator("//a[normalize-space()='2']"); 
+        this.page2 = page.locator("a[aria-label='Page 2']"); 
         this.rightArrow = page.locator("//a[@aria-label='Go to next page']");
         this.leftArrow = page.locator("//a[@aria-label='Go to previous page']");
         this.pdpItem = page.getByRole('img', { name: /HERCULES Series 21"W Stacking Wood Accent Arm Church Chair - View 2/i })
