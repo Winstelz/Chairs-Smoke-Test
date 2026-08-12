@@ -31,8 +31,8 @@ export class CommonPLP {
         this.green = page.locator("//label[contains(@for,'filter-p-m-filter-colors_green')]//div[contains(@class,'ra-choice__checkmark set--inherit-focus')]");
         this.finish = page.locator("//button[normalize-space()='Finish']");
         this.copperVeinMetal = page.locator("//span[contains(@class,'ra-choice__label')][normalize-space()='Copper Vein Metal']");
-        this.greenPill = page.locator("//button[contains(@data-param,'filter.p.m.filter.colors')]//span[contains(@class,'ra-icon')]//*[name()='svg']");
-        this.clearFinish = page.locator("//button[contains(@data-param,'filter.p.m.filter.finish')]//span[contains(@class,'ra-icon')]//*[name()='svg']");
+        this.greenPill = page.locator("//button[contains(@data-param,'filter.p.m.filter.colors')]");
+        this.clearFinish = page.locator("//button[contains(@data-param,'filter.p.m.filter.finish')]");
         this.clearAll = page.locator("//button[normalize-space()='Clear All']");   
         this.page2 = page.locator("//a[normalize-space()='2']"); 
         this.rightArrow = page.locator("//a[@aria-label='Go to next page']");

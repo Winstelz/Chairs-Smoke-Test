@@ -31,7 +31,7 @@ test('BestChiavari PLP', async ({ commonPLP, homePage, plp }) => {
 //Navigate to Best Chiavari site    
     await homePage.gotoHomePage();
 //Click Chiavari Chairs Menu
-    await homePage.clickChiavariChairs();
+    await homePage.clickBanquetChairs();
 //Click Sort button Price low to high
     await commonPLP.selectSorting("HERCULES Series Trapezoidal Back Stacking Banquet Chair with 1.5", plp.firstItem, );
 //Click Color Family -> Green

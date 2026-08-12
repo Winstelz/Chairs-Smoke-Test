@@ -27,7 +27,7 @@ export const test = base.extend<PageObjects>({
     },
 });
 
-test('AdvantagePLP Flow', async ({ commonPLP, homePage, plp }) => {
+test('Advantage PLP Flow', async ({ commonPLP, homePage, plp }) => {
     
 //Navigate to Advantage site   
     await homePage.gotoHomePage() 
