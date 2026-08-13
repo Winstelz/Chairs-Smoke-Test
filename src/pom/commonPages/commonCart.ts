@@ -31,12 +31,13 @@ export class CommonCart {
         this.page = page;
 
         this.addToCartButton = page.locator("//button[normalize-space()='Add to Cart']");
-        this.qtyIncrease = page.getByRole("button", { name: "Increment Quantity" }).first();
-        this.qtyDecrease = page.getByRole("button", { name: "Decrement Quantity" }).first();
-        this.qtyInput = page.getByRole("spinbutton").first();
+        // Scope full-cart (page) qty controls to the main cart area to avoid picking up inline-cart elements
+        this.qtyIncrease = page.locator('main').getByRole("button", { name: "Increment Quantity" }).first();
+        this.qtyDecrease = page.locator('main').getByRole("button", { name: "Decrement Quantity" }).first();
+        this.qtyInput = page.locator('main').getByRole("spinbutton").first();
         this.viewCartButton = page.getByRole('link', { name: 'View Cart' });
-        this.youMayAlsoLikeRightArrow = page.locator('button[aria-label="Next slide"]').first();
-        this.youMayAlsoLikeLeftArrow = page.locator('button[aria-label="Previous slide"]').first();
+        this.youMayAlsoLikeRightArrow = page.getByRole('button', { name: 'Next slide', exact: true }).first();
+        this.youMayAlsoLikeLeftArrow = page.getByRole('button', { name: 'Previous slide', exact: true }).first();
         this.zip = page.locator("//input[@placeholder='Enter Zip or Postal Code']");
         this.address = page.locator("//select[@name='addressType']");
         this.calculateShipping = page.locator("//span[@class='ra-icon']//*[name()='svg']");
@@ -58,32 +59,33 @@ async clickAddToCartButton() {
         await this.addToCartButton.click();
     }
 
-async clickQtyIncrease (qtyLocator: Locator) {
+async clickQtyIncrease (qtyLocator: Locator, qtyInput: Locator) {
         console.log({ message: `Increasing Quantity in Cart....`});
+    // Read current value and click until we reach target (5), verifying after each click
+    const target = 5;
+    let current = Number(await qtyInput.inputValue());
+    for (; current < target; current++) {
         await qtyLocator.click();
-        await this.page.waitForTimeout(1000);
-        await qtyLocator.click();
-        await this.page.waitForTimeout(1000);
-        await qtyLocator.click();
-        await this.page.waitForTimeout(1000);
-        await qtyLocator.click();
-        await this.page.waitForTimeout(1000);
-        await expect(this.qtyInput).toHaveValue("5");
+        // After each click, wait for the input to reflect the increment to avoid missed clicks
+        await expect(qtyInput).toHaveValue(String(current + 1), { timeout: 5000 });
+    }
 }
-async clickQtyDecrease (qtyLocator: Locator) {
+async clickQtyDecrease (qtyLocator: Locator, qtyInput: Locator) {
         console.log({ message: `Decreasing Quantity in Cart....`});
+    // Read current value and click until we reach target (3), verifying after each click
+    const target = 3;
+    let current = Number(await qtyInput.inputValue());
+    for (; current > target; current--) {
         await qtyLocator.click();
-        await this.page.waitForTimeout(1000);
-        await qtyLocator.click();
-        await this.page.waitForTimeout(2000);
-        await expect(this.qtyInput).toHaveValue("3");
+        await expect(qtyInput).toHaveValue(String(current - 1), { timeout: 5000 });
+    }
 }
 async InputQtyInput (inputLocator: Locator) {
 console.log({ message: `Inputting Quantity in Cart....`});
         await inputLocator.click();
         await inputLocator.fill("10");
-        await this.page.waitForTimeout(2000);
-        await expect(inputLocator).toHaveValue("10");
+        await this.page.waitForTimeout(3000);
+        await expect(inputLocator).toHaveValue("10", { timeout: 15000 });
 }
 
 async clickViewCart (){

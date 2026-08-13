@@ -1,10 +1,8 @@
 import { expect, type Locator, type Page } from '@playwright/test';
-import { CommonUtil } from '../commonUtil';
 import { STORE_URLS } from '../../config/urls';
 
 export class AdvantageHomePage {
     readonly page: Page;
-    readonly commonUtil: CommonUtil;
 
     readonly bannerContainer: Locator;
     readonly shopAll: Locator;
@@ -20,13 +18,11 @@ export class AdvantageHomePage {
     readonly patio: Locator;
     readonly classroom: Locator;
     readonly office: Locator;
-    readonly popUp: Locator;
 
 
 
 constructor(page: any) {
     this.page = page;
-    this.commonUtil = new CommonUtil(page);
     this.bannerContainer = page.locator('#shopify-section-sections--23479412195618__preheader');
     this.shopAll = page.locator("//span[@title='Shop All']//a[normalize-space()='Shop All']");
     this.logo = page.locator("//img[@alt='Advantage Church Chairs Logo']");
@@ -41,8 +37,6 @@ constructor(page: any) {
     this.patio =  page.locator("//a[@class='text-base leading-4 tracking-wider flex flex-col'][normalize-space()='Patio & Outdoor']");
     this.classroom = page.locator("//span[@title='Classroom']//a[normalize-space()='Classroom']");
     this.office = page.locator("//span[@title='Office & Reception']//a[normalize-space()='Office & Reception']");
-    this.popUp = page.locator('form[data-testid="klaviyo-form-SMG4ZK"]').getByPlaceholder('Email');
-
 }  
 
 
@@ -153,18 +147,7 @@ constructor(page: any) {
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/desks');
     }
-    
-    async popUpClose() {
-        console.log({ message: `Awaiting Pop Up....`});
-        const popup = this.popUp;
-    try {
-        await popup.waitFor({ state: 'visible', timeout: 15000 });
-        console.log({ message: 'Klaviyo popup appeared — closing it' });
-        await this.commonUtil.closePopup.click();
-    } catch {
-        console.log({ message: 'Klaviyo popup did not appear — skipping close step' });
-    }
-}
+
 
 
 }

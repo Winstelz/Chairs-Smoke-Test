@@ -6,13 +6,15 @@ export class CommonUtil {
 
     readonly closePopup: Locator;
     readonly closeTeaser: Locator;
+    readonly popUp: Locator;
 
-    constructor(page: any) {
-        this.page = page;
+constructor(page: any) {
+    this.page = page;
 
-        this.closePopup = page.getByRole('button', { name: 'Close dialog' });
-        this.closeTeaser = page.locator('button[aria-label="Close teaser"], button:has(svg[aria-hidden="true"])').first();
-    }
+    this.closePopup = page.getByRole('button', { name: 'Close dialog' });
+    this.closeTeaser = page.locator('button[aria-label="Close teaser"], button:has(svg[aria-hidden="true"])').first();
+    this.popUp = page.locator('form[data-testid^="klaviyo-form-"]').getByPlaceholder('Email');
+}
 
 
 
@@ -22,5 +24,17 @@ async clickEmptyCartLink (emptyLink: Locator, url: string) {
     await emptyLink.click();
     await this.page.waitForLoadState();
     expect(this.page.url()).toContain(url);
+}
+
+async popUpClose() {
+        console.log({ message: `Awaiting Pop Up....`});
+        const popup = this.popUp;
+    try {
+        await popup.waitFor({ state: 'visible', timeout: 15000 });
+        console.log({ message: 'Klaviyo popup appeared — closing it' });
+        await this.closePopup.click();
+    } catch {
+        console.log({ message: 'Klaviyo popup did not appear — skipping close step' });
+    }
 }
 }
