@@ -31,9 +31,10 @@ export class CommonCart {
         this.page = page;
 
         this.addToCartButton = page.locator("//button[normalize-space()='Add to Cart']");
-        this.qtyIncrease = page.getByRole("button", { name: "Increment Quantity" }).first();
-        this.qtyDecrease = page.getByRole("button", { name: "Decrement Quantity" }).first();
-        this.qtyInput = page.getByRole("spinbutton").first();
+        // Scope full-cart (page) qty controls to the main cart area to avoid picking up inline-cart elements
+        this.qtyIncrease = page.locator('main').getByRole("button", { name: "Increment Quantity" }).first();
+        this.qtyDecrease = page.locator('main').getByRole("button", { name: "Decrement Quantity" }).first();
+        this.qtyInput = page.locator('main').getByRole("spinbutton").first();
         this.viewCartButton = page.getByRole('link', { name: 'View Cart' });
         this.youMayAlsoLikeRightArrow = page.getByRole('button', { name: 'Next slide', exact: true }).first();
         this.youMayAlsoLikeLeftArrow = page.getByRole('button', { name: 'Previous slide', exact: true }).first();

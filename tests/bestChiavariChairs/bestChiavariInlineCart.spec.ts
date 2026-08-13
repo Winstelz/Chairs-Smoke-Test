@@ -50,9 +50,10 @@ test('BestChiavari InlineCart', async ({ commonUtil, inlineCart, commonCart, com
     await homePage.clickCrossBackChairs();
 //Click First Item
     await plp.clickCrossBackFirstItem();
+//Await for Pop Up and Close
+    await commonUtil.popUpClose();
 //Add Item to Cart
     await commonCart.clickAddToCartButton();
-    //Verify Product is in Cart
 //Assert Product is in Cart
     await commonInlineCart.assertProduct(inlineCart.product, "Advantage X-Back Chair");
 //Increase QTY

@@ -59,8 +59,8 @@ test('Advantage InlineCart Flow', async ({ commonCart, commonHomePage, commonInl
   await commonCart.clickQtyDecrease(commonInlineCart.qtyDecrease, commonInlineCart.qty);
 //Input Quantity in Cart  
   await commonCart.InputQtyInput(commonInlineCart.qty);
-//Navigate through You May Liek Carousel  
-  await commonCart.clickThroughYouMayAlsoLikeArrows();
+//Navigate through You May Like Carousel  
+  await commonInlineCart.clickCarouselArrows();
 //Calculate Shipping
   await commonCart.clickCalculateShipping();
 //Checkout
