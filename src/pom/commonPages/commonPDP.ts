@@ -89,11 +89,13 @@ async sortFilter() {
 
 async rightArrowPagniation () {
     console.log({ message: `Clicking Right Arrow Pagniation` });
+    await this.rightArrow.scrollIntoViewIfNeeded();
     await this.rightArrow.click();
     await this.page.waitForTimeout(3000);
 }
 async leftArrowPagniation () {
     console.log({ message: `Clicking Left Arrow Pagniation` });
+    await this.leftArrow.scrollIntoViewIfNeeded();
     await this.leftArrow.click();
     await this.page.waitForTimeout(3000);
 }

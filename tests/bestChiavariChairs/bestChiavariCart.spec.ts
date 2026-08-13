@@ -50,9 +50,9 @@ test('BestChiavari Cart Flow', async ({ commonCart, commonInlineCart, homePage, 
 //Close Teaser
     await commonCart.clickCloseTeaser();         
 //Increase QTY
-    await commonCart.clickQtyIncrease(commonCart.qtyIncrease);
+    await commonCart.clickQtyIncrease(commonCart.qtyIncrease, commonCart.qtyInput);
 //Decrease QTY
-    await commonCart.clickQtyDecrease(commonCart.qtyDecrease);
+    await commonCart.clickQtyDecrease(commonCart.qtyDecrease, commonCart.qtyInput);
 //Input QTY
     await commonCart.InputQtyInput(commonCart.qtyInput);
 //Await for Pop Up and Close

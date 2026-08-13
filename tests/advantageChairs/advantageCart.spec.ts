@@ -50,9 +50,9 @@ test('Advantage Cart WorkFlow', async ({ commonCart, commonInlineCart, homePage,
 //click anywhere to remove nav bar from blocking the QTY buttons
     await page.mouse.click(0, 0);          
 //Increase QTY
-      await commonCart.clickQtyIncrease(commonCart.qtyIncrease);
+      await commonCart.clickQtyIncrease(commonCart.qtyIncrease, commonCart.qtyInput);
 //Decrease QTY
-    await commonCart.clickQtyDecrease(commonCart.qtyDecrease);
+    await commonCart.clickQtyDecrease(commonCart.qtyDecrease, commonCart.qtyInput);
 //Input QTY
     await commonCart.InputQtyInput(commonCart.qtyInput);
 //You May Also Like Carousel Clicking
