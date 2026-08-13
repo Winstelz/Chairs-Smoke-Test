@@ -1,10 +1,8 @@
 import { expect, type Locator, type Page } from '@playwright/test';
-import { CommonUtil } from '../commonUtil';
 import { STORE_URLS } from '../../config/urls';
 
 export class BestChiavariHomePage {
     readonly page: Page;
-    readonly commonUtil: CommonUtil;
 
     readonly bannerContainer: Locator;
     readonly shopAll: Locator;
@@ -21,7 +19,7 @@ export class BestChiavariHomePage {
     readonly dolliesCarts: Locator;
     readonly moreForYourVenue: Locator;
 
-    readonly popUp: Locator;
+  
     readonly searchIcon: Locator;
     readonly searchInput: Locator;
     readonly accountIcon: Locator;
@@ -30,7 +28,6 @@ export class BestChiavariHomePage {
 
 constructor(page: any) {
     this.page = page;
-    this.commonUtil = new CommonUtil(page);
     this.bannerContainer = page.locator('#shopify-section-sections--21362195661088__preheader');
     this.shopAll = page.locator("//span[@title='Shop All']//a[normalize-space()='Shop All']");
     this.logo = page.locator("//img[@alt='Best Chiavari Chairs Logo']");
@@ -46,7 +43,7 @@ constructor(page: any) {
     this.dolliesCarts = page.locator("//span[@title='Dollies & Carts']");
     this.moreForYourVenue = page.locator("//span[@title='More For Your Venue']");
  
-    this.popUp = page.locator('form[data-testid="klaviyo-form-SMG4ZK"]').getByPlaceholder('Email');
+
     this.searchIcon = page.getByRole('button', { name: 'search' });
     this.searchInput = page.locator("//input[@id='autocomplete-0-input']");
     this.accountIcon = page.getByRole('link', { name: 'account' });
@@ -169,17 +166,7 @@ async clickMoreForYourVenue () {
         expect(this.page.url()).toContain(STORE_URLS.bestChiavari + '/collections/resin-folding-chairs');
     }
     
-    async popUpClose() {
-        console.log({ message: `Awaiting Pop Up....`});
-        const popup = this.popUp;
-    try {
-        await popup.waitFor({ state: 'visible', timeout: 15000 });
-        console.log({ message: 'Klaviyo popup appeared — closing it' });
-        await this.commonUtil.closePopup.click();
-    } catch {
-        console.log({ message: 'Klaviyo popup did not appear — skipping close step' });
-    }
-}
+
 
 async clickSearchIcon() {
     console.log({ message: `Clicking Search Icon....`});

@@ -4,6 +4,7 @@ import { BestChiavariPLP } from '../../src/pom/bestChiavariChairs/bestChiavariPL
 import { CommonCart } from '../../src/pom/commonPages/commonCart';
 import { BestChiavariInlineCart } from '../../src/pom/bestChiavariChairs/bestChiavariInLineCart';
 import { CommonInlineCart } from '../../src/pom/commonPages/commonInlineCart';
+import { CommonUtil } from '../../src/pom/commonUtil';
 
 type PageObjects = {
   homePage: BestChiavariHomePage;
@@ -11,6 +12,7 @@ type PageObjects = {
   commonCart: CommonCart;
   inlineCart: BestChiavariInlineCart;
   commonInlineCart: CommonInlineCart;
+  commonUtil: CommonUtil;
 };
 
 export const test = base.extend<PageObjects>({
@@ -29,10 +31,13 @@ export const test = base.extend<PageObjects>({
   commonInlineCart: async ({ page }, use) => {
     await use(new CommonInlineCart(page));
   },
+  commonUtil: async ({ page }, use) => {
+    await use(new CommonUtil(page));
+  },
 });
 
 
-test('BestChiavari Cart Flow', async ({ commonCart, commonInlineCart, homePage, inlineCart, page, plp }) => {
+test('BestChiavari Cart Flow', async ({ commonCart, commonInlineCart, commonUtil, homePage, inlineCart, page, plp }) => {
 //Navigate to Best Chiavari site    
     await homePage.gotoHomePage(); 
 //Navigate to PLP
@@ -42,7 +47,7 @@ test('BestChiavari Cart Flow', async ({ commonCart, commonInlineCart, homePage, 
 //Add Item to Cart
     await commonCart.clickAddToCartButton();
 //Assert Product is in Cart
-   await commonInlineCart.assertProduct(inlineCart.product, "Advantage X-Back Chair");
+    await commonInlineCart.assertProduct(inlineCart.product, "Advantage X-Back Chair");
 //Click Cart Page
     await commonCart.clickViewCart();
 //click anywhere to remove nav bar from blocking the QTY buttons
@@ -56,7 +61,7 @@ test('BestChiavari Cart Flow', async ({ commonCart, commonInlineCart, homePage, 
 //Input QTY
     await commonCart.InputQtyInput(commonCart.qtyInput);
 //Await for Pop Up and Close
-    await homePage.popUpClose();
+    await commonUtil.popUpClose();
     await commonCart.clickCloseTeaser();     
 //You May Also Like Carousel Clicking
     await commonCart.clickThroughYouMayAlsoLikeArrows();

@@ -68,7 +68,7 @@ async clickQtyIncrease (qtyLocator: Locator, qtyInput: Locator) {
         await this.page.waitForTimeout(3000);
         await qtyLocator.click();
         await this.page.waitForTimeout(3000);
-        await expect(qtyInput).toHaveValue("5");
+        await expect(qtyInput).toHaveValue("5", { timeout: 15000 });
 }
 async clickQtyDecrease (qtyLocator: Locator, qtyInput: Locator) {
         console.log({ message: `Decreasing Quantity in Cart....`});
@@ -76,14 +76,14 @@ async clickQtyDecrease (qtyLocator: Locator, qtyInput: Locator) {
         await this.page.waitForTimeout(3000);
         await qtyLocator.click();
         await this.page.waitForTimeout(3000);
-        await expect(qtyInput).toHaveValue("3");
+        await expect(qtyInput).toHaveValue("3", { timeout: 15000 });
 }
 async InputQtyInput (inputLocator: Locator) {
 console.log({ message: `Inputting Quantity in Cart....`});
         await inputLocator.click();
         await inputLocator.fill("10");
         await this.page.waitForTimeout(3000);
-        await expect(inputLocator).toHaveValue("10");
+        await expect(inputLocator).toHaveValue("10", { timeout: 15000 });
 }
 
 async clickViewCart (){

@@ -4,6 +4,7 @@ import { AdvantagePLP }from '../../src/pom/advantageChairs/advantagePLP';
 import { AdvantageInlineCart } from '../../src/pom/advantageChairs/advantageInlineCart';
 import { CommonCart } from '../../src/pom/commonPages/commonCart';
 import { CommonInlineCart } from '../../src/pom/commonPages/commonInlineCart';
+import { CommonUtil } from '../../src/pom/commonUtil';
 
 type PageObjects = {
   homePage: AdvantageHomePage;
@@ -11,6 +12,7 @@ type PageObjects = {
   commonCart: CommonCart;
   inlineCart: AdvantageInlineCart;
   commonInlineCart: CommonInlineCart;
+  commonUtil: CommonUtil;
 };
 
 export const test = base.extend<PageObjects>({
@@ -29,14 +31,17 @@ export const test = base.extend<PageObjects>({
   commonInlineCart: async ({ page }, use) => {
     await use(new CommonInlineCart(page));
   },
+  commonUtil: async ({ page }, use) => {
+    await use(new CommonUtil(page));
+  },
 });
 
 
-test('Advantage Cart WorkFlow', async ({ commonCart, commonInlineCart, homePage, inlineCart, page, plp }) => {
+test('Advantage Cart WorkFlow', async ({ commonCart, commonInlineCart, commonUtil, homePage, inlineCart, page, plp }) => {
 //Navigate to Advantage site    
     await homePage.gotoHomePage();
 //Await for Pop Up and Close
-    await homePage.popUpClose();    
+    await commonUtil.popUpClose();    
 //Navigate to PLP
     await homePage.clickShopAll();
  //Click First Item
@@ -44,7 +49,7 @@ test('Advantage Cart WorkFlow', async ({ commonCart, commonInlineCart, homePage,
 //Add Item to Cart
     await commonCart.clickAddToCartButton();
 //Assert Product is in Cart
-      await commonInlineCart.assertProduct(inlineCart.product, "Advantage Multipurpose Church Chairs - 18.5 in. Wide");
+    await commonInlineCart.assertProduct(inlineCart.product, "Advantage Multipurpose Church Chairs - 18.5 in. Wide");
 //Click View Cart Page
     await commonCart.clickViewCart();
 //click anywhere to remove nav bar from blocking the QTY buttons
