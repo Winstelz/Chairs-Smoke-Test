@@ -52,8 +52,9 @@ test('BestChiavari Cart Flow', async ({ commonCart, commonInlineCart, commonUtil
     await commonCart.clickViewCart();
 //click anywhere to remove nav bar from blocking the QTY buttons
     await page.mouse.click(0, 0);   
-//Close Teaser
-    await commonCart.clickCloseTeaser();         
+//Await for Pop Up and Close
+    await commonUtil.popUpClose();
+    await commonCart.clickCloseTeaser();        
 //Increase QTY
     await commonCart.clickQtyIncrease(commonCart.qtyIncrease, commonCart.qtyInput);
 //Decrease QTY

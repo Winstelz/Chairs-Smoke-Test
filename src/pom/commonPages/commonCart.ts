@@ -60,23 +60,24 @@ async clickAddToCartButton() {
 
 async clickQtyIncrease (qtyLocator: Locator, qtyInput: Locator) {
         console.log({ message: `Increasing Quantity in Cart....`});
+    // Read current value and click until we reach target (5), verifying after each click
+    const target = 5;
+    let current = Number(await qtyInput.inputValue());
+    for (; current < target; current++) {
         await qtyLocator.click();
-        await this.page.waitForTimeout(3000);
-        await qtyLocator.click();
-        await this.page.waitForTimeout(3000);
-        await qtyLocator.click();
-        await this.page.waitForTimeout(3000);
-        await qtyLocator.click();
-        await this.page.waitForTimeout(3000);
-        await expect(qtyInput).toHaveValue("5", { timeout: 15000 });
+        // After each click, wait for the input to reflect the increment to avoid missed clicks
+        await expect(qtyInput).toHaveValue(String(current + 1), { timeout: 5000 });
+    }
 }
 async clickQtyDecrease (qtyLocator: Locator, qtyInput: Locator) {
         console.log({ message: `Decreasing Quantity in Cart....`});
+    // Read current value and click until we reach target (3), verifying after each click
+    const target = 3;
+    let current = Number(await qtyInput.inputValue());
+    for (; current > target; current--) {
         await qtyLocator.click();
-        await this.page.waitForTimeout(3000);
-        await qtyLocator.click();
-        await this.page.waitForTimeout(3000);
-        await expect(qtyInput).toHaveValue("3", { timeout: 15000 });
+        await expect(qtyInput).toHaveValue(String(current - 1), { timeout: 5000 });
+    }
 }
 async InputQtyInput (inputLocator: Locator) {
 console.log({ message: `Inputting Quantity in Cart....`});
