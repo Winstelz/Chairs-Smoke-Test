@@ -1,10 +1,12 @@
 import { test as base } from '@playwright/test';
 import { BestChiavariHomePage } from '../../src/pom/bestChiavariChairs/bestChiavariHomePage';
 import { CommonFooter } from '../../src/pom/commonPages/commonFooter';
+import { CommonUtil } from '../../src/pom/commonUtil';
 
 type PageObjects = {
   homePage: BestChiavariHomePage;
   commonFooter: CommonFooter;
+  commonUtil: CommonUtil;
 };
 
 export const test = base.extend<PageObjects>({
@@ -14,15 +16,18 @@ export const test = base.extend<PageObjects>({
   commonFooter: async ({ page }, use) => {
     await use(new CommonFooter(page));
   },
-
+  commonUtil: async ({ page }, use) => {
+    await use(new CommonUtil(page));
+  },
 });
+
 test.beforeEach(async ({ homePage }) => {
   await homePage.gotoHomePage();
 });
 
-test('BestChiavari Information Footer', async ({ homePage, commonFooter }) => {
+test('BestChiavari Information Footer', async ({ commonUtil, commonFooter }) => {
     //Await for Pop Up and Close
-        await homePage.popUpClose();
+        await commonUtil.popUpClose();
     //Click About Us
         await commonFooter.clickAboutUs();
     //Click Delivery Information
@@ -45,9 +50,9 @@ test('BestChiavari Information Footer', async ({ homePage, commonFooter }) => {
         await commonFooter.clickContactUs();
     });
 
-test('BestChiavari Terms Footer', async ({ homePage, commonFooter }) => {
+test('BestChiavari Terms Footer', async ({ commonUtil, homePage, commonFooter }) => {
     //Await for Pop Up and Close
-        await homePage.popUpClose();
+        await commonUtil.popUpClose();
     //Click Site Security
         await commonFooter.clickSiteSecurity();
     //Click Privacy Policy
