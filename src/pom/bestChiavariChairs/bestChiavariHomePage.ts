@@ -54,6 +54,7 @@ constructor(page: any) {
     async gotoHomePage() {
         console.log({ message: `Navigating to Home Page....`});
         await this.page.goto(STORE_URLS.bestChiavari);
+        await this.page.waitForTimeout(1000);
     }
 
     async clickLogo()   {
@@ -61,6 +62,7 @@ constructor(page: any) {
         await this.logo.click();
         await this.page.waitForLoadState();
         expect(this.page.url()).toContain(STORE_URLS.bestChiavari);
+        await this.page.waitForTimeout(1500);
     }
 
     async clickChiavariChairs() {
@@ -135,6 +137,7 @@ async clickMoreForYourVenue () {
         console.log({ message: `Clicking More For Your Venue....`});
         await this.moreForYourVenue.click();
         await this.page.waitForLoadState();
+        await this.page.waitForTimeout(1000);
 }
 
 
@@ -173,6 +176,7 @@ async clickSearchIcon() {
     await this.searchIcon.click();
     await this.page.waitForLoadState();
     expect(this.page.url()).toContain(STORE_URLS.advantage);
+    await this.page.waitForTimeout(1000);
 }
 
 async searchForItem(item: string) {
@@ -186,10 +190,12 @@ async clickAccountIcon() {
     console.log({ message: `Clicking Account Icon....`});
     await this.accountIcon.click();
     await this.page.waitForURL(/shopify\.com/);
+    await this.page.waitForTimeout(1000);
 }
 
 async clickCartIcon() {
     console.log({ message: `Clicking Cart Icon....`});
     await this.cartIcon.click();
+    await this.page.waitForTimeout(1000);
 }
 }

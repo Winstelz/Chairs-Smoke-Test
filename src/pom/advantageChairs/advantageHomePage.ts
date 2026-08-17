@@ -43,6 +43,7 @@ constructor(page: any) {
     async gotoHomePage() {
         console.log({ message: `Clicking Home Page....`});
         await this.page.goto(STORE_URLS.advantage);
+        await this.page.waitForTimeout(1000);
     }
 
     async clickLogo()   {
@@ -50,6 +51,7 @@ constructor(page: any) {
         await this.logo.click();
         await this.page.waitForLoadState();
         expect(this.page.url()).toContain(STORE_URLS.advantage);
+        await this.page.waitForTimeout(1200);
     }
 
     async clickShopAll() {

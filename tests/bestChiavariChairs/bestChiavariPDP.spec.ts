@@ -2,11 +2,13 @@ import { test as base } from '@playwright/test';
 import { BestChiavariHomePage } from '../../src/pom/bestChiavariChairs/bestChiavariHomePage';
 import { CommonPDP } from '../../src/pom/commonPages/commonPDP';
 import { BestChiavariPLP } from '../../src/pom/bestChiavariChairs/bestChiavariPLP';
+import { CommonUtil } from '../../src/pom/commonUtil';
 
 type PageObjects = {
   homePage: BestChiavariHomePage;
   commonPDP: CommonPDP;
   plp: BestChiavariPLP;
+  commonUtil: CommonUtil;
 
 };
 
@@ -20,9 +22,12 @@ export const test = base.extend<PageObjects>({
     plp: async ({ page }, use) => {
         await use(new BestChiavariPLP(page));
     },
+    commonUtil: async ({ page }, use) => {
+        await use(new CommonUtil(page));
+    },
 
 });
-test('Best Chiavari PDP', async ({ commonPDP, homePage, plp }) => {
+test('Best Chiavari PDP', async ({ commonPDP, commonUtil, homePage, plp }) => {
     //Navigate to Best Chiavari site    
         await homePage.gotoHomePage();
     //Navigate to PLP
@@ -43,19 +48,19 @@ test('Best Chiavari PDP', async ({ commonPDP, homePage, plp }) => {
     //Sort Reviews 
         await commonPDP.sortFilter();
     //remove popUp if shown
-        await homePage.popUpClose();
+        await commonUtil.popUpClose();
     //Review Pagination Right
         await commonPDP.rightArrowPagniation();
-       //remove popUp if shown
-        await homePage.popUpClose();
-        await commonPDP.assertReviewNumber1();
+    //remove popUp if shown
+        await commonUtil.popUpClose();
+        await commonPDP.assertReviewNumber1("9 – 38");
     //Review Pagination left
         await commonPDP.leftArrowPagniation();
-           //remove popUp if shown
-        await homePage.popUpClose();
+    //remove popUp if shown
+        await commonUtil.popUpClose();
         await commonPDP.assertReviewNumber2();
     //remove popUp if shown
-        await homePage.popUpClose(); 
+        await commonUtil.popUpClose(); 
     //Qty Increase
         await commonPDP.qtyIncrease();  
     //Qty Decrease
