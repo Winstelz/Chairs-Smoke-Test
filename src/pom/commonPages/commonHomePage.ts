@@ -59,7 +59,7 @@ async clickBanner (container: Locator) {
 async clickSearchIcon() {
     console.log({ message: `Clicking Search Icon....`});
     await this.searchIcon.click();
-    await this.page.waitForLoadState();
+    await this.page.waitForLoadState(`networkidle`);
 }
 
 async searchForItem(item: string, url: keyof typeof STORE_URLS) {
@@ -74,10 +74,12 @@ async clickAccountIcon() {
     console.log({ message: `Clicking Account Icon....`});
     await this.accountIcon.click();
     await this.page.waitForURL(/shopify\.com/);
+    await this.page.waitForTimeout(1000);
 }
 
 async clickCartIcon() {
     console.log({ message: `Clicking Cart Icon....`});
     await this.cartIcon.click();
+    await this.page.waitForTimeout(1000);
 }
 }

@@ -16,7 +16,6 @@ type PageObjects = {
   commonHomePage: CommonHomePage;
   commonUtil: CommonUtil;
 };
-
 export const test = base.extend<PageObjects>({
   homePage: async ({ page }, use) => {
     await use(new BestChiavariHomePage(page));
@@ -52,6 +51,7 @@ test('BestChiavari InlineCart', async ({ commonUtil, inlineCart, commonCart, com
     await plp.clickCrossBackFirstItem();
 //Await for Pop Up and Close
     await commonUtil.popUpClose();
+
 //Add Item to Cart
     await commonCart.clickAddToCartButton();
 //Assert Product is in Cart
@@ -76,6 +76,6 @@ test('BestChiavari InlineCart', async ({ commonUtil, inlineCart, commonCart, com
     await commonCart.clickTrashIcon();
     await commonCart.assertEmptyCart();
 //Assert can click empty link and go to that page
-    await commonCart.clickEmptyCartLink(commonCart.shopAllEmptyLink, 'collections/shop-all');
+    await commonCart.clickEmptyCartLink(commonCart.shopAllTables, 'collections/banquet-cocktail-and-dining-tables');
 
 });

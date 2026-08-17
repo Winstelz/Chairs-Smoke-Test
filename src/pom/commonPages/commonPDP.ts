@@ -131,5 +131,6 @@ async clickAddToCart () {
     console.log({ message: `Click Add to Cart` });
     await this.addToCart.click();
     await this.cart.click();
+    await this.page.waitForTimeout(1000);
 }
 }
