@@ -76,6 +76,6 @@ test('BestChiavari InlineCart', async ({ commonUtil, inlineCart, commonCart, com
     await commonCart.clickTrashIcon();
     await commonCart.assertEmptyCart();
 //Assert can click empty link and go to that page
-    await commonCart.clickEmptyCartLink(commonCart.shopAllEmptyLink, 'collections/shop-all');
+    await commonCart.clickEmptyCartLink(commonCart.shopAllTables, 'collections/banquet-cocktail-and-dining-tables');
 
 });
