@@ -51,12 +51,12 @@ test('Best Chiavari PDP', async ({ commonPDP, commonUtil, homePage, plp }) => {
         await commonUtil.popUpClose();
     //Review Pagination Right
         await commonPDP.rightArrowPagniation();
-       //remove popUp if shown
+    //remove popUp if shown
         await commonUtil.popUpClose();
-        await commonPDP.assertReviewNumber1();
+        await commonPDP.assertReviewNumber1("9 – 38");
     //Review Pagination left
         await commonPDP.leftArrowPagniation();
-           //remove popUp if shown
+    //remove popUp if shown
         await commonUtil.popUpClose();
         await commonPDP.assertReviewNumber2();
     //remove popUp if shown

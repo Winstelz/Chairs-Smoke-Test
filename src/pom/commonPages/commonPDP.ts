@@ -100,9 +100,9 @@ async leftArrowPagniation () {
     await this.page.waitForTimeout(3000);
 }
 
-async assertReviewNumber1 () {
+async assertReviewNumber1 (reviewNumber: string) {
     console.log({ message: `Asserting Review Number Page 1` });
-    await expect(this.reviewNumber).toContainText("9 – 26");
+    await expect(this.reviewNumber).toContainText(reviewNumber);
 }
 
 async assertReviewNumber2 () {

@@ -2,11 +2,13 @@ import { test as base } from '@playwright/test';
 import { AdvantageHomePage } from '../../src/pom/advantageChairs/advantageHomePage';
 import { AdvantagePLP } from '../../src/pom/advantageChairs/advantagePLP';
 import { CommonPDP } from '../../src/pom/commonPages/commonPDP';
+import { CommonUtil } from '../../src/pom/commonUtil';
 
 type PageObjects = {
   homePage: AdvantageHomePage;
   plp: AdvantagePLP;
   commonPDP: CommonPDP;
+  commonUtil: CommonUtil;
 };
 
 export const test = base.extend<PageObjects>({
@@ -19,13 +21,16 @@ export const test = base.extend<PageObjects>({
   commonPDP: async ({ page }, use) => {
     await use(new CommonPDP(page));
   },
+  commonUtil: async ({ page }, use) => {
+    await use(new CommonUtil(page));
+  },
 });
 
 test.beforeEach(async ({ homePage }) => {
   await homePage.gotoHomePage();
 });
 
-test('AdvantagePDP Flow', async ({ commonPDP, homePage, plp }) => {
+test('AdvantagePDP Flow', async ({ commonPDP, commonUtil, homePage, plp }) => {
     //Navigate to PLP
         await homePage.clickShopAll();
     //Click First Item
@@ -45,12 +50,12 @@ test('AdvantagePDP Flow', async ({ commonPDP, homePage, plp }) => {
         await commonPDP.sortFilter();
     //Review Pagination Rigth
         await commonPDP.rightArrowPagniation();
-        await commonPDP.assertReviewNumber1();
+        await commonPDP.assertReviewNumber1("9 – 26");
     //Review Pagination left
         await commonPDP.leftArrowPagniation();
         await commonPDP.assertReviewNumber2();
     //remove popUp if shown
-        await homePage.popUpClose();    
+        await commonUtil.popUpClose();    
     //Qty Increase
         await commonPDP.qtyIncrease();  
     //Qty Decrease
