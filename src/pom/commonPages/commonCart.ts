@@ -31,13 +31,12 @@ export class CommonCart {
         this.page = page;
 
         this.addToCartButton = page.locator("//button[normalize-space()='Add to Cart']");
-        // Scope full-cart (page) qty controls to the main cart area to avoid picking up inline-cart elements
         this.qtyIncrease = page.locator('main').getByRole("button", { name: "Increment Quantity" }).first();
         this.qtyDecrease = page.locator('main').getByRole("button", { name: "Decrement Quantity" }).first();
         this.qtyInput = page.locator('main').getByRole("spinbutton").first();
         this.viewCartButton = page.getByRole('link', { name: 'View Cart' });
-        this.youMayAlsoLikeRightArrow = page.getByRole('button', { name: 'Next slide', exact: true }).first();
-        this.youMayAlsoLikeLeftArrow = page.getByRole('button', { name: 'Previous slide', exact: true }).first();
+        this.youMayAlsoLikeRightArrow = page.locator('main').getByRole('button', { name: 'Next slide', exact: true }).first();
+        this.youMayAlsoLikeLeftArrow = page.locator('main').getByRole('button', { name: 'Previous slide', exact: true }).first();
         this.zip = page.locator("//input[@placeholder='Enter Zip or Postal Code']");
         this.address = page.locator("//select[@name='addressType']");
         this.calculateShipping = page.locator("//span[@class='ra-icon']//*[name()='svg']");

@@ -36,7 +36,6 @@ export const test = base.extend<PageObjects>({
   },
 });
 
-
 test('BestChiavari Cart Flow', async ({ commonCart, commonInlineCart, commonUtil, homePage, inlineCart, page, plp }) => {
 //Navigate to Best Chiavari site    
     await homePage.gotoHomePage(); 
