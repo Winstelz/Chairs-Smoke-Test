@@ -122,6 +122,7 @@ async clickPDP (pdpItem: Locator, url: string) {
     await pdpItem.click();
     await this.page.waitForLoadState();
     expect(this.page.url()).toContain(url);
+    await this.page.waitForTimeout(1000); 
 }
 
 

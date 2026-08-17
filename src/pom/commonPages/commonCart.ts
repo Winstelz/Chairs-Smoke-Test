@@ -56,6 +56,7 @@ export class CommonCart {
 async clickAddToCartButton() {
         console.log({ message: `Clicking Add to Cart Button...` });
         await this.addToCartButton.click();
+        await this.page.waitForTimeout(1500); 
     }
 
 async clickQtyIncrease (qtyLocator: Locator, qtyInput: Locator) {
@@ -125,6 +126,7 @@ async clickCalculateShipping () {
 async clickCheckout () {
     console.log({ message: `Clicking Checkout....`});
     await this.checkoutButton.click();
+    await this.page.waitForTimeout(1200);
 }
 
 async clickCheckoutLogo (url: keyof typeof STORE_URLS, logo: Locator) {
@@ -174,11 +176,13 @@ async goToCart (url:  keyof typeof STORE_URLS) {
 async clickTrashIcon () {
     console.log({ message: `Clicking Trash Icon....`});
     await this.trashIconButton.click();
+    await this.page.waitForTimeout(600);
 }
 
 async assertEmptyCart () {
     console.log({ message: `Asserting Empty Cart....`});
     await expect(this.emptyCartMessage).toBeVisible();
+    await expect(this.emptyCartMessage).toHaveText(/Your Cart Is Empty/i);
 }
 
 async clickEmptyCartLink (emptyLink: Locator, url: string) {
