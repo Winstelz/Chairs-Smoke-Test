@@ -31,7 +31,8 @@ export class CommonPLP {
         this.green = page.locator("//label[contains(@for,'filter-p-m-filter-colors_green')]//div[contains(@class,'ra-choice__checkmark set--inherit-focus')]");
         this.finish = page.locator("//button[normalize-space()='Finish']");
         this.copperVeinMetal = page.locator("//span[contains(@class,'ra-choice__label')][normalize-space()='Copper Vein Metal']");
-        this.greenPill = page.locator("//button[contains(@data-param,'filter.p.m.filter.colors')]");
+        // Target the specific applied color pill by accessible name to avoid clicking the wrong clear button
+        this.greenPill = page.getByRole('button', { name: /Green/i });
         this.clearFinish = page.locator("//button[contains(@data-param,'filter.p.m.filter.finish')]");
         this.clearAll = page.locator("//button[normalize-space()='Clear All']");   
         this.page2 = page.locator("a[aria-label='Page 2']"); 
