@@ -76,8 +76,29 @@ async clearColorFilter () {
     //wait so it does not put up are you a robot prompt
     await this.page.waitForTimeout(5000);
     await this.page.mouse.click(0, 0); 
-    await this.greenPill.scrollIntoViewIfNeeded(); 
-    await this.greenPill.click();
+        // Ensure the element is attached first
+        await this.greenPill.waitFor({ state: 'attached', timeout: 10000 }).catch(() => {});
+
+        // Try the normal scroll + click, but provide fallbacks for sites
+        // where scrollIntoViewIfNeeded can time out (sticky overlays, transformed parents, etc.)
+        try {
+            await this.greenPill.scrollIntoViewIfNeeded({ timeout: 10000 });
+            await this.greenPill.click();
+        } catch (err) {
+            // Fallback: use element handle's native scrollIntoView then force-click
+            const handle = await this.greenPill.elementHandle();
+            if (handle) {
+                await this.page.evaluate((el: HTMLElement) => el.scrollIntoView({ block: 'center', inline: 'center' }), handle).catch(() => {});
+                await this.greenPill.click({ force: true }).catch(() => {});
+                await handle.dispose();
+            } else {
+                // Last-resort: click via JS selector (should only be used if locator fails)
+                await this.page.evaluate(() => {
+                    const btn = document.querySelector("button[data-param*='filter.p.m.filter.colors']") as HTMLElement | null;
+                    if (btn) btn.click();
+                }).catch(() => {});
+            }
+        }
 }
 
 
