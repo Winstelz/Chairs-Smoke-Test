@@ -46,6 +46,7 @@ async selectSorting (text:string, firstItem: Locator) {
     console.log({ message: "Sorting...." });
     await this.sort.selectOption( {label: "Price, low to high"});
     expect(firstItem).toContainText(text);
+    await this.page.waitForTimeout(2000);
     await this.sort.selectOption( {label: "Best selling"});
 }
 
