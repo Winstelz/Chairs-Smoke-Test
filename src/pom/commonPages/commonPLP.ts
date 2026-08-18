@@ -76,7 +76,7 @@ async clearColorFilter () {
     //wait so it does not put up are you a robot prompt
     await this.page.waitForTimeout(5000);
     await this.page.mouse.click(0, 0); 
-    await expect(this.greenPill).toBeVisible(); 
+    await this.greenPill.scrollIntoViewIfNeeded(); 
     await this.greenPill.click();
 }
 
