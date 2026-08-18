@@ -73,6 +73,6 @@ test('Advantage InlineCart Flow', async ({ commonCart, commonHomePage, commonInl
   await commonCart.clickTrashIcon();
   await commonCart.assertEmptyCart();
 //Assert can click empty link and go to that page
-  await commonCart.clickEmptyCartLink(commonCart.shopAllEmptyLink, 'collections/banquet-cocktail-and-dining-tables');
+  await commonCart.clickEmptyCartLink(commonCart.shopAllEmptyLink, 'collections/shop-all');
 
 });

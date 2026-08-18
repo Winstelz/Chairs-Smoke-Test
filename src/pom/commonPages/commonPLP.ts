@@ -31,7 +31,8 @@ export class CommonPLP {
         this.green = page.locator("//label[contains(@for,'filter-p-m-filter-colors_green')]//div[contains(@class,'ra-choice__checkmark set--inherit-focus')]");
         this.finish = page.locator("//button[normalize-space()='Finish']");
         this.copperVeinMetal = page.locator("//span[contains(@class,'ra-choice__label')][normalize-space()='Copper Vein Metal']");
-        this.greenPill = page.locator("//button[contains(@data-param,'filter.p.m.filter.colors')]");
+        // Target the specific applied color pill by accessible name to avoid clicking the wrong clear button
+        this.greenPill = page.getByRole('button', { name: /Green/i });
         this.clearFinish = page.locator("//button[contains(@data-param,'filter.p.m.filter.finish')]");
         this.clearAll = page.locator("//button[normalize-space()='Clear All']");   
         this.page2 = page.locator("a[aria-label='Page 2']"); 
@@ -46,6 +47,7 @@ async selectSorting (text:string, firstItem: Locator) {
     console.log({ message: "Sorting...." });
     await this.sort.selectOption( {label: "Price, low to high"});
     expect(firstItem).toContainText(text);
+    await this.page.waitForTimeout(2000);
     await this.sort.selectOption( {label: "Best selling"});
 }
 
@@ -74,8 +76,30 @@ async clearColorFilter () {
     console.log({ message: "Clearing Color Filter...." });
     //wait so it does not put up are you a robot prompt
     await this.page.waitForTimeout(5000);
-    await this.page.mouse.click(0, 0);  
-    await this.greenPill.click();
+    await this.page.mouse.click(0, 0); 
+        // Ensure the element is attached first
+        await this.greenPill.waitFor({ state: 'attached', timeout: 10000 }).catch(() => {});
+
+        // Try the normal scroll + click, but provide fallbacks for sites
+        // where scrollIntoViewIfNeeded can time out (sticky overlays, transformed parents, etc.)
+        try {
+            await this.greenPill.scrollIntoViewIfNeeded({ timeout: 10000 });
+            await this.greenPill.click();
+        } catch (err) {
+            // Fallback: use element handle's native scrollIntoView then force-click
+            const handle = await this.greenPill.elementHandle();
+            if (handle) {
+                await this.page.evaluate((el: HTMLElement) => el.scrollIntoView({ block: 'center', inline: 'center' }), handle).catch(() => {});
+                await this.greenPill.click({ force: true }).catch(() => {});
+                await handle.dispose();
+            } else {
+                // Last-resort: click via JS selector (should only be used if locator fails)
+                await this.page.evaluate(() => {
+                    const btn = document.querySelector("button[data-param*='filter.p.m.filter.colors']") as HTMLElement | null;
+                    if (btn) btn.click();
+                }).catch(() => {});
+            }
+        }
 }
 
 

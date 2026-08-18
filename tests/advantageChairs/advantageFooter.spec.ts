@@ -2,11 +2,13 @@ import { test as base } from '@playwright/test';
 import { AdvantageHomePage } from '../../src/pom/advantageChairs/advantageHomePage';
 import { CommonFooter } from '../../src/pom/commonPages/commonFooter';
 import { AdvantageFooter } from '../../src/pom/advantageChairs/advantageFooter';
+import { CommonUtil } from '../../src/pom/commonUtil';
 
 type PageObjects = {
   homePage: AdvantageHomePage;
   commonFooter: CommonFooter;
   footer: AdvantageFooter;
+  commonUtil: CommonUtil;
 };
 
 export const test = base.extend<PageObjects>({
@@ -19,6 +21,9 @@ export const test = base.extend<PageObjects>({
   footer: async ({ page }, use) => {
     await use(new AdvantageFooter(page));
   },
+  commonUtil: async ({ page }, use) => {
+    await use(new CommonUtil(page));
+  },
 
 });
 
@@ -26,9 +31,9 @@ test.beforeEach(async ({ homePage }) => {
   await homePage.gotoHomePage();
 });
 
-test('Advantage Information Footer', async ({ footer, homePage, commonFooter }) => {
+test('Advantage Information Footer', async ({ commonUtil, footer, homePage, commonFooter }) => {
     //Await for Pop Up and Close
-        await homePage.popUpClose();
+        await commonUtil.popUpClose();
     //Click About Us
         await commonFooter.clickAboutUs();
     //Click Delivery Information
