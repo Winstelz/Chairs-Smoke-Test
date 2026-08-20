@@ -1,4 +1,5 @@
 export const STORE_URLS = {
     advantage: 'https://www.advantagechurchchairs.com',
-    bestChiavari: 'https://www.bestchiavarichairs.com'
+    bestChiavari: 'https://www.bestchiavarichairs.com',
+    biz: `https://www.bizchair.com/`
 }  as const;
