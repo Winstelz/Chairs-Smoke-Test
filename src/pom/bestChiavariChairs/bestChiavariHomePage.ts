@@ -54,7 +54,7 @@ constructor(page: any) {
     async gotoHomePage() {
         console.log({ message: `Navigating to Home Page....`});
         await this.page.goto(STORE_URLS.bestChiavari);
-        await this.page.waitForTimeout(1000);
+        await this.page.waitForTimeout(1400);
     }
 
     async clickLogo()   {
@@ -128,7 +128,7 @@ async clickDolliesCarts () {
         await this.dolliesCarts.click();
         await this.page.waitForLoadState();
         //wait so it does not put up are you a robot prompt
-        await this.page.waitForTimeout(5000);
+        await this.page.waitForTimeout(9000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.bestChiavari + '/collections/dollies-carts');
 }
@@ -137,7 +137,7 @@ async clickMoreForYourVenue () {
         console.log({ message: `Clicking More For Your Venue....`});
         await this.moreForYourVenue.click();
         await this.page.waitForLoadState();
-        await this.page.waitForTimeout(1000);
+        await this.page.waitForTimeout(5000);
 }
 
 
@@ -155,7 +155,7 @@ async clickMoreForYourVenue () {
         await this.tables.hover();
         await this.woodFoldingTables.click();
         //wait so it does not put up are you a robot prompt
-        await this.page.waitForTimeout(5000);
+        await this.page.waitForTimeout(8000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.bestChiavari + '/collections/wood-folding-tables');
     }
@@ -164,7 +164,7 @@ async clickMoreForYourVenue () {
         await this.foldingChairs.hover();
         await this.resinFoldingChairs.click();
         //wait so it does not put up are you a robot prompt
-        await this.page.waitForTimeout(5000);
+        await this.page.waitForTimeout(6000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.bestChiavari + '/collections/resin-folding-chairs');
     }
@@ -176,7 +176,7 @@ async clickSearchIcon() {
     await this.searchIcon.click();
     await this.page.waitForLoadState();
     expect(this.page.url()).toContain(STORE_URLS.advantage);
-    await this.page.waitForTimeout(1000);
+    await this.page.waitForTimeout(8000);
 }
 
 async searchForItem(item: string) {
@@ -190,12 +190,12 @@ async clickAccountIcon() {
     console.log({ message: `Clicking Account Icon....`});
     await this.accountIcon.click();
     await this.page.waitForURL(/shopify\.com/);
-    await this.page.waitForTimeout(1000);
+    await this.page.waitForTimeout(6000);
 }
 
 async clickCartIcon() {
     console.log({ message: `Clicking Cart Icon....`});
     await this.cartIcon.click();
-    await this.page.waitForTimeout(1000);
+    await this.page.waitForTimeout(7000);
 }
 }

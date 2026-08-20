@@ -21,10 +21,12 @@ export class BestChiavariPLP {
 async clickCrossBackFirstItem() {
     console.log({ message: `Clicking First Item...`});
     await this.crossBackFirstItem.click();
+    await this.page.waitForTimeout(5000);
     }
 
 async clickBanquetFirstItem() {
     console.log({ message: `Clicking First Item...`});
     await this.banquetFirstItem.click();
+    await this.page.waitForTimeout(9000);
     }
 }
