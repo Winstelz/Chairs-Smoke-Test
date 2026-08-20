@@ -1,135 +1,188 @@
 import { expect, type Locator, type Page } from '@playwright/test';
+import { STORE_URLS } from '../../config/urls';
 
 export class BizChairsHomePage {
     readonly page: Page;
-    readonly Office: Locator;
-    readonly Logo: Locator;
-    readonly ExecutiveOffice: Locator;
-    readonly Folding: Locator;
-    readonly Resin: Locator;
-    readonly Event: Locator;
-    readonly FoldingChair: Locator;
-    readonly Restaurant: Locator; 
-    readonly IndoorDining: Locator;
-    readonly Church: Locator;
-    readonly Banquet: Locator;
-    readonly Classroom: Locator;
-    readonly StudentDesks: Locator;
-    readonly Residential: Locator;
-    readonly LivingRoom: Locator;
+    readonly office: Locator;
+    readonly logo: Locator;
+    readonly executiveOffice: Locator;
+    readonly folding: Locator;
+    readonly resin: Locator;
+    readonly event: Locator;
+    readonly foldingChairs: Locator;
+    readonly restaurant: Locator; 
+    readonly indoorDining: Locator;
+    readonly church: Locator;
+    readonly churchChairs: Locator;
+    readonly classroom: Locator;
+    readonly studentDesks: Locator;
+    readonly residential: Locator;
+    readonly livingRoom: Locator;
 
 
-constructor(page) {
+constructor(page: any) {
     this.page = page;
-    this.Office = page.locator("//span[@title='Office']//a[normalize-space()='Office']");
-    this.Logo = page.locator("//img[@alt='BizChair Logo']");
-    this.ExecutiveOffice = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Executive Office Chairs']");
-    this.Folding = page.locator("//span[@title='Folding']//a[normalize-space()='Folding']");
-    this.Resin = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Resin Folding Chairs']");
-    this.Event = page.locator("//span[@title='Event']//a[normalize-space()='Event']");
-    this.FoldingChairs = page.locator("//ul[@aria-labelledby='event-menu']//a[@title='Folding Chairs'][normalize-space()='Folding Chairs']");
-    this.Restaurant = page.locator("//span[@title='Restaurant']//a[normalize-space()='Restaurant']");
-    this.IndoorDining = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Indoor Dining Chairs']");
-    this.Church = page.locator("//span[@title='Church']//a[normalize-space()='Church']");
-    this.Banquet = page.locator("//ul[@aria-labelledby='church-menu']//a[@title='Banquet Stack Chairs'][normalize-space()='Banquet Stack Chairs']");
-    this.Classroom = page.locator("//span[@title='Classroom']//a[normalize-space()='Classroom']");
-    this.StudentDesks = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Student Desks']");
-    this.Residential = page.locator("//span[@title='Residential']//a[normalize-space()='Residential']");
-    this.LivingRoom = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Living Room']");
+    this.office = page.locator("//span[@title='Office']//a[normalize-space()='Office']");
+    this.logo = page.locator("//img[@alt='BizChair Logo']");
+    this.executiveOffice = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Executive Office Chairs']");
+    this.folding = page.locator("//span[@title='Folding']//a[normalize-space()='Folding']");
+    this.resin = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Resin Folding Chairs']");
+    this.event = page.locator("//span[@title='Event']//a[normalize-space()='Event']");
+    this.foldingChairs = page.locator("//ul[@aria-labelledby='event-menu']//a[@title='Folding Chairs'][normalize-space()='Folding Chairs']");
+    this.restaurant = page.locator("//span[@title='Restaurant']//a[normalize-space()='Restaurant']");
+    this.indoorDining = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Indoor Dining Chairs']");
+    this.church = page.locator("//span[@title='Church']//a[normalize-space()='Church']");
+    this.churchChairs = page.locator("a", { hasText: "18.5\" Church Chairs" })
+    this.classroom = page.locator("//span[@title='Classroom']//a[normalize-space()='Classroom']");
+    this.studentDesks = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Student Desks']");
+    this.residential = page.locator("//span[@title='Residential']//a[normalize-space()='Residential']");
+    this.livingRoom = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Living Room']");
 }  
 
 
     async gotoHomePage() {
-        await this.page.goto('https://www.bizchair.com/?_ab=0&_fd=0&_sc=1');
+        console.log({ message: `Navigating to Home Page....`});
+        await this.page.goto(STORE_URLS.biz);
+        await this.page.waitForTimeout(1400);
     }
 
-    async ClickLogo()   {
-        await this.Logo.click();
+    async clickLogo()   {
+        console.log({ message: `Clicking Logo....`});
+        await this.logo.click();
         await this.page.waitForLoadState();
-        expect(this.page.url()).toContain('https://www.bizchair.com');
+        expect(this.page.url()).toContain(STORE_URLS.biz);
+        await this.page.waitForTimeout(1500);
     }
 
-    async ClickOffice() {
-        await this.Office.click();
+    async clickOffice() {
+        console.log({ message: `Clicking Office...`});
+        await this.office.click();
         await this.page.waitForLoadState();
-        expect(this.page.url()).toContain('/collections/office');
-    }
-    async ClickFolding() {
-        await this.Folding.click();
-        await this.page.waitForLoadState();
-        expect(this.page.url()).toContain('/collections/folding');
+        //wait so it does not put up are you a robot prompt
+        await this.page.waitForTimeout(9000);
+        expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/office');
     }
 
-    async ClickEvent () {
-        await this.Event.click();
+    async clickFolding() {
+        console.log({ message: `Clicking Folding...`});
+        await this.folding.click();
         await this.page.waitForLoadState();
-        expect(this.page.url()).toContain('/collections/event');
+        //wait so it does not put up are you a robot prompt
+        await this.page.waitForTimeout(8000);
+        expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/folding');
     }
 
-    async ClickRestaurant () {
-        await this.Restaurant.click();
+    async clickEvent () {
+        console.log({ message: `Clicking Event...`});
+        await this.event.click();
         await this.page.waitForLoadState();
-        expect(this.page.url()).toContain('/collections/restaurant');
-    }
-    async ClickChurch () {
-        await this.Church.click();
-        await this.page.waitForLoadState();
-        expect(this.page.url()).toContain('/collections/church');
+        //wait so it does not put up are you a robot prompt
+        await this.page.waitForTimeout(7000);
+        expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/event');
     }
 
-
-    async ClickClassroom () {
-        await this.Classroom.click();
+    async clickRestaurant () {
+        console.log({ message: `Clicking Restaurant..`});
+        await this.restaurant.click();
         await this.page.waitForLoadState();
-        expect(this.page.url()).toContain('/collections/classroom');
+        //wait so it does not put up are you a robot prompt
+        await this.page.waitForTimeout(5000);
+        expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/restaurant');
+
+    }
+    async clickChurch () {
+        console.log({ message: `Clicking Church...`});
+        await this.church.click();
+        await this.page.waitForLoadState();
+        //wait so it does not put up are you a robot prompt
+        await this.page.waitForTimeout(9000);
+        expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/church');
 }
 
-    async ClickResidential () {
-        await this.Residential.click();
+
+    async clickClassroom () {
+        console.log({ message: `Clicking Classroom...`});
+        await this.classroom.click();
         await this.page.waitForLoadState();
-        expect(this.page.url()).toContain('/collections/residential');
+        //wait so it does not put up are you a robot prompt
+        await this.page.waitForTimeout(8000);
+        expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/classroom');
+}
+
+    async clickResidential () {
+        console.log( { message: `Clicking Residenetial...`} );
+        await this.residential.click();
+        await this.page.waitForLoadState();
+        //wait so it does not put up are you a robot prompt
+        await this.page.waitForTimeout(6000);
+        expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/residential');
 }
 
 
-    async HoverOffice () {
-        await this.Office.hover();
-        await this.ExecutiveOffice.click();
-        await this.page.waitForLoadState('load', { timeout: 60000 });
-        expect(this.page.url()).toContain('/collections/executive-office-chairs');
+    async hoverOffice () {
+        console.log({ message: `Hovering Office...`});
+        await this.office.hover();
+        await this.executiveOffice.click();
+        //wait so it does not put up are you a robot prompt
+        await this.page.waitForTimeout(5000);
+        await this.page.mouse.click(0, 0);  
+        expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/executive-office-chairs');
+    
     }
-    async HoverFolding () {
-        await this.Folding.hover();
-        await this.Resin.click();
-        await this.page.waitForLoadState('load', { timeout: 60000 });
-        expect(this.page.url()).toContain('/collections/resin-folding-chairs');
+    async hoverFolding () {
+        console.log({ message: `Hovering Folding...`});
+        await this.folding.hover();
+        await this.resin.click();
+        //wait so it does not put up are you a robot prompt
+        await this.page.waitForTimeout(9000);
+        await this.page.mouse.click(0, 0);  
+        expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/resin-folding-chairs');
     }
-    async HoverEvent () {
-        await this.Event.hover();
-        await this.FoldingChairs.click();
-        expect(this.page.url()).toContain('/collections/folding-chairs');
+    async hoverEvent () {
+        console.log({ message: `Hovering Event...`});
+        await this.event.hover();
+        await this.foldingChairs.click();
+        //wait so it does not put up are you a robot prompt
+        await this.page.waitForTimeout(6000);
+        await this.page.mouse.click(0, 0);  
+        expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/folding-chairs');
     }
-    async HoverRestaurant () {
-        await this.Restaurant.hover();
-        await this.IndoorDining.click();
-        await this.page.waitForLoadState('load', { timeout: 60000 });
-        expect(this.page.url()).toContain('/collections/indoor-restaurant-dining-chairs');
+    async hoverRestaurant () {
+        console.log({ message: `Hovering Restaurant...`});
+        await this.restaurant.hover();
+        await this.indoorDining.click();
+        //wait so it does not put up are you a robot prompt
+        await this.page.waitForTimeout(8000);
+        await this.page.mouse.click(0, 0);  
+        expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/indoor-restaurant-dining-chairs');
     }
-    async HoverChurch () {
-        await this.Church.hover();
-        await this.Banquet.click();
-        await this.page.waitForLoadState('load', { timeout: 60000 });
-        expect(this.page.url()).toContain('/collections/banquet-stack-chairs');
+    async hoverChurch () {
+        console.log({ message: `Hovering Church...`});
+        await this.church.hover();
+        await this.churchChairs.click();
+        //wait so it does not put up are you a robot prompt
+        await this.page.waitForTimeout(5000);
+        await this.page.mouse.click(0, 0);  
+        expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/18-5-church-chairs');
     }
-    async HoverClassroom () {
-        await this.Classroom.hover();
-        await this.StudentDesks.click();
-        await this.page.waitForLoadState('load', { timeout: 60000 });
-        expect(this.page.url()).toContain('/collections/student-desks');
+
+    async hoverClassroom () {
+        console.log({ message: `Hovering Classroom...`});
+        await this.classroom.hover();
+        await this.studentDesks.click();
+        //wait so it does not put up are you a robot prompt
+        await this.page.waitForTimeout(5000);
+        await this.page.mouse.click(0, 0);  
+        expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/student-desks');
     }
-    async HoverResidential () {
-        await this.Residential.hover();
-        await this.LivingRoom.click();
-        await this.page.waitForLoadState('load', { timeout: 60000 });
-        expect(this.page.url()).toContain('/collections/living-room-furniture');
+
+    async hoverResidential () {
+        console.log({ message: `Hovering Residential...`});
+        await this.residential.hover();
+        await this.livingRoom.click();
+        //wait so it does not put up are you a robot prompt
+        await this.page.waitForTimeout(7000);
+        await this.page.mouse.click(0, 0);  
+        expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/living-room-furniture');
     }
 }
