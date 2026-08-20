@@ -55,6 +55,7 @@ constructor(page: any) {
     }
 
     async clickOffice() {
+        console.log({ message: `Clicking Office...`});
         await this.office.click();
         await this.page.waitForLoadState();
         //wait so it does not put up are you a robot prompt
@@ -63,6 +64,7 @@ constructor(page: any) {
     }
 
     async clickFolding() {
+        console.log({ message: `Clicking Folding...`});
         await this.folding.click();
         await this.page.waitForLoadState();
         //wait so it does not put up are you a robot prompt
@@ -71,6 +73,7 @@ constructor(page: any) {
     }
 
     async clickEvent () {
+        console.log({ message: `Clicking Event...`});
         await this.event.click();
         await this.page.waitForLoadState();
         //wait so it does not put up are you a robot prompt
@@ -79,6 +82,7 @@ constructor(page: any) {
     }
 
     async clickRestaurant () {
+        console.log({ message: `Clicking Restaurant..`});
         await this.restaurant.click();
         await this.page.waitForLoadState();
         //wait so it does not put up are you a robot prompt
