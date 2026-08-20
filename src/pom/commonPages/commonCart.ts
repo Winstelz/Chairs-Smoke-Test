@@ -143,7 +143,7 @@ async clickCheckoutLogo (url: keyof typeof STORE_URLS, logo: Locator) {
         } else {
             // If logo not found on checkout page, navigate directly back
             console.log({ message: 'Logo not found, navigating back to store' });
-            await this.page.goto(STORE_URLS[url]);
+            await this.page.goto(STORE_URLS[url], { waitUntil: 'domcontentloaded' });
         }
     } catch (e) {
         const errorMsg = e instanceof Error ? e.message : String(e);
@@ -152,7 +152,7 @@ async clickCheckoutLogo (url: keyof typeof STORE_URLS, logo: Locator) {
             error: errorMsg,
             currentUrl: this.page.url()
         });
-        await this.page.goto(STORE_URLS[url]);
+        await this.page.goto(STORE_URLS[url], { waitUntil: 'domcontentloaded' });
         await this.page.waitForTimeout(1200);
     }
 }
@@ -171,7 +171,7 @@ async clickCloseTeaser () {
 
 async goToCart (url:  keyof typeof STORE_URLS) {
     console.log({ message: `Navigating to Cart Page....`});
-    await this.page.goto(`${STORE_URLS[url]}/cart`);
+    await this.page.goto(`${STORE_URLS[url]}/cart`, { waitUntil: 'domcontentloaded' });
     await this.page.waitForLoadState();
     await this.page.waitForTimeout(9000);
 }

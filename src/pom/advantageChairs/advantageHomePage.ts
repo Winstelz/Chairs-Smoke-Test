@@ -42,7 +42,7 @@ constructor(page: any) {
 
     async gotoHomePage() {
         console.log({ message: `Clicking Home Page....`});
-        await this.page.goto(STORE_URLS.advantage);
+        await this.page.goto(STORE_URLS.advantage, { waitUntil: 'domcontentloaded' });
         await this.page.waitForTimeout(9000);
     }
 
