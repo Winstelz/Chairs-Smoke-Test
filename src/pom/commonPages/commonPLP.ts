@@ -89,7 +89,7 @@ async clearColorFilter () {
             // Fallback: use element handle's native scrollIntoView then force-click
             const handle = await this.greenPill.elementHandle();
             if (handle) {
-                await this.page.evaluate((el: HTMLElement) => el.scrollIntoView({ block: 'center', inline: 'center' }), handle).catch(() => {});
+                await this.page.evaluate(el => el.scrollIntoView({ block: 'center', inline: 'center' }), handle).catch(() => {});
                 await this.greenPill.click({ force: true }).catch(() => {});
                 await handle.dispose();
             } else {
@@ -134,11 +134,13 @@ async clickRightArrow () {
     console.log({ message: "Clicking Right Arrow...." });
     await this.rightArrow.click();
     expect(this.page.url()).toContain("page=3");
+    await this.page.waitForTimeout(3000);
 }
 async clickLeftArrow () {
     console.log({ message: "Clicking Left Arrow...." });
     await this.leftArrow.click();
     expect(this.page.url()).toContain("page=2");
+    await this.page.waitForTimeout(8000);
 }
 async clickPDP (pdpItem: Locator, url: string) {
     console.log({ message: "Clicking PDP...." });

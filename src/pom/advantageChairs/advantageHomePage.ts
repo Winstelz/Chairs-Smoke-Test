@@ -42,8 +42,8 @@ constructor(page: any) {
 
     async gotoHomePage() {
         console.log({ message: `Clicking Home Page....`});
-        await this.page.goto(STORE_URLS.advantage);
-        await this.page.waitForTimeout(1000);
+        await this.page.goto(STORE_URLS.advantage, { waitUntil: 'domcontentloaded' });
+        await this.page.waitForTimeout(9000);
     }
 
     async clickLogo()   {
@@ -107,7 +107,7 @@ constructor(page: any) {
         await this.office.click();
         await this.page.waitForLoadState();
         //wait so it does not put up are you a robot prompt
-        await this.page.waitForTimeout(5000);
+        await this.page.waitForTimeout(8000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/office');
 }
@@ -127,7 +127,7 @@ constructor(page: any) {
         await this.foldEvent.hover();
         await this.resin.click();
         //wait so it does not put up are you a robot prompt
-        await this.page.waitForTimeout(5000);
+        await this.page.waitForTimeout(9000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/resin-folding-chairs');
     }
@@ -136,7 +136,7 @@ constructor(page: any) {
         await this.classroom.hover();
         await this.activity.click();
         //wait so it does not put up are you a robot prompt
-        await this.page.waitForTimeout(5000);
+        await this.page.waitForTimeout(8000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/classroom-activity-table-sets');
     }
@@ -145,7 +145,7 @@ constructor(page: any) {
         await this.office.hover();
         await this.desks.click();
         //wait so it does not put up are you a robot prompt
-        await this.page.waitForTimeout(5000);
+        await this.page.waitForTimeout(7000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/desks');
     }

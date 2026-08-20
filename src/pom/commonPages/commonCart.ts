@@ -92,6 +92,7 @@ async clickViewCart (){
     console.log({ message: `Clicking View Cart....`});
     await this.viewCartButton.click();
     await expect(this.page.url()).toContain("/cart");
+    await this.page.waitForTimeout(3000);
 }
 
 async clickThroughYouMayAlsoLikeArrows () {
@@ -115,7 +116,7 @@ async clickCalculateShipping () {
             response.url().includes('Ubique.Gateway.ThirdParty/shopify/freight/cart') &&
             response.status() >= 200 &&
             response.status() < 400,
-        { timeout: 15000 }
+        { timeout: 5000 }
     );
 
     await this.calculateShippingButton.click();
@@ -142,7 +143,7 @@ async clickCheckoutLogo (url: keyof typeof STORE_URLS, logo: Locator) {
         } else {
             // If logo not found on checkout page, navigate directly back
             console.log({ message: 'Logo not found, navigating back to store' });
-            await this.page.goto(STORE_URLS[url]);
+            await this.page.goto(STORE_URLS[url], { waitUntil: 'domcontentloaded' });
         }
     } catch (e) {
         const errorMsg = e instanceof Error ? e.message : String(e);
@@ -151,7 +152,8 @@ async clickCheckoutLogo (url: keyof typeof STORE_URLS, logo: Locator) {
             error: errorMsg,
             currentUrl: this.page.url()
         });
-        await this.page.goto(STORE_URLS[url]);
+        await this.page.goto(STORE_URLS[url], { waitUntil: 'domcontentloaded' });
+        await this.page.waitForTimeout(1200);
     }
 }
 
@@ -169,14 +171,15 @@ async clickCloseTeaser () {
 
 async goToCart (url:  keyof typeof STORE_URLS) {
     console.log({ message: `Navigating to Cart Page....`});
-    await this.page.goto(`${STORE_URLS[url]}/cart`);
+    await this.page.goto(`${STORE_URLS[url]}/cart`, { waitUntil: 'domcontentloaded' });
     await this.page.waitForLoadState();
+    await this.page.waitForTimeout(9000);
 }
 
 async clickTrashIcon () {
     console.log({ message: `Clicking Trash Icon....`});
     await this.trashIconButton.click();
-    await this.page.waitForTimeout(600);
+    await this.page.waitForTimeout(1100);
 }
 
 async assertEmptyCart () {
@@ -191,5 +194,6 @@ async clickEmptyCartLink (emptyLink: Locator, url: string) {
     await emptyLink.click();
     await this.page.waitForLoadState();
     expect(this.page.url()).toContain(url);
+    await this.page.waitForTimeout(1300);
 }
 }

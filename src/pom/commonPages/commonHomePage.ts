@@ -67,8 +67,9 @@ async searchForItem(item: string, url: keyof typeof STORE_URLS) {
     await this.searchInput.fill(item);
     await this.searchInput.press('Enter');
     await this.page.waitForLoadState('load');
-     expect(this.page.url()).toContain(STORE_URLS[url] + '/search');
-}
+    expect(this.page.url()).toContain(STORE_URLS[url] + '/search');
+    await this.page.waitForTimeout(5000);
+    }
 
 async clickAccountIcon() {
     console.log({ message: `Clicking Account Icon....`});
