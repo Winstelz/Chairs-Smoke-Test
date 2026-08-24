@@ -23,6 +23,7 @@ export class CommonCart {
     readonly emptyCartMessage: Locator; 
     readonly shopAllEmptyLink: Locator;
     readonly shopAllTables: Locator;
+    readonly residentialButton: Locator;
     readonly advantageLogo: Locator;
     readonly chiavariLogo: Locator;
 
@@ -49,6 +50,7 @@ export class CommonCart {
         this.emptyCartMessage = page.locator('text=Your Cart Is Empty');
         this.shopAllEmptyLink = page.locator('a.ra-button.ra-button--primary.ra-button--lg').filter({ hasText: 'Shop All' });
         this.shopAllTables = page.locator('a.ra-button.ra-button--primary.ra-button--lg').filter({ hasText: 'Shop All Tables' });
+        this.residentialButton = page.locator('a.ra-button.ra-button--primary.ra-button--lg').filter({ hasText: 'Residential' });
         this.advantageLogo = page.locator("//img[@alt='Advantage Church Chairs Logo']");
         this.chiavariLogo = page.locator("//img[@alt='Best Chiavari Chairs Logo']");
     }
