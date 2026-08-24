@@ -59,7 +59,7 @@ async clickBanner (container: Locator) {
 async clickSearchIcon() {
     console.log({ message: `Clicking Search Icon....`});
     await this.searchIcon.click();
-    await this.page.waitForLoadState(`networkidle`);
+    await this.page.waitForLoadState(`domcontentloaded`);
 }
 
 async searchForItem(item: string, url: keyof typeof STORE_URLS) {
