@@ -23,7 +23,7 @@ export class BizChairsHomePage {
 
 constructor(page: any) {
     this.page = page;
-    this.bannerContainer = page.locator('##shopify-section-sections--23615860834606__preheader');
+    this.bannerContainer = page.locator('#shopify-section-sections--23615860834606__preheader');
     this.office = page.locator("//span[@title='Office']//a[normalize-space()='Office']");
     this.logo = page.locator("//img[@alt='BizChair Logo']");
     this.executiveOffice = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Executive Office Chairs']");
