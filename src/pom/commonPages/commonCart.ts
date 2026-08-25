@@ -26,6 +26,8 @@ export class CommonCart {
     readonly residentialButton: Locator;
     readonly advantageLogo: Locator;
     readonly chiavariLogo: Locator;
+    readonly bizLogo: Locator;
+    readonly aiChatOverlayClose: Locator;
 
 
     constructor(page: any) {
@@ -53,7 +55,10 @@ export class CommonCart {
         this.residentialButton = page.locator('a.ra-button.ra-button--primary.ra-button--lg').filter({ hasText: 'Residential' });
         this.advantageLogo = page.locator("//img[@alt='Advantage Church Chairs Logo']");
         this.chiavariLogo = page.locator("//img[@alt='Best Chiavari Chairs Logo']");
+        this.bizLogo = page.locator("//img[@alt='Bizchair-Logo']");
+        this.aiChatOverlayClose = page.getByRole('button', { name: 'Close' });
     }
+
 
 async clickAddToCartButton() {
         console.log({ message: `Clicking Add to Cart Button...` });
@@ -83,7 +88,7 @@ async clickQtyDecrease (qtyLocator: Locator, qtyInput: Locator) {
     }
 }
 async InputQtyInput (inputLocator: Locator) {
-console.log({ message: `Inputting Quantity in Cart....`});
+        console.log({ message: `Inputting Quantity in Cart....`});
         await inputLocator.click();
         await inputLocator.fill("10");
         await this.page.waitForTimeout(3000);
@@ -118,7 +123,7 @@ async clickCalculateShipping () {
             response.url().includes('Ubique.Gateway.ThirdParty/shopify/freight/cart') &&
             response.status() >= 200 &&
             response.status() < 400,
-        { timeout: 5000 }
+        { timeout: 10000 }
     );
 
     await this.calculateShippingButton.click();
@@ -141,7 +146,7 @@ async clickCheckoutLogo (url: keyof typeof STORE_URLS, logo: Locator) {
         if (attached > 0) {
             await checkoutLogoLink.scrollIntoViewIfNeeded();
             await checkoutLogoLink.click({ force: true });
-            await this.page.waitForURL(/advantagechurchchairs\.com/);
+            await this.page.waitForURL(STORE_URLS[url]);
         } else {
             // If logo not found on checkout page, navigate directly back
             console.log({ message: 'Logo not found, navigating back to store' });
@@ -168,6 +173,17 @@ async clickCloseTeaser () {
         await this.teaser.click();
     } catch {
         console.log({ message: 'Klaviyo popup did not appear — skipping close step' });
+    }
+}
+async clickCloseAIChat() {
+      console.log({ message: `Awaiting AI Pop Up....`});
+        const aiChat = this.aiChatOverlayClose;
+    try {
+        await aiChat.waitFor({ state: 'visible', timeout: 15000 });
+        console.log({ message: 'AI Chat appeared — closing it' });
+        await this.aiChatOverlayClose.click();
+    } catch {
+        console.log({ message: 'AI Chat did not appear — skipping close step' });
     }
 }
 

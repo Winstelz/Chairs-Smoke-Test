@@ -2,7 +2,7 @@ name: Nightly Biz Chairs Allure
  
 on:
   schedule:
-    - cron: '10 6 * * 1-5' # Runs every weekday at 1:15 AM EST (staggered after Advantage Chairs)
+    - cron: '30 6 * * 1-5' # Runs every weekday at 1:15 AM EST (staggered after Advantage Chairs)
   workflow_dispatch:
  
 jobs:
