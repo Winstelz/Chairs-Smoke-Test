@@ -27,6 +27,7 @@ export class CommonCart {
     readonly advantageLogo: Locator;
     readonly chiavariLogo: Locator;
     readonly bizLogo: Locator;
+    readonly aiChatOverlayClose: Locator;
 
 
     constructor(page: any) {
@@ -55,6 +56,7 @@ export class CommonCart {
         this.advantageLogo = page.locator("//img[@alt='Advantage Church Chairs Logo']");
         this.chiavariLogo = page.locator("//img[@alt='Best Chiavari Chairs Logo']");
         this.bizLogo = page.locator("//img[@alt='Bizchair-Logo']");
+        this.aiChatOverlayClose = page.getByRole('button', { name: 'Close' });
     }
 
 
@@ -171,6 +173,17 @@ async clickCloseTeaser () {
         await this.teaser.click();
     } catch {
         console.log({ message: 'Klaviyo popup did not appear — skipping close step' });
+    }
+}
+async clickCloseAIChat() {
+      console.log({ message: `Awaiting AI Pop Up....`});
+        const aiChat = this.aiChatOverlayClose;
+    try {
+        await aiChat.waitFor({ state: 'visible', timeout: 15000 });
+        console.log({ message: 'AI Chat appeared — closing it' });
+        await this.aiChatOverlayClose.click();
+    } catch {
+        console.log({ message: 'AI Chat did not appear — skipping close step' });
     }
 }
 

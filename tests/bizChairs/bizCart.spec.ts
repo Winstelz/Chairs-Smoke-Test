@@ -53,7 +53,8 @@ test('Biz Chairs Cart Flow', async ({ commonCart, commonInlineCart, commonUtil, 
     await page.mouse.click(0, 0);   
 //Await for Pop Up and Close
     await commonUtil.popUpClose();
-    await commonCart.clickCloseTeaser();        
+    await commonCart.clickCloseTeaser(); 
+    await commonCart.clickCloseAIChat();       
 //Increase QTY
     await commonCart.clickQtyIncrease(commonCart.qtyIncrease, commonCart.qtyInput);
 //Decrease QTY
@@ -62,7 +63,8 @@ test('Biz Chairs Cart Flow', async ({ commonCart, commonInlineCart, commonUtil, 
     await commonCart.InputQtyInput(commonCart.qtyInput);
 //Await for Pop Up and Close
     await commonUtil.popUpClose();
-    await commonCart.clickCloseTeaser();     
+    await commonCart.clickCloseTeaser();
+    await commonCart.clickCloseAIChat();      
 //You May Also Like Carousel Clicking
     await commonCart.clickThroughYouMayAlsoLikeArrows();
 //Calculate Shipping
