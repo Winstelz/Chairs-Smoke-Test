@@ -2,7 +2,7 @@ name: Nightly Best Chiavari Allure
  
 on:
   schedule:
-    - cron: '05 6 * * 1-5' # Runs every weekday at 1:15 AM EST (staggered after Advantage Chairs)
+    - cron: '15 6 * * 1-5' # Runs every weekday at 1:15 AM EST (staggered after Advantage Chairs)
   workflow_dispatch:
  
 jobs:
