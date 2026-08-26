@@ -49,7 +49,7 @@ constructor(page: any) {
     this.termsOfUse = page.locator("//a[normalize-space()='Terms of Use']");
     this.termsOfSale = page.locator("//a[normalize-space()='Terms of Sale']");
     this.accessibilityStatement = page.locator("//a[normalize-space()='Accessibility Statement']");
-    this.sitemap = page.locator("//a[normalize-space()='Sitemap']");
+    this.sitemap = page.getByRole('link', { name: /Site\s*Map/i });;
 
 }
 
