@@ -62,6 +62,7 @@ constructor(page: any) {
         await this.page.waitForLoadState();
         //wait so it does not put up are you a robot prompt
         await this.page.waitForTimeout(9000);
+        await this.page.mouse.click(0, 0); 
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/office');
     }
 
@@ -71,6 +72,7 @@ constructor(page: any) {
         await this.page.waitForLoadState();
         //wait so it does not put up are you a robot prompt
         await this.page.waitForTimeout(8000);
+        await this.page.mouse.click(0, 0); 
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/folding');
     }
 
@@ -80,6 +82,7 @@ constructor(page: any) {
         await this.page.waitForLoadState();
         //wait so it does not put up are you a robot prompt
         await this.page.waitForTimeout(7000);
+        await this.page.mouse.click(0, 0); 
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/event');
     }
 
@@ -89,6 +92,7 @@ constructor(page: any) {
         await this.page.waitForLoadState();
         //wait so it does not put up are you a robot prompt
         await this.page.waitForTimeout(5000);
+        await this.page.mouse.click(0, 0); 
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/restaurant');
 
     }
@@ -98,6 +102,7 @@ constructor(page: any) {
         await this.page.waitForLoadState();
         //wait so it does not put up are you a robot prompt
         await this.page.waitForTimeout(9000);
+        await this.page.mouse.click(0, 0); 
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/church');
 }
 
@@ -108,6 +113,7 @@ constructor(page: any) {
         await this.page.waitForLoadState();
         //wait so it does not put up are you a robot prompt
         await this.page.waitForTimeout(8000);
+        await this.page.mouse.click(0, 0); 
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/classroom');
 }
 
@@ -117,6 +123,7 @@ constructor(page: any) {
         await this.page.waitForLoadState();
         //wait so it does not put up are you a robot prompt
         await this.page.waitForTimeout(6000);
+        await this.page.mouse.click(0, 0); 
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/residential');
 }
 
