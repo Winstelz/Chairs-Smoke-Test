@@ -42,7 +42,7 @@ constructor(page: any) {
     this.siteSecurity = page.locator("//a[normalize-space()='Site Security']");
     this.privacyPolicy = page.locator("//a[normalize-space()='Privacy Policy']");
     this.caPrivacyPolicy = page.locator("//a[normalize-space()='California Privacy Rights']")
-    this.doNotSellOrShare = page.locator("//a[normalize-space()='Do Not Sell or Share']");
+    this.doNotSellOrShare = page.getByRole('link', { name: /Do Not Sell\s+[0o]r\s+Share/i });
     this.usPrivacy = page.locator("//a[normalize-space()='US Privacy']");
     this.pipeda = page.locator("//a[normalize-space()='PIPEDA']");
     this.gdpr = page.locator("//a[normalize-space()='GDPR']");
