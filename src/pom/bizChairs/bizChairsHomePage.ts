@@ -91,7 +91,7 @@ constructor(page: any) {
         await this.restaurant.click();
         await this.page.waitForLoadState();
         //wait so it does not put up are you a robot prompt
-        await this.page.waitForTimeout(5000);
+        await this.page.waitForTimeout(7500);
         await this.page.mouse.click(0, 0); 
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/restaurant');
 
@@ -101,7 +101,7 @@ constructor(page: any) {
         await this.church.click();
         await this.page.waitForLoadState();
         //wait so it does not put up are you a robot prompt
-        await this.page.waitForTimeout(9000);
+        await this.page.waitForTimeout(9200);
         await this.page.mouse.click(0, 0); 
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/church');
 }
@@ -112,7 +112,7 @@ constructor(page: any) {
         await this.classroom.click();
         await this.page.waitForLoadState();
         //wait so it does not put up are you a robot prompt
-        await this.page.waitForTimeout(8000);
+        await this.page.waitForTimeout(8500);
         await this.page.mouse.click(0, 0); 
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/classroom');
 }
@@ -122,7 +122,7 @@ constructor(page: any) {
         await this.residential.click();
         await this.page.waitForLoadState();
         //wait so it does not put up are you a robot prompt
-        await this.page.waitForTimeout(6000);
+        await this.page.waitForTimeout(6400);
         await this.page.mouse.click(0, 0); 
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/residential');
 }
@@ -133,7 +133,7 @@ constructor(page: any) {
         await this.office.hover();
         await this.executiveOffice.click();
         //wait so it does not put up are you a robot prompt
-        await this.page.waitForTimeout(5000);
+        await this.page.waitForTimeout(5500);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/executive-office-chairs');
     
@@ -152,7 +152,7 @@ constructor(page: any) {
         await this.event.hover();
         await this.foldingChairs.click();
         //wait so it does not put up are you a robot prompt
-        await this.page.waitForTimeout(6000);
+        await this.page.waitForTimeout(6700);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/folding-chairs');
     }
@@ -170,7 +170,7 @@ constructor(page: any) {
         await this.church.hover();
         await this.churchChairs.click();
         //wait so it does not put up are you a robot prompt
-        await this.page.waitForTimeout(5000);
+        await this.page.waitForTimeout(5200);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/18-5-church-chairs');
     }
@@ -180,7 +180,7 @@ constructor(page: any) {
         await this.classroom.hover();
         await this.studentDesks.click();
         //wait so it does not put up are you a robot prompt
-        await this.page.waitForTimeout(5000);
+        await this.page.waitForTimeout(5700);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/student-desks');
     }
