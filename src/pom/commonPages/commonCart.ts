@@ -123,7 +123,7 @@ async clickCalculateShipping () {
             response.url().includes('Ubique.Gateway.ThirdParty/shopify/freight/cart') &&
             response.status() >= 200 &&
             response.status() < 400,
-        { timeout: 10000 }
+        { timeout: 15000 }
     );
 
     await this.calculateShippingButton.click();

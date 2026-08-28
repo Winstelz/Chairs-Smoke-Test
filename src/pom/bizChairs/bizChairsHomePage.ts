@@ -34,7 +34,7 @@ constructor(page: any) {
     this.restaurant = page.locator("//span[@title='Restaurant']//a[normalize-space()='Restaurant']");
     this.indoorDining = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Indoor Dining Chairs']");
     this.church = page.locator("//span[@title='Church']//a[normalize-space()='Church']");
-    this.churchChairs = page.locator("a", { hasText: "18.5\" Church Chairs" })
+    this.churchChairs = page.locator('ul[aria-labelledby="church-menu"] a[href="/collections/18-5-church-chairs"]');
     this.classroom = page.locator("//span[@title='Classroom']//a[normalize-space()='Classroom']");
     this.studentDesks = page.locator("//a[@class='flex flex-col font-normal text-e14 leading-e150'][normalize-space()='Student Desks']");
     this.residential = page.locator("//span[@title='Residential']//a[normalize-space()='Residential']");
