@@ -71,6 +71,9 @@ test('Biz Chairs InlineCart', async ({ commonUtil, inlineCart, commonCart, commo
     await commonCart.clickCheckout();
 //Click Checkout Logo
     await commonCart.clickCheckoutLogo('biz', commonCart.bizLogo);
+//Await for Pop Up and Close
+    await commonUtil.popUpClose();
+    await commonCart.clickCloseAIChat(); 
 //Navigate to Inline Cart
     await commonHomePage.clickCartIcon();
 //Delete Item from Inline Cart
