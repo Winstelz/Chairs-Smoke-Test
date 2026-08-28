@@ -3,7 +3,7 @@ import { BizChairsHomePage } from '../../src/pom/bizChairs/bizChairsHomePage';
 import { BizChairsPLP } from '../../src/pom/bizChairs/bizChairsPLP';
 import { CommonCart } from '../../src/pom/commonPages/commonCart';
 import { CommonInlineCart } from '../../src/pom/commonPages/commonInlineCart';
-import { BestChiavariInlineCart } from '../../src/pom/bestChiavariChairs/bestChiavariInLineCart';
+import { BizChairsInlineCart } from '../../src/pom/bizChairs/bizChairsInlineCart';
 import { CommonHomePage } from '../../src/pom/commonPages/commonHomePage';
 import { CommonUtil } from '../../src/pom/commonUtil';
 
@@ -12,7 +12,7 @@ type PageObjects = {
   plp: BizChairsPLP;
   commonCart: CommonCart;
   commonInlineCart: CommonInlineCart;
-  inlineCart: BestChiavariInlineCart;
+  inlineCart: BizChairsInlineCart;
   commonHomePage: CommonHomePage;
   commonUtil: CommonUtil;
 };
@@ -30,7 +30,7 @@ export const test = base.extend<PageObjects>({
         await use(new CommonInlineCart(page));
     },
     inlineCart: async ({ page }, use) => {
-        await use(new BestChiavariInlineCart(page));
+        await use(new BizChairsInlineCart(page));
     },
     commonHomePage: async ({ page }, use) => {
         await use(new CommonHomePage(page));
