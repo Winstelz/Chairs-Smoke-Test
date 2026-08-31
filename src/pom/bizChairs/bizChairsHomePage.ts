@@ -71,7 +71,7 @@ constructor(page: any) {
         await this.folding.click();
         await this.page.waitForLoadState();
         //wait so it does not put up are you a robot prompt
-        await this.page.waitForTimeout(8000);
+        await this.page.waitForTimeout(10000);
         await this.page.mouse.click(0, 0); 
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/folding');
     }
@@ -170,7 +170,7 @@ constructor(page: any) {
         await this.church.hover();
         await this.churchChairs.click();
         //wait so it does not put up are you a robot prompt
-        await this.page.waitForTimeout(5200);
+        await this.page.waitForTimeout(10000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/18-5-church-chairs');
     }
@@ -180,7 +180,7 @@ constructor(page: any) {
         await this.classroom.hover();
         await this.studentDesks.click();
         //wait so it does not put up are you a robot prompt
-        await this.page.waitForTimeout(5700);
+        await this.page.waitForTimeout(8000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/student-desks');
     }
