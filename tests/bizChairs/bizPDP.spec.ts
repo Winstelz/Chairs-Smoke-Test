@@ -37,13 +37,13 @@ test('Best Chiavari PDP', async ({ commonCart, commonPDP, commonUtil, homePage, 
     //Navigate to PLP
         await homePage.clickOffice();
     //Click First Item
-        await plp.clickOfficeFirstItem();
+        await plp.clickPLPItem(plp.pdpItem);
     //Click Description
-        await commonPDP.clickDescription("Your lobby or reception area is the forefront of your business and provides that ever important first impression. Providing distinguished and comfortable seating lets your clients know that you value their business. The modern appeal of this soft and durable LeatherSoft upholstered collection will make a lasting impression.");
+        await commonPDP.clickDescription("Big & Tall chairs are designed to accommodate larger and taller body types. This chair has been tested to hold a capacity of up to 1000 lbs., offering a broader seat and back width. This versatile stack chair can be used in a multitude of settings from small to large. Use this chair in the church, office, classroom, training room or in the home. You can create uniform, row seating with the included ganging bracket.");
     //Assert PDP Header
-        await commonPDP.assertPDPHeader("HERCULES Diplomat Series LeatherSoft Chair with Clean Line Stitched Frame");
+        await commonPDP.assertPDPHeader("Big & Tall 1000 lb. Rated Stack Chair");
     //Assert PDP Price
-        await commonPDP.assertPDPPrice("$337.09"); 
+        await commonPDP.assertPDPPrice("$91.32"); 
     //Click Review Stars    
         await commonPDP.clickReviewStars();
     //Click New Review

@@ -42,7 +42,7 @@ test('Biz Chairs Cart Flow', async ({ commonCart, commonInlineCart, commonUtil, 
 //Navigate to PLP
     await homePage.clickOffice();
 //Click First Item
-    await plp.clickOfficeFirstItem();
+    await plp.clickPLPItem(plp.officeFirstItem);
 //Add Item to Cart
     await commonCart.clickAddToCartButton();
 //Assert Product is in Cart

@@ -48,7 +48,7 @@ test('Biz Chairs InlineCart', async ({ commonUtil, inlineCart, commonCart, commo
 //Navigate to PLP
     await homePage.clickOffice();
 //Click First Item
-    await plp.clickOfficeFirstItem();
+    await plp.clickPLPItem(plp.officeFirstItem);
 //Await for Pop Up and Close
     await commonUtil.popUpClose();
     await commonCart.clickCloseAIChat(); 

@@ -12,14 +12,16 @@ export class BizChairsPLP {
 
     this.officeFirstItem = page.locator("//img[@alt='HERCULES Diplomat Series LeatherSoft Chair with Clean Line Stitched Frame - View 2']");
     this.firstItem = page.locator("//a[contains(normalize-space(.), \"HERCULES Series Trapezoidal Back Stacking Banquet Chair with 1.5\")]")
-    this.pdpItem = page.getByRole('img', { name: /HERCULES Series Crown Back Stacking Banquet Chair - View 2/i })
+    this.pdpItem = page.getByRole('img', { name: /Big & Tall 1000 lb. Rated Stack Chair - View 2/i })
+    
 }
 
 
-async clickOfficeFirstItem() {
+async clickPLPItem(item: Locator) {
     console.log({ message: `Clicking First Item...`});
-    await this.officeFirstItem.click();
+    await item.click();
     await this.page.waitForTimeout(5000);
     }
+
 
 }
