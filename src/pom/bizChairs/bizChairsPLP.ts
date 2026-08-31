@@ -19,8 +19,8 @@ export class BizChairsPLP {
 
 async clickPLPItem(item: Locator) {
     console.log({ message: `Clicking First Item...`});
+    await this.page.waitForTimeout(9000);
     await item.click();
-    await this.page.waitForTimeout(5000);
     }
 
 
