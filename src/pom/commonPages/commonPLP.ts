@@ -10,7 +10,7 @@ export class CommonPLP {
     readonly green: Locator;
     readonly finish: Locator;
     readonly copperVeinMetal: Locator;
-    readonly greenPill: Locator;
+    readonly greenFilterRemove: Locator;
     readonly clearFinish: Locator;
     readonly clearAll: Locator
     readonly page2: Locator;
@@ -32,8 +32,11 @@ export class CommonPLP {
         this.finish = page.locator("//button[normalize-space()='Finish']");
         this.copperVeinMetal = page.locator("//span[contains(@class,'ra-choice__label')][normalize-space()='Copper Vein Metal']");
         // Target the specific applied color pill by accessible name to avoid clicking the wrong clear button
-        this.greenPill = page.getByRole('button', { name: /Green/i });
-        this.clearFinish = page.locator("//button[contains(@data-param,'filter.p.m.filter.finish')]");
+        this.greenFilterRemove = page
+        .locator('div:has(> button[data-action-remove-filter][data-param*="filter.p.m.filter.colors"])')
+        .filter({ hasText: 'Green' })
+        .locator('button[data-action-remove-filter][data-param*="filter.p.m.filter.colors"]');
+        this.clearFinish = page.locator('button[data-action-remove-filter][data-param*="filter.p.m.filter.finish"]');
         this.clearAll = page.locator("//button[normalize-space()='Clear All']");   
         this.page2 = page.locator("a[aria-label='Page 2']"); 
         this.rightArrow = page.locator("//a[@aria-label='Go to next page']");
@@ -63,13 +66,17 @@ async selectColorFilter(){
     await expect(this.green).toBeVisible();
     await this.green.click();
     await this.page.waitForTimeout(2000);
+    await expect(this.greenFilterRemove).toBeVisible();
+    await expect(this.clearAll).not.toBeDisabled({ timeout: 15000 });
 }
 
-async clickingFinishFilter () {
+async clickingFinishFilter (locator: Locator) {
     console.log({ message: "Filtering by Finish...." });
     await this.finish.click();
-    await expect(this.copperVeinMetal).toBeVisible();
-    await this.copperVeinMetal.click();
+    await expect(locator).toBeVisible();
+    await locator.click();
+    await expect(this.clearFinish).toBeVisible();
+    await expect(this.clearAll).not.toBeDisabled({ timeout: 15000 });
 }
 
 async clearColorFilter () {
@@ -78,19 +85,20 @@ async clearColorFilter () {
     await this.page.waitForTimeout(5000);
     await this.page.mouse.click(0, 0); 
         // Ensure the element is attached first
-        await this.greenPill.waitFor({ state: 'attached', timeout: 10000 }).catch(() => {});
+        await this.greenFilterRemove.waitFor({ state: 'attached', timeout: 10000 }).catch(() => {});
 
         // Try the normal scroll + click, but provide fallbacks for sites
         // where scrollIntoViewIfNeeded can time out (sticky overlays, transformed parents, etc.)
         try {
-            await this.greenPill.scrollIntoViewIfNeeded({ timeout: 10000 });
-            await this.greenPill.click();
+            await this.greenFilterRemove.scrollIntoViewIfNeeded({ timeout: 10000 });
+            await this.greenFilterRemove.click();
+            await this.greenFilterRemove.isHidden({ timeout: 10000 });
         } catch (err) {
             // Fallback: use element handle's native scrollIntoView then force-click
-            const handle = await this.greenPill.elementHandle();
+            const handle = await this.greenFilterRemove.elementHandle();
             if (handle) {
                 await this.page.evaluate(el => el.scrollIntoView({ block: 'center', inline: 'center' }), handle).catch(() => {});
-                await this.greenPill.click({ force: true }).catch(() => {});
+                await this.greenFilterRemove.click({ force: true }).catch(() => {});
                 await handle.dispose();
             } else {
                 // Last-resort: click via JS selector (should only be used if locator fails)
@@ -105,13 +113,15 @@ async clearColorFilter () {
 
 async clearFinishFilter () {
     console.log({ message: "Clearing Finish Filter...." });
-    await this.page.waitForTimeout(5000); // consider replacing with a proper wait condition later
+    await this.page.waitForTimeout(8500); 
     await this.page.mouse.click(0, 0);
     await this.clearFinish.first().click();
 }
 async clearAllFilter () {
     console.log({ message: "Clearing All Filters...." });
-    await this.clearAll.click();
+    await this.clearAll.scrollIntoViewIfNeeded({ timeout: 10000 });
+    await this.clearAll.click();;
+    await this.page.waitForTimeout(5000);
 }
 
 async clickPagination() {
@@ -127,6 +137,7 @@ async clickPagination() {
 
   await this.page2.waitFor({ state: 'visible', timeout: 30000 });
   await this.page2.click();
+  await this.page.waitForTimeout(7000);
   await expect(this.page).toHaveURL(/page=2/);
 }
 
@@ -134,7 +145,7 @@ async clickRightArrow () {
     console.log({ message: "Clicking Right Arrow...." });
     await this.rightArrow.click();
     expect(this.page.url()).toContain("page=3");
-    await this.page.waitForTimeout(3000);
+    await this.page.waitForTimeout(7000);
 }
 async clickLeftArrow () {
     console.log({ message: "Clicking Left Arrow...." });
