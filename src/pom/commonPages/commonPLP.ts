@@ -129,6 +129,7 @@ async clickPagination() {
 
   await this.page2.waitFor({ state: 'visible', timeout: 30000 });
   await this.page2.click();
+  await this.page.waitForTimeout(7000);
   await expect(this.page).toHaveURL(/page=2/);
 }
 
@@ -136,7 +137,7 @@ async clickRightArrow () {
     console.log({ message: "Clicking Right Arrow...." });
     await this.rightArrow.click();
     expect(this.page.url()).toContain("page=3");
-    await this.page.waitForTimeout(3000);
+    await this.page.waitForTimeout(7000);
 }
 async clickLeftArrow () {
     console.log({ message: "Clicking Left Arrow...." });

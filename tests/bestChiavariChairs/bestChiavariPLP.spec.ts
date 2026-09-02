@@ -39,8 +39,7 @@ test('BestChiavari PLP', async ({ commonPLP, homePage, plp }) => {
 //Click Finish -> Copper Vein Metal
     await commonPLP.clickingFinishFilter(commonPLP.copperVeinMetal);  
 //Clear Filter Pills
-    await commonPLP.clearColorFilter();
-    await commonPLP.clearFinishFilter();
+    await commonPLP.clearAllFilter();
 //There are no PLP with multiple pages so no need to test pagination.
 /*//Click Pagination
    await commonPLP.clickPagination();

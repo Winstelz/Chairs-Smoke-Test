@@ -47,8 +47,7 @@ test('Advantage PLP Flow', async ({ commonPLP, commonUtil, homePage, plp }) => {
 //Click Finish -> Copper Vein Metal
     await commonPLP.clickingFinishFilter(commonPLP.copperVeinMetal);   
 //Clear Filter Pills
-    await commonPLP.clearColorFilter();
-    await commonPLP.clearFinishFilter();
+    await commonPLP.clearAllFilter();
 //Click Pagination
    await commonPLP.clickPagination();
 //Click Pagination Right Arrow
