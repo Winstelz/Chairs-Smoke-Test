@@ -36,7 +36,7 @@ export class CommonPLP {
         .locator('div:has(> button[data-action-remove-filter][data-param*="filter.p.m.filter.colors"])')
         .filter({ hasText: 'Green' })
         .locator('button[data-action-remove-filter][data-param*="filter.p.m.filter.colors"]');
-        this.clearFinish = page.locator("//button[contains(@data-param,'filter.p.m.filter.finish')]");
+        this.clearFinish = page.locator('button[data-action-remove-filter][data-param*="filter.p.m.filter.finish"]');
         this.clearAll = page.locator("//button[normalize-space()='Clear All']");   
         this.page2 = page.locator("a[aria-label='Page 2']"); 
         this.rightArrow = page.locator("//a[@aria-label='Go to next page']");
