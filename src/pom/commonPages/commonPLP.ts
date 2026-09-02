@@ -65,11 +65,11 @@ async selectColorFilter(){
     await this.page.waitForTimeout(2000);
 }
 
-async clickingFinishFilter () {
+async clickingFinishFilter (locator: Locator) {
     console.log({ message: "Filtering by Finish...." });
     await this.finish.click();
-    await expect(this.copperVeinMetal).toBeVisible();
-    await this.copperVeinMetal.click();
+    await expect(locator).toBeVisible();
+    await locator.click();
 }
 
 async clearColorFilter () {
@@ -105,13 +105,14 @@ async clearColorFilter () {
 
 async clearFinishFilter () {
     console.log({ message: "Clearing Finish Filter...." });
-    await this.page.waitForTimeout(5000); // consider replacing with a proper wait condition later
+    await this.page.waitForTimeout(8500); 
     await this.page.mouse.click(0, 0);
     await this.clearFinish.first().click();
 }
 async clearAllFilter () {
     console.log({ message: "Clearing All Filters...." });
     await this.clearAll.click();
+    await this.page.waitForTimeout(5000);
 }
 
 async clickPagination() {

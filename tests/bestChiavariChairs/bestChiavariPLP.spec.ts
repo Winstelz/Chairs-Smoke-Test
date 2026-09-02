@@ -37,7 +37,7 @@ test('BestChiavari PLP', async ({ commonPLP, homePage, plp }) => {
 //Click Color Family -> Green
     await commonPLP.selectColorFilter();
 //Click Finish -> Copper Vein Metal
-    await commonPLP.clickingFinishFilter();  
+    await commonPLP.clickingFinishFilter(commonPLP.copperVeinMetal);  
 //Clear Filter Pills
     await commonPLP.clearColorFilter();
     await commonPLP.clearFinishFilter();
