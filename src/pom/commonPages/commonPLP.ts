@@ -111,7 +111,8 @@ async clearFinishFilter () {
 }
 async clearAllFilter () {
     console.log({ message: "Clearing All Filters...." });
-    await this.clearAll.click();
+    await this.clearAll.scrollIntoViewIfNeeded({ timeout: 10000 });
+    await this.clearAll.click();;
     await this.page.waitForTimeout(5000);
 }
 
