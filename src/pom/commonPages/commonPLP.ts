@@ -63,6 +63,8 @@ async selectColorFilter(){
     await expect(this.green).toBeVisible();
     await this.green.click();
     await this.page.waitForTimeout(2000);
+    await expect(this.greenPill).toBeVisible();
+    await expect(this.clearAll).not.toBeDisabled({ timeout: 15000 });
 }
 
 async clickingFinishFilter (locator: Locator) {
@@ -70,6 +72,8 @@ async clickingFinishFilter (locator: Locator) {
     await this.finish.click();
     await expect(locator).toBeVisible();
     await locator.click();
+    await expect(this.clearFinish).toBeVisible();
+    await expect(this.clearAll).not.toBeDisabled({ timeout: 15000 });
 }
 
 async clearColorFilter () {
@@ -85,6 +89,7 @@ async clearColorFilter () {
         try {
             await this.greenPill.scrollIntoViewIfNeeded({ timeout: 10000 });
             await this.greenPill.click();
+            await this.greenPill.isHidden({ timeout: 10000 });
         } catch (err) {
             // Fallback: use element handle's native scrollIntoView then force-click
             const handle = await this.greenPill.elementHandle();
