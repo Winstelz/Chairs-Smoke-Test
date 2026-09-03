@@ -81,6 +81,6 @@ async clickAccountIcon() {
 async clickCartIcon() {
     console.log({ message: `Clicking Cart Icon....`});
     await this.cartIcon.click();
-    await this.page.waitForTimeout(1000);
+    await this.page.waitForTimeout(10000);
 }
 }
