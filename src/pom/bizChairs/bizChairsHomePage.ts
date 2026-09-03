@@ -1,8 +1,10 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 import { STORE_URLS } from '../../config/urls';
+import { CommonUtil } from '../commonUtil';
 
 export class BizChairsHomePage {
     readonly page: Page;
+    readonly commonUtil: CommonUtil;
     readonly bannerContainer: Locator;
     readonly office: Locator;
     readonly logo: Locator;
@@ -23,6 +25,7 @@ export class BizChairsHomePage {
 
 constructor(page: any) {
     this.page = page;
+    this.commonUtil = new CommonUtil(page);
     this.bannerContainer = page.locator('#shopify-section-sections--23615860834606__preheader');
     this.office = page.locator("//span[@title='Office']//a[normalize-space()='Office']");
     this.logo = page.locator("//img[@alt='BizChair Logo']");
@@ -46,6 +49,7 @@ constructor(page: any) {
         console.log({ message: `Navigating to Home Page....`});
         await this.page.goto(STORE_URLS.biz);
         await this.page.waitForTimeout(1400);
+        await this.commonUtil.guardAgainstChallenge();
     }
 
     async clickLogo()   {
@@ -54,6 +58,7 @@ constructor(page: any) {
         await this.page.waitForLoadState();
         expect(this.page.url()).toContain(STORE_URLS.biz);
         await this.page.waitForTimeout(1500);
+        await this.commonUtil.guardAgainstChallenge();
     }
 
     async clickOffice() {
@@ -64,6 +69,7 @@ constructor(page: any) {
         await this.page.waitForTimeout(9000);
         await this.page.mouse.click(0, 0); 
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/office');
+        await this.commonUtil.guardAgainstChallenge();
     }
 
     async clickFolding() {
@@ -74,6 +80,7 @@ constructor(page: any) {
         await this.page.waitForTimeout(10000);
         await this.page.mouse.click(0, 0); 
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/folding');
+        await this.commonUtil.guardAgainstChallenge();
     }
 
     async clickEvent () {
@@ -84,6 +91,7 @@ constructor(page: any) {
         await this.page.waitForTimeout(7000);
         await this.page.mouse.click(0, 0); 
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/event');
+        await this.commonUtil.guardAgainstChallenge();
     }
 
     async clickRestaurant () {
@@ -94,7 +102,7 @@ constructor(page: any) {
         await this.page.waitForTimeout(7500);
         await this.page.mouse.click(0, 0); 
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/restaurant');
-
+        await this.commonUtil.guardAgainstChallenge();
     }
     async clickChurch () {
         console.log({ message: `Clicking Church...`});
@@ -104,7 +112,8 @@ constructor(page: any) {
         await this.page.waitForTimeout(9200);
         await this.page.mouse.click(0, 0); 
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/church');
-}
+        await this.commonUtil.guardAgainstChallenge();
+    }
 
 
     async clickClassroom () {
@@ -115,7 +124,8 @@ constructor(page: any) {
         await this.page.waitForTimeout(8500);
         await this.page.mouse.click(0, 0); 
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/classroom');
-}
+        await this.commonUtil.guardAgainstChallenge();
+    }
 
     async clickResidential () {
         console.log( { message: `Clicking Residenetial...`} );
@@ -125,7 +135,8 @@ constructor(page: any) {
         await this.page.waitForTimeout(6400);
         await this.page.mouse.click(0, 0); 
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/residential');
-}
+        await this.commonUtil.guardAgainstChallenge();
+    }
 
 
     async hoverOffice () {
@@ -136,7 +147,7 @@ constructor(page: any) {
         await this.page.waitForTimeout(7500);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/executive-office-chairs');
-    
+        await this.commonUtil.guardAgainstChallenge();
     }
     async hoverFolding () {
         console.log({ message: `Hovering Folding...`});
@@ -146,6 +157,7 @@ constructor(page: any) {
         await this.page.waitForTimeout(9000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/resin-folding-chairs');
+        await this.commonUtil.guardAgainstChallenge();
     }
     async hoverEvent () {
         console.log({ message: `Hovering Event...`});
@@ -155,6 +167,7 @@ constructor(page: any) {
         await this.page.waitForTimeout(6700);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/folding-chairs');
+        await this.commonUtil.guardAgainstChallenge();
     }
     async hoverRestaurant () {
         console.log({ message: `Hovering Restaurant...`});
@@ -164,6 +177,7 @@ constructor(page: any) {
         await this.page.waitForTimeout(8000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/indoor-restaurant-dining-chairs');
+        await this.commonUtil.guardAgainstChallenge();
     }
     async hoverChurch () {
         console.log({ message: `Hovering Church...`});
@@ -173,7 +187,7 @@ constructor(page: any) {
         await this.page.waitForTimeout(10000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/18-5-church-chairs');
-    }
+        await this.commonUtil.guardAgainstChallenge();}
 
     async hoverClassroom () {
         console.log({ message: `Hovering Classroom...`});
@@ -183,6 +197,7 @@ constructor(page: any) {
         await this.page.waitForTimeout(8000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/student-desks');
+        await this.commonUtil.guardAgainstChallenge();
     }
 
     async hoverResidential () {
@@ -193,5 +208,6 @@ constructor(page: any) {
         await this.page.waitForTimeout(7000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/living-room-furniture');
+        await this.commonUtil.guardAgainstChallenge();
     }
 }

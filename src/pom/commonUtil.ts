@@ -1,4 +1,4 @@
-import { expect, type Locator, type Page } from '@playwright/test';
+import { test, expect, type Locator, type Page } from '@playwright/test';
 import { STORE_URLS } from '../config/urls';
 
 export class CommonUtil {
@@ -36,5 +36,11 @@ async popUpClose() {
     } catch {
         console.log({ message: 'Klaviyo popup did not appear — skipping close step' });
     }
+}
+async guardAgainstChallenge() {
+  const challenge = this.page.getByText(/verify you are human|are you human|cloudflare/i).first();
+  if (await challenge.isVisible().catch(() => false)) {
+    test.skip(true, 'Challenge appeared mid-navigation');
+  }
 }
 }

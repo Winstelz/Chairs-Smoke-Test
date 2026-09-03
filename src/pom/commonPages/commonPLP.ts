@@ -1,7 +1,9 @@
 import { expect, type Locator, type Page } from '@playwright/test';
+import { CommonUtil } from '../commonUtil';
 
 export class CommonPLP {
     readonly page: Page;
+    readonly commonUtil: CommonUtil;
 
     readonly sort: Locator;
     readonly firstItem: Locator
@@ -22,6 +24,7 @@ export class CommonPLP {
 
     constructor(page: any) {
         this.page = page;
+        this.commonUtil = new CommonUtil(page);
 
 
         this.sort = page.locator("//select[@id='SortBy']");
@@ -139,6 +142,7 @@ async clickPagination() {
   await this.page2.click();
   await this.page.waitForTimeout(7000);
   await expect(this.page).toHaveURL(/page=2/);
+  await this.commonUtil.guardAgainstChallenge();
 }
 
 async clickRightArrow () {
@@ -146,12 +150,14 @@ async clickRightArrow () {
     await this.rightArrow.click();
     expect(this.page.url()).toContain("page=3");
     await this.page.waitForTimeout(7000);
+    await this.commonUtil.guardAgainstChallenge();
 }
 async clickLeftArrow () {
     console.log({ message: "Clicking Left Arrow...." });
     await this.leftArrow.click();
     expect(this.page.url()).toContain("page=2");
     await this.page.waitForTimeout(8000);
+    await this.commonUtil.guardAgainstChallenge();
 }
 async clickPDP (pdpItem: Locator, url: string) {
     console.log({ message: "Clicking PDP...." });
@@ -160,6 +166,7 @@ async clickPDP (pdpItem: Locator, url: string) {
     await this.page.waitForLoadState();
     expect(this.page.url()).toContain(url);
     await this.page.waitForTimeout(1000); 
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 

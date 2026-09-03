@@ -1,8 +1,10 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 import { STORE_URLS } from '../../config/urls';
+import { CommonUtil } from '../commonUtil';
 
 export class AdvantageHomePage {
     readonly page: Page;
+    readonly commonUtil: CommonUtil;
 
     readonly bannerContainer: Locator;
     readonly shopAll: Locator;
@@ -23,6 +25,7 @@ export class AdvantageHomePage {
 
 constructor(page: any) {
     this.page = page;
+    this.commonUtil = new CommonUtil(page);
     this.bannerContainer = page.locator('#shopify-section-sections--23479412195618__preheader');
     this.shopAll = page.locator("//span[@title='Shop All']//a[normalize-space()='Shop All']");
     this.logo = page.locator("//img[@alt='Advantage Church Chairs Logo']");
@@ -39,11 +42,11 @@ constructor(page: any) {
     this.office = page.locator("//span[@title='Office & Reception']//a[normalize-space()='Office & Reception']");
 }  
 
-
     async gotoHomePage() {
         console.log({ message: `Clicking Home Page....`});
         await this.page.goto(STORE_URLS.advantage, { waitUntil: 'domcontentloaded' });
         await this.page.waitForTimeout(9000);
+        await this.commonUtil.guardAgainstChallenge();
     }
 
     async clickLogo()   {
@@ -52,6 +55,7 @@ constructor(page: any) {
         await this.page.waitForLoadState();
         expect(this.page.url()).toContain(STORE_URLS.advantage);
         await this.page.waitForTimeout(1200);
+        await this.commonUtil.guardAgainstChallenge();
     }
 
     async clickShopAll() {
@@ -61,6 +65,7 @@ constructor(page: any) {
         //wait so it does not put up are you a robot prompt
         await this.page.waitForTimeout(9000);
         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/shop-all');
+        await this.commonUtil.guardAgainstChallenge();
     }
     async clickChurchChairs() {
         console.log({ message: `Clicking Church Chairs....`});
@@ -70,6 +75,7 @@ constructor(page: any) {
         await this.page.waitForTimeout(5000);
         await this.page.mouse.click(0, 0);   
         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/church-stack-chairs');
+        await this.commonUtil.guardAgainstChallenge();
     }
 
     async clickBanquetChairs () {
@@ -80,6 +86,7 @@ constructor(page: any) {
         await this.page.waitForTimeout(6000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/banquet-stack-chairs');
+        await this.commonUtil.guardAgainstChallenge();
     }
 
     async clickFoldEvent () {
@@ -90,6 +97,7 @@ constructor(page: any) {
         await this.page.waitForTimeout(7000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/folding-event');
+        await this.commonUtil.guardAgainstChallenge();
     }
 
     async clickClassroom () {
@@ -100,7 +108,8 @@ constructor(page: any) {
         await this.page.waitForTimeout(5000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/classroom');
-}
+        await this.commonUtil.guardAgainstChallenge();
+    }
 
     async clickOfficeReception () {
         console.log({ message: `Clicking Office & Reception....`});
@@ -110,7 +119,8 @@ constructor(page: any) {
         await this.page.waitForTimeout(8000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/office');
-}
+        await this.commonUtil.guardAgainstChallenge();
+    }
 
 
     async hoverChurchChairs () {
@@ -121,6 +131,7 @@ constructor(page: any) {
         await this.page.waitForTimeout(5000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/church-banquet-stack-chair-dollies');
+        await this.commonUtil.guardAgainstChallenge();
     }
     async hoverFoldEvent () {
         console.log({ message: `Hovering Folding & Event....`});
@@ -130,7 +141,7 @@ constructor(page: any) {
         await this.page.waitForTimeout(9000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/resin-folding-chairs');
-    }
+        await this.commonUtil.guardAgainstChallenge();}
     async hoverClassroom () {
         console.log({ message: `Hovering Classroom....`});
         await this.classroom.hover();
@@ -139,6 +150,7 @@ constructor(page: any) {
         await this.page.waitForTimeout(8000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/classroom-activity-table-sets');
+        await this.commonUtil.guardAgainstChallenge();
     }
     async hoverOffice () {
         console.log({ message: `Hovering Office & Reception....`});
@@ -148,6 +160,7 @@ constructor(page: any) {
         await this.page.waitForTimeout(7000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.advantage + '/collections/desks');
+        await this.commonUtil.guardAgainstChallenge();
     }
 
 

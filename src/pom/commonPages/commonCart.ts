@@ -1,8 +1,10 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 import { STORE_URLS } from '../../config/urls';
+import { CommonUtil } from '../commonUtil';
 
 export class CommonCart {
     readonly page: Page;
+    readonly commonUtil: CommonUtil;
 
     readonly addToCartButton: Locator;
     readonly qtyIncrease: Locator;
@@ -32,6 +34,7 @@ export class CommonCart {
 
     constructor(page: any) {
         this.page = page;
+        this.commonUtil = new CommonUtil(page);
 
         this.addToCartButton = page.locator("//button[normalize-space()='Add to Cart']");
         this.qtyIncrease = page.locator('main').getByRole("button", { name: "Increment Quantity" }).first();
@@ -63,7 +66,8 @@ export class CommonCart {
 async clickAddToCartButton() {
         console.log({ message: `Clicking Add to Cart Button...` });
         await this.addToCartButton.click();
-        await this.page.waitForTimeout(1500); 
+        await this.page.waitForTimeout(1500);
+        await this.commonUtil.guardAgainstChallenge(); 
     }
 
 async clickQtyIncrease (qtyLocator: Locator, qtyInput: Locator) {
@@ -76,6 +80,7 @@ async clickQtyIncrease (qtyLocator: Locator, qtyInput: Locator) {
         // After each click, wait for the input to reflect the increment to avoid missed clicks
         await expect(qtyInput).toHaveValue(String(current + 1), { timeout: 5000 });
     }
+    await this.commonUtil.guardAgainstChallenge();
 }
 async clickQtyDecrease (qtyLocator: Locator, qtyInput: Locator) {
         console.log({ message: `Decreasing Quantity in Cart....`});
@@ -86,6 +91,7 @@ async clickQtyDecrease (qtyLocator: Locator, qtyInput: Locator) {
         await qtyLocator.click();
         await expect(qtyInput).toHaveValue(String(current - 1), { timeout: 5000 });
     }
+    await this.commonUtil.guardAgainstChallenge();
 }
 async InputQtyInput (inputLocator: Locator) {
         console.log({ message: `Inputting Quantity in Cart....`});
@@ -93,21 +99,27 @@ async InputQtyInput (inputLocator: Locator) {
         await inputLocator.fill("10");
         await this.page.waitForTimeout(3000);
         await expect(inputLocator).toHaveValue("10", { timeout: 15000 });
-}
+        await this.commonUtil.guardAgainstChallenge();
+    }
 
 async clickViewCart (){
     console.log({ message: `Clicking View Cart....`});
     await this.viewCartButton.click();
     await expect(this.page.url()).toContain("/cart");
     await this.page.waitForTimeout(3000);
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async clickThroughYouMayAlsoLikeArrows () {
     console.log({ message: `Clicking You May Also Like Carousel Arrows....`});
     await this.youMayAlsoLikeRightArrow.click();
+    await this.commonUtil.guardAgainstChallenge();
     await this.youMayAlsoLikeRightArrow.click();
+    await this.commonUtil.guardAgainstChallenge();
     await this.youMayAlsoLikeLeftArrow.click();
+    await this.commonUtil.guardAgainstChallenge();
     await this.youMayAlsoLikeLeftArrow.click();
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async clickCalculateShipping () {
@@ -129,12 +141,14 @@ async clickCalculateShipping () {
     await this.calculateShippingButton.click();
     await shippingResponse;
     await this.shippingSummary.waitFor({ state: 'visible', timeout: 15000 });
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async clickCheckout () {
     console.log({ message: `Clicking Checkout....`});
     await this.checkoutButton.click();
     await this.page.waitForTimeout(1200);
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async clickCheckoutLogo (url: keyof typeof STORE_URLS, logo: Locator) {
@@ -148,10 +162,12 @@ async clickCheckoutLogo (url: keyof typeof STORE_URLS, logo: Locator) {
             await checkoutLogoLink.click({ force: true });
             await this.page.waitForURL(STORE_URLS[url]);
             await this.page.waitForTimeout(1200);
+            await this.commonUtil.guardAgainstChallenge();
         } else {
             // If logo not found on checkout page, navigate directly back
             console.log({ message: 'Logo not found, navigating back to store' });
             await this.page.goto(STORE_URLS[url], { waitUntil: 'domcontentloaded', timeout: 10000 });
+            await this.commonUtil.guardAgainstChallenge();
         }
     } catch (e) {
         const errorMsg = e instanceof Error ? e.message : String(e);
@@ -162,6 +178,7 @@ async clickCheckoutLogo (url: keyof typeof STORE_URLS, logo: Locator) {
         });
         await this.page.goto(STORE_URLS[url], { waitUntil: 'domcontentloaded' });
         await this.page.waitForTimeout(1200);
+        await this.commonUtil.guardAgainstChallenge();
     }
 }
 
@@ -193,18 +210,21 @@ async goToCart (url:  keyof typeof STORE_URLS) {
     await this.page.goto(`${STORE_URLS[url]}/cart`, { waitUntil: 'domcontentloaded' });
     await this.page.waitForLoadState();
     await this.page.waitForTimeout(9000);
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async clickTrashIcon () {
     console.log({ message: `Clicking Trash Icon....`});
     await this.trashIconButton.click();
     await this.page.waitForTimeout(1100);
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async assertEmptyCart () {
     console.log({ message: `Asserting Empty Cart....`});
     await expect(this.emptyCartMessage).toBeVisible();
     await expect(this.emptyCartMessage).toHaveText(/Your Cart Is Empty/i);
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async clickEmptyCartLink (emptyLink: Locator, url: string) {
@@ -214,5 +234,6 @@ async clickEmptyCartLink (emptyLink: Locator, url: string) {
     await this.page.waitForLoadState();
     expect(this.page.url()).toContain(url);
     await this.page.waitForTimeout(1300);
+    await this.commonUtil.guardAgainstChallenge();
 }
 }
