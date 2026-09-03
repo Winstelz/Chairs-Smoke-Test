@@ -1,8 +1,10 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 import { STORE_URLS } from '../../config/urls';
+import { CommonUtil } from '../commonUtil';
 
 export class CommonHomePage {
     readonly page: Page;
+    readonly commonUtil: CommonUtil;
     readonly rightArrow: Locator;
     readonly leftArrow: Locator;
     readonly searchIcon: Locator;
@@ -13,6 +15,7 @@ export class CommonHomePage {
 
 constructor(page: any) {
     this.page = page;
+    this.commonUtil = new CommonUtil(page);
     this.rightArrow = page.locator("//div[@aria-label='Next slide']//span[1]");
     this.leftArrow = page.locator("//div[@aria-label='Previous slide']//span[1]");
     this.searchIcon = page.getByRole('button', { name: 'search' });
@@ -60,6 +63,7 @@ async clickSearchIcon() {
     console.log({ message: `Clicking Search Icon....`});
     await this.searchIcon.click();
     await this.page.waitForLoadState(`domcontentloaded`);
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async searchForItem(item: string, url: keyof typeof STORE_URLS) {
@@ -69,6 +73,7 @@ async searchForItem(item: string, url: keyof typeof STORE_URLS) {
     await this.page.waitForLoadState('load');
     expect(this.page.url()).toContain(STORE_URLS[url] + '/search');
     await this.page.waitForTimeout(5000);
+    await this.commonUtil.guardAgainstChallenge();
     }
 
 async clickAccountIcon() {
@@ -76,11 +81,13 @@ async clickAccountIcon() {
     await this.accountIcon.click();
     await this.page.waitForURL(/shopify\.com/);
     await this.page.waitForTimeout(1000);
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async clickCartIcon() {
     console.log({ message: `Clicking Cart Icon....`});
     await this.cartIcon.click();
     await this.page.waitForTimeout(10000);
+    await this.commonUtil.guardAgainstChallenge();
 }
 }

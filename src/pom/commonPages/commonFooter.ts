@@ -1,8 +1,9 @@
 import { expect, type Locator, type Page } from '@playwright/test';
-
+import { CommonUtil } from '../commonUtil';
 
 export class CommonFooter {
     readonly page: Page;
+    readonly commonUtil: CommonUtil;
     readonly aboutUs: Locator;
     readonly deliveryInformation: Locator;
     readonly orderingInformation: Locator;
@@ -28,6 +29,7 @@ export class CommonFooter {
 
 constructor(page: any) {
     this.page = page;
+    this.commonUtil = new CommonUtil(page);
     this.aboutUs =  page.locator("//a[@class='text-e14 leading-e150 py-1'][normalize-space()='About Us']");
     this.deliveryInformation = page.locator("//a[@class='text-e14 leading-e150 py-1'][normalize-space()='Delivery Information']");
     this.orderingInformation = page.locator("//a[@class='text-e14 leading-e150 py-1'][normalize-space()='Ordering Information']");
@@ -58,6 +60,7 @@ async clickAboutUs () {
     await this.aboutUs.click();
     await expect(this.page.url()).toContain("about-us");
     await this.page.waitForTimeout(1000);
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async clickDeliveryInformation () {
@@ -65,6 +68,7 @@ async clickDeliveryInformation () {
     await this.deliveryInformation.click();
     await expect(this.page.url()).toContain("delivery-information");
     await this.page.waitForTimeout(1200);
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async clickOrderingInformation () {
@@ -72,12 +76,14 @@ async clickOrderingInformation () {
     await this.orderingInformation.click();
     await expect(this.page.url()).toContain("ordering-information");
     await this.page.waitForTimeout(1000);
+    await this.commonUtil.guardAgainstChallenge();
 }
 async clickPaymentOption () {
     console.log({ message: `Clicking Payment Options....`});
     await this.paymentOptions.click();
     await expect(this.page.url()).toContain("payment-options");
     await this.page.waitForTimeout(1100);
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async clickFinanceOptions () {
@@ -85,6 +91,7 @@ async clickFinanceOptions () {
     await this.financeOptions.click();
     await expect(this.page.url()).toContain("finance-options");
     await this.page.waitForTimeout(1000);
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async clickShippingInformation () {
@@ -92,6 +99,7 @@ async clickShippingInformation () {
     await this.shippingInformation.click();
     await expect(this.page.url()).toContain("shipping-information");
     await this.page.waitForTimeout(1300);
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async clickFreightCharges () {
@@ -99,6 +107,7 @@ async clickFreightCharges () {
     await this.freightCharges.click();
     await expect(this.page.url()).toContain("freight-charges");
     await this.page.waitForTimeout(1000);
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async clickReturnsInformation(text: Locator) {
@@ -106,6 +115,7 @@ async clickReturnsInformation(text: Locator) {
     await text.click();
     await expect(this.page.url()).toContain(`returns-information`);
     await this.page.waitForTimeout(1100);
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async clickProductWarranty () {
@@ -113,6 +123,7 @@ async clickProductWarranty () {
     await this.productWarranty.click();
     await expect(this.page.url()).toContain("product-warranty");
     await this.page.waitForTimeout(1000);
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async clickContactUs () {
@@ -120,6 +131,7 @@ async clickContactUs () {
     await this.contactUs.click();
     await expect(this.page.url()).toContain("contact-us");
     await this.page.waitForTimeout(1300);
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 
@@ -128,18 +140,21 @@ async clickSiteSecurity () {
     await this.siteSecurity.click();
     await expect(this.page.url()).toContain("site-security");
     await this.page.waitForTimeout(1000);
+    await this.commonUtil.guardAgainstChallenge();
 }
 async clickPrivacyPolicy () {
     console.log({ message: `Clicking Privacy Policy....`});
     await this.privacyPolicy.click();
     await expect(this.page.url()).toContain("privacy-policy");
     await this.page.waitForTimeout(1200);
+    await this.commonUtil.guardAgainstChallenge();
 }
 async clickCAPrivacyPolicy () {
     console.log({ message: `Clicking California Privacy Rights....`});
     await this.caPrivacyPolicy.click();
     await expect(this.page.url()).toContain("privacy-policy");
     await this.page.waitForTimeout(1000);
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async clickCaliforniaPrivacyRights () {
@@ -147,6 +162,7 @@ async clickCaliforniaPrivacyRights () {
     await this.caPrivacyPolicy.click();
     await expect(this.page.url()).toContain("privacy-policy");
     await this.page.waitForTimeout(1300);
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async clickDoNotSellOrShare () {
@@ -154,6 +170,7 @@ async clickDoNotSellOrShare () {
     await this.doNotSellOrShare.click();
     await expect(this.page.url()).toContain("do-not-sell-or-share-my-personal-information");
     await this.page.waitForTimeout(1000);
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async clickUSPrivacy () {
@@ -161,6 +178,7 @@ async clickUSPrivacy () {
     await this.usPrivacy.click();
     await expect(this.page.url()).toContain("us-privacy");
     await this.page.waitForTimeout(1100);
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async clickPIPEDA (site: string) {
@@ -168,6 +186,7 @@ async clickPIPEDA (site: string) {
     await this.pipeda.click();
     await expect(this.page.url()).toContain(site);
     await this.page.waitForTimeout(1000);
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async clickGDPR () {
@@ -175,6 +194,7 @@ async clickGDPR () {
     await this.gdpr.click();
     await expect(this.page.url()).toContain("gdpr");
     await this.page.waitForTimeout(1200);
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async clickTermsOfUse () {
@@ -182,6 +202,7 @@ async clickTermsOfUse () {
     await this.termsOfUse.click();
     await expect(this.page.url()).toContain("terms-of-use");
     await this.page.waitForTimeout(1000);
+    await this.commonUtil.guardAgainstChallenge();
 
 }
 async clickTermsOfSale () {
@@ -189,17 +210,20 @@ async clickTermsOfSale () {
     await this.termsOfSale.click();
     await expect(this.page.url()).toContain("terms-of-sale");
     await this.page.waitForTimeout(1100);
+    await this.commonUtil.guardAgainstChallenge();
 }
 async clickAccessibilityStatement () {
     console.log({ message: `Clicking Accessibility Statement....`});
     await this.accessibilityStatement.click();
     await expect(this.page.url()).toContain("accessibility");
     await this.page.waitForTimeout(1000);
+    await this.commonUtil.guardAgainstChallenge();
 }
 async clickSiteMap () {
     console.log({ message: `Clicking Site Map....`});
     await this.sitemap.click();
     await expect(this.page.url()).toContain("sitemap");
     await this.page.waitForTimeout(1200);
+    await this.commonUtil.guardAgainstChallenge();
 }
 }

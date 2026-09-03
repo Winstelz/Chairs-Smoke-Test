@@ -1,7 +1,9 @@
 import { expect, type Locator, type Page } from '@playwright/test';
+import { CommonUtil } from '../commonUtil';
 
 export class CommonPDP {
     readonly page: Page;
+    readonly commonUtil: CommonUtil;
     readonly description: Locator;
     readonly descrContent: Locator;
     readonly pdpHeader: Locator;
@@ -23,6 +25,7 @@ export class CommonPDP {
 
     constructor(page: any) {
         this.page = page;
+        this.commonUtil = new CommonUtil(page);
         this.description = page.locator("//button[normalize-space()='Description']");
         this.descrContent = page.locator("//div[@id='content-description']");
         this.pdpHeader = page.getByRole('heading', { level: 1 });
@@ -92,12 +95,14 @@ async rightArrowPagniation () {
     await this.rightArrow.scrollIntoViewIfNeeded();
     await this.rightArrow.click();
     await this.page.waitForTimeout(3000);
+    await this.commonUtil.guardAgainstChallenge();
 }
 async leftArrowPagniation () {
     console.log({ message: `Clicking Left Arrow Pagniation` });
     await this.leftArrow.scrollIntoViewIfNeeded();
     await this.leftArrow.click();
     await this.page.waitForTimeout(3000);
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async assertReviewNumber1 (reviewNumber: string) {
@@ -117,6 +122,7 @@ async qtyIncrease () {
     await this.qtyIncrement.click();
     await this.qtyIncrement.click();
     expect(this.qty).toHaveValue('4');
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async qtyDecrease () {
@@ -125,6 +131,7 @@ async qtyDecrease () {
     await this.qtyDecrement.click();
     await this.qtyDecrement.click();
     expect(this.qty).toHaveValue('1');
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async clickAddToCart () {
@@ -132,5 +139,6 @@ async clickAddToCart () {
     await this.addToCart.click();
     await this.cart.click();
     await this.page.waitForTimeout(1000);
+    await this.commonUtil.guardAgainstChallenge();
 }
 }

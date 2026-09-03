@@ -1,8 +1,10 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 import { STORE_URLS } from '../../config/urls';
+import { CommonUtil } from '../commonUtil';
 
 export class BestChiavariHomePage {
     readonly page: Page;
+    readonly commonUtil: CommonUtil;
 
     readonly bannerContainer: Locator;
     readonly shopAll: Locator;
@@ -28,6 +30,7 @@ export class BestChiavariHomePage {
 
 constructor(page: any) {
     this.page = page;
+    this.commonUtil = new CommonUtil(page);
     this.bannerContainer = page.locator('#shopify-section-sections--21362195661088__preheader');
     this.shopAll = page.locator("//span[@title='Shop All']//a[normalize-space()='Shop All']");
     this.logo = page.locator("//img[@alt='Best Chiavari Chairs Logo']");
@@ -63,6 +66,7 @@ constructor(page: any) {
         await this.page.waitForLoadState();
         expect(this.page.url()).toContain(STORE_URLS.bestChiavari);
         await this.page.waitForTimeout(1500);
+        await this.commonUtil.guardAgainstChallenge();
     }
 
     async clickChiavariChairs() {
@@ -72,6 +76,7 @@ constructor(page: any) {
         //wait so it does not put up are you a robot prompt
         await this.page.waitForTimeout(9000);
         expect(this.page.url()).toContain(STORE_URLS.bestChiavari + '/collections/chiavari-chairs');
+        await this.commonUtil.guardAgainstChallenge();
     }
     async clickTables() {
         console.log({ message: `Clicking Tables....`});
@@ -81,6 +86,7 @@ constructor(page: any) {
         await this.page.waitForTimeout(5000);
         await this.page.mouse.click(0, 0);   
         expect(this.page.url()).toContain(STORE_URLS.bestChiavari + '/collections/banquet-cocktail-and-dining-tables');
+        await this.commonUtil.guardAgainstChallenge();
     }
 
     async clickFoldingChairs () {
@@ -91,6 +97,7 @@ constructor(page: any) {
         await this.page.waitForTimeout(6000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.bestChiavari + '/collections/folding-chairs');
+        await this.commonUtil.guardAgainstChallenge();
     }
 
     async clickCrossBackChairs () {
@@ -101,6 +108,7 @@ constructor(page: any) {
         await this.page.waitForTimeout(7000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.bestChiavari + '/collections/cross-back-dining-event-chairs');
+        await this.commonUtil.guardAgainstChallenge();
     }
 
     async clickBanquetChairs () {
@@ -111,7 +119,8 @@ constructor(page: any) {
         await this.page.waitForTimeout(5000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.bestChiavari + '/collections/banquet-stack-chairs');
-}
+        await this.commonUtil.guardAgainstChallenge();
+    }
 
     async clickGhostChairs () {
         console.log({ message: `Clicking Ghost Chairs....`});
@@ -121,7 +130,8 @@ constructor(page: any) {
         await this.page.waitForTimeout(5000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.bestChiavari + '/collections/ghost-chairs-stools');
-}
+        await this.commonUtil.guardAgainstChallenge();
+    }
 
 async clickDolliesCarts () {
         console.log({ message: `Clicking Dollies & Carts....`});
@@ -131,13 +141,15 @@ async clickDolliesCarts () {
         await this.page.waitForTimeout(9000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.bestChiavari + '/collections/dollies-carts');
-}
+        await this.commonUtil.guardAgainstChallenge();
+    }
 
 async clickMoreForYourVenue () {
         console.log({ message: `Clicking More For Your Venue....`});
         await this.moreForYourVenue.click();
         await this.page.waitForLoadState();
         await this.page.waitForTimeout(5000);
+        await this.commonUtil.guardAgainstChallenge();
 }
 
 
@@ -149,6 +161,7 @@ async clickMoreForYourVenue () {
         await this.page.waitForTimeout(5000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.bestChiavari + '/collections/wood-chiavari-chairs');
+        await this.commonUtil.guardAgainstChallenge();
     }
     async hoverTables () {
         console.log({ message: `Hovering Tables....`});
@@ -158,6 +171,7 @@ async clickMoreForYourVenue () {
         await this.page.waitForTimeout(8000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.bestChiavari + '/collections/wood-folding-tables');
+        await this.commonUtil.guardAgainstChallenge();
     }
     async hoverFoldingChairs () {
         console.log({ message: `Hovering Folding Chairs....`});
@@ -167,6 +181,7 @@ async clickMoreForYourVenue () {
         await this.page.waitForTimeout(6000);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.bestChiavari + '/collections/resin-folding-chairs');
+        await this.commonUtil.guardAgainstChallenge();
     }
     
 
@@ -177,13 +192,15 @@ async clickSearchIcon() {
     await this.page.waitForLoadState();
     expect(this.page.url()).toContain(STORE_URLS.advantage);
     await this.page.waitForTimeout(8000);
-}
+    await this.commonUtil.guardAgainstChallenge();
+    }
 
 async searchForItem(item: string) {
     console.log({ message: `Searching for item: ${item}....`});
     await this.searchInput.fill(item);
     await this.searchInput.press('Enter');
     await this.page.waitForLoadState('load');
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async clickAccountIcon() {
@@ -191,11 +208,13 @@ async clickAccountIcon() {
     await this.accountIcon.click();
     await this.page.waitForURL(/shopify\.com/);
     await this.page.waitForTimeout(6000);
+    await this.commonUtil.guardAgainstChallenge();
 }
 
 async clickCartIcon() {
     console.log({ message: `Clicking Cart Icon....`});
     await this.cartIcon.click();
     await this.page.waitForTimeout(7000);
+    await this.commonUtil.guardAgainstChallenge();
 }
 }
