@@ -147,10 +147,11 @@ async clickCheckoutLogo (url: keyof typeof STORE_URLS, logo: Locator) {
             await checkoutLogoLink.scrollIntoViewIfNeeded();
             await checkoutLogoLink.click({ force: true });
             await this.page.waitForURL(STORE_URLS[url]);
+            await this.page.waitForTimeout(1200);
         } else {
             // If logo not found on checkout page, navigate directly back
             console.log({ message: 'Logo not found, navigating back to store' });
-            await this.page.goto(STORE_URLS[url], { waitUntil: 'domcontentloaded' });
+            await this.page.goto(STORE_URLS[url], { waitUntil: 'domcontentloaded', timeout: 10000 });
         }
     } catch (e) {
         const errorMsg = e instanceof Error ? e.message : String(e);

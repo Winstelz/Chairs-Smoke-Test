@@ -133,7 +133,7 @@ constructor(page: any) {
         await this.office.hover();
         await this.executiveOffice.click();
         //wait so it does not put up are you a robot prompt
-        await this.page.waitForTimeout(5500);
+        await this.page.waitForTimeout(7500);
         await this.page.mouse.click(0, 0);  
         expect(this.page.url()).toContain(STORE_URLS.biz + '/collections/executive-office-chairs');
     
